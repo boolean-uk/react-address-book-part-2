@@ -20,6 +20,7 @@ You have two choices for an API to use:
 
 - The [requirements outlined in part 1](https://github.com/boolean-uk/react-address-book-part-1/tree/main#requirements) are the minimum requirements for this exercise.
 - Your application must match your plan. If you need to deviate, you must update your plan.
+- Navigation **must** be done using routes, not conditional rendering
 
 ## Extensions
 
@@ -27,11 +28,11 @@ You have two choices for an API to use:
 
 2. Allow for updating a contact's information
 
-3. Implement the remaining `/user` properties available in the API into your application
+3. Automatically navigate to the contact list after deleting a contact
 
-4. Automatically navigate to the contact list after deleting a contact
+4. Automatically navigate to the single contact information view after creating or updating a contact
 
-5. Automatically navigate to the single contact information view after creating or updating a contact
+5. Implement the remaining `/user` properties available in the API into your application
 
 6. Use a contact's `lat` and `lng` geo-coordinates to render their position on a map
 
