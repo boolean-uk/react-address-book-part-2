@@ -9,12 +9,9 @@
 
 ## API
 
-You have two choices for an API to use:
-
-1. Use [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com) (fastest option)
+Use [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com) (fastest option)
     - Use the `/users` resource as your contact data
     - [There is a guide for using this API](https://jsonplaceholder.typicode.com/guide/)
-2. Set up your own local API using [json-server](https://www.npmjs.com/package/json-server) (more challenging)
 
 ## Core Criteria
 
@@ -30,11 +27,15 @@ You have two choices for an API to use:
 
 3. Automatically navigate to the contact list after deleting a contact
 
-4. Automatically navigate to the single contact information view after creating or updating a contact
+4. Automatically navigate to the single contact information view after updating a contact
 
 5. Implement the remaining `/user` properties available in the API into your application
 
 6. Use a contact's `lat` and `lng` geo-coordinates to render their position on a map
+
+7. Add the ability to filter the contact list using URL parameters
+
+8. Replace the jsonplaceholder API with your own [json-server](https://www.npmjs.com/package/json-server) based API
 
 ## Example application
 
