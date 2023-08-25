@@ -31,6 +31,12 @@
     margin-top: 0px;
 }
 
+.app > .menu > ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+}
+
 .app > .contact-list {
     grid-column: 2/5;
     margin-left: 10px;
@@ -38,9 +44,59 @@
     background-color: #859bac;
     padding: 10px;
     border-radius: 10px;
+    justify-content: center;
 }
 
 .app > .contact-list > h2 {
+    margin-top: 0px;
+    text-align: center;
+}
+
+.app > .new-contact-form {
+    grid-column: 2/5;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #859bac;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.app > .new-contact-form > h1 {
+    margin-top: 0px;
+    text-align: center;
+}
+
+.app > .contact-preview {
+    grid-column: 2/5;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #859bac;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.app > .contact-preview > h1 {
+    margin-top: 0px;
+}
+
+.app > .contact-preview > ul {
+    list-style-type: none;
+    text-align: left;
+}
+
+.app > .edit-contact-form {
+    grid-column: 2/5;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #859bac;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.app > .edit-contact-form > h1 {
     margin-top: 0px;
     text-align: center;
 }

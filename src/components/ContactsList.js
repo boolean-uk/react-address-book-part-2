@@ -4,7 +4,6 @@ import DataContext from "../DataContext"
 function ContactsList(props) {
 
     const { contacts } = useContext(DataContext)
-    // console.log(contacts)
 
     return(
         <div className="contact-list">
