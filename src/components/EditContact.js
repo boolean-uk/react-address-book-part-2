@@ -30,8 +30,10 @@ function EditContact() {
     
     return(
         <div className="edit-contact-form">
+            <h1>Edit Contact</h1>
+            <hr></hr>
             <form onSubmit={handleSubmit}>
-                <h1>Edit {targetContact.name} </h1>
+                <h2>{targetContact.name} </h2>
                 <label>
                     Full name
                     <input type="text" name="name" onChange={handleChange}></input>

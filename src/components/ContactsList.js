@@ -7,6 +7,7 @@ function ContactsList(props) {
 
     return(
         <div className="contact-list">
+            <h1>Contact List</h1>
             <ul>
                 {contacts.map((contact) =>{
                     return(
