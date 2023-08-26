@@ -2,8 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 function CreateContact(props) {
-    // const { person } = props
-    
+    const { people } = props
+    let idcounter
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
@@ -25,11 +25,14 @@ function CreateContact(props) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        // people.push({
-        //     name: formData.name,
-        //     street:formData.street,
-        //     city:formData.city
-        //   }) here i need to move fetching the json from contactlist to App so that I can pass props here and then push into the people list to add new contact
+        idcounter=people.length + 1
+
+        people.push({
+          id: idcounter,
+          name: formData.name,
+          street:formData.street,
+          city:formData.city
+        }) 
         
         navigate('/ContactList')
         console.log(formData)

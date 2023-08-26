@@ -1,39 +1,53 @@
-import { useState,useEffect } from "react"
 import { Link } from "react-router-dom"
 
 function ContactList(props) {
+  //All these are attempts to split the name into firstname and lastname for every element in the array but eventually I couldn't fix the errors.
+
+  // function splitName(name) {
+  //   const splittedname = name.split(" ")
+  //   let firstname = name[0]
+  //   let lastname = name[1]
+  //   return (firstname, lastname)
+  // }
+
+  // props.people.forEach(splitName(props.people.name) {
+  //   element.firstname=splitName.firstname
+  //   element.lastname=splitName.lastname
+  // })
   
-  const [people, setPeople] = useState([])
+  // let splittedname = []
+  // for(let i=0; i< props.people.length ; i++) {
+  //   splittedname = props.people[0].name.split(" ")
+  //   let firstname = splittedname[0]
+  //   let lastname = splittedname[1]
 
-  async function fetchPeople() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users')
-    const json = await response.json()
-    setPeople(json)
-  }
+  //   {...props.people, {firstname:firstname}}
+  //   ({...props.people, lastname:lastname})
+  //   props.setPeople([ ...props.people, {firstname:firstname}])
+  // }
 
-  useEffect(() => {
-    fetchPeople()
-  }, [])
+  //________ Attempts end here and I continued with the whole name in .name
 
-  console.log(people)
+
+  console.log(props.people)
 
   return (
     <main className="dashboard-layout">
       <section>
         <h2>People</h2>
             <ul>
-            {people.map((person, index) => (
+            {props.people.map((person, index) => (
                 <li key={person.id}>
                 <Link to={`/view/${person.id.value}`} state={person} >
                   <h3>
                     {person.name}
                   </h3>
                 </Link>
-                <article>
+                {/* <article>
                     <h2>
-                        {person.name.first} {person.name.last} 
+                        {person.firstname} {person.name.last} 
                     </h2>
-                </article>
+                </article> */}
               </li>
             ))}
             </ul>

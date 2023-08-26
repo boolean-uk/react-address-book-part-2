@@ -22,9 +22,16 @@ function ContactProfile(props) {
           <h4>First and Last Name  :
             {person.name}
           </h4>
+          {person.id < 11 &&
           <h4>Street  :
             {person.address.street}
           </h4>
+          }
+          {person.id > 10 &&
+          <h4>Street  :
+            {person.street}
+          </h4>
+          }
     </article>
   )
 }
