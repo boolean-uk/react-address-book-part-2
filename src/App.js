@@ -31,7 +31,7 @@ export default function App() {
             
               <Routes>
                 <Route path="/ContactList" element={<ContactList people={people} setPeople={setPeople}/>} />
-                <Route path='/view/:id' element={<ContactProfile />} /> 
+                <Route path='/view/:id' element={<ContactProfile people={people} setPeople={setPeople}/>} /> 
                 <Route path='/CreateContact' element={<CreateContact people={people}/>} /> 
               </Routes>
                           

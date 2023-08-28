@@ -27,7 +27,7 @@ function ContactList(props) {
   // }
 
   //________ Attempts end here and I continued with the whole name in .name
-
+  
 
   console.log(props.people)
 

@@ -12,9 +12,27 @@ function ContactProfile(props) {
     setPerson(location.state)
   },[])
   
-
+  
+  
   // this can be used to counter undefined error
   if (!person) return <p>Loading...</p>
+  if (!props.people) return <p>Loading...</p>
+
+
+  // function deleteContact() {
+    // const indexOfPerson = props.people.findIndex(index => {
+    //   return props.people.id === '11' // I tried specific id to see if it works but kept returning undefined
+    // })
+
+    // props.setPeople([props.people].filter(index => props.people.id !== person.id))
+    // kept returning Uncaught TypeError: props.setPeople is not a function
+
+    // console.log(indexOfPerson)
+    // console.log(props.people.splice(indexOfPerson, 1))
+
+    // navigate('/ContactList')  // I would import useNavigate
+  // } 
+
 
   return (
     <article>
@@ -32,6 +50,7 @@ function ContactProfile(props) {
             {person.street}
           </h4>
           }
+          {/* <button value={person.id} onClick={deleteContact}>Delete</button> */}
     </article>
   )
 }
