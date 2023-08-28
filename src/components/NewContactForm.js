@@ -44,6 +44,7 @@ function NewContactForm() {
     return(
         <div className="new-contact-form">
             <h1>New Contact</h1>
+            <hr></hr>
             <form onSubmit={handleSubmit}>
                 <label>
                     Full name
