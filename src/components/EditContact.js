@@ -24,6 +24,8 @@ function EditContact() {
     const handleSubmit = (event) => {
         event.preventDefault()
         const filteredContacts = contacts.filter(c => c.id !== Number(id))
+        filteredContacts.push(editedContact)
+        console.log(filteredContacts)
         setContacts(filteredContacts)
         navigate("/contacts")
     }
@@ -36,19 +38,19 @@ function EditContact() {
                 <h2>{targetContact.name} </h2>
                 <label>
                     Full name
-                    <input type="text" name="name" onChange={handleChange}></input>
+                    <input type="text" name="name" onChange={handleChange} defaultValue={targetContact.name}></input>
                 </label>
                 <label>
                     City
-                    <input type="text" name="city" onChange={handleChange}></input>
+                    <input type="text" name="city" onChange={handleChange} defaultValue={targetContact.address.city}></input>
                 </label>
                 <label>
                     Street
-                    <input type="text" name="street" onChange={handleChange}></input>
+                    <input type="text" name="street" onChange={handleChange} defaultValue={targetContact.address.street}></input>
                 </label>
                 <label>
                     Zipcode
-                    <input type="text" name="zipcode" onChange={handleChange}></input>
+                    <input type="text" name="zipcode" onChange={handleChange} defaultValue={targetContact.address.zipcode}></input>
                 </label>
                 <input className="submit-button" type="submit" value="Submit Changes"/>
             </form>

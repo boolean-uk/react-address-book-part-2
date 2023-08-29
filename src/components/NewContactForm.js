@@ -2,10 +2,13 @@ import { useEffect, useState } from "react"
 import DataContext from "../DataContext"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import Geocode from "./Geocode"
+
 function NewContactForm() {
 
-    const [newContact, setNewContact] = useState({})
-    const [newAddress, setNewAddress] = useState({})
+    const [newContact, setNewContact] = useState(null)
+    const [newAddress, setNewAddress] = useState(null)
+    const [coordinates,setCoordinates] = useState(null)
     const {contacts, setContacts} = useContext(DataContext)
     const navigate = useNavigate()
 
@@ -33,12 +36,20 @@ function NewContactForm() {
         const newId = getMaxId(contacts)+1
         setNewContact({...newContact,id: newId})
     },[])
+
+    function getCoordinates() {
+        const geocode = Geocode(newContact.address.city,newContact.address.street, newContact.address.zipcode)
+        geocode.then(result => {setCoordinates(result)}).then(newContact.address.geo = coordinates)
+    }
+
     
     const handleSubmit = (event) => {
         event.preventDefault()
+        getCoordinates()
+        console.log(coordinates)
         setContacts([...contacts, newContact])
         console.log(newContact)
-        navigate("/contacts")
+        
     }
     
     return(

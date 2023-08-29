@@ -9,7 +9,7 @@ function ContactPreview() {
     const navigate = useNavigate()
 
     const target = contacts.find(c => c.id === Number(id))
-    
+    console.log(target.address.geo)
     const handleDelete = (event) => {
         setContacts(contacts.filter(c => c.id !== Number(event.target.value)))
         navigate("/contacts")
