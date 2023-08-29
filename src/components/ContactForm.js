@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import "../css/form.css"
+import { useNavigate } from "react-router-dom"
 
 
 function ContactForm({ setContacts, contacts }) {
     // const [idCounter, setIdCounter] = useState(11)
+
+    const navigate = useNavigate()
+
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [street, setStreetName] = useState("")
@@ -48,6 +52,8 @@ function ContactForm({ setContacts, contacts }) {
         setStreetName("")
         setCityName("")
 
+
+        navigate('/contact-list')
     }
 
 
