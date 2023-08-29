@@ -1,0 +1,134 @@
+h2 {
+    color: #1754b8f3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: xx-large;
+}
+
+.main {
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 6%;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-item {
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color:rgb(117, 127, 144);
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 200px;
+    border-top: 1px solid #949292;
+    
+}
+
+.contact-name {
+    font-style: oblique;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.view-link {
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: larger;
+}
+
+.field {
+    display: grid;
+    text-align: left;
+    padding: 10px;
+    width: 350px;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color:rgb(117, 127, 144);
+}
+
+input[type=text] {
+    padding: 10px;
+    border: 1px solid #b8b8b8;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+input[type=submit] {
+    background-color: #005bbcc2;
+    margin-top: 15px;
+    color: #ffffff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 15px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #00346c;
+  }
+
+.contactInfo-item {
+    font-weight: bold;
+    color:rgb(117, 127, 144);
+    font-style: oblique;
+    text-align: center;
+    display: table;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.map-container {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+  }
+
+.info {
+    text-align: left;
+    color: #00346ccf;
+}
+
+.custom-p {
+    color: #797e83;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+button {
+    background-color: #c7d1f0b0;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: medium;
+    font-weight: bold;
+    color: #00346ccb;
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
