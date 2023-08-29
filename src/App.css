@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+}
+
+.menu {
+  flex: 1;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.dashboard {
+  flex: 3;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+}
+
+.contact-name {
+  flex: 2;
+}
+
+.contact-view {
+  flex: 1;
+  text-align: right;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.create-button {
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+}
