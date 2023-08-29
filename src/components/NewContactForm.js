@@ -49,6 +49,10 @@ function NewContactForm() {
         console.log(coordinates)
         setContacts([...contacts, newContact])
         console.log(newContact)
+        if(coordinates !== null) {
+            getCoordinates()
+            navigate("/contacts")
+        }
         
     }
     
