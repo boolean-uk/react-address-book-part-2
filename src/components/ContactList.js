@@ -21,7 +21,7 @@ function ContactList({ contacts }) {
                             <div className="contacts-list-overview-item">
                                 <p>{contact.name}</p>
                                 <Link
-                                    to={`/contact-list/${idx + 1}`
+                                    to={`/contact-list/${idx}`
                                     }
                                     state={{ contact }}
                                 >

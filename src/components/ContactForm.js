@@ -15,14 +15,28 @@ function ContactForm({ setContacts, contacts }) {
     function createContact(e) {
         e.preventDefault()
         const fullName = `${firstName} ${lastName}`
-        setContacts([...contacts, {
-            name: fullName,
-            address: {
-                street: street,
-                city: city,
 
+        fetch("https://jsonplaceholder.typicode.com/users", {
+            method: 'POST',
+            body: JSON.stringify({
+                name: fullName,
+                address: {
+                    street: street,
+                    city: city,
+
+                }
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                console.log("New user data :", json)
+                setContacts([...contacts, json])
             }
-        }])
+            );
+
 
         /*
         I wanted to use the id and change the id value and pass it along, but the value somehow doesn't get updated. I used index + 1 in the ContactList to fix it for now, but I'm going to try and fix this later so that I can use id instead of index.
@@ -33,8 +47,6 @@ function ContactForm({ setContacts, contacts }) {
         setLastName("")
         setStreetName("")
         setCityName("")
-
-
 
     }
 
