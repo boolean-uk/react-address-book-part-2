@@ -31,7 +31,11 @@ function ContactInfo(props) {
                 return <div>Contact has no such information</div>;
             }
 
-            if (!contact.geo) {
+            if (!contact.address.geo || !contact.address.geo.lat || !contact.address.geo.lng) {
+                return <div>Contact has no position information</div>;
+            }
+
+            if (contact.address.geo.lat === 0 && contact.address.geo.lng === 0) {
                 return <div>Contact has no position information</div>;
             }
     }

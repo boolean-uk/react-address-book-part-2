@@ -3,12 +3,13 @@ import 'leaflet/dist/leaflet.css';
 
 function MapComponent(props) {
     const { contact } = props
+    let position = null
 
-    if (!contact.geo || !contact.geo.lat || !contact.geo.lng) {
-        return <div>Contact has no position information</div>;
+    if (!contact.address.geo) {
+      position = [0,0]
+    } else {
+     position = [contact.address.geo.lat, contact.address.geo.lng];
     }
-
-    const position = [contact.address.geo.lat, contact.address.geo.lng];
   
     return (
       <MapContainer center={position} zoom={10} style={{ height: '300px', width: '100%' }}>
