@@ -1,0 +1,43 @@
+.content-holder {
+
+    display: flex;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    min-height: 500px;
+    list-style-type: none;
+}
+
+.content-holder a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.content-holder a:hover {
+    color: rgb(0, 68, 255);
+
+}
+
+.nav-container ul {
+    list-style: none;
+    padding-left: 0;
+
+}
+
+.nav-container ul li {
+    margin-bottom: 0.5rem;
+
+}
+
+
+
+.menu-screen-left {
+    width: 300px;
+}
+
+
+
+.header-sections-left,
+.header-sections-right {
+    margin-bottom: 1rem;
+}
