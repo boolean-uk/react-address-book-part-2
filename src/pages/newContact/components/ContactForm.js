@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 
 function ContactForm(props) {
     const { contacts, setContacts } = props
+
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -11,18 +12,18 @@ function ContactForm(props) {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData({...formData, [name]: value });
+        setFormData({...formData, [name]: value })
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         
-        const maxId = Math.max(...contacts.map((contact) => contact.id), 0);
+        const maxId = Math.max(...contacts.map((contact) => contact.id), 0)
 
         const postData = {
             title: `${formData.firstName} ${formData.lastName}`,
             body: `Street: ${formData.street}, City: ${formData.city}`
-          };
+          }
       
           fetch("https://jsonplaceholder.typicode.com/posts", {
             method: "POST",
@@ -33,7 +34,7 @@ function ContactForm(props) {
           })
             .then((response) => response.json())
             .then((json) => {
-              console.log("Response from API:", json);
+              console.log("Response from API:", json)
 
               const newId = maxId + 1
 
@@ -44,17 +45,16 @@ function ContactForm(props) {
                   street: formData.street,
                   city: formData.city,
                 },
-              };
-              setContacts((prevContacts) => [...prevContacts, newContact]);
-              console.log("cont:", contacts)
+              }
+              setContacts((prevContacts) => [...prevContacts, newContact])
 
-        setFormData({
-            firstName: "",
-            lastName: "",
-            street: "",
-            city: "",
-          });
-        })
+              setFormData({
+                  firstName: "",
+                  lastName: "",
+                  street: "",
+                  city: "",
+                })
+            })
     }
 
     useEffect(() => {

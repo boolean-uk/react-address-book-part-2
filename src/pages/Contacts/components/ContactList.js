@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
-import ContactInfo from "./ContactInfo";
 
 function ContactList(props) {
     
-    const { contacts } = props
+    const { contacts, onDelete } = props
 
     return (
         <ul>
@@ -12,6 +11,7 @@ function ContactList(props) {
                 <li key={index} className="contact-item">
                 <p className="contact-name">{contact.name}</p>
                 <Link to={`/contacts/${contact.id}`} className="view-link">View</Link>
+                <input type="submit" value="Delete" onClick={() => onDelete(contact.id)}/>
                 </li>
             );
             })}

@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path='/contacts' element={<Contacts contacts={contacts} setContacts={setContacts}/>}/>
           <Route path='/' element={<h4>Please select something from menu...</h4>}/>
-          <Route path='/contacts/:id' element={<ContactInfo contacts={contacts}/>} />
+          <Route path='/contacts/:id' element={<ContactInfo contacts={contacts} setContacts={setContacts} />} />
           <Route path='/newContact' element={<NewContact contacts={contacts} setContacts={setContacts}/>}/>
         </Routes>
       </header>

@@ -29,16 +29,15 @@ p a {
 h4 {
   margin-top: 300px;
   margin-left: 380px;
-  color: rgba(48, 54, 161, 0.645);
+  color: rgba(48, 54, 161, 0.643);
 }
 
 .App-header {
-  background-color: #f0f0f0;
+  background-color: #c7d1f09c;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 80%;
-  max-width: 800px;
+  width: 85%;
 }
 
 .App-link {
