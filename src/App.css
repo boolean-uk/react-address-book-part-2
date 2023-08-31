@@ -1,0 +1,107 @@
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+}
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	  monospace;
+}
+
+.menuRight {
+	width: 400px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.content {
+	display: flex;
+	padding: 2rem;
+	min-height: 500px;
+	list-style-type: none;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
+
+.content a {
+	color: #333;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.content a:hover {
+	color: #007bff;
+  }
+  
+.nav ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.nav ul li {
+	margin-bottom: 1rem;
+}
+
+.menuLeft {
+	width: 300px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.headerLeft,
+.headerRight {
+	margin-bottom: 1.5rem;
+}
+
+.field label {
+	display: block;
+	font-weight: 600;
+}
+
+.field input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.form button {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	background-color: #007bff;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+	background-color: #0056b3;
+}
+
+.name {
+	position: relative;
+}
+
+.contactList {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
