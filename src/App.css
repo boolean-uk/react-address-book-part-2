@@ -1,0 +1,109 @@
+
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+
+header {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style links */
+a {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+/* Create a container for your content */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+button {
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+ul.nav-menu {
+  background-color: #0077cc;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+ul.nav-menu li {
+  list-style: none;
+  margin-right: 20px;
+}
+
+ul.nav-menu li:last-child {
+  margin-right: 0;
+}
+
+ul.nav-menu a {
+  color: #fff;
+}
+
+.dashboard {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul.contact-list {
+  padding: 0;
+}
+
+ul.contact-list li {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.field {
+  margin-bottom: 20px;
+}
