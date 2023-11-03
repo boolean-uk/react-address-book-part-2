@@ -4,7 +4,7 @@
 
 1. Fork and clone this repository
 2. `npm ci` to install dependencies
-3. `npm start` to run the application
+3. `npm run dev` to run the application
 4. Build a simple React app using the plans you created during part 1
 
 ## API
