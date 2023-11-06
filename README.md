@@ -9,9 +9,7 @@
 
 ## API
 
-Use [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com) (fastest option)
-    - Use the `/users` resource as your contact data
-    - [There is a guide for using this API](https://jsonplaceholder.typicode.com/guide/)
+Use [https://boolean-api-server.fly.dev/api-docs/](https://boolean-api-server.fly.dev/api-docs/) for your data
 
 ## Core Criteria
 
@@ -29,13 +27,11 @@ Use [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com)
 
 4. Automatically navigate to the single contact information view after updating a contact
 
-5. Implement the remaining `/user` properties available in the API into your application
+5. Implement the remaining contact properties available in the API into your application
 
-6. Use a contact's `lat` and `lng` geo-coordinates to render their position on a map
+6. Use a contact's `latitude` and `longitude` geo-coordinates to render their position on a map
 
-7. Add the ability to filter the contact list using URL parameters
-
-8. Replace the jsonplaceholder API with your own [json-server](https://www.npmjs.com/package/json-server) based API
+7. Add the ability to filter the contact list
 
 ## Example application
 
