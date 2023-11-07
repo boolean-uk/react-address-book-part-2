@@ -3,6 +3,7 @@ import "./App.css";
 import ContactList from "./pages/ContactList";
 import AddNewContact from "./pages/AddNewContact";
 import { useEffect, useState } from "react";
+import ContactProfile from "./pages/ContactList/components/ContactProfile";
 
 const ROOT_URL = "https://boolean-api-server.fly.dev/yee0802/contact/";
 
@@ -24,7 +25,7 @@ function App() {
         <nav>
           <ul className="link-list">
             <li>
-              <Link to="/" className="link">
+              <Link to="/contacts" className="link">
                 Contacts
               </Link>
             </li>
@@ -37,9 +38,15 @@ function App() {
         </nav>
       </aside>
       <Routes>
-        <Route path="/" element={<ContactList contacts={contacts} />}></Route>
+        <Route
+          path="/contacts"
+          element={<ContactList contacts={contacts} />}
+        ></Route>
         <Route path="/add-new-contact" element={<AddNewContact />}></Route>
-        <Route path="/contacts/:id"></Route>
+        <Route
+          path="/contacts/:id"
+          element={<ContactProfile contacts={contacts} />}
+        ></Route>
       </Routes>
     </>
   );
