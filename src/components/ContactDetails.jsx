@@ -30,16 +30,15 @@ export default function ContactDetails() {
     fetch(baseURL + endpoint)
       .then(response => response.json())
       .then(data => setContact(data))
-      .then(() => console.log("loaded id", contact))
   }
 
-  useEffect(loadContact, [])
+  // useEffect(loadContact, [])
 
   return (
     <div className="contactCard">
-      {/* <p>{contact.lastName + ", " + contact.firstName}</p>
-      <p>{contact.street}</p>
-      <p>{contact.city}</p> */}
+      <p>{placeholder.lastName + ", " + placeholder.firstName}</p>
+      <p>{placeholder.street}</p>
+      <p>{placeholder.city}</p>
     </div>
   )
 }

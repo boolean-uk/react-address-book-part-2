@@ -1,9 +1,9 @@
+import { useParams } from "react-router-dom"
 import ContactDetails from "./ContactDetails"
 
 export default function ViewContact() {
     
-  const {id} = useNavigate
-
+  const {id} = useParams
 
   return(
     <>

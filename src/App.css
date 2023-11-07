@@ -1,0 +1,62 @@
+:root {
+  --primary: rgb(72, 76, 182);
+  --secondary: rgb(226, 226, 246);
+  --background: rgb(246, 246, 246);
+}
+
+* {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+.container {
+  border: 1px lightgray solid;
+  border-radius: 20px;
+  margin: 20px;
+  display: grid;
+  height: calc(100vh - 40px); 
+  grid-template-areas: "sidebar list main";
+  grid-template-columns: 1fr 1fr 2fr;
+  overflow: hidden;
+}
+
+.sidebar {
+  grid-area: "sidebar";
+  background-color: var(--secondary);
+  padding: 20px;
+}
+
+.list {
+  grid-area: "list";
+}
+
+.main {
+  grid-area: "main";
+  padding: 20px;
+  border-left: 1px solid rgb(205, 205, 205) solid;grey;
+}
+
+h1 {
+  color: var(--primary)
+}
+
+nav ul {
+  padding: 10px 0;
+  list-style-type: none;
+}
+
+nav ul li {
+  padding: 10px 0;
+}
+
+.contactListItem {
+
+}
+
+.contactCard {
+  border: var(--background) 1px solid;
+  padding: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}

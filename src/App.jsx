@@ -10,35 +10,43 @@ import Dashboard from './components/Dashboard';
 
 function App() {
     return (
-    <main>
-        <aside>
+    <main className='container'>
+        <aside className='sidebar'>
+            <h1>My best friends</h1>
             <nav>
-                <li>
-                    <Link to="/">Home</Link>
-                    <Link to="/add">Add Contact</Link>
-                </li>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/add">Add Contact</Link>
+                    </li>
+                </ul>
             </nav>
         </aside>
-        <p>HELLO GUYS</p>
-
-        <Routes>
-            <Route
-            path="/"
-            element={<Dashboard />}
-            />
-            <Route
-            path="/view/:id"
-            element={<ContactDetails />}
-            />
-            <Route
-            path="/edit/:id"
-            element={<EditContact />}
-            />
-            <Route
-            path="/add"
-            element={<AddContact />}
-            />
-        </Routes>
+        <div className='list'>
+            LIST
+        </div>
+        <div className='main'>
+            <Routes>
+                <Route
+                path="/"
+                element={<Dashboard />}
+                />
+                <Route
+                path="/view/:id"
+                element={<ContactDetails />}
+                />
+                <Route
+                path="/edit/:id"
+                element={<EditContact />}
+                />
+                <Route
+                path="/add"
+                element={<AddContact />}
+                />
+            </Routes>
+        </div>
     </main>
     );
 }
