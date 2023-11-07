@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import { Routes, Route, Link } from 'react-router-dom';
-import Contact from './components/contacts';
-import CreateContact from './components/AddContact';
+import ContactList from './components/contacts';
+import CreateContact from './components/CreateContact';
 import ContactDetails from './components/contacts/componets/ContactDetails';
 
 function App() {
@@ -17,8 +17,6 @@ function App() {
         .then(res => res.json())
         .then(data => setContactData(data))
     }, [])
-    
-    console.log(contactData)
 
         return (
             <>
@@ -30,7 +28,6 @@ function App() {
                             <br />
                             <Link to="/create-contact">Add new contact</Link>
                         </section>
-                        {/* <Dashboard contactData={contactData}></Dashboard> */}
                     </header>
                     <Routes>
                         <Route
@@ -40,11 +37,11 @@ function App() {
                         </Route>
                         <Route 
                             path="/contact-list"
-                            element={<Contact contactData={contactData} />}>
+                            element={<ContactList contactData={contactData} />}>
                         </Route>
                         <Route
                             path="/create-contact"
-                            element={<CreateContact />}
+                            element={<CreateContact contactData={contactData} setContactData={setContactData} />}
                             >
                         </Route>
                         <Route

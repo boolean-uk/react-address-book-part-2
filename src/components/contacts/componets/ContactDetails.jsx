@@ -12,12 +12,11 @@ function ContactDetails({ contactData }) {
             }
         }, [id, contactData])
 
-    console.log(displayPerson)
-
     if (!displayPerson) return <p>Loading...</p>
     return (
         <section>
-            <h2>{displayPerson.firstName} {displayPerson.lastName}</h2>
+            <h2>Contact Information</h2>
+            <h3>{displayPerson.firstName} {displayPerson.lastName}</h3>
             <p>{displayPerson.street} {displayPerson.city}</p>
         </section>
     )
