@@ -9,7 +9,7 @@
 
 ## API
 
-Use [https://boolean-api-server.fly.dev/api-docs/](https://boolean-api-server.fly.dev/api-docs/) for your data
+Use [these Contacts API endpoints](https://boolean-api-server.fly.dev/api-docs/#/contact) for your data.
 
 ## Core Criteria
 
