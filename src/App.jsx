@@ -10,7 +10,7 @@ function App() {
 
     return (
        <>
-       <h1 className="menu">Menu</h1>
+       <h1 className="menu">Contact Center</h1>
        <nav>
        <ul className="nav">
         <Link to="/"><li>Home</li></Link>
@@ -24,6 +24,8 @@ function App() {
             <Route path="/contact/Form" element={<ContactForm />} ></Route>
             <Route path="/contact/:id" element={<ContactListItem />}></Route>
         </Routes>
+
+        <img className="img" src="https://www.svgrepo.com/show/90101/call-center-worker-with-headset.svg" width={300} alt="guy with headphones on" />
        </main>
        </>
     );

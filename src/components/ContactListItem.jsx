@@ -8,8 +8,8 @@ function ContactListItem() {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const response = await 
-        fetch(`https://boolean-api-server.fly.dev/Callumhayden99/contact/${id}`
+        const response = await fetch(
+          `https://boolean-api-server.fly.dev/Callumhayden99/contact/${id}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -35,9 +35,9 @@ function ContactListItem() {
         <h2 className="list-item-name">
           {contact.firstName} {contact.lastName}
         </h2>
-        <p>
+        <div className="street-city">
           {contact.street} {contact.city}
-        </p>
+        </div>
       </div>
     </>
   );

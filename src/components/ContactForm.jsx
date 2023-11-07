@@ -35,7 +35,7 @@ function ContactForm() {
         <h2 className="create-contact">Create Contact</h2>
 
         <div className="form-tabs">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstName">First Name:</label>
           <input
             id="firstName"
             name="firstName"
