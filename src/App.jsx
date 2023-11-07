@@ -2,8 +2,21 @@ import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import ContactList from "./pages/ContactList";
 import AddNewContact from "./pages/AddNewContact";
+import { useEffect, useState } from "react";
+
+const ROOT_URL = "https://boolean-api-server.fly.dev/yee0802/contact/";
 
 function App() {
+  const [contacts, setContacts] = useState([]);
+
+  const fetchData = () => {
+    fetch(ROOT_URL)
+      .then((res) => res.json())
+      .then((data) => setContacts(data));
+  };
+
+  useEffect(fetchData, []);
+
   return (
     <>
       <aside className="menu">
@@ -24,8 +37,9 @@ function App() {
         </nav>
       </aside>
       <Routes>
-        <Route path="/" element={<ContactList />}></Route>
+        <Route path="/" element={<ContactList contacts={contacts} />}></Route>
         <Route path="/add-new-contact" element={<AddNewContact />}></Route>
+        <Route path="/contacts/:id"></Route>
       </Routes>
     </>
   );
