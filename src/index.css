@@ -116,6 +116,42 @@ code {
   font-size: 1.4rem;
 }
 
+/* New Contact */
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 1rem;
+}
+
+#contact-form > label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#contact-form input {
+  width: 100%;
+  height: 25px;
+}
+
+#contact-form > button {
+  border: none;
+  border-radius: 10px;
+  background-color: #4663ac;
+
+  cursor: pointer;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+#contact-form > button:hover {
+  background-color: #4663ac80;
+  transition: all 100ms ease-in;
+}
+
 /* Shared */
 
 .menu > h1,
