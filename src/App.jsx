@@ -15,7 +15,7 @@ function App() {
       .then((data) => setContacts(data));
   };
 
-  useEffect(fetchData, [contacts]);
+  useEffect(fetchData, []);
 
   return (
     <>
