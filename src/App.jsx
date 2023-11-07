@@ -1,10 +1,15 @@
 import './App.css';
-import { Routes, Route, Link }
+import { Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
+import ContactDetails from './components/ContactDetails';
+import EditContact from './components/EditContact';
+import AddContact from './components/AddContact';
 
 function App() {
     return (
-        <>
+    <main>
         <aside>
             <nav>
                 <li>
@@ -13,13 +18,13 @@ function App() {
                 </li>
             </nav>
         </aside>
-
+        <p>HELLO GUYS</p>
 
         <Routes>
-            <Route
+            {/* <Route
             path="/"
             element={<Dashboard />}
-            />
+            /> */}
             <Route
             path="/view/:id"
             element={<ContactDetails />}
@@ -33,7 +38,7 @@ function App() {
             element={<AddContact />}
             />
         </Routes>
-      </>
+    </main>
     );
 }
 
