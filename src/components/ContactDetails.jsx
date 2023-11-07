@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ContactDetails() {
   const navigate = useNavigate()
-  const {id} = useNavigate()
+  const {id} = useParams()
   console.log(id, "inside ContactDetails")
 
   const placeholder = {
@@ -26,19 +26,20 @@ export default function ContactDetails() {
     const username = "AllyDouillette"
     const baseURL= `https://boolean-api-server.fly.dev/${username}`
     const endpoint = `/contact/${id}`
+
     fetch(baseURL + endpoint)
       .then(response => response.json())
       .then(data => setContact(data))
-      .then(() => console.log("loaded id", id))
+      .then(() => console.log("loaded id", contact))
   }
 
-  useEffect(loadContact, contact)
+  useEffect(loadContact, [])
 
   return (
     <div className="contactCard">
-      <p>{placeholder.lastName + ", " + placeholder.firstName}</p>
-      <p>{placeholder.street}</p>
-      <p>{placeholder.city}</p>
+      {/* <p>{contact.lastName + ", " + contact.firstName}</p>
+      <p>{contact.street}</p>
+      <p>{contact.city}</p> */}
     </div>
   )
 }
