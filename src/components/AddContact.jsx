@@ -1,8 +1,19 @@
-import { useNavigate } from "react-router-dom"
 
-export default function AddContact() {
+import Form from "./Form/Form";
 
-  return (
-    <div>ADDCONTACT</div>
-  )
+function AddContact () {
+    return (
+        <div className = "add-contact-container">
+            <h2>Add a new Contact</h2>
+            <Form 
+            // firstName = {firstName}
+            // lastName = {lastName}
+            // street = {street}
+            // city = {city}
+            />
+        </div>
+    )
 }
+
+export default AddContact;
+
