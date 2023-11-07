@@ -10,7 +10,7 @@ const AdditionalHeader = () => {
 
     return (
         <div className="header">
-            <button className="header__back" onClick={() => navigate(-1)}>
+            <button className="header__back" onClick={() => navigate("/")}>
                 <img src={arrowBack} />
             </button>
         </div>

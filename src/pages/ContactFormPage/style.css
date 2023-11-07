@@ -1,0 +1,88 @@
+.contactForm__form {
+    padding: 25px 15px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__item {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__item label {
+    margin-bottom: 10px;
+}
+
+.form__item label input {
+    margin-right: 5px;
+}
+
+.form__item-title {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.form__item-title span {
+    color: red;
+    margin-left: 5px;
+}
+
+.form__item-input {
+    width: 100%;
+    height: 35px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: 19px;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.form__item-input:focus {
+    border-color: #8152DC;
+}
+
+.form__item-input::placeholder {
+    font-size: 15px;
+}
+
+.form__buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.form__buttons button {
+    padding: 0.8rem 1.25rem;
+    border-radius: 25px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__buttons-clear {
+    border: 2px solid #632AD1 !important;
+    color: #632AD1;
+    background-color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.form__buttons-submit {
+    background-color: #87AB3F;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
