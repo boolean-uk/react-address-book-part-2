@@ -12,11 +12,13 @@ function App() {
 
     const URL = 'https://boolean-api-server.fly.dev/satokii/contact'
 
-    useEffect(() => {
+    function getContactData() {    
         fetch(URL)
         .then(res => res.json())
         .then(data => setContactData(data))
-    }, [])
+    }
+
+    useEffect(getContactData, [])
 
         return (
             <>
@@ -41,7 +43,7 @@ function App() {
                         </Route>
                         <Route
                             path="/create-contact"
-                            element={<CreateContact contactData={contactData} setContactData={setContactData} />}
+                            element={<CreateContact contactData={contactData} URL={URL} getContactData={getContactData} />}
                             >
                         </Route>
                         <Route

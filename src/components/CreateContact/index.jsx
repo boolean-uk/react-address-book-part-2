@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-function CreateContact({ contactData, setContactData }) {
+function CreateContact({ contactData, URL, getContactData }) {
 
     const navigate = useNavigate()
 
@@ -10,18 +10,29 @@ function CreateContact({ contactData, setContactData }) {
     const [street, setStreet] = useState(null)
     const [city, setCity] = useState(null)
 
+    const newContact = {
+        firstName: firstName,
+        lastName: lastName,
+        street: street,
+        city: city,
+        id: contactData.length + 1
+    }
+
+    function createNewContact() {
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newContact)
+        }
+        
+        fetch(URL, options)
+        .then(res => res.json())
+        .then(() => getContactData())
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
-
-        const newContact = {
-            firstName: firstName,
-            lastName: lastName,
-            street: street,
-            city: city,
-            id: contactData.length + 1
-        }
-
-        setContactData([...contactData, newContact])
+        createNewContact()
         navigate("/")
     }
 
