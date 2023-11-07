@@ -1,14 +1,67 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#root {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 1fr;
+}
+
+.menu {
+  background-color: #4663ac;
+}
+
+.menu > h1 {
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #c8d9ed;
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
+}
+
+.link {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  font-size: 1.6rem;
+  transition: all 150ms ease-in;
+}
+
+.container {
+  background-color: #c8d9ed;
+}
+
+.container > h1 {
+  text-align: center;
+  color: #4663ac;
+  border-bottom: 2px solid #4663ac;
+}
+
+.menu > h1,
+.link {
+  color: azure;
+}
+
+.container > h1,
+.menu > h1 {
+  margin: 0;
+  padding: 1rem;
+}
