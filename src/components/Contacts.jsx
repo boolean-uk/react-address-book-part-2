@@ -19,7 +19,7 @@ function Contacts() {
             {allContacts.map((contact)=> (
                 <>
                 <div key={`${contact.id}`+`${contact.firstName}`}>
-                    <h2><Link to={`/Contact/${contact.id}`}>{contact.firstName} {contact.lastName}</Link></h2>
+                    <h2><Link to={`/contact/${contact.id}`}>{contact.firstName} {contact.lastName}</Link></h2>
                 </div>
                 </>
            ))}

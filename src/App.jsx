@@ -1,8 +1,8 @@
 import './App.css';
 import { Route, Routes, Link } from 'react-router-dom';
-import Home from './components/Home.jsx';
-import NewContact from './components/NewContact.jsx';
-import Contacts from './components/Contacts.jsx';
+import Home from './components/home.jsx';
+import NewContact from './components/newcontact.jsx';
+import Contacts from './components/contacts.jsx';
 import Contact from './components/Contact.jsx';
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
         <>
             <ul className='home-link'>
                 <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/Contacts'}>Contacts</Link></li>
-                <li><Link to={'/NewContact'}>Add New Contact</Link></li>
+                <li><Link to={'/contacts'}>Contacts</Link></li>
+                <li><Link to={'/newcontact'}>Add New Contact</Link></li>
             </ul>
             <Routes>
 
@@ -21,16 +21,16 @@ function App() {
                 />
 
                 <Route
-                    path='/Contacts'
+                    path='/contacts'
                     element={<Contacts />}
                 />
 
                 <Route
-                    path='/NewContact'
+                    path='/newcontact'
                     element={<NewContact />}
                 />
                 <Route
-                    path='/Contact/:id'
+                    path='/contact/:id'
                     element={<Contact/>}
                     />
 

@@ -1,16 +1,20 @@
-import { useState, useParams, useEffect } from "react"
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import { get } from "../ultity/client"
+
+
+
 
 function Contact() {
     const [singleContact, setSingleContact] = useState([])
 
-    // const { id } = useParams()
+    const { id } = useParams()
     
     console.log(singleContact)
 
 
     useEffect(()=> {
-        fetch(`https://boolean-api-server.fly.dev/PeachyOmnivore/contact/3`)
-        .then(res => res.json())
+        get(`https://boolean-api-server.fly.dev/PeachyOmnivore/contact/${id}`)
         .then(data => setSingleContact(data))
     },[])
 
@@ -19,11 +23,8 @@ function Contact() {
             <div>
                 <h3>{singleContact.firstName} {singleContact.lastName}</h3>
                 <ul className="contactDetails">
-                    <li>Email: {singleContact.email}</li>
-                    <li>Job title: {singleContact.jobTitle}</li>
-                    <li>Street: {singleContact.street}</li>
                     <li>City: {singleContact.city}</li>
-                    <li>Gender: {singleContact.gender}</li>
+                    <li>Street: {singleContact.street}</li>
                     </ul>
             </div>
         </>

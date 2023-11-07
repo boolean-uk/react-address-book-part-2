@@ -1,6 +1,10 @@
 import { useState } from "react"
+import { URL, get, post } from "../ultity/client"
+import { useNavigate } from "react-router-dom"
 
 function NewContact() {
+
+    const navigate = useNavigate()
 
     const [newContact, setNewContact] = useState(
         {
@@ -16,9 +20,20 @@ function NewContact() {
         setNewContact({ ...newContact, [name]: value })
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        post("https://boolean-api-server.fly.dev/PeachyOmnivore/contact", newContact)
+        .then((res)=> res.json())
+        .then(get(URL))
+        .then(navigate("/contacts"))
+    }
+
     return (
         <>
-            <form action="">
+            <form 
+            className="newContactForm"
+            onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name:
                     <input
                         value={newContact.firstName}
@@ -47,7 +62,10 @@ function NewContact() {
                         name="street"
                         onChange={(event) => { handleChange(event) }} />
                 </label><br />
-                <button type="submit">Create new contact</button>
+                <button 
+                type="submit"
+                > Add New Contact
+                    </button>
             </form>
         </>
     )
