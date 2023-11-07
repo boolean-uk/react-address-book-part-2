@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_STATE = {
   firstName: "",
@@ -12,6 +13,8 @@ const INITIAL_STATE = {
 
 const AddContactForm = () => {
   const [newContact, setNewContact] = useState(INITIAL_STATE);
+
+  const navigate = useNavigate();
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -29,6 +32,7 @@ const AddContactForm = () => {
 
         setNewContact(INITIAL_STATE);
         form.reset();
+        navigate("/contacts");
       });
   };
 
