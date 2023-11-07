@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { Route, Routes, Link } from "react-router-dom"
+
+import {Routes, Route, Link } from "react-router-dom"
 import ContactList from "./components/ContactList";
 import ContactListItem from "./components/ContactListItem";
 import ContactForm from "./components/ContactForm";
@@ -7,23 +7,22 @@ import './styles/App.css';
 
 function App() {
 
-    const [individual, setindividual] = useState('')
-
 
     return (
        <>
-       <h1>Menu</h1>
+       <h1 className="menu">Menu</h1>
        <nav>
-       <ul>
-        <Link to="/"><li>Contact list</li></Link>
-        <Link to="/contact/form"><li>Add new contacts</li></Link>
+       <ul className="nav">
+        <Link to="/"><li>Home</li></Link>
+        <Link to="/contact/List"><li>Contact list</li></Link>
+        <Link to="/contact/Form"><li>Add new contacts</li></Link>
        </ul>
        </nav>
        <main>
         <Routes>
-            <Route path="/" element={<ContactList />}></Route>
+            <Route path="/contact/List" element={<ContactList />}></Route>
             <Route path="/contact/Form" element={<ContactForm />} ></Route>
-            <Route path="/:id" element={<ContactListItem />}></Route>
+            <Route path="/contact/:id" element={<ContactListItem />}></Route>
         </Routes>
        </main>
        </>
