@@ -3,21 +3,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import NewContact from './components/NewContact.jsx';
 import Contacts from './components/Contacts.jsx';
-
-const INITIAL_STATE = [
-    {
-        firstName: "",
-		lastName: "",
-		gender: "",
-		email: "",
-		jobTitle: "",
-		street: "",
-		city: "",
-		latitude: 0,
-		longitude: 0,
-		id: 0
-    }
-]
+import Contact from './components/Contact.jsx';
 
 function App() {
     return (
@@ -36,13 +22,17 @@ function App() {
 
                 <Route
                     path='/Contacts'
-                    element={<Contacts INITIAL_STATE={INITIAL_STATE} />}
+                    element={<Contacts />}
                 />
 
                 <Route
                     path='/NewContact'
                     element={<NewContact />}
                 />
+                <Route
+                    path='/Contact/:id'
+                    element={<Contact/>}
+                    />
 
             </Routes>
         </>

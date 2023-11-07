@@ -1,9 +1,11 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
-function Contacts({INITIAL_STATE}) {
+function Contacts() {
 
- const [allContacts, setAllContacts] = useState(INITIAL_STATE)
+ const [allContacts, setAllContacts] = useState([])
+ 
 
     useEffect(()=> {
         fetch("https://boolean-api-server.fly.dev/PeachyOmnivore/contact")
@@ -13,13 +15,14 @@ function Contacts({INITIAL_STATE}) {
 
     return (
         <>
-        <h1>All Contacts</h1>
+        <h1>All Contacts:</h1>
             {allContacts.map((contact)=> (
+                <>
                 <div key={`${contact.id}`+`${contact.firstName}`}>
-                    <h2>{contact.firstName}</h2>
+                    <h2><Link to={`/Contact/${contact.id}`}>{contact.firstName} {contact.lastName}</Link></h2>
                 </div>
-            ))}
-            
+                </>
+           ))}
         </>
     )
 }
