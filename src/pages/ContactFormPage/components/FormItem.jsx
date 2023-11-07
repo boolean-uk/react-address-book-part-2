@@ -29,7 +29,7 @@ const FormItem = ({ data, form, handleChange }) => {
                         onChange={handleChange}
                         type={data.type}
                         name={data.name}
-                        required
+                        required={data.required}
                         className="form__item-input"
                         placeholder={data.placeholder}
                     />

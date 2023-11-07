@@ -49,14 +49,14 @@ export const formStructure = [
         placeholder: "Enter your job title...",
     },
     {
-        type: "text",
+        type: "number",
         required: false,
         title: "Your Latitude",
         name: "latitude",
         placeholder: "Enter latitude...",
     },
     {
-        type: "text",
+        type: "number",
         required: false,
         title: "Your Longitude",
         name: "longitude",

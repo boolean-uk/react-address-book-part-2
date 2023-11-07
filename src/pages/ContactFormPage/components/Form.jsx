@@ -1,45 +1,37 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+
+// data
+import { formStructure } from "../../../data/formStructure";
+import { initialState } from "../../../data/initialState";
+
+// components
 import FormItem from "./FormItem";
 
-import { formStructure } from "../../../utils/formStructure";
+const Form = ({ submitPostRequest }) => {
+    const [form, setForm] = useState(initialState);
 
-const Form = () => {
-    const [form, setForm] = useState({
-        firstName: "",
-        lastName: "",
-        street: "",
-        city: "",
-        gender: "",
-        email: "",
-        jobTitle: "",
-        latitude: "",
-        longitude: "",
-    });
+    const navigate = useNavigate();
 
     // functions
 
     const submitForm = (e) => {
         e.preventDefault();
+
+        submitPostRequest(form);
+        clearForm();
+        navigate("/");
     };
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, type, value } = event.target;
 
-        setForm({ ...form, [name]: value });
+        type === "number"
+            ? setForm({ ...form, [name]: parseInt(value) })
+            : setForm({ ...form, [name]: value });
     };
 
-    const clearForm = () =>
-        setForm({
-            firstName: "",
-            lastName: "",
-            street: "",
-            city: "",
-            gender: "",
-            email: "",
-            jobTitle: "",
-            latitude: "",
-            longitude: "",
-        });
+    const clearForm = () => setForm(initialState);
 
     // render
     return (
