@@ -6,18 +6,16 @@ import AddNewContact from "./pages/AddNewContact";
 import ContactProfile from "./pages/ContactList/components/ContactProfile";
 import Landing from "./pages/Landing";
 
-const ROOT_URL = "https://boolean-api-server.fly.dev/yee0802/contact/";
-
 function App() {
   const [contacts, setContacts] = useState([]);
 
   const fetchData = () => {
-    fetch(ROOT_URL)
+    fetch("https://boolean-api-server.fly.dev/yee0802/contact/")
       .then((res) => res.json())
       .then((data) => setContacts(data));
   };
 
-  useEffect(fetchData, []);
+  useEffect(fetchData, [contacts]);
 
   return (
     <>
