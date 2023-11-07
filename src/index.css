@@ -69,7 +69,7 @@ code {
   border-bottom: 2px solid #4663ac;
 }
 
-/* Contact page */
+/* Contacts page */
 
 .contact-list > ul {
   padding: 0.5rem 1rem;
@@ -89,6 +89,33 @@ code {
   font-weight: bold;
 }
 
+/* Contact Profile */
+
+.contact-profile {
+  display: grid;
+  grid-template-rows: 77px 1fr;
+}
+
+.contact-profile > h1 {
+  text-align: center;
+  border-bottom: 2px solid #4663ac;
+}
+
+.contact-details-container {
+  display: grid;
+  place-items: center;
+}
+
+.contact-details {
+  padding: 4rem 3rem;
+  border: 2px solid #4663ac;
+}
+
+.contact-details > p {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+}
+
 /* Shared */
 
 .menu > h1,
@@ -97,6 +124,7 @@ code {
 }
 
 .container > h1,
-.menu > h1 {
+.menu > h1,
+.contact-profile > h1 {
   padding: 1rem;
 }
