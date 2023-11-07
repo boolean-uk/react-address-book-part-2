@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import ContactDetails from './components/ContactDetails';
 import EditContact from './components/EditContact';
 import AddContact from './components/AddContact';
-import Dashboard from './Dashboard';
+import Dashboard from './components/Dashboard';
 
 function App() {
     return (
