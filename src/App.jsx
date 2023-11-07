@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import ContactDetails from './components/ContactDetails';
 import EditContact from './components/EditContact';
 import AddContact from './components/AddContact';
+import Dashboard from './Dashboard';
 
 function App() {
     return (
@@ -21,10 +22,10 @@ function App() {
         <p>HELLO GUYS</p>
 
         <Routes>
-            {/* <Route
+            <Route
             path="/"
             element={<Dashboard />}
-            /> */}
+            />
             <Route
             path="/view/:id"
             element={<ContactDetails />}
