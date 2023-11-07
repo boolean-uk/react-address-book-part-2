@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
-function ContactDetails({ data }) {
+function ContactDetails({ contactData }) {
 
     const [displayPerson, setDisplayPerson] = useState(null)
 
     const { id } = useParams()
     useEffect(() => {
-            if (id && data) {
-                setDisplayPerson(data.find((person) => Number(person.id) === Number(id)))
+            if (id && contactData) {
+                setDisplayPerson(contactData.find((person) => Number(person.id) === Number(id)))
             }
-        }, [id, data])
+        }, [id, contactData])
 
     console.log(displayPerson)
 
     if (!displayPerson) return <p>Loading...</p>
     return (
-        <>
-            <h2>Hello</h2>
+        <section>
             <h2>{displayPerson.firstName} {displayPerson.lastName}</h2>
             <p>{displayPerson.street} {displayPerson.city}</p>
-        </>
+        </section>
     )
 }
 
