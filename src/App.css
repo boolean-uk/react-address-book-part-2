@@ -10,8 +10,9 @@
 }
 
 .contact-list-people {
+    width: 500px;
     display: grid;
-    grid-template-columns: minmax(300px, auto) 1fr;
+    grid-template-columns: minmax(300px, auto) 100px 100px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.446);
     padding-left: 50px;
 }

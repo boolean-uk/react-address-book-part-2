@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-function CreateContact({ contactData, URL, getContactData }) {
+function CreateContact({ contactData, URL, setShouldGetData }) {
 
     const navigate = useNavigate()
 
@@ -27,7 +27,7 @@ function CreateContact({ contactData, URL, getContactData }) {
         
         fetch(URL, options)
         .then(res => res.json())
-        .then(() => getContactData())
+        .then(() => setShouldGetData(true))
     }
 
     function handleSubmit(e) {

@@ -9,16 +9,22 @@ import ContactDetails from './components/contacts/componets/ContactDetails';
 function App() {
 
     const [contactData, setContactData] = useState([])
+    const [shouldGetData, setShouldGetData] = useState(true)
 
     const URL = 'https://boolean-api-server.fly.dev/satokii/contact'
 
     function getContactData() {    
         fetch(URL)
         .then(res => res.json())
-        .then(data => setContactData(data))
+        .then(data => {
+            setContactData(data)
+            setShouldGetData(false)
+        })
     }
 
-    useEffect(getContactData, [])
+    useEffect(() => {
+        shouldGetData && getContactData() 
+    }, [shouldGetData])
 
         return (
             <>
@@ -39,11 +45,11 @@ function App() {
                         </Route>
                         <Route 
                             path="/contact-list"
-                            element={<ContactList contactData={contactData} />}>
+                            element={<ContactList contactData={contactData} URL={URL} setShouldGetData={setShouldGetData} />}>
                         </Route>
                         <Route
                             path="/create-contact"
-                            element={<CreateContact contactData={contactData} URL={URL} getContactData={getContactData} />}
+                            element={<CreateContact contactData={contactData} URL={URL} getContactData={getContactData} setShouldGetData={setShouldGetData} />}
                             >
                         </Route>
                         <Route
