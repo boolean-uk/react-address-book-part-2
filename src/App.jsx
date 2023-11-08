@@ -17,7 +17,7 @@ function App() {
     return (
     <div className='container'>
         <aside className='sidebar'>
-            <h1>My best friends</h1>
+            <h1>Navigation</h1>
             <nav>
                 <ul>
                     <li>
