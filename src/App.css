@@ -1,0 +1,8 @@
+.app{
+    display: grid;
+    grid-template-columns: 200px  1fr;
+    padding: 30px;
+}
+.routes{
+    padding: 20px;
+}
