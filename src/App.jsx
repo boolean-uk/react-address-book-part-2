@@ -13,6 +13,20 @@ import { useState } from 'react';
 function App() {
     
     const [reloadingNecessary, setReloadingNecessary] = useState(false)
+
+    const deleteContact = (id) => {
+        const username = "AllyDouillette"
+        const baseURL= `https://boolean-api-server.fly.dev/${username}`
+        const endpoint = `/contact/${id}`
+    
+        const options = {
+          method: "DELETE"
+        }
+    
+        fetch(baseURL + endpoint, options)
+          .then(response => response.json())
+          .then(() => setReloadingNecessary(true))
+      }
     
     return (
     <div className='container'>
@@ -36,11 +50,13 @@ function App() {
                 element={<Dashboard 
                     setReloadingNecessary={setReloadingNecessary}
                     reloadingNecessary={reloadingNecessary}
+                    deleteContact={deleteContact}
                     />}
                 />
                 <Route
                 path="/view/:id"
-                element={<ContactDetails />}
+                element={<ContactDetails 
+                            deleteContact={deleteContact}/>}
                 />
                 <Route
                 path="/edit/:id"

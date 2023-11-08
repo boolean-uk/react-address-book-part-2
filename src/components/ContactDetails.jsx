@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function ContactDetails() {
+export default function ContactDetails(props) {
 
   const [contact, setContact] = useState({})
+
+  const {deleteContact} = props
+  const navigate = useNavigate()
   
   const {id} = useParams()
-  console.log(id, "inside ContactDetails")
 
   const fetchContact = () => {
     const username = "AllyDouillette"
@@ -16,8 +18,8 @@ export default function ContactDetails() {
     
     fetch(baseURL + endpoint)
       .then(res => res.json()) 
-      .then(data => { console.log (data), 
-        (setContact(data))})
+      .then(data =>  
+        (setContact(data)))
   }
 
   useEffect(
@@ -29,6 +31,8 @@ export default function ContactDetails() {
       <h2>{contact.lastName + ", " + contact.firstName}</h2>
       <p>{contact.street}</p>
       <p>{contact.city}</p>
+      <button className="delete" onClick={() => {deleteContact(id)
+        navigate("/")}}>Delete</button>
     </div>
   )
 }
