@@ -2,25 +2,20 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
-
 export default function ContactDetails(props) {
 
   function ContactCardField({field}) {
+    //only fields that are not just in lowercase will be mapped
     const humanFieldnames = {
       "firstName": "First Name",
       "lastName": "Last Name",
-      "street": "Street",
-      "city": "City",
-      "id": "Added as contact #",
-      "age": "Age",
-      "pronouns": "Pronouns"
     }
+
+    const capitalize = (str) => str[0].toUpperCase() + str.slice(1)
 
     return (
       <div className="contactCard-entry">
-        <p className="label">{(!!humanFieldnames[field] ? humanFieldnames[field] : field)}</p>
+        <p className="label">{(!!humanFieldnames[field] ? humanFieldnames[field] : capitalize(field))}</p>
         <p>{(contact[field] || "unknown")}</p>
       </div>
     )
@@ -48,18 +43,9 @@ export default function ContactDetails(props) {
     fetchContact
   , [])
 
-  const fields = [
-    contact.street,
-    contact.city,
-    contact.phone
-  ]
-
-  console.log(Object.keys(contact).map(key => console.log(key)))
-
   return (
     <div className="contactCard">
-      <h2>{contact.lastName + ", " + contact.firstName}</h2>
-      <span className="pronouns">({(contact.pronouns || "unknown")})</span>
+      <h3>{contact.lastName + ", " + contact.firstName}</h3>
       {Object.keys(contact).map((field, index) => {
         const filterOutKeys = ["firstName", "lastName", "id"]
         if (filterOutKeys.includes(field) === false) {
