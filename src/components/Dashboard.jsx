@@ -24,10 +24,6 @@ export default function Dashboard(props) {
   useEffect(loadContact, [reloadingNecessary])
 
   return (
-    <>
-    <main>
-      <ContactList contacts={contacts} setReloadingNecessary={setReloadingNecessary}/>
-    </main>
-    </>
+    <ContactList contacts={contacts} setReloadingNecessary={setReloadingNecessary}/>
   )
 }
