@@ -7,7 +7,7 @@ function ContactList({ theContactData }) {
 
       <ul className="contact__list">
         {theContactData.map((person) => (
-          <li key={person.id} className="contact__list">
+          <li key={person.id} className="contact__list__people">
             <h3>
               {person.firstName} {person.lastName}
             </h3>

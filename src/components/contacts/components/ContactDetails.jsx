@@ -34,7 +34,12 @@ function ContactDetails({ theContactData, theUrl, setFetchData }) {
       <p>
         {theDisplayPerson.street} {theDisplayPerson.city}
       </p>
-      <Link to={`/update__contact/${theDisplayPerson.id}`}>Update Details</Link>
+      <button className="update__button">
+        <Link to={`/update__contact/${theDisplayPerson.id}`}>
+          Update Details
+        </Link>
+      </button>
+
       <button onClick={() => handleDelete(theDisplayPerson)}>
         Delete Contact
       </button>
