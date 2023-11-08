@@ -47,7 +47,7 @@ function UpdatedContactList({ theContactData, theUrl, setFetchData }) {
     <section>
       <h2>Update Contact List</h2>
 
-      <form className="update-contact-form" onSubmit={theHandleUpdate}>
+      <form className="update__contact__form" onSubmit={theHandleUpdate}>
         <label htmlFor="first-name">
           First Name:
           <input
