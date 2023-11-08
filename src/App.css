@@ -1,0 +1,90 @@
+:root {
+  --primary: rgb(72, 76, 182);
+  --secondary: rgba(226, 226, 246, 0.5);
+  --tertiary: rgba(226, 226, 246,  0.25);
+  --background: rgb(246, 246, 246);
+}
+
+* {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.container {
+  border: 1px lightgray solid;
+  border-radius: 20px;
+  margin: 20px;
+  display: grid;
+  height: calc(100vh - 40px); 
+  grid-template-areas: "sidebar main";
+  grid-template-columns: 1fr 2fr;
+  overflow: scroll;
+}
+
+aside {
+  grid-area: "sidebar";
+  background-color: var(--secondary);
+}
+
+main {
+  grid-area: "main";
+  border-left: 1px solid rgb(205, 205, 205) solid, grey;
+}
+
+h1, h2 {
+  margin: 20px;
+  color: var(--primary)
+}
+
+nav {
+  margin: 20px;
+}
+
+ul {
+  padding: 10px 0;
+  list-style-type: none;
+}
+
+main ul li {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+}
+
+main ul li:nth-child(odd) {
+  background-color: var(--tertiary);
+}
+
+.contactListItem {
+
+}
+
+.contactCard {
+  border: var(--background) 1px solid;
+  padding: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+button {
+  padding: 0.25em;
+  border: none;
+  background-color: var(--tertiary);
+  color: var(--primary);
+  border-radius: 5px;
+  width: 70px;
+}
+
+button:hover {
+  background-color: rgba(226, 226, 246, 1);
+}
+
+.delete {
+  color: red;
+}
+
+.delete:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+}
