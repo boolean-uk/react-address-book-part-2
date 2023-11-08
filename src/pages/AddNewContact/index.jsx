@@ -1,10 +1,10 @@
 import AddContactForm from "./components/AddContactForm";
 
-const AddNewContact = () => {
+const AddNewContact = ({ setRefresh }) => {
   return (
     <div className="new-contact container">
       <h1>Create Contact</h1>
-      <AddContactForm />
+      <AddContactForm setRefresh={setRefresh} />
     </div>
   );
 };

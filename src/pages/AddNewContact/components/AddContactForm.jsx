@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   jobTitle: "",
 };
 
-const AddContactForm = () => {
+const AddContactForm = ({ setRefresh }) => {
   const [newContact, setNewContact] = useState(INITIAL_STATE);
 
   const navigate = useNavigate();
@@ -31,6 +31,8 @@ const AddContactForm = () => {
         const form = document.getElementById("contact-form");
 
         setNewContact(INITIAL_STATE);
+        setRefresh(true);
+
         form.reset();
         navigate("/contacts");
       });

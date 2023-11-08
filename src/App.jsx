@@ -8,14 +8,18 @@ import Landing from "./pages/Landing";
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   const fetchData = () => {
     fetch("https://boolean-api-server.fly.dev/yee0802/contact/")
       .then((res) => res.json())
-      .then((data) => setContacts(data));
+      .then((data) => {
+        setContacts(data);
+        setRefresh(false);
+      });
   };
 
-  useEffect(fetchData, []);
+  useEffect(fetchData, [refresh]);
 
   return (
     <>
@@ -43,7 +47,10 @@ function App() {
       </aside>
       <Routes>
         <Route path="/" element={<Landing />}></Route>
-        <Route path="/add-new-contact" element={<AddNewContact />}></Route>
+        <Route
+          path="/add-new-contact"
+          element={<AddNewContact setRefresh={setRefresh} />}
+        ></Route>
         <Route
           path="/contacts"
           element={<ContactList contacts={contacts} />}
