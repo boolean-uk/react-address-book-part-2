@@ -4,6 +4,7 @@ import ContactList from "./ContactList"
 export default function Dashboard() {
 
   const [contacts, setContacts] = useState([])
+  const [reloadingNecessary, setReloadingNecessary] = useState(false)
 
   const loadContact = () => {
     const username = "AllyDouillette"
@@ -14,14 +15,15 @@ export default function Dashboard() {
       .then(response => response.json())
       .then(data => setContacts(data))
       .then(() => console.log("loaded", contacts))
+      .then(setReloadingNecessary(false))
   }
 
-  useEffect(loadContact, [])
+  useEffect(loadContact, [reloadingNecessary])
 
   return (
     <>
     <main>
-      <ContactList contacts={contacts}/>
+      <ContactList contacts={contacts} setReloadingNecessary={setReloadingNecessary}/>
     </main>
     </>
   )

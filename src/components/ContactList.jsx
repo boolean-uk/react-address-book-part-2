@@ -3,7 +3,7 @@ import ContactsListItem from "./ContactListItem";
 import { useEffect } from "react";
 
 export default function ContactsList(props) {
-  const { contacts } = props;
+  const { contacts, setReloadingNecessary } = props;
 
   console.log(contacts, "inside Contactlist")
 
@@ -17,6 +17,7 @@ export default function ContactsList(props) {
           <ContactsListItem
             key={index}
             contact={contact}
+            setReloadingNecessary={setReloadingNecessary}
           />
         )})}
       </ul>

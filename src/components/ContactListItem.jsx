@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function ContactsListItem(props) {
-  const { contact } = props;
+  const { contact, setReloadingNecessary } = props;
 
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export default function ContactsListItem(props) {
 
     fetch(baseURL + endpoint, options)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(() => setReloadingNecessary(true))
   }
 
   return (
