@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useEffect, useState } from "react";
-import Main from "./components/Main";
+import Main from "./components/Contacts/Main";
 import Menu from "./components/Menu";
-import Form from "./components/Form";
+import Form from "./components/Contacts/Form";
+import PersonView from "./components/PersonView";
 
 function App() {
   const [showContact, setShowContact] = useState([]);
@@ -25,8 +26,8 @@ function App() {
           <Route path="/" element={<Main contacts={showContact} />} />
           <Route
             path="/form"
-            element={<Form getContact={getContact} URL={URL} />}
-          />
+            element={<Form getContact={getContact} URL={URL} />}  />
+          <Route path="/contact/:id" element={<PersonView state={{showContact}}/>} />
         </Routes>
       </header>
     </>

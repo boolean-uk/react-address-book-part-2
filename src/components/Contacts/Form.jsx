@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 const initialState = {
   firstname: "",
   lastname: '',
@@ -8,13 +9,14 @@ const initialState = {
 function Form(props) {
   const [form, setForm] = useState(initialState)
   const {getContact, URL} = props
+  const navigate = useNavigate()
   
   const submitForm = (event) => {
     event.preventDefault();
     console.log(form)
     setForm(initialState)
     createNewcontact()
-
+    navigate('/')
   }
 
   const createNewcontact = () => {
