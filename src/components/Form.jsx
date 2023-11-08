@@ -1,19 +1,39 @@
 import {useState} from 'react'
 const initialState = {
-  firstname: '',
+  firstname: "",
   lastname: '',
   street: '',
   city: '',
 }
 function Form(props) {
   const [form, setForm] = useState(initialState)
-  const {handleSubmit} = props
+  const {getContact, URL} = props
+  
   const submitForm = (event) => {
     event.preventDefault();
     console.log(form)
     setForm(initialState)
+    createNewcontact()
 
   }
+
+  const createNewcontact = () => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          firstName: form.firstname,
+          lastName: form.lastname,
+          street: form.street,
+          city: form.city,
+        })
+    }
+    fetch(URL, options)
+    .then(res => res.json())
+    .then(() => getContact())
+}
   const handleChange = (event) => {
     const { name, type, value } = event.target;
     if (type === 'text') {
