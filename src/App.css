@@ -19,7 +19,7 @@
   height: calc(100vh - 40px); 
   grid-template-areas: "sidebar list main";
   grid-template-columns: 1fr 1fr 2fr;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .sidebar {
@@ -35,7 +35,7 @@
 .main {
   grid-area: "main";
   padding: 20px;
-  border-left: 1px solid rgb(205, 205, 205) solid;grey;
+  border-left: 1px solid rgb(205, 205, 205) solid, grey;
 }
 
 h1 {
@@ -64,6 +64,7 @@ nav ul li {
 button {
   padding: 0.25em;
   border-radius: 5px;
+  width: 70px;
 }
 
 .delete {
