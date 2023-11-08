@@ -1,7 +1,7 @@
 header{
     display: grid;
     grid-template-columns: 400px 1fr;
-  }
+}
 
 header > * {
     border: 10px solid black;
@@ -10,8 +10,12 @@ header > * {
     margin: 10px;
     text-align: center;
     font-size: 2.5rem;
+    
 }
 
 li{
     list-style: none;
 }
+
+
+

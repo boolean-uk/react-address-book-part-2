@@ -1,15 +1,18 @@
-function Form() {
+function Form(props) {
+  
+  const {handleSubmit} = props
+
   return (
-    <>
+    <div className="form" onSubmit={handleSubmit}>
       <h1>Create Contact</h1>
       <form>
         <label>
           FirstName
-          <input name="Firstname" type="text"></input>
+          <input name="firstname" type="text" ></input>
         </label>
         <label>
           LastName
-          <input name="Lastname" type="text"></input>
+          <input name="lastname" type="text"></input>
         </label>
         <label>
           Street
@@ -19,9 +22,9 @@ function Form() {
           City
           <input name="city" type="text"></input>
         </label>
-        <input className="form__submit" type="submit" value="Create" />
+        <input className="form__submit" type="submit" value="SUBMIT" />
       </form>
-    </>
+    </div>
   );
 }
 export default Form;

@@ -9,11 +9,39 @@ function App() {
 const [showContact, setShowContact] = useState([]);
 const URL = "https://boolean-api-server.fly.dev/PCapid3v/contact"
 
-useEffect(() => {
+const getContact = () => {
     fetch(URL)
     .then(res => res.json())
     .then(data => setShowContact(data))
-    }, [])
+};
+
+
+useEffect(getContact, []);
+
+const handleSubmit = (event) => {
+    event.preventDefault()
+
+    createNewcontact(event)
+
+}
+
+const createNewcontact = (event) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            firstName: event.target.value,
+            lastName: event.target.value,
+            street: event.target.value,
+            city: event.target.value
+        })
+    }
+    fetch(URL, options)
+    .then(res => res.json())
+    .then(() => getContact())
+}
 
 
 
@@ -23,7 +51,7 @@ useEffect(() => {
             <Menu></Menu>
             <Routes>
                 <Route path='/' element={<Main contacts={showContact} />} />
-                <Route path='/form' element={<Form />} />
+                <Route path='/form' element={<Form handleSubmit={handleSubmit} />} />
             </Routes>
         </header>
         </>        
