@@ -1,13 +1,28 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ContactProfile = (props) => {
   const [contact, setContact] = useState(null);
 
-  const { contacts } = props;
+  const { contacts, setRefresh } = props;
 
   const params = useParams();
   const { id } = params;
+
+  const navigate = useNavigate();
+
+  const deleteContact = () => {
+    const opts = {
+      method: "DELETE",
+    };
+
+    fetch(`https://boolean-api-server.fly.dev/yee0802/contact/${id}`, opts)
+      .then((res) => res.json())
+      .then(() => {
+        setRefresh(true);
+        navigate("/contacts");
+      });
+  };
 
   useEffect(() => {
     const currentContact = contacts.find(
@@ -35,6 +50,11 @@ const ContactProfile = (props) => {
           <p>
             <b>Email</b>: {contact.email}
           </p>
+          <div className="buttons">
+            <button className="delete-btn" onClick={deleteContact}>
+              DELETE
+            </button>
+          </div>
         </div>
       </div>
     </div>

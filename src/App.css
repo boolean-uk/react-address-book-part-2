@@ -56,6 +56,7 @@
 }
 
 /* Contacts page */
+
 .contact-list {
   overflow-y: scroll;
 }
@@ -111,6 +112,23 @@
 .contact-details > p {
   margin: 1rem 0;
   font-size: 1.4rem;
+}
+
+/* Buttons */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-btn {
+  background-color: #4663ac;
+  color: #fff;
+
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* New Contact */

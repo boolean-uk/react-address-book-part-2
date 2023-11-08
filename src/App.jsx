@@ -57,7 +57,9 @@ function App() {
         ></Route>
         <Route
           path="/contacts/:id"
-          element={<ContactProfile contacts={contacts} />}
+          element={
+            <ContactProfile contacts={contacts} setRefresh={setRefresh} />
+          }
         ></Route>
       </Routes>
     </>

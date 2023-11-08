@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ContactListItem = (props) => {
-  const { contact } = props;
-
+const ContactListItem = ({ contact }) => {
   return (
     <li className="contact">
       <p>{`${contact.firstName} ${contact.lastName}`}</p>
