@@ -1,8 +1,21 @@
 .app{
     display: grid;
-    grid-template-columns: 200px  1fr;
+    grid-template-columns: 400px  1fr;
     padding: 30px;
+}
+.app a{
+    text-decoration: none;
+    font-weight: 600px;
+    color: #596e79;
+}
+.app a:hover{
+    color: black ;
 }
 .routes{
     padding: 20px;
+}
+.app >header{
+    color: #596e79;
+    padding: 0px 20px;
+    text-decoration: none;
 }
