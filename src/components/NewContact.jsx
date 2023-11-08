@@ -40,29 +40,30 @@ function NewContact() {
                         type="text"
                         name="firstName"
                         onChange={(event) => { handleChange(event,) }} />
-                </label><br />
+                </label>
                 <label htmlFor="lastName">Last Name:
                     <input
                         value={newContact.lastName}
                         type="text"
                         name="lastName"
                         onChange={(event) => { handleChange(event) }} />
-                </label><br />
+                </label>
                 <label htmlFor="city">City:
                     <input
                         value={newContact.city}
                         type="text"
                         name="city"
                         onChange={(event) => { handleChange(event) }} />
-                </label><br />
+                </label>
                 <label htmlFor="street">Street:
                     <input
                         value={newContact.street}
                         type="text"
                         name="street"
                         onChange={(event) => { handleChange(event) }} />
-                </label><br />
+                </label>
                 <button 
+                className="add-contact-button"
                 type="submit"
                 > Add New Contact
                     </button>

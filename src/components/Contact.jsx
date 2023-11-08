@@ -20,12 +20,13 @@ function Contact() {
 
     return (
         <>
-            <div>
-                <h3>{singleContact.firstName} {singleContact.lastName}</h3>
-                <ul className="contactDetails">
-                    <li>City: {singleContact.city}</li>
-                    <li>Street: {singleContact.street}</li>
-                    </ul>
+            <div className="contact">
+                <h2>{singleContact.firstName} {singleContact.lastName}</h2>
+                <section className="contactDetails">
+                    <p><strong>City: </strong>{singleContact.city}</p>
+                    <p><strong>Street: </strong>{singleContact.street}</p>
+                    <button className="remove-contact-button">Remove Contact</button>
+                    </section>
             </div>
         </>
     )

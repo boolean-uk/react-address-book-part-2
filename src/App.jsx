@@ -9,9 +9,9 @@ function App() {
     return (
         <>
             <ul className='home-link'>
-                <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/contacts'}>Contacts</Link></li>
-                <li><Link to={'/newcontact'}>Add New Contact</Link></li>
+                <li><Link className="nav-link" to={'/'}>Home</Link></li>
+                <li><Link className="nav-link" to={'/contacts'}>Contacts</Link></li>
+                <li><Link className="nav-link" to={'/newcontact'}>Add New Contact</Link></li>
             </ul>
             <Routes>
 
