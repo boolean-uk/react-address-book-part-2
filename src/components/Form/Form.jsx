@@ -1,56 +1,95 @@
 import "./Form.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+const initial_state =  {
+    firstName: "",
+    lastName: "",
+    street:"",
+    city: "",
+}
 
 function Form (props) {
 
     const { contact, contacts, setContacts } = props;
 
+    const [form, setForm] = useState(initial_state)
+
     const navigate = useNavigate();
 
-    function handleFormSubmit (event) {
-        event.preventDefault();
-        console.log("Form submitted!");
-        //adding the new conact to the contacts array will go here
-        setContacts([...contacts, contact]);
-        //routing will also go here to return back to the dashboard or contact list page
-        navigate("/");
+    function handleFormSubmit (e) {
+        e.preventDefault();
+
+        const username = "AllyDouillette"
+        const baseURL= `https://boolean-api-server.fly.dev/${username}`
+        const endpoint = `/contact/`
+
+        const data = {
+            firstName:  e.target[0].value,
+            lastName: e.target[1].value,
+            street: e.target[2].value,
+            city: e.target[3].value,
+        }
+
+        const options = {
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify(data)
+        }
+
+        fetch(baseURL + endpoint, options)
+            .then(res => res.json())
+            .then(data => console.log("new contact added", data))
     }
 
+    // function handleChangeEvent (e) {
+
+    // }
+    
+
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={(e) => handleFormSubmit(e)}>
             <div className = "form-element">
                 <label htmlFor = "First Name">First Name:</label>
                 <input 
+                name = "firstName"
                 type = "text" 
                 placeholder = "First Name" 
-                value={contact.firstName} 
+                value={form.firstName}
+                onChange={e => setForm({...form, [e.target.name]: e.target.value})}
                 />
             </div>
             <div className = "form-element">
                 <label htmlFor = "Last Name">Last Name:</label>
                 <input 
+                name = "lastName"
                 type = "text" 
                 placeholder = "Last Name"
-                value={contact.lastName} 
+                value={form.lastName} 
+                onChange={e => setForm({...form, [e.target.name]: e.target.value})}
                 />
             </div>
             <div className = "form-element">
                 <label htmlFor = "Street">Street:</label>
                 <input 
+                name = "street"
                 type = "text" 
-                placeholder = "Email" 
-                value={contact.street}
+                placeholder = "Street" 
+                value={form.street}
+                onChange={e => setForm({...form, [e.target.name]: e.target.value})}
                 />
             </div>
             <div className = "form-element">
                 <label htmlFor = "City">City:</label>
-                <input 
+                <input
+                name = "city" 
                 type = "text" 
                 placeholder = "City"
-                value={contact.city} 
+                value={form.city} 
+                onChange={e => setForm({...form, [e.target.name]: e.target.value})}
                 />
             </div>
-            <button type = "submit">Add Contact</button>
+            <button className = "submit-button" type = "submit">Add Contact</button>
         </form>
     )
 }

@@ -23,7 +23,7 @@ form {
     padding: 10px
 }
 
-button {
+.submit-button {
     width: 200px;
     margin-left: 140px;
     padding: 10px;
