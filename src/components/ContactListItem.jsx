@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function ContactsListItem(props) {
-  const { contact, deleteContact } = props;
+  const { contact, deleteContact} = props;
 
   const navigate = useNavigate();
 

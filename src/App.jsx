@@ -41,7 +41,7 @@ function App() {
                         <Link to="/add">Add Contact</Link>
                     </li>
                 </ul>
-            </nav>
+            </nav>       
         </aside>
         <main className='main'>
             <Routes>
