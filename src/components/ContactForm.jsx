@@ -15,7 +15,6 @@ function ContactForm() {
 
   const submitFunction = (event) => {
     event.preventDefault();
-    console.log("Submit button clicked");
     navigation("/");
 
     fetch("https://boolean-api-server.fly.dev/Callumhayden99/contact", {

@@ -6,7 +6,6 @@ function ContactListItem() {
   const [contact, setContact] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
-  
 
   useEffect(() => {
     const fetchContact = async () => {
@@ -33,19 +32,20 @@ function ContactListItem() {
   }
 
   const handleGoBack = () => {
-    navigate(-1); // Use -1 to navigate back to the previous page
+    navigate(-1);
   };
 
   const remove = () => {
-    const options = {method: 'DELETE'};
+    const options = { method: "DELETE" };
 
-    fetch( `https://boolean-api-server.fly.dev/Callumhayden99/contact/${id}`, options)
-    .then (response => response.json())
-    .then(data => (data))
-     navigate('/contact/List')
-  }
-
-
+    fetch(
+      `https://boolean-api-server.fly.dev/Callumhayden99/contact/${id}`,
+      options
+    )
+      .then((response) => response.json())
+      .then((data) => data);
+    navigate("/contact/List");
+  };
 
   return (
     <>
@@ -56,8 +56,12 @@ function ContactListItem() {
         <div className="street-city">
           {contact.street} {contact.city}
         </div>
-        <button className="back-button" onClick={handleGoBack}>Back</button>
-        <button className="delete-button" onClick={remove}>Delete</button>
+        <button className="back-button" onClick={handleGoBack}>
+          Back
+        </button>
+        <button className="delete-button" onClick={remove}>
+          Delete
+        </button>
       </div>
     </>
   );
