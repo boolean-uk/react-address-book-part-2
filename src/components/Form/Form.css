@@ -1,0 +1,32 @@
+form {
+    margin: 20px;
+    padding: 20px;
+    height: max-content;
+    display: grid;
+    align-items: center;
+    justify-content: left;
+}
+
+.form-element {
+    display: grid;
+}
+
+.form-element, label {
+    font-weight: bold;
+    font-size: 18px;
+    place-items: center;
+    padding: 5px;
+}
+
+.form-element, input {
+    width: 50vw;
+    padding: 10px;
+    border-radius: 20px
+}
+
+.submit-button {
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 140px;
+    padding: 10px;
+}
