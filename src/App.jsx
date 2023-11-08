@@ -5,6 +5,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import ContactList from './components/contacts';
 import CreateContact from './components/CreateContact';
 import ContactDetails from './components/contacts/componets/ContactDetails';
+import UpdateContact from './components/UpdateContact';
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
                         </Route>
                         <Route 
                             path="/contact-list"
-                            element={<ContactList contactData={contactData} URL={URL} setShouldGetData={setShouldGetData} />}>
+                            element={<ContactList contactData={contactData} />}>
                         </Route>
                         <Route
                             path="/create-contact"
@@ -54,7 +55,12 @@ function App() {
                         </Route>
                         <Route
                             path="/contact-list/contact-details/:id"
-                            element={<ContactDetails contactData={contactData} /> }
+                            element={<ContactDetails contactData={contactData} URL={URL} setShouldGetData={setShouldGetData} /> }
+                        >
+                        </Route>
+                        <Route
+                        path='/update-contact/:id'
+                        element={<UpdateContact URL={URL} setShouldGetData={setShouldGetData} contactData={contactData} />}
                         >
                         </Route>
                     </Routes>

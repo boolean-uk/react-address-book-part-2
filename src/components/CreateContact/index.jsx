@@ -5,10 +5,10 @@ function CreateContact({ contactData, URL, setShouldGetData }) {
 
     const navigate = useNavigate()
 
-    const [firstName, setFirstName] = useState(null)
-    const [lastName, setlastName] = useState(null)
-    const [street, setStreet] = useState(null)
-    const [city, setCity] = useState(null)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setlastName] = useState('')
+    const [street, setStreet] = useState('')
+    const [city, setCity] = useState('')
 
     const newContact = {
         firstName: firstName,

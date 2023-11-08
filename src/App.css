@@ -18,14 +18,14 @@
 }
 
 /* FORM */
-.new-contact-form input, .new-contact-form label {
+form input, form label {
     display: block;
 }
 
-.new-contact-form label {
+form label {
     padding: 5px 0;
 }
 
-.new-contact-form input {
+form input {
     padding: 5px;
 }

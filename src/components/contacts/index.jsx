@@ -1,15 +1,6 @@
 import { Link } from "react-router-dom"
 
-function ContactList({ contactData, URL, setShouldGetData }) {
-
-    function handleDelete(person) {
-        const options = {
-            method: 'DELETE'
-        }
-        fetch(`${URL}/${person.id}`, options)
-        .then(res => res.json())
-        .then(() => setShouldGetData(true))
-    }
+function ContactList({ contactData }) {
 
     return (
         <div>
@@ -19,7 +10,6 @@ function ContactList({ contactData, URL, setShouldGetData }) {
                 <li key={person.id} className="contact-list-people">
                     <h3>{person.firstName} {person.lastName}</h3>
                     <p><Link to={`/contact-list/contact-details/${person.id}`}>View</Link></p>
-                    <button onClick={() => handleDelete(person)}>Delete Contact</button>
                 </li> 
                 )}
             </ul>
