@@ -56,7 +56,7 @@ function App() {
                 <Route
                 path="/view/:id"
                 element={<ContactDetails 
-                            deleteContact={deleteContact}/>}
+                        deleteContact={deleteContact}/>}
                 />
                 <Route
                 path="/edit/:id"
