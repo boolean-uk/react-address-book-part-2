@@ -39,7 +39,7 @@ function Form (props) {
 
         fetch(baseURL + endpoint, options)
             .then(res => res.json())
-            .then(data => console.log("new contact added", data))
+            .catch(error =>  console.log(error))
             .then(setReloadingNecessary(true))
             .then(navigate ("/"))
     }
