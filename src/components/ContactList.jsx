@@ -1,31 +1,24 @@
 //UNTESTED DRAFT
-
 import ContactsListItem from "./ContactListItem";
 import { useEffect } from "react";
 
 export default function ContactsList(props) {
-  const { contacts, setContacts } = props;
+  const { contacts } = props;
 
-
-//NOT TESTED - and not sure whether we want to have this here, or whether we want to add a Dashboard.jsx file and shove that on there
-const fetchCurrentContacts = () => {
-        fetch("https://boolean-api-server.fly.dev/Chloe070196/contact")
-          .then((res) => res.json)
-          .then((data) => setContacts(data));
-  };
-  
-useEffect(fetchCurrentContacts, []);
+  console.log(contacts, "inside Contactlist")
 
   return (
     <>
       <h2>Contacts List</h2>
       <ul>
-        {contacts.map((contact, index) => (
+        {contacts.map((contact, index) => {
+          console.log(contact, "inside loop")
+          return (
           <ContactsListItem
             key={index}
             contact={contact}
           />
-        ))}
+        )})}
       </ul>
     </>
   );

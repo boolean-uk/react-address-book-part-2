@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 export default function ContactsListItem(props) {
   const { contact } = props;
 
-
   const navigate = useNavigate();
 
   //That one is just a shot in the dark which I'm droppin here to be tested later, in case it actually works
@@ -20,10 +19,10 @@ export default function ContactsListItem(props) {
     <>
       <li>
         <h3>
-          {contact.firsName} + + {contact.lastName}
+          {/* {contact.firstName} + {" "} + {contact.lastName} */}
         </h3>
         {/*change line 8 based on what the routes are called in App.jsx*/}
-        <button onClick={() => navigate("/profile")}>View</button>
+        {/* <button onClick={() => navigate("/profile")}>View</button> */}
         {/* commented out as it is an extension */}
         {/* <button onClick={deleteContact}>Delete</button> */}
       </li>
