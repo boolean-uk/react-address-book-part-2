@@ -14,16 +14,16 @@
 .container {
   border: 1px lightgray solid;
   border-radius: 20px;
-  margin: 20px;
+  margin: 50px;
   display: grid;
-  height: calc(100vh - 40px); 
+  height: calc(100vh - 100px); 
   grid-template-areas: "sidebar main";
   grid-template-columns: 1fr 2fr;
   overflow: scroll;
+  box-shadow: 0px 0px 30px rgb(0,0,0,0.2);
 }
 
 aside {
-  padding: 0 20px;
   grid-area: "sidebar";
   background-color: var(--secondary);
 }
@@ -34,20 +34,24 @@ main {
 }
 
 h1, h2, h3, h4 {
-  color: var(--primary)
+  color: var(--primary);
+  margin: 20px;
 }
 
 h1 {
-  margin: 20px 0 0 0;
+  margin: 20px;
 }
 
 nav {
-  padding: 20px;
+  padding: 0 20px;
 }
 
-ul {
-  padding: 10px 0;
+nav ul {
   list-style-type: none;
+}
+
+nav ul li {
+  padding: 10px 0;
 }
 
 main ul li {
