@@ -1,13 +1,21 @@
+.dashboard__container {
+  background-color: #f1eeee;
+  height: 100%;
+  min-height: 100vh;
+
+  padding-bottom: 3rem;
+}
+
+.filter__section button {
+  padding: 8px;
+  border-radius: 8px;
+  height: min-content;
+}
+
 .filter__section {
   position: absolute;
   display: flex;
   padding: 8px;
-}
-
-.filter__button {
-  padding: 8px;
-  border-radius: 8px;
-  height: min-content;
 }
 
 #filter__list {
@@ -21,6 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  padding: 8px;
 }
 
 .filter__option,
@@ -41,14 +50,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3rem;
 
+  margin-top: 8px;
   gap: 8px;
-
-  background-color: #F1EEEE;
 }
 
-.contact__list__item {
+.dashboard__recent__contact__container {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard__recent__contact__container .center-text {
+  text-align: center;
+}
+
+.contact__list__item__icon__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 8px;
+  gap: 8px;
+}
+
+.contact__list__item,
+.dashboard__recent__contact {
   display: flex;
   align-items: center;
 
@@ -57,15 +83,51 @@
 
   border-radius: 50px;
 
+  width: calc(100vw - 8rem);
+  max-width: 500px;
+
   box-shadow: 2px 4px 4px gray;
 
   color: #8152dc;
   background-color: white;
 }
 
-.contact__list__item:hover {
+.dashboard__recent__contact {
+  display: flex;
+  margin-top: 3rem;
+  width: calc(100vw - 12rem);
+  max-width: 400px;
+
+  gap: 0;
+  padding: 0;
+
+  border-radius: 8px;
+}
+
+.dashboard__recent__contact__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 8px;
+  border-radius: 0 8px 8px 0;
+
   color: white;
   background-color: #8152dc;
+  height: 100%;
+  width: 100%;
+}
+
+.contact__list__item:hover,
+.dashboard__recent__contact:hover {
+  color: white;
+  background-color: #8152dc;
+}
+
+.dashboard__recent__contact:hover
+.dashboard__recent__contact__details {
+  color:#8152dc;
+  background-color: white;
 }
 
 .contact__list__item__icon {

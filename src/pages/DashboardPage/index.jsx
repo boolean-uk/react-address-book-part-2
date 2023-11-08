@@ -7,6 +7,7 @@ import ContactList from "./components/ContactList";
 import ContactListFilter from "./components/ContactListFilter";
 
 import "./style.css";
+import RecentContact from "./components/RecentContact";
 
 const DashboardPage = () => {
   const [allContacts, setAllContacts] = useState([]);
@@ -29,15 +30,16 @@ const DashboardPage = () => {
   }, [contactFilterType, allContacts]);
 
   return (
-    <>
+    <div className="dashboard__container">
       <MainHeader />
       <ContactListFilter
         allContacts={allContacts}
         contactFilterType={contactFilterType}
         setContactFilterType={setContactFilterType}
       />
+      <RecentContact />
       <ContactList contacts={filteredContacts} />
-    </>
+    </div>
   );
 };
 
