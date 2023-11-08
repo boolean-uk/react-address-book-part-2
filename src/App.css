@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 375.75px 1fr;
+}
+
+/* Menu */
+
+.menu {
+  background-color: #4663ac;
+}
+
+.menu > h1 {
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #c8d9ed;
+}
+
+.menu > nav {
+  padding: 1rem 1.5rem;
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
+}
+
+.link {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.link:hover {
+  font-size: 1.6rem;
+  transition: all 150ms ease-in;
+}
+
+/* Pages */
+
+.container {
+  background-color: #c8d9ed;
+}
+
+.container > h1 {
+  text-align: center;
+  color: #4663ac;
+  border-bottom: 2px solid #4663ac;
+}
+
+/* Contacts page */
+
+.contact-list {
+  overflow-y: scroll;
+}
+
+.contact-list > h1 {
+  background-color: #c8d9ed;
+  position: fixed;
+  width: calc(100% - 392.75px);
+  z-index: 999;
+}
+
+.contact-list > ul {
+  margin-top: 77px;
+  padding: 0.5rem 1rem;
+  list-style: none;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1rem 0.5rem;
+  margin: 0.2rem 0;
+  border: 2px solid #4663ac;
+}
+
+.contact > p {
+  font-weight: bold;
+}
+
+/* Contact Profile */
+
+.contact-profile {
+  display: grid;
+  grid-template-rows: 77px 1fr;
+}
+
+.contact-profile > h1 {
+  text-align: center;
+  border-bottom: 2px solid #4663ac;
+}
+
+.contact-details-container {
+  display: grid;
+  place-items: center;
+}
+
+.contact-details {
+  padding: 4rem 3rem;
+  border: 2px solid #4663ac;
+}
+
+.contact-details > p {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+}
+
+/* Buttons */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 100px;
+}
+
+.btn {
+  background-color: #4663ac;
+  color: #fff;
+
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* New Contact */
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 1rem;
+}
+
+#contact-form > label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+#contact-form input {
+  width: 100%;
+  height: 25px;
+}
+
+#contact-form > button {
+  border: none;
+  border-radius: 10px;
+  background-color: #4663ac;
+
+  cursor: pointer;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+#contact-form > button:hover {
+  background-color: #4663ac80;
+  transition: all 100ms ease-in;
+}
+
+/* Shared */
+
+.menu > h1,
+.link {
+  color: azure;
+}
+
+.container > h1,
+.menu > h1,
+.contact-profile > h1 {
+  padding: 1rem;
+}
