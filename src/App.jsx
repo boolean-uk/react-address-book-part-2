@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Main from './components/Main';
@@ -18,7 +18,11 @@ useEffect(() => {
     return (
         <>
         <header>
-            <p>Hello World!</p>
+            <div className="menu">
+            <h1>Contact List</h1>
+            <Link to="/">Contact List</Link> <br />
+            <Link to="/form">Add New Contact</Link>
+            </div>
             <Routes>
                 <Route path='/' element={<Main contacts={showContact} />} />
             </Routes>

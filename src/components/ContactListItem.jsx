@@ -3,7 +3,7 @@ export default function ContactListItem(props) {
     console.log(contact);
     return (
         <li className="contact-list-item">
-            <h3>{contact.firstName}</h3>
+            <h3>{contact.firstName}  {contact.lastName}</h3>
         </li>);
 
     }
