@@ -15,7 +15,7 @@ function App() {
     const [reloadingNecessary, setReloadingNecessary] = useState(false)
     
     return (
-    <main className='container'>
+    <div className='container'>
         <aside className='sidebar'>
             <h1>My best friends</h1>
             <nav>
@@ -29,10 +29,7 @@ function App() {
                 </ul>
             </nav>
         </aside>
-        <div className='list'>
-            LIST
-        </div>
-        <div className='main'>
+        <main className='main'>
             <Routes>
                 <Route
                 path="/"
@@ -60,8 +57,8 @@ function App() {
                     />}
                 />
             </Routes>
-        </div>
-    </main>
+        </main>
+    </div>
     );
 }
 

@@ -17,22 +17,18 @@
   margin: 20px;
   display: grid;
   height: calc(100vh - 40px); 
-  grid-template-areas: "sidebar list main";
+  grid-template-areas: "sidebar main";
   grid-template-columns: 1fr 1fr 2fr;
   overflow: scroll;
 }
 
-.sidebar {
+aside {
   grid-area: "sidebar";
   background-color: var(--secondary);
   padding: 20px;
 }
 
-.list {
-  grid-area: "list";
-}
-
-.main {
+main {
   grid-area: "main";
   padding: 20px;
   border-left: 1px solid rgb(205, 205, 205) solid, grey;
@@ -42,12 +38,12 @@ h1 {
   color: var(--primary)
 }
 
-nav ul {
+ul {
   padding: 10px 0;
   list-style-type: none;
 }
 
-nav ul li {
+ul li {
   padding: 10px 0;
 }
 
