@@ -1,0 +1,14 @@
+.contact-box{
+    display: grid;
+    justify-content: space-between;
+    grid-auto-flow: column;
+    padding: 10px 30px;
+    border: 1px solid white;
+    margin-bottom: 5px;
+   
+}
+
+.contact-box > p{
+    font-family: sans-serif;
+    font-size: 1.5rem;
+}
