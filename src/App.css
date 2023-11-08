@@ -26,7 +26,6 @@
 aside {
   grid-area: "sidebar";
   background-color: var(--secondary);
-  padding: 20px;
 }
 
 main {
@@ -35,8 +34,12 @@ main {
 }
 
 h1, h2 {
-  padding: 20px;
+  margin: 20px;
   color: var(--primary)
+}
+
+nav {
+  margin: 20px;
 }
 
 ul {
@@ -74,8 +77,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--primary);
-  color: white;
+  background-color: rgba(226, 226, 246, 1);
 }
 
 .delete {
