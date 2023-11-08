@@ -3,7 +3,7 @@ import { useState } from "react";
 import { formStructure } from "../../../data/formStructure";
 import FilterOptionGroup from "./FilterOptionGroup";
 
-const ContactListFilter = ({ allContacts }) => {
+const ContactListFilter = ({ allContacts, contactFilterType ,setContactFilterType }) => {
   const [showFilter, setShowFilter] = useState(false);
   const [selectedOptionGroup, setSelectedOptionGroup] = useState(null);
 
@@ -14,19 +14,43 @@ const ContactListFilter = ({ allContacts }) => {
     return { ...entry, values: values };
   });
   return (
-    <section>
-      <button onClick={() => setShowFilter(!showFilter)}>Filter</button>
-      {showFilter && (
-        <div name="dashboard-filter" id="dashboard-filter">
-          {options.map((option) => (
-            <FilterOptionGroup
-              option={option}
-              selectedOptionGroup={selectedOptionGroup}
-              setSelectedOptionGroup={setSelectedOptionGroup}
-            />
-          ))}
-        </div>
-      )}
+    <section className="filter__section">
+      <button
+        className="filter__button"
+        onClick={() => setShowFilter(!showFilter)}
+      >
+        Filter
+      </button>
+      {contactFilterType ? <button onClick={() => setContactFilterType(null)}>Clear Filter</button> : null}
+      <div className="filter__group__select" >
+        {options.map(
+          (option) =>
+            showFilter && (
+              <div
+                className="filter__option__title"
+                onMouseEnter={() => setSelectedOptionGroup(option.name)}
+              >
+                {option.title}
+              </div>
+            )
+        )}
+      </div>
+
+      <div className="filter__list__container">
+        {showFilter && (
+          <div name="filter__list" id="filter__list">
+            {options.map((option) => (
+              <FilterOptionGroup
+                option={option}
+                selectedOptionGroup={selectedOptionGroup}
+                setContactFilterType={setContactFilterType}
+                setShowFilter={setShowFilter}
+                setSelectedOptionGroup={setSelectedOptionGroup}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 };

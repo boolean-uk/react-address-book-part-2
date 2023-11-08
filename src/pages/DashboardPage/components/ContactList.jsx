@@ -1,9 +1,9 @@
 import ContactListItem from "./ContactListItem";
 
-const ContactList = ({ allContacts }) => {
+const ContactList = ({ contacts }) => {
   return (
-    <ul>
-      {allContacts.map((contact, index) => (
+    <ul className="contact__list">
+      {contacts.map((contact, index) => (
         <ContactListItem key={`contactList-${index}`} contact={contact} />
       ))}
     </ul>

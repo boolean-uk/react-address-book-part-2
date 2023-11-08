@@ -51,14 +51,14 @@ export const formStructure = [
     {
         type: "number",
         required: false,
-        title: "Your Latitude",
+        title: "Latitude",
         name: "latitude",
         placeholder: "Enter latitude...",
     },
     {
         type: "number",
         required: false,
-        title: "Your Longitude",
+        title: "Longitude",
         name: "longitude",
         placeholder: "Enter longitude...",
     },

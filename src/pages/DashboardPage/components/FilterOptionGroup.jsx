@@ -1,15 +1,32 @@
-import { useState } from "react"
+import { useState } from "react";
 
-import FilterOption from "./FilterOption"
+import FilterOption from "./FilterOption";
 
-const FilterOptionGroup = ({option, selectedOptionGroup, setSelectedOptionGroup}) => {
-  console.log('option', option)
-
+const FilterOptionGroup = ({
+  option,
+  selectedOptionGroup,
+  setContactFilterType,
+  setShowFilter,
+  setSelectedOptionGroup,
+}) => {
   return (
-    <optgroup label={option.title} onMouseEnter={() => setSelectedOptionGroup(option.name)}>
-      {option.values.map(value => <FilterOption value = {value} option={option} selectedOptionGroup={selectedOptionGroup}/>)}
-    </optgroup>
-  )
-}
+    <>
+      {selectedOptionGroup === option.name && (
+        <optgroup className={`filter__option__group`} label={option.title}>
+          {option.values.map((value) => (
+            <FilterOption
+              value={value}
+              option={option}
+              selectedOptionGroup={selectedOptionGroup}
+              setSelectedOptionGroup={setSelectedOptionGroup}
+              setContactFilterType={setContactFilterType}
+              setShowFilter={setShowFilter}
+            />
+          ))}
+        </optgroup>
+      )}
+    </>
+  );
+};
 
-export default FilterOptionGroup
+export default FilterOptionGroup;
