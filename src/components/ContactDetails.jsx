@@ -24,7 +24,7 @@ export default function ContactDetails(props) {
 
   useEffect(
     fetchContact
-  , [])
+  , [contact])
 
   return (
     <div className="contactCard">
@@ -33,6 +33,7 @@ export default function ContactDetails(props) {
       <p>{contact.city}</p>
       <button className="delete" onClick={() => {deleteContact(id)
         navigate("/")}}>Delete</button>
+      <button className="edit" onClick={() => {navigate(`/edit/${id}`)}}>Edit</button>
     </div>
   )
 }
