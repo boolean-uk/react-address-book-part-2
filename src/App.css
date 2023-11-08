@@ -1,6 +1,7 @@
 :root {
   --primary: rgb(72, 76, 182);
-  --secondary: rgb(226, 226, 246);
+  --secondary: rgba(226, 226, 246, 0.5);
+  --tertiary: rgba(226, 226, 246,  0.25);
   --background: rgb(246, 246, 246);
 }
 
@@ -18,7 +19,7 @@
   display: grid;
   height: calc(100vh - 40px); 
   grid-template-areas: "sidebar main";
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
   overflow: scroll;
 }
 
@@ -30,11 +31,11 @@ aside {
 
 main {
   grid-area: "main";
-  padding: 20px;
   border-left: 1px solid rgb(205, 205, 205) solid, grey;
 }
 
-h1 {
+h1, h2 {
+  padding: 20px;
   color: var(--primary)
 }
 
@@ -43,8 +44,14 @@ ul {
   list-style-type: none;
 }
 
-ul li {
-  padding: 10px 0;
+main ul li {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr;
+}
+
+main ul li:nth-child(odd) {
+  background-color: var(--tertiary);
 }
 
 .contactListItem {
@@ -59,11 +66,23 @@ ul li {
 
 button {
   padding: 0.25em;
+  border: none;
+  background-color: var(--tertiary);
+  color: var(--primary);
   border-radius: 5px;
   width: 70px;
+}
+
+button:hover {
+  background-color: var(--primary);
+  color: white;
 }
 
 .delete {
   color: red;
 }
 
+.delete:hover {
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+}
