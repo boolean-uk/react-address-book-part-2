@@ -58,7 +58,7 @@ export default function UpdateProfile({ setRefresh }) {
   ];
 
   return (
-    <div className="new-contact container">
+    <div className="update-contact container">
       <h1>Update Contact</h1>
       <form id="contact-form" onSubmit={updateContact}>
         {options.map((option, idx) => (
