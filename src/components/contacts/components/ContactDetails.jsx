@@ -1,28 +1,43 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
-function ContactDetails({ contactData }) {
-  const [displayPerson, setDisplayPerson] = useState(null);
+function ContactDetails({ theContactData, theUrl, setFetchData }) {
+  const [theDisplayPerson, setTheDisplayPerson] = useState(null);
+  const navigator = useNavigate();
 
   const { id } = useParams();
   useEffect(() => {
-    if (id && contactData) {
-      setDisplayPerson(
-        contactData.find((person) => Number(person.id) === Number(id))
+    if (id && theContactData) {
+      setTheDisplayPerson(
+        theContactData.find((person) => Number(person.id) === Number(id))
       );
     }
-  }, [id, contactData]);
+  }, [id, theContactData]);
 
-  if (!displayPerson) return <p>Loading...</p>;
+  function handleDelete(theDisplayPerson) {
+    const options = {
+      method: "DELETE",
+    };
+    fetch(`${theUrl}/${theDisplayPerson.id}`, options)
+      .then((response) => response.json())
+      .then(() => setFetchData(true));
+    navigator("/");
+  }
+
+  if (!theDisplayPerson) return <p>Loading...</p>;
   return (
     <section>
       <h2>Contact Information</h2>
       <h3>
-        {displayPerson.firstName} {displayPerson.lastName}
+        {theDisplayPerson.firstName} {theDisplayPerson.lastName}
       </h3>
       <p>
-        {displayPerson.street} {displayPerson.city}
+        {theDisplayPerson.street} {theDisplayPerson.city}
       </p>
+      <Link to={`/update__contact/${theDisplayPerson.id}`}>Update Details</Link>
+      <button onClick={() => handleDelete(theDisplayPerson)}>
+        Delete Contact
+      </button>
     </section>
   );
 }

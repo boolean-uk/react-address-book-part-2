@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 
-function ContactList({ contactData }) {
+function ContactList({ theContactData }) {
   return (
     <div>
       <h2>Contacts</h2>
 
-      <ul className="contact-list">
-        {contactData.map((person) => (
-          <li key={person.id} className="contact-list-people">
+      <ul className="contact__list">
+        {theContactData.map((person) => (
+          <li key={person.id} className="contact__list">
             <h3>
               {person.firstName} {person.lastName}
             </h3>
 
             <p>
-              <Link to={`/contact-list/contact-details/${person.id}`}>
+              <Link to={`/contact__list/contact__details/${person.id}`}>
                 View
               </Link>
             </p>
