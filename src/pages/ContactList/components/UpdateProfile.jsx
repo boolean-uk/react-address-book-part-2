@@ -70,6 +70,7 @@ export default function UpdateProfile({ setRefresh }) {
               name={option}
               value={updatedContact.option}
               onChange={(e) => handleChange(e)}
+              required
             />
           </label>
         ))}

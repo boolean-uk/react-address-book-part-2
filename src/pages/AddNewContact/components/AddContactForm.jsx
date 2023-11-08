@@ -65,6 +65,7 @@ const AddContactForm = ({ setRefresh }) => {
             name={option}
             value={newContact.option}
             onChange={(e) => handleChange(e)}
+            required
           />
         </label>
       ))}
