@@ -1,14 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateContact() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/Contact-List");
+  };
   return (
     <section className="form-section">
       <h2>Create New Contact</h2>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="first-Name">
           First Name :
           <input

@@ -1,4 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 import ContactList from "./components/Menu/Contact/ContactList";
@@ -6,29 +7,16 @@ import CreateContact from "./components/Menu/CreateContact/CreateContact";
 import ContactListItem from "./components/Menu/Contact/ContactListItem";
 import Home from "./components/Menu/Home/Home";
 function App() {
-  const data = [
-    {
-      firstName: "Hallie",
-      lastName: "Mertz",
-      street: "Wilkinson Forks",
-      city: "Arturotown",
-      id: 1,
-    },
-    {
-      firstName: "Josiane",
-      lastName: "Ernser",
-      street: "Brakus Island",
-      city: "Annamarieland",
-      id: 2,
-    },
-    {
-      firstName: "Madonna",
-      lastName: "Walker",
-      street: "Witting Loaf",
-      city: "Lake Lorenza",
-      id: 3,
-    },
-  ];
+  const [contact, setContact] = useState([]);
+
+  const root = "https://boolean-api-server.fly.dev/aayushlama4008/contact";
+  const fetchContact = () => {
+    fetch(root)
+      .then((response) => response.json())
+      .then((data) => setContact(data));
+  };
+  console.log(contact);
+  useEffect(fetchContact, []);
 
   return (
     <>
@@ -46,11 +34,11 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route
               path="/Contact-List"
-              element={<ContactList data={data} />}
+              element={<ContactList data={contact} />}
             ></Route>
             <Route
               path="/Contact-List/Contact-List-Item/:id"
-              element={<ContactListItem data={data} />}
+              element={<ContactListItem data={contact} />}
             ></Route>
             <Route
               path="/Create-New-Contact"
