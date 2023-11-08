@@ -3,8 +3,33 @@ import "./App.css";
 
 import ContactList from "./components/Menu/Contact/ContactList";
 import CreateContact from "./components/Menu/CreateContact/CreateContact";
+import ContactListItem from "./components/Menu/Contact/ContactListItem";
 import Home from "./components/Menu/Home/Home";
 function App() {
+  const data = [
+    {
+      firstName: "Hallie",
+      lastName: "Mertz",
+      street: "Wilkinson Forks",
+      city: "Arturotown",
+      id: 1,
+    },
+    {
+      firstName: "Josiane",
+      lastName: "Ernser",
+      street: "Brakus Island",
+      city: "Annamarieland",
+      id: 2,
+    },
+    {
+      firstName: "Madonna",
+      lastName: "Walker",
+      street: "Witting Loaf",
+      city: "Lake Lorenza",
+      id: 3,
+    },
+  ];
+
   return (
     <>
       <div className="app">
@@ -18,11 +43,14 @@ function App() {
         </header>
         <div className="routes">
           <Routes>
-            <Route path="/" element={<Home/>}
+            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/Contact-List"
+              element={<ContactList data={data} />}
             ></Route>
-            <Route 
-            path="/Contact-List" 
-            element={<ContactList />}
+            <Route
+              path="/Contact-List/Contact-List-Item/:id"
+              element={<ContactListItem data={data} />}
             ></Route>
             <Route
               path="/Create-New-Contact"

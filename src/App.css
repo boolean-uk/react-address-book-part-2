@@ -19,3 +19,25 @@
     padding: 0px 20px;
     text-decoration: none;
 }
+.contact-list li{
+    list-style-type: none;
+}
+.form input{
+    display: block;
+    
+}
+.form label{
+    color: #596e79;
+}
+.form-section h2{
+  color: #596e79;
+}
+.form button{
+    display: grid;
+    background-color:#596e79;
+    padding: 8px;
+    border-radius: 20px;
+    border-style: none;
+    color: #f0ece2;
+    
+}
