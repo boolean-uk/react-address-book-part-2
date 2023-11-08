@@ -5,6 +5,7 @@ import ContactList from "./pages/ContactList";
 import AddNewContact from "./pages/AddNewContact";
 import ContactProfile from "./pages/ContactList/components/ContactProfile";
 import Landing from "./pages/Landing";
+import UpdateProfile from "./pages/ContactList/components/UpdateProfile";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -60,6 +61,10 @@ function App() {
           element={
             <ContactProfile contacts={contacts} setRefresh={setRefresh} />
           }
+        ></Route>
+        <Route
+          path="/contacts/:id/update-contact"
+          element={<UpdateProfile setRefresh={setRefresh} />}
         ></Route>
       </Routes>
     </>

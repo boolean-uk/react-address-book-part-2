@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const ContactProfile = (props) => {
   const [contact, setContact] = useState(null);
@@ -51,8 +51,13 @@ const ContactProfile = (props) => {
             <b>Email</b>: {contact.email}
           </p>
           <div className="buttons">
-            <button className="delete-btn" onClick={deleteContact}>
+            <button className="delete btn" onClick={deleteContact}>
               DELETE
+            </button>
+            <button className="btn">
+              <Link className="update" to={`/contacts/${id}/update-contact`}>
+                UPDATE
+              </Link>
             </button>
           </div>
         </div>
