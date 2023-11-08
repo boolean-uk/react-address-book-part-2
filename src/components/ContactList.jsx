@@ -12,7 +12,7 @@ export default function ContactsList(props) {
       <h2>Contacts List</h2>
       <ul>
         {contacts.map((contact, index) => {
-          console.log(contact, "inside loop")
+          // console.log(contact, "inside loop")
           return (
           <ContactsListItem
             key={index}
