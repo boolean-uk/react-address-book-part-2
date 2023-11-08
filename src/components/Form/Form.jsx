@@ -11,7 +11,7 @@ const initial_state =  {
 
 function Form (props) {
 
-    const { contact, contacts, setContacts } = props;
+    const { contact, contacts, setContacts, setReloadingNecessary } = props;
 
     const [form, setForm] = useState(initial_state)
 
@@ -40,12 +40,10 @@ function Form (props) {
         fetch(baseURL + endpoint, options)
             .then(res => res.json())
             .then(data => console.log("new contact added", data))
+            .then(setReloadingNecessary(true))
+            .then(navigate ("/"))
     }
 
-    // function handleChangeEvent (e) {
-
-    // }
-    
 
     return (
         <form onSubmit={(e) => handleFormSubmit(e)}>

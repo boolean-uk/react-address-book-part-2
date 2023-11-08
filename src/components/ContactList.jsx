@@ -6,6 +6,7 @@ export default function ContactsList(props) {
   const { contacts, setReloadingNecessary } = props;
 
   console.log(contacts, "inside Contactlist")
+  console.log("is reloading inside contactLI?", setReloadingNecessary)
 
   return (
     <>

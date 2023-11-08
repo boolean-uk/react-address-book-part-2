@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react"
 import ContactList from "./ContactList"
 
-export default function Dashboard() {
+export default function Dashboard(props) {
+
+  const { reloadingNecessary, setReloadingNecessary } = props
 
   const [contacts, setContacts] = useState([])
-  const [reloadingNecessary, setReloadingNecessary] = useState(false)
+  
+  console.log("isreloading?", setReloadingNecessary)
 
   const loadContact = () => {
     const username = "AllyDouillette"

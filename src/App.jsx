@@ -7,8 +7,13 @@ import ContactDetails from './components/ContactDetails';
 import EditContact from './components/EditContact';
 import AddContact from './components/AddContact';
 import Dashboard from './components/Dashboard';
+import { useState } from 'react';
+
 
 function App() {
+    
+    const [reloadingNecessary, setReloadingNecessary] = useState(false)
+    
     return (
     <main className='container'>
         <aside className='sidebar'>
@@ -31,7 +36,10 @@ function App() {
             <Routes>
                 <Route
                 path="/"
-                element={<Dashboard />}
+                element={<Dashboard 
+                    setReloadingNecessary={setReloadingNecessary}
+                    reloadingNecessary={reloadingNecessary}
+                    />}
                 />
                 <Route
                 path="/view/:id"
@@ -39,11 +47,17 @@ function App() {
                 />
                 <Route
                 path="/edit/:id"
-                element={<EditContact />}
+                element={<EditContact 
+                    setReloadingNecessary={setReloadingNecessary}
+                    reloadingNecessary={reloadingNecessary}
+                    />}
                 />
                 <Route
                 path="/add"
-                element={<AddContact />}
+                element={<AddContact 
+                    setReloadingNecessary={setReloadingNecessary}
+                    reloadingNecessary={reloadingNecessary}
+                    />}
                 />
             </Routes>
         </div>
