@@ -36,6 +36,15 @@ function ContactListItem() {
     navigate(-1); // Use -1 to navigate back to the previous page
   };
 
+  const remove = () => {
+    const options = {method: 'DELETE'};
+
+    fetch( `https://boolean-api-server.fly.dev/Callumhayden99/contact/${id}`, options)
+    .then (response => response.json())
+    .then(data => (data))
+     navigate('/contact/List')
+  }
+
 
 
   return (
@@ -48,6 +57,7 @@ function ContactListItem() {
           {contact.street} {contact.city}
         </div>
         <button className="back-button" onClick={handleGoBack}>Back</button>
+        <button className="delete-button" onClick={remove}>Delete</button>
       </div>
     </>
   );
