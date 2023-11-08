@@ -1,4 +1,4 @@
-import ContactList from "../contacts"
+import ContactList from "../contacts/Index"
 
 function Dashboard({ contactData }) {
 
