@@ -5,9 +5,37 @@ import ContactItem from './components/ContactItem'
 
 import './App.css';
 import Menu from './components/Menu';
+import { useEffect, useState } from 'react';
+
+const api = 'https://boolean-api-server.fly.dev/radio58/contact'
+
+const INITIAL_STATE =  {
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: "",
+    gender: "",
+    email: "",
+    jobTitle: "",
+    latitude: 0,
+    longitude: 0
+}
 
 function App() {
-    
+    const [ contactList, setContacts ] = useState(INITIAL_STATE)
+
+    const getContacts = () => {
+        fetch(api)
+            .then((res) => res.json())
+            .then((data) => {
+                setContacts(data)
+            })
+    }
+
+    useEffect(getContacts, [])
+
+    console.log(contactList)
+
     return (
         <>
         <Menu/>
