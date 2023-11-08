@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { get } from "../ultity/client"
+import { URL, remove } from "../ultity/client"
 
 
 
@@ -11,10 +12,15 @@ function Contact() {
     const { id } = useParams()
     
     console.log(singleContact)
+    const navigate = useNavigate()
 
+    const handleRemove = () => {
+        remove(`${URL}/${id}`)
+        .then(navigate("/contacts"))
+    }
 
     useEffect(()=> {
-        get(`https://boolean-api-server.fly.dev/PeachyOmnivore/contact/${id}`)
+        get(`${URL}/${id}`)
         .then(data => setSingleContact(data))
     },[])
 
@@ -25,7 +31,9 @@ function Contact() {
                 <section className="contactDetails">
                     <p><strong>City: </strong>{singleContact.city}</p>
                     <p><strong>Street: </strong>{singleContact.street}</p>
-                    <button className="remove-contact-button">Remove Contact</button>
+                    <button 
+                    className="remove-contact-button"
+                    onClick={handleRemove}>Remove Contact</button>
                     </section>
             </div>
         </>
