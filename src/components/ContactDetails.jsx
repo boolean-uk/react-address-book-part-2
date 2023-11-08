@@ -2,9 +2,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
-
 export default function ContactDetails(props) {
 
   function ContactCardField({field}) {
@@ -48,7 +45,7 @@ export default function ContactDetails(props) {
 
   return (
     <div className="contactCard">
-      <h2>{contact.lastName + ", " + contact.firstName}</h2>
+      <h3>{contact.lastName + ", " + contact.firstName}</h3>
       {Object.keys(contact).map((field, index) => {
         const filterOutKeys = ["firstName", "lastName", "id"]
         if (filterOutKeys.includes(field) === false) {
