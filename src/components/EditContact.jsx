@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Form from "./Form/Form"
 
 export default function EditContact() {
     
   const {id} = useParams()
   const [contact, setContact] = useState({})
+  const [form, setForm] = useState({})
 
   const fetchContact = () => {
     const username = "AllyDouillette"
@@ -14,12 +14,14 @@ export default function EditContact() {
     
     fetch(baseURL + endpoint)
       .then(res => res.json()) 
-      .then(data =>  
-        (setContact(data)))
+      .then(data => {
+        setContact(data)
+        setForm(data)})
   }
 
   useEffect(fetchContact, [])
   
+
   function FormField (props) {
     const {name, value, type} = props
 
@@ -27,19 +29,23 @@ export default function EditContact() {
         <div className="form-element">
             <label htmlFor={name}>{name}</label>
             <input
-            name = {name} 
-            type = {type} 
-            placeholder = {name}
+            name = {name}
+            type = {type}
+            placeholder={name}
             value={value}
-            onChange={e => setContact({...contact, [e.target.name]: e.target.value})}
+            onChange={e => {
+              console.log(e.target.name, e.target.value)
+              setForm({...form, [e.target.name]: e.target.value})
+            }}
             />
         </div>
     )
   }
 
   return(
-    <>
-    {Object.keys(contact).map((key, index) => <FormField key={index} name={key} value={contact[key]} type="text" />)}
-    </>
+    <form onSubmit={(e) => console.log("submit", e.target[0].value)}>
+      {Object.keys(contact).map((key, index) => <FormField key={index} name={key} value={contact[key]} type="text" />)}
+      <button className = "submit-button" type = "submit">Update Contact</button>
+    </form>
   )
 }
