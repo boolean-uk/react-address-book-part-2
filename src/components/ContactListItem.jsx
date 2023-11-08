@@ -32,7 +32,7 @@ export default function ContactsListItem(props) {
         {/*change line 8 based on what the routes are called in App.jsx*/}
         <button onClick={() => navigate("/profile")}>View</button>
         {/* commented out as it is an extension */}
-        <button onClick={deleteContact}>Delete</button>
+        <button className="delete" onClick={deleteContact}>Delete</button>
       </li>
     </>
   );
