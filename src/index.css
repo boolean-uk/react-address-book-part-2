@@ -12,11 +12,23 @@ body {
       monospace;
   }
 
+  .home_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+
+  }
+
+  .home_grid h1 {
+    padding-left: 60px;
+  }
+
   .home-link{
     display: grid;
     place-items: center;
     justify-content: center;
     gap: 20px;
+    margin-right: 100px;
     grid-template-columns: repeat(3, 150px);
   }
 

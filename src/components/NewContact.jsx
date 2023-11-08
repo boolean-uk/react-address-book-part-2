@@ -23,7 +23,7 @@ function NewContact() {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        post("https://boolean-api-server.fly.dev/PeachyOmnivore/contact", newContact)
+        post(`${URL}`, newContact)
         .then((res)=> res.json())
         .then(get(URL))
         .then(navigate("/contacts"))
@@ -39,7 +39,7 @@ function NewContact() {
                         value={newContact.firstName}
                         type="text"
                         name="firstName"
-                        onChange={(event) => { handleChange(event) }} />
+                        onChange={(event) => { handleChange(event,) }} />
                 </label><br />
                 <label htmlFor="lastName">Last Name:
                     <input
