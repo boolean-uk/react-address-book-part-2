@@ -2,6 +2,8 @@ import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Main from './components/Main';
+import Menu from './components/Menu';
+import Form from './components/Form';
 
 function App() {
 const [showContact, setShowContact] = useState([]);
@@ -18,13 +20,10 @@ useEffect(() => {
     return (
         <>
         <header>
-            <div className="menu">
-            <h1>Contact List</h1>
-            <Link to="/">Contact List</Link> <br />
-            <Link to="/form">Add New Contact</Link>
-            </div>
+            <Menu></Menu>
             <Routes>
                 <Route path='/' element={<Main contacts={showContact} />} />
+                <Route path='/form' element={<Form />} />
             </Routes>
         </header>
         </>        
