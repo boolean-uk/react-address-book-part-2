@@ -19,7 +19,7 @@ export default function ContactsListItem(props) {
     <>
       <li>
         <h3>
-          {/* {contact.firstName} + {" "} + {contact.lastName} */}
+          {contact.firstName + " " + contact.lastName}
         </h3>
         {/*change line 8 based on what the routes are called in App.jsx*/}
         {/* <button onClick={() => navigate("/profile")}>View</button> */}

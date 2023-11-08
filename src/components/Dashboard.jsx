@@ -3,7 +3,7 @@ import ContactList from "./ContactList"
 
 export default function Dashboard() {
 
-  const [contacts, setContacts] = useState(null)
+  const [contacts, setContacts] = useState([])
 
   const loadContact = () => {
     const username = "AllyDouillette"
