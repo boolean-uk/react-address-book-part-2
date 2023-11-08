@@ -88,6 +88,13 @@ a{
     background-color: white;
 }
 
+.back-button{
+    margin: 20px 40px -10px 40px;
+    padding: 5px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .street-city{
     background-color: white;

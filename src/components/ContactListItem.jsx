@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function ContactListItem() {
   const [contact, setContact] = useState([]);
+  const navigate = useNavigate();
   const { id } = useParams();
+  
 
   useEffect(() => {
     const fetchContact = async () => {
@@ -29,6 +32,12 @@ function ContactListItem() {
     return <p>Loading</p>;
   }
 
+  const handleGoBack = () => {
+    navigate(-1); // Use -1 to navigate back to the previous page
+  };
+
+
+
   return (
     <>
       <div className="list-item">
@@ -38,6 +47,7 @@ function ContactListItem() {
         <div className="street-city">
           {contact.street} {contact.city}
         </div>
+        <button className="back-button" onClick={handleGoBack}>Back</button>
       </div>
     </>
   );
