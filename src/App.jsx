@@ -4,9 +4,22 @@ import { useState, useEffect } from "react";
 import Dashboard from "./components/Dashboard";
 import AddNewContact from "./components/AddNewContact";
 import ShowContactList from "./components/ShowContactList";
+import PersonalContact from "./components/PersonalContact";
 
 function App() {
   const [contactlist, setContactList] = useState([]);
+  const [fetchData, setFetchData] = useState(false); // Add a state for triggering GET request
+
+  // Function to make a GET request to fetch contacts
+  const getContact = () => {
+    fetch("https://boolean-api-server.fly.dev/tayokanch/contact")
+      .then((response) => response.json())
+      .then((data) => setContactList(data));
+  };
+
+  useEffect(() => {
+    getContact(); // Initial GET request when the component mounts
+  }, []);
 
   const INITIAL_STATE = {
     firstName: "",
@@ -14,33 +27,30 @@ function App() {
     street: "",
     city: "",
   };
-  const [form, setForm] = useState(INITIAL_STATE);
+  const [formData, setFormData] = useState(INITIAL_STATE);
 
-  useEffect(() => {
-    const getContact = () => {
-      fetch("https://boolean-api-server.fly.dev/tayokanch/contact")
-        .then((response) => response.json())
-        .then((data) => setContactList(data));
+  // Function to make a POST request to add a new contact
+  const postContact = () => {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
     };
 
-    getContact();
-  }, []);
+    fetch("https://boolean-api-server.fly.dev/tayokanch/contact", options)
+      .then((response) => response.json())
+      .then(() => {
+        // After a successful POST, trigger a GET request to update the contact list
+        setFetchData(true);
+      });
+  };
 
   useEffect(() => {
-    const postContact = () => {
-      const options = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(),
-      };
-
-      fetch("https://boolean-api-server.fly.dev/tayokanch/contact", options)
-        .then((response) => response.json())
-        .then((data) => setContactList(data));
-    };
-
-    postContact();
-  }, [setForm]);
+    if (fetchData) {
+      getContact(); // Trigger the GET request when `fetchData` is true
+      setFetchData(false); // Reset `fetchData` to avoid continuous GET requests
+    }
+  }, [fetchData]);
 
   return (
     <main>
@@ -59,12 +69,20 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route
             path="/AddNewContact"
-            element={<AddNewContact form={form} setForm={setForm} />}
+            element={
+              <AddNewContact
+                formData={formData}
+                setFormData={setFormData}
+                postContact={postContact}
+              />
+            }
           />
           <Route
             path="/ShowContactList"
             element={<ShowContactList contactlist={contactlist} />}
           />
+
+          <Route path="/contact/:id" element={<PersonalContact />} />
         </Routes>
       </section>
     </main>

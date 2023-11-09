@@ -2,11 +2,11 @@ import "./addNewContact.css";
 import { useState } from "react";
 
 function AddNewContact(props) {
-  const { form, setForm } = props;
+  const { formData, setFormData } = props;
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(form);
+    console.log(formData);
   };
 
   return (
@@ -17,8 +17,10 @@ function AddNewContact(props) {
           First Name:
           <input
             type="text"
-            value={form.firstName}
-            onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+            value={formData.firstName}
+            onChange={(e) =>
+              setForm({ ...formData, firstName: e.target.value })
+            }
           />
         </label>
       </div>
@@ -28,8 +30,8 @@ function AddNewContact(props) {
           Last Name:
           <input
             type="text"
-            value={form.lastName}
-            onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+            value={formData.lastName}
+            onChange={(e) => setForm({ ...formData, lastName: e.target.value })}
           />
         </label>
       </div>
@@ -39,8 +41,8 @@ function AddNewContact(props) {
           Street
           <input
             type="text"
-            value={form.street}
-            onChange={(e) => setForm({ ...form, street: e.target.value })}
+            value={formData.street}
+            onChange={(e) => setForm({ ...formData, street: e.target.value })}
           />
         </label>
       </div>
@@ -50,8 +52,8 @@ function AddNewContact(props) {
           City:
           <input
             type="text"
-            value={form.city}
-            onChange={(e) => setForm({ ...form, city: e.target.value })}
+            value={formData.city}
+            onChange={(e) => setForm({ ...formData, city: e.target.value })}
           />
         </label>
       </div>
