@@ -1,7 +1,8 @@
 import "./ShowContact.css";
 import { Link } from "react-router-dom";
 function ShowContactList(props) {
-  const { contactlist } = props;
+  
+  const { contactlist, deleteContact } = props;
 
   return (
     <>
@@ -12,7 +13,9 @@ function ShowContactList(props) {
           <Link to={`/contact/${contact.id}`} state={{ data: contact }}>
             <p>view</p>
           </Link>
-          <button on>Delete Contact</button>
+          <button onClick={() => deleteContact(contact.id)}>
+            Delete Contact
+          </button>
         </div>
       ))}
     </>

@@ -55,6 +55,18 @@ function App() {
     }
   }, [fetchData]);
 
+  const deleteContact = (id) => {
+    const options = {
+      method: "DELETE",
+    };
+
+    fetch(`https://boolean-api-server.fly.dev/tayokanch/contact/${id}`, options)
+      .then((response) => response.json())
+      .then(() => {
+        setFetchData(true);
+      });
+  };
+
   return (
     <main>
       <section className="menu">
@@ -81,7 +93,12 @@ function App() {
           />
           <Route
             path="/"
-            element={<ShowContactList contactlist={contactlist} />}
+            element={
+              <ShowContactList
+                contactlist={contactlist}
+                deleteContact={deleteContact}
+              />
+            }
           />
 
           <Route path="/contact/:id" element={<PersonalContact />} />
