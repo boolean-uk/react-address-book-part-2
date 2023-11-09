@@ -4,7 +4,7 @@ form {
     height: max-content;
     display: grid;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
 }
 
 .form-element {
@@ -29,4 +29,5 @@ form {
     border-radius: 20px;
     margin-left: 140px;
     padding: 10px;
+    justify-content: center;
 }

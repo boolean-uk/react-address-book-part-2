@@ -55,7 +55,7 @@ function Form (props) {
     return (
         <form onSubmit={(e) => handleFormSubmit(e)}>
             <div className = "form-element">
-                <label htmlFor = "First Name">First Name:</label>
+                <label htmlFor = "First Name"></label>
                 <input 
                 name = "firstName"
                 type = "text" 
@@ -65,7 +65,7 @@ function Form (props) {
                 />
             </div>
             <div className = "form-element">
-                <label htmlFor = "Last Name">Last Name:</label>
+                <label htmlFor = "Last Name"></label>
                 <input 
                 name = "lastName"
                 type = "text" 
@@ -75,7 +75,7 @@ function Form (props) {
                 />
             </div>
             <div className = "form-element">
-                <label htmlFor = "gender">gender:</label>
+                <label htmlFor = "gender"></label>
                 <input 
                 name = "gender"
                 type = "text" 
@@ -85,7 +85,7 @@ function Form (props) {
                 />
             </div>
             <div className = "form-element">
-                <label htmlFor = "email">Email:</label>
+                <label htmlFor = "email"></label>
                 <input 
                 name = "email"
                 type = "text" 
@@ -95,7 +95,7 @@ function Form (props) {
                 />
             </div>
             <div className = "form-element">
-                <label htmlFor = "jobTitle">Job Title:</label>
+                <label htmlFor = "jobTitle"></label>
                 <input 
                 name = "jobTitle"
                 type = "text" 
@@ -105,7 +105,7 @@ function Form (props) {
                 />
             </div>
             <div className = "form-element">
-                <label htmlFor = "Street">Street:</label>
+                <label htmlFor = "Street"></label>
                 <input 
                 name = "street"
                 type = "text" 
@@ -115,7 +115,7 @@ function Form (props) {
                 />
             </div>
             <div className = "form-element">
-                <label htmlFor = "City">City:</label>
+                <label htmlFor = "City"></label>
                 <input
                 name = "city" 
                 type = "text" 
