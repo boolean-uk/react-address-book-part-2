@@ -21,6 +21,7 @@ function App() {
     getContact(); // Initial GET request when the component mounts
   }, []);
 
+  // set up for post request
   const INITIAL_STATE = {
     firstName: "",
     lastName: "",
@@ -34,17 +35,19 @@ function App() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify(formData),
     };
 
     fetch("https://boolean-api-server.fly.dev/tayokanch/contact", options)
       .then((response) => response.json())
-      .then(() => {
+      .then((data) => {
+        //console.log(` This is data${data}`);
         // After a successful POST, trigger a GET request to update the contact list
         setFetchData(true);
       });
   };
 
+  // This is basically used for re-rendering the getpost after a new post API has been successfully made
   useEffect(() => {
     if (fetchData) {
       getContact(); // Trigger the GET request when `fetchData` is true
@@ -57,7 +60,7 @@ function App() {
       <section className="menu">
         <h1>Menu</h1>
         <p>
-          <Link to="/ShowContactList">Contacts List</Link>
+          <Link to="/">Contacts List</Link>
         </p>
         <p>
           <Link to="/AddNewContact">Add new Contact</Link>
@@ -66,7 +69,6 @@ function App() {
 
       <section>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
           <Route
             path="/AddNewContact"
             element={
@@ -78,7 +80,7 @@ function App() {
             }
           />
           <Route
-            path="/ShowContactList"
+            path="/"
             element={<ShowContactList contactlist={contactlist} />}
           />
 

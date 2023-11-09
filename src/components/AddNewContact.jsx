@@ -1,16 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import "./addNewContact.css";
 import { useState } from "react";
 
 function AddNewContact(props) {
-  const { formData, setFormData } = props;
+  const navigate = useNavigate();
+
+  const { formData, setFormData, postContact } = props;
 
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(formData);
+    postContact();
+    //console.log(formData);
   };
 
   return (
-    <form onSubmit={submitForm}>
+    <form
+      onSubmit={(e) => {
+        submitForm(e);
+        navigate("/");
+      }}
+    >
       <h1>Create Contact</h1>
       <div>
         <label>
@@ -19,7 +28,7 @@ function AddNewContact(props) {
             type="text"
             value={formData.firstName}
             onChange={(e) =>
-              setForm({ ...formData, firstName: e.target.value })
+              setFormData({ ...formData, firstName: e.target.value })
             }
           />
         </label>
@@ -31,7 +40,9 @@ function AddNewContact(props) {
           <input
             type="text"
             value={formData.lastName}
-            onChange={(e) => setForm({ ...formData, lastName: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, lastName: e.target.value })
+            }
           />
         </label>
       </div>
@@ -42,7 +53,9 @@ function AddNewContact(props) {
           <input
             type="text"
             value={formData.street}
-            onChange={(e) => setForm({ ...formData, street: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, street: e.target.value })
+            }
           />
         </label>
       </div>
@@ -53,10 +66,11 @@ function AddNewContact(props) {
           <input
             type="text"
             value={formData.city}
-            onChange={(e) => setForm({ ...formData, city: e.target.value })}
+            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           />
         </label>
       </div>
+
       <button>Create</button>
     </form>
   );

@@ -9,9 +9,10 @@ function ShowContactList(props) {
       {contactlist.map((contact) => (
         <div className="contact-box" key={contact.id}>
           <p>{`${contact.firstName} ${contact.lastName}`}</p>
-          <Link to={`/contact/${contact.id}`} state={{  data: contact }}>
+          <Link to={`/contact/${contact.id}`} state={{ data: contact }}>
             <p>view</p>
           </Link>
+          <button on>Delete Contact</button>
         </div>
       ))}
     </>
