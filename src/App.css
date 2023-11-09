@@ -19,11 +19,10 @@
     padding: 0px 20px;
     text-decoration: none;
 }
-.contact-list li{
-    list-style-type: none;
-}
+
 .form input{
     display: block;
+    width: 300px;
     
 }
 .form label{
@@ -40,4 +39,16 @@
     border-style: none;
     color: #f0ece2;
     
+}
+.contact-list{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    line-height: 10px;
+}
+.contact-list a{
+    padding-top: 20px;
+}
+.contact h2{
+    color: #596e79;
 }

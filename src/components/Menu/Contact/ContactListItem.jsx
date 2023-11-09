@@ -15,13 +15,14 @@ function ContactListItem(props) {
   console.log(displayPerson);
   if (!displayPerson) return <p>Loading ...</p>;
   return (
-    <>
+    <div className="contact--list-item">
       <h2>
         {displayPerson.firstName} {displayPerson.lastName}
       </h2>
       <p>City : {displayPerson.city}</p>
       <p>Street : {displayPerson.street}</p>
-    </>
+      <p>Email : {displayPerson.email}</p>
+    </div>
   );
 }
 

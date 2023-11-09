@@ -4,10 +4,11 @@ function ContactList(props) {
   const { data } = props;
 
   return (
-    <div className="contact-list">
+    <div className="contact">
       <ul>
+        <h2>Contact Names</h2>
         {data.map((person) => (
-          <li key={person.id}>
+          <li key={person.id} className="contact-list">
             <h3>
               {person.firstName} {person.lastName}
             </h3>

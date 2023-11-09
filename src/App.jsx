@@ -42,7 +42,13 @@ function App() {
             ></Route>
             <Route
               path="/Create-New-Contact"
-              element={<CreateContact />}
+              element={
+                <CreateContact
+                  contact={contact}
+                  root={root}
+                  getFuntion={fetchContact()}
+                />
+              }
             ></Route>
           </Routes>
         </div>
