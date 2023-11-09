@@ -9,7 +9,7 @@ export default function Filters(props) {
     contacts && setCities(contacts.map((contact) => contact.city));
   };
 
-  useEffect(getCities, []);
+  useEffect(getCities, [contacts]);
 
   const filterByCity = (city) => {
     if (city === "display all") {
