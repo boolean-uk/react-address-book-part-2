@@ -17,7 +17,7 @@ function CreateContact (props) {
             //jobtitle = {Jobtitle}
             // email = {email}
             // street = {street}
-            // city = {city}
+            // city = {city} ...
             />
         </div>
     )

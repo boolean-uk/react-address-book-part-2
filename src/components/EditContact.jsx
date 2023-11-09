@@ -9,6 +9,9 @@ const initial_state =  {
   jobtitle: "",
   street:"",
   city: "",
+  latitude: "",
+  longitude: "",
+  id: "",
 }
 
 function EditContact(props) {
@@ -131,6 +134,27 @@ function EditContact(props) {
                 onChange={e => setForm({...form, [e.target.name]: e.target.value})}
                 />
             </div>
+            {/*
+            <div className = "form-element">
+                <label htmlFor = "latitude">latitude:</label>
+                <input 
+                name = "v"
+                type = "number" 
+                placeholder = "latitude"
+                value={form.latitude} 
+                onChange={e => setForm({...form, [e.target.name]: e.target.value})}
+                />
+            </div>
+            <div className = "form-element">
+                <label htmlFor = "longitude">longitude:</label>
+                <input 
+                name = "longitude"
+                type = "number" 
+                placeholder = "longitude"
+                value={form.longitude} 
+                onChange={e => setForm({...form, [e.target.name]: e.target.value})}
+                />
+            </div> */}
       <button className = "submit-button" type="submit">Add Contact</button>
     </form>
   )

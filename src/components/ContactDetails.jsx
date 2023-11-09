@@ -29,8 +29,14 @@ export default function ContactDetails(props) {
   return (
     <div className="contactCard">
       <h2>{contact.lastName + ", " + contact.firstName}</h2>
+      <p>{contact.gender}</p>
+      <p>{contact.email}</p>
+      <p>{contact.jobTitle}</p>
       <p>{contact.street}</p>
       <p>{contact.city}</p>
+      <p>{contact.latitude}</p>
+      <p>{contact.longitude}</p>
+      <p>{contact.id}</p>
       <button className="delete" onClick={() => {deleteContact(id)
         navigate("/")}}>Delete</button>
       <button className="edit" onClick={() => {navigate(`/edit/${id}`)}}>Edit</button>
