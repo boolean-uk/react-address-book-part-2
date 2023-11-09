@@ -19,8 +19,21 @@ export default function EditContact({setReloadingNecessary}) {
 
   useEffect(fetchContact, [])
 
+  // const getCoordinates = (e) => {
+  //   e.preventDefault();
+  //   const street = e.target[2].value
+  //   const city = e.target[3].value
+  //   const searchTerm = street + " " + city
+  //   const URL = encodeURI(`https://nominatim.openstreetmap.org/search?q=${searchTerm}&format=json&polygon=1&addressdetails=1`)
+
+  //   fetch(URL)
+  //     .then(response => response.json())
+  //     .then((data) => console.log("this is what comes back", data))
+  // }
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    // getCoordinates() – nonfunctional
 
     const username="AllyDouillette"
     const baseURL= `https://boolean-api-server.fly.dev/${username}`
@@ -30,7 +43,7 @@ export default function EditContact({setReloadingNecessary}) {
         firstName:  e.target[0].value,
         lastName: e.target[1].value,
         street: e.target[2].value,
-        city: e.target[3].value,
+        city: e.target[3].value
     }
 
     const options = {

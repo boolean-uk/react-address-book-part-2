@@ -43,6 +43,8 @@ export default function ContactDetails(props) {
     fetchContact
   , [])
 
+  console.log(contact.latitude, contact.longitude)
+
   return (
     <div className="contactCard">
       <h3>{contact.lastName + ", " + contact.firstName}</h3>
@@ -52,6 +54,15 @@ export default function ContactDetails(props) {
          return <ContactCardField key={index} field={field}/>
         }
       })}
+      {contact.latitude !== undefined && contact.longitude !== undefined && (
+      <div className="center">
+        <iframe
+          src={`https://www.openstreetmap.org/export/embed.html?bbox=0%2C0%2C${-contact.latitude}%2C${-contact.longitude}&layer=mapnik&marker=${contact.latitude}%2C${contact.longitude}`}>
+        </iframe>
+        <br/>
+        <a href={`https://www.openstreetmap.org/?mlat=${contact.latitude}&mlon=${contact.longitude}#map=6/71.918/-115.664`}>Open in OpenStreetMap</a>
+      </div>
+      )}
       <div className="buttonContainer">
         <button onClick={() => navigate(`/edit/${id}`)}>Edit</button>
         <button className="delete" onClick={() => {deleteContact(id)

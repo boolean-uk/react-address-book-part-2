@@ -11,10 +11,6 @@ function AddContact (props) {
             <h2>Add a new Contact</h2>
             <Form 
             setReloadingNecessary = {setReloadingNecessary}
-            // firstName = {firstName}
-            // lastName = {lastName}
-            // street = {street}
-            // city = {city}
             />
         </div>
     )
