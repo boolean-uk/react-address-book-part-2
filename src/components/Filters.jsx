@@ -6,16 +6,20 @@ export default function Filters(props) {
   const [cities, setCities] = useState([]);
 
   const getCities = () => {
-    contacts && setCities(contacts.map((contact) => contact.city));
+    const allCities = contacts && contacts.map((contact) => contact.city.trim().toUpperCase())
+    const noRepetitions = [] 
+    allCities.map((city) => {(!noRepetitions.includes(city) && noRepetitions.push(city)) 
+      console.log(noRepetitions)} )
+    setCities(noRepetitions)
   };
 
-  useEffect(getCities, []);
+  useEffect(getCities, [contacts]);
 
   const filterByCity = (city) => {
     if (city === "display all") {
       setDisplayFilteredContacts(false);
     } else {
-    setFilteredContacts(contacts.filter((c) => c.city === city));
+    setFilteredContacts(contacts.filter((c) => c.city.toUpperCase() === city));
     setDisplayFilteredContacts(true);
     }
   };
