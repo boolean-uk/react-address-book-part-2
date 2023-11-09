@@ -11,7 +11,7 @@ const initial_state =  {
 
 function Form (props) {
 
-    const { contact, contacts, setContacts, setReloadingNecessary } = props;
+    const { setReloadingNecessary } = props;
 
     const [form, setForm] = useState(initial_state)
 
