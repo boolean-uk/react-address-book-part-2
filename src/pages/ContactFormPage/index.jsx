@@ -7,14 +7,17 @@ import { postContactAsync } from "../../utilities/api";
 import AdditionalHeader from "../../components/Headers/AdditionalHeader";
 import Form from "./components/Form";
 
-const ContactFormPage = () => {
+const ContactFormPage = ({ setLastContact }) => {
     const submitPostRequest = (data) => postContactAsync(data);
 
     return (
         <div className="contactForm">
             <AdditionalHeader />
 
-            <Form submitPostRequest={submitPostRequest} />
+            <Form
+                submitPostRequest={submitPostRequest}
+                setLastContact={setLastContact}
+            />
         </div>
     );
 };

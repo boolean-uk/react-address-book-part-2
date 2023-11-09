@@ -8,7 +8,7 @@ import { initialState } from "../../../data/initialState";
 // components
 import FormItem from "./FormItem";
 
-const Form = ({ submitPostRequest }) => {
+const Form = ({ submitPostRequest, setLastContact }) => {
     const [form, setForm] = useState(initialState);
 
     const navigate = useNavigate();
@@ -19,6 +19,7 @@ const Form = ({ submitPostRequest }) => {
         e.preventDefault();
 
         submitPostRequest(form);
+        setLastContact(form.email);
         clearForm();
         navigate("/");
     };

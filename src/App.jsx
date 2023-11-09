@@ -14,8 +14,16 @@ function App() {
     return (
         <div className="container">
             <Routes>
-                <Route path="/" element={<DashboardPage />} />
-                <Route path="/new-contact" element={<ContactFormPage />} />
+                <Route
+                    path="/"
+                    element={<DashboardPage lastContact={lastContact} />}
+                />
+                <Route
+                    path="/new-contact"
+                    element={
+                        <ContactFormPage setLastContact={setLastContact} />
+                    }
+                />
                 <Route
                     path="/contact-page/:id"
                     element={<ContactPage setLastContact={setLastContact} />}
