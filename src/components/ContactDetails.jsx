@@ -52,8 +52,11 @@ export default function ContactDetails(props) {
          return <ContactCardField key={index} field={field}/>
         }
       })}
-      <button className="delete" onClick={() => {deleteContact(id)
-        navigate("/")}}>Delete</button>
+      <div className="buttonContainer">
+        <button onClick={() => navigate(`/edit/${id}`)}>Edit</button>
+        <button className="delete" onClick={() => {deleteContact(id)
+          navigate("/")}}>Delete</button>
+      </div>
     </div>
   )
 }

@@ -93,7 +93,14 @@ main ul li:nth-child(odd) {
   color: var(--primary)
 }
 
+.buttonContainer {
+  display: grid;
+  place-content: end;
+  grid-template-columns: repeat(2, min-content);
+}
+
 button {
+  margin-left: 0.5em;
   padding: 0.25em;
   border: none;
   background-color: var(--tertiary);
