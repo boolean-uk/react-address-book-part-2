@@ -1,0 +1,104 @@
+:root {
+    --primary: rgb(2, 30, 28);
+    --secondary:rgb(186,231,221);
+    --tertiary: rgb(186,231,221);
+    --background:  rgb(49,176,147)
+  }
+  
+  * {
+    font-family:Georgia, serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+
+  }
+  
+  .container {
+    border: 1px rgba(15, 71, 76, 0.162), 0.195) solid;
+    border-radius: 50px;
+    border-style: dotted;
+    margin: 20px;
+    display: grid;
+    height: calc(100vh - 40px); 
+    grid-template-areas: "sidebar main";
+    grid-template-columns: 1fr 2fr;
+    overflow: scroll;
+
+  }
+  
+  aside {
+    grid-area: "sidebar";
+    background-color: rgb(49,176,147)
+  }
+  
+  main {
+    grid-area: "main";
+    border-left: 1px solid rgb(186,231,221);
+  }
+  
+  h1, h2 {
+    margin: 20px;
+    color: var(--primary)
+  }
+  
+  nav {
+    margin: 20px;
+  }
+  
+  ul {
+    padding: 10px 0;
+    list-style-type: none;
+  }
+  
+  main ul li {
+    padding: 20px;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+  }
+  
+  main ul li:nth-child(odd) {
+    background-color: var(--tertiary);
+  }
+  
+  .contactListItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--secondary);
+    background-color: var(--background);
+    transition: background-color 0.3s;
+  }
+  
+  .contactListItem:hover {
+    background-color: var(--tertiary);
+    transition: background-color 0.3s;
+  }
+  
+  .contactCard {
+    border: var(--background) 1px solid;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  }
+  
+  button {
+    padding: 0.25em;
+    border: none;
+    background-color: var(--tertiary);
+    color: var(--primary);
+    border-radius: 5px;
+    width: 70px;
+  }
+  
+  button:hover {
+    background-color:  rgb(49,176,147)
+  }
+  
+  .delete {
+    color: red;s
+  }
+  
+  .delete:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+  }
