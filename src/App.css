@@ -1,0 +1,63 @@
+.createform  {
+    margin-left: 20px;
+    /* text-align: center; */
+
+}
+
+
+
+input {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+}
+
+.createform > h1 {
+    text-align: center;
+}
+
+button {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: white;
+    background-color: black;
+    color: white;
+}
+
+
+.eachcontact {
+    display: inline-block;
+    border-bottom: solid 2px black;
+    width: 500px;
+    list-style: none;
+    text-align: center;
+}
+
+.details {
+    text-align: center;
+}
+
+.details {
+   text-align: center;
+    /* width: 200px; */
+}
+.eachperson > li {
+    display: inline-block;
+}
+
+
+
+
+
+/* Modal styles */
+
+
+input::placeholder {
+    color: red;
+    text-align: center;
+}
+
+.editform {
+    text-align: center;
+}
