@@ -8,24 +8,23 @@ import ContactDetails from './components/contacts/componets/ContactDetails';
 
 function App() {
 
-   const [contactData, setContactData] = useState([])
+    const [contactData, setContactData] = useState([])
+    const [shouldGetData, setShouldGetData] = useState(true)
 
-   const URL = 'https://boolean-api-server.fly.dev/Faiza/contact'
+    const URL = 'https://boolean-api-server.fly.dev/satokii/contact'
 
-   useEffect(() => {
-    getData()
-   }, [])
+    function getContactData() {
+        fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            setContactData(data)
+            setShouldGetData(false)
+        })
+    }
 
-   const getData = () => {
-    fetch(URL)
-    .then(res => res.json())
-    .then(data => {
-        setContactData(data)
-        console.log(data)
-    })
-   }
-    //here
-    //useEffect(getContactData, [])
+    useEffect(() => {
+        shouldGetData && getContactData() 
+    }, [shouldGetData])
 
     return (
 
@@ -52,13 +51,13 @@ function App() {
                         element={<ContactList contactData={contactData} />}>
                     </Route>
                     <Route
-                        path="/create-contact"
-                        element={<CreateContact contactData={contactData} setContactData={setContactData} URL={URL} getData={getData} />}    
-                    >
-                    </Route>
+                            path="/create-contact"
+                            element={<CreateContact contactData={contactData} URL={URL} getContactData={getContactData} setShouldGetData={setShouldGetData} />}
+                            >
+                        </Route>
                     <Route
                         path="/contact-list/contact-details/:id"
-                        element={<ContactDetails contactData={contactData} />}
+                        element={<ContactDetails contactData={contactData} URL={URL}  setShouldGetData={setShouldGetData} />}
                     >
                     </Route>
                 </Routes>

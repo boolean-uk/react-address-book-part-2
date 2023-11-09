@@ -1,48 +1,40 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-function CreateContact({ contactData, setContactData, URL, getData }) {
+function CreateContact({ contactData, URL, setShouldGetData }) {
 
     const navigate = useNavigate()
 
-    const [firstName, setFirstName] = useState(null)
-    const [lastName, setlastName] = useState(null)
-    const [street, setStreet] = useState(null)
-    const [city, setCity] = useState(null)
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setlastName] = useState('')
+    const [street, setStreet] = useState('')
+    const [city, setCity] = useState('')
+
+    const newContact = {
+        firstName: firstName,
+        lastName: lastName,
+        street: street,
+        city: city,
+        id: contactData.length + 1
+    }
+
+    function createNewContact() {
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newContact)
+        }
+
+        fetch(URL, options)
+        .then(res => res.json())
+        .then(() => setShouldGetData(true))
+    }
 
     function handleSubmit(e) {
         e.preventDefault()
-
-        const newContact = {
-            firstName: firstName,
-            lastName: lastName,
-            street: street,
-            city: city,
-            id: contactData.length + 1
-        }
-
-
-       setContactData([...contactData, newContact])
-       createNewContact(newContact)
-       getData()
-       navigate("/")
-}
-
-function createNewContact(newContact) {
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newContact)
+        createNewContact()
+        navigate("/")
     }
-
-     fetch(URL, options)
-     .then(res => res.json())
-     .then((data) => console.log(data))
-}
-
-
-
-
 
 
 return (
