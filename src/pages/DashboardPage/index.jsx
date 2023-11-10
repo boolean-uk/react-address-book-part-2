@@ -14,6 +14,8 @@ const DashboardPage = ({ lastContact }) => {
     const [contactFilterType, setContactFilterType] = useState(null);
     const [filteredContacts, setFilteredContacts] = useState(allContacts);
 
+    const lastContactDetails = allContacts.find(contact => contact.id == lastContact)
+
     useEffect(() => {
         getAllContactsAsync().then((result) => setAllContacts(result));
     }, [lastContact]);
@@ -37,7 +39,7 @@ const DashboardPage = ({ lastContact }) => {
                 contactFilterType={contactFilterType}
                 setContactFilterType={setContactFilterType}
             />
-            <RecentContact />
+            <RecentContact lastContactDetails={lastContactDetails}/>
             <ContactList contacts={filteredContacts} />
         </div>
     );

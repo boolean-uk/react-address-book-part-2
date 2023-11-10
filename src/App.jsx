@@ -9,7 +9,7 @@ import ContactPage from "./pages/ContactPage";
 import ContactFormPage from "./pages/ContactFormPage";
 
 function App() {
-    const [lastContact, setLastContact] = useState("");
+    const [lastContact, setLastContact] = useState("1");
 
     return (
         <div className="container">
