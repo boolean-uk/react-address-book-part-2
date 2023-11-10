@@ -4,7 +4,7 @@ import "./style.css";
 import AdditionalHeader from "../../components/Headers/AdditionalHeader";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getContactAsync } from "../../utilities/api";
+import { getContactAsync, putContactAsync } from "../../utilities/api";
 import ContactInfo from "./components/ContactInfo";
 
 const ContactPage = ({ setLastContact }) => {
@@ -12,16 +12,25 @@ const ContactPage = ({ setLastContact }) => {
 
     const { id } = useParams();
 
-    useEffect(() => {
+    const getContact = () =>
         getContactAsync(id).then((data) => setContact(data));
+
+    useEffect(() => {
+        getContact();
         setLastContact(id);
     }, []);
+
+    const submitPutRequest = (data) =>
+        putContactAsync(id, data).then(() => getContact());
 
     return (
         <div className="contactPage">
             <AdditionalHeader />
 
-            <ContactInfo contact={contact} />
+            <ContactInfo
+                contact={contact}
+                submitPutRequest={submitPutRequest}
+            />
         </div>
     );
 };
