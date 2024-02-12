@@ -1,11 +1,17 @@
-function ContactItem() {
+import { Link } from "react-router-dom"
+
+export default function ContactItem({ contact }) {
     return (
         <>
-        <div className="contact-details">
-            <p>contact stuf goes here</p>
-        </div>
+        <li>
+            <div className="contact">
+                <div className="name">
+                    <p>{contact.firstName} {contact.lastName}</p>
+                </div>
+            </div>
+            <Link to={`/contacts/${contact.id}`}>View</Link>
+            <hr></hr>
+        </li>
         </>
     )
 }
-
-export default ContactItem;
