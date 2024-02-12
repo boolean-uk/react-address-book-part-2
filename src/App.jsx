@@ -1,13 +1,12 @@
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Contacts from './components/Contacts';
-import AddContact from './components/AddContact';
-import ContactItem from './components/ContactItem'
 
 import './App.css';
-import Menu from './components/Menu';
-import { useEffect, useState } from 'react';
 
-const api = 'https://boolean-api-server.fly.dev/radio58/contact'
+import Navigation from './components/navigation';
+import ContactList from './components/contactList';
+import ContactForm from './components/contactForm';
+
 
 const INITIAL_STATE =  {
     firstName: "",
@@ -22,37 +21,32 @@ const INITIAL_STATE =  {
 }
 
 function App() {
-    const [ contactList, setContacts ] = useState(INITIAL_STATE)
+    const [ contacts, setContacts ] = useState(INITIAL_STATE)
 
-    const getContacts = () => {
-        fetch(api)
-            .then((res) => res.json())
-            .then((data) => {
-                setContacts(data)
-            })
-    }
-
-    useEffect(getContacts, [])
-
-    console.log(contactList)
+    console.log()
 
     return (
         <>
-        <Menu/>
-        <Routes>
-            <Route
-            path="/"
-            element={<ContactItem/>}
-            />
-            <Route 
-            path="/Contacts"
-            element={<Contacts/>}
-            />
-            <Route
-            path="/AddContact"
-            element={<AddContact/>}
-            />
-        </Routes>
+        <header>
+            <h1>Address Book</h1>
+            <Navigation/>
+        </header>
+        <main>
+            <Routes>
+                <Route
+                path="/"
+                element={<p>Dashboard</p>}
+                />
+                <Route 
+                path="/contacts"
+                element={<ContactList contacts={contacts} setContacts={setContacts}/>}
+                />
+                <Route
+                path="/add-contact"
+                element={<ContactForm/>}
+                />
+            </Routes>
+        </main>
         
         </>
     );
