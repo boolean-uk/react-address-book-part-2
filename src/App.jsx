@@ -6,7 +6,7 @@ import './App.css';
 import Navigation from './components/navigation';
 import ContactList from './components/contactList';
 import ContactForm from './components/contactForm';
-
+import ContactPage from './components/contactPage';
 
 const INITIAL_STATE =  {
     firstName: "",
@@ -21,9 +21,7 @@ const INITIAL_STATE =  {
 }
 
 function App() {
-    const [ contacts, setContacts ] = useState(INITIAL_STATE)
-
-    console.log()
+    const [ contacts, setContacts ] = useState([])
 
     return (
         <>
@@ -40,6 +38,10 @@ function App() {
                 <Route 
                 path="/contacts"
                 element={<ContactList contacts={contacts} setContacts={setContacts}/>}
+                />
+                <Route
+                path="/contacts/:id"
+                element={<ContactPage/>}
                 />
                 <Route
                 path="/add-contact"
