@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -8,20 +8,8 @@ import ContactList from './components/contactList';
 import ContactForm from './components/contactForm';
 import ContactPage from './components/contactPage';
 
-const INITIAL_STATE =  {
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-    gender: "",
-    email: "",
-    jobTitle: "",
-    latitude: 0,
-    longitude: 0
-}
-
 function App() {
-    const [ contacts, setContacts ] = useState([])
+    const [ contacts, setContacts ] = useState([]);
 
     return (
         <>
@@ -49,7 +37,6 @@ function App() {
                 />
             </Routes>
         </main>
-        
         </>
     );
 }

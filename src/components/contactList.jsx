@@ -1,6 +1,6 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
-import ContactItem from "./ContactItem"
+import ContactItem from "./ContactItem";
 
 const API_URL = 'https://boolean-api-server.fly.dev/radio58/contact'
 
@@ -10,9 +10,8 @@ export default function ContactList({ contacts, setContacts }) {
             .then((res) => res.json())
             .then((data) => {
                 setContacts(data)
-            })
-    }, [])
-
+            });
+    }, []);
 
     return (
         <>

@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const API_URL = 'https://boolean-api-server.fly.dev/radio58/contact'
+const API_URL = 'https://boolean-api-server.fly.dev/radio58/contact';
 
 export default function ContactPage() {
-    const [ contact, setContact ] = useState([])
+    const [ contact, setContact ] = useState([]);
 
-    const id = useParams().id
+    const id = useParams().id;
     useEffect(() => {
         fetch(`${API_URL}/${id}`)
         .then(response => response.json())
         .then(data => {
-            setContact(data)
-        })
-    }, [])
+            setContact(data);
+        });
+    }, []);
     return (
         <>
             <section className="contact">

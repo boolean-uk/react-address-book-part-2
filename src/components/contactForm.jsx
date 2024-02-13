@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
 export default function ContactForm({ contacts, setContacts }) {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [street, setStreet] = useState("")
-    const [city, setCity] = useState("")
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [street, setStreet] = useState("");
+    const [city, setCity] = useState("");
 
     const newContact = {
         firstName: firstName,
@@ -12,10 +12,10 @@ export default function ContactForm({ contacts, setContacts }) {
         street: street,
         city: city,
         id: contacts.length + 1
-    }
+    };
 
     const addContact = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         fetch('https://boolean-api-server.fly.dev/radio58/contact', {
             method: 'POST',
             headers: {
@@ -25,11 +25,10 @@ export default function ContactForm({ contacts, setContacts }) {
         })
         .then((res) => res.json())
         .then((data) => {
-            setContacts([...contacts, data])
-            console.log('success', contacts)
-        })
-    }
-
+            setContacts([...contacts, data]);
+        });
+    };
+    
     return (
         <>
         <h2>Add Contact</h2>
