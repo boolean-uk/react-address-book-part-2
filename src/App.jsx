@@ -45,7 +45,7 @@ function App() {
                 />
                 <Route
                 path="/add-contact"
-                element={<ContactForm/>}
+                element={<ContactForm contacts={contacts} setContacts={setContacts}/>}
                 />
             </Routes>
         </main>
