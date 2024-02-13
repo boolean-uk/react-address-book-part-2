@@ -14,6 +14,7 @@ export default function ContactPage() {
             setContact(data);
         });
     }, []);
+    
     return (
         <>
             <section className="contact">
