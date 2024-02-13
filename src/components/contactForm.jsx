@@ -41,7 +41,7 @@ export default function ContactForm({ contacts, setContacts }) {
                 <label htmlFor="street">Street</label>
                 <input type="text" name="street" required onChange={e => setStreet(e.target.value)}></input>
                 <label htmlFor="city">City</label>
-                <input type="text" name="city" required onChange={e => setStreet(e.target.value)}></input>
+                <input type="text" name="city" required onChange={e => setCity(e.target.value)}></input>
                 <button type="submit" onClick={e => addContact(e)}>Add Contact</button>
             </form>
         </>
