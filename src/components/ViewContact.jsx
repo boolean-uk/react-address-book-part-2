@@ -14,11 +14,17 @@ export default function ViewContact(props)
         navigate("/")
     }
 
+    const handleEdit = () =>
+    {
+        navigate(`/editContact/${id}`)
+    }
+
     return (
         <>
             <h1>{contact.firstName} {contact.lastName}</h1>
             <p>{contact.street} {contact.city} </p>
             <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleEdit}>Edit</button>
         </>
     )
 }

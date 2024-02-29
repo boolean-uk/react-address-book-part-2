@@ -4,6 +4,7 @@ import ContactList from './components/ContactList';
 import { useEffect, useState } from 'react';
 import ViewContact from './components/ViewContact';
 import NewContact from './components/NewContact';
+import EditContact from './components/EditContact';
 
 function App() {
     const [contacts, setContacts] = useState([])
@@ -42,12 +43,18 @@ function App() {
 
     const deleteContact = (data) =>
     {
-        const arr = contacts.filter((contact) =>
-        {
-            if (contact !== data.contact) return contact
-        })
-
+        const arr = contacts.filter((contact) => {if (contact !== data.contact) return contact})
         setContacts(arr)
+    }
+
+    const editContact = (data) =>
+    {
+        const array = contacts.map((contact) =>
+        {
+            if (contact.id === data.newContact.id) return data.newContact
+            return contact
+        })
+        setContacts(array)
     }
 
     return (
@@ -59,6 +66,7 @@ function App() {
         <Routes>
             <Route path='/contacts' element={<ContactList contacts={contacts}/>}/>
             <Route path='/contacts/:id' element={<ViewContact contacts={contacts} deleteContact={deleteContact}/>}/>
+            <Route path='/editContact/:id' element={<EditContact contacts={contacts} editContact={editContact}/>}/>
             <Route path='/newContact' element={<NewContact addContact={addContact}/>}/>
         </Routes>
         </>
