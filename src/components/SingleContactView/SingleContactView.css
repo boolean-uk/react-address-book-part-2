@@ -1,6 +1,8 @@
 .contact-view {
+  margin: 5rem;
   max-width: 600px;
-  margin: 20px auto;
+  min-width: 300px;
+  margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
