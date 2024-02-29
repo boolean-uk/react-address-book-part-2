@@ -1,8 +1,14 @@
+import { useParams } from "react-router-dom";
+
 export const Profile = ({contacts}) => {
-    return (
-      <div>
-        <h2>Profile</h2>
-        <p>Profile content</p>
-      </div>
-    );
+  const { id } = useParams();
+  
+  const contact = contacts.find((contact) => contact.id === parseInt(id));
+
+  return (
+    <div>
+      <h2>{contact.firstName} {contact.lastName}</h2>
+      <p>{contact.street}, {contact.city}</p>
+    </div>
+  );
 }
