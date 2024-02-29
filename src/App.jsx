@@ -1,9 +1,15 @@
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import MenuSidebar from "./components/MenuSidebar";
 
 function App() {
-    return (
-        <p>Hello, world!</p>
-    );
+  return (
+    <BrowserRouter>
+      <div className="main-layout">
+        <MenuSidebar />
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
