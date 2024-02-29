@@ -23,7 +23,7 @@ function App() {
       console.log(error);
     }
   };
-  //   useEffect(() => fetchContacts, []);
+  useEffect(() => fetchContacts, []);
 
   return (
     <div className="Main-View">
@@ -43,6 +43,16 @@ function App() {
             <SingleContactView
               contacts={contacts}
               fetchContacts={fetchContacts}
+            />
+          }
+        />
+        <Route
+          path="/contacts/:id/edit"
+          element={
+            <SingleContactView
+              contacts={contacts}
+              fetchContacts={fetchContacts}
+              edit={true}
             />
           }
         />

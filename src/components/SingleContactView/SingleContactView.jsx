@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import "./SingleContactView.css";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ContactForm from "../ContactForm/ContactForm";
-function SingleContactView({ contacts, fetchContacts }) {
-  const [edit, setEdit] = useState(false);
+function SingleContactView({ contacts, fetchContacts, edit }) {
   const { id } = useParams();
-  // const [contactsTest, fetchContactsTest] = useState(0);
-
-  // useEffect(() => fetchContactsTest("called"), []);
-  // console.log(contactsTest);
+  const locationData = useLocation();
 
   function callFetchContacts() {
     console.log("Calling fetchContacts");
@@ -16,9 +12,13 @@ function SingleContactView({ contacts, fetchContacts }) {
   }
   useEffect(() => {
     callFetchContacts();
-  }, []);
+  }, [locationData]);
   const contact = contacts.find((contact) => contact.id.toString() === id);
   const navigate = useNavigate();
+  const navigateToEditPage = () => {
+    navigate("/contacts/" + id + "/edit");
+  };
+
   const sendDeleteRequest = async () => {
     const deleteEndpoint = `https://boolean-api-server.fly.dev/martenere/contact/${id}`;
     const options = {
@@ -66,7 +66,7 @@ function SingleContactView({ contacts, fetchContacts }) {
           Favourite Colour
         </p>
         <button onClick={sendDeleteRequest}>Delete</button>
-        <button onClick={() => setEdit(!edit)}>Edit</button>
+        <button onClick={navigateToEditPage}>Edit</button>
       </div>
       {edit && (
         <>
