@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createContact } from "../helpers/APIRequester";
 import ContactForm from "./ContactForm";
 import { ContactContext } from "../ContactsProvider";
+import { validateFormInput } from "../helpers/ValidateInput";
 export function CreateContactForm() {
   const { contacts, setContacts } = useContext(ContactContext);
   const navigate = useNavigate();
@@ -36,61 +37,9 @@ export function CreateContactForm() {
     }));
   };
 
-  function clearErrors() {
-    setError({
-      firstName: "",
-      lastName: "",
-      email: "",
-      street: "",
-      city: "",
-      latitude: "",
-      longitude: "",
-      favouriteColour: "",
-      profileImage: "",
-    });
-  }
-
-  function validateFormInput() {
-    const { profileImage, latitude, longitude, email } = formData;
-    clearErrors();
-    let isValid = true;
-    if (profileImage && !profileImage.match(/\.(jpeg|jpg|gif|png)$/)) {
-      setError((prevError) => ({
-        ...prevError,
-        profileImage: "Invalid image file",
-      }));
-      isValid = false;
-    }
-    if (latitude < -90 || latitude > 90) {
-      setError((prevError) => ({
-        ...prevError,
-        latitude: "Invalid latitude",
-      }));
-      isValid = false;
-    }
-    if (longitude < -180 || longitude > 180) {
-      setError((prevError) => ({
-        ...prevError,
-        longitude: "Invalid longitude",
-      }));
-      isValid = false;
-    }
-    if (
-      email &&
-      !email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)
-    ) {
-      setError((prevError) => ({
-        ...prevError,
-        email: "Invalid email",
-      }));
-      isValid = false;
-    }
-    return isValid;
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const isValid = validateFormInput();
+    const isValid = validateFormInput(setError, formData);
     if (!isValid) return;
     setError("");
     formData.latitude = parseFloat(formData.latitude);
