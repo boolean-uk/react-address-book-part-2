@@ -1,16 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export const CreateContactPage = () => {
-  const INITAL_STATE_FORM = {
-    firstName: "",
-    lastName: "",
-    city: "",
-    street: "",
-  };
-
-  const [form, setForm] = useState(INITAL_STATE_FORM);
+export const EditContactPage = ({ contacts }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const contact = contacts.find(
+    (contact) => contact.id.toString() === id.toString()
+  );
+  let initalStateForm = {
+    firstName: contact.firstName,
+    lastName: contact.lastName,
+    city: contact.city,
+    street: contact.street,
+  };
+  const [form, setForm] = useState(initalStateForm);
 
   const handleInput = (event) => {
     const { name, value } = event.target;
@@ -20,19 +23,21 @@ export const CreateContactPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await postNewContact();
-    setForm(INITAL_STATE_FORM);
-    navigate("/contacts");
+    navigate(`/contacts/${id}`);
   };
 
   const postNewContact = async () => {
     try {
-      await fetch("https://boolean-api-server.fly.dev/LinusWillmont/contact", {
-        method: "POST",
-        body: JSON.stringify(form),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });
+      await fetch(
+        `https://boolean-api-server.fly.dev/LinusWillmont/contact/${id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(form),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        }
+      );
       console.log("Posted successfully");
     } catch (error) {
       console.error("Failed to post contact", error);
