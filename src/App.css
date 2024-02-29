@@ -20,3 +20,13 @@ a {
     width: 200px;
 }
 
+.red{
+    background: red;
+    width: 200px;
+    color: red;
+}
+.red ::-webkit-slider-thumb{
+    color:red;
+    background: red;
+}
+

@@ -27,4 +27,36 @@ function PostContactAPI(contact){
     })
 }
 
-export {PostContactAPI}
+function Delete(contactId){
+    const requestOptions = {
+      method: "DELETE",
+    };
+  
+    fetch(`${URL}/${contactId}`, requestOptions)
+      .then((response) => {
+        return response.json();
+      })
+      .then((deletedAnswer) => {
+        console.log("DELETE /form json data:", deletedAnswer);
+  
+        // // 1. update local state by appending jsonData onto the tasks array
+        // state.tasks.push(newTask);
+  
+  
+      });
+  }
+
+function Update(contactId, data){
+    const postRequestOptions = {
+        method: "PUT",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(`${URL}/${contactId}`, postRequestOptions).then((response) => {
+        return response.json();
+    })
+}
+
+export {PostContactAPI, Delete, Update}

@@ -1,17 +1,25 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import ContactForm from "./Form"
 
 const InitialData = {
     firstName : "",
     lastName : "",
     city:"",
     street:"",
+    email:"",
+    color:"#000000"
 }
 
-function CreateContact({addContact}){
+function CreateContact({addContact, oldContact}){
+
 
     const [formData, setFormData] = useState(InitialData)
     const navigate = useNavigate()
+
+    if (oldContact){
+        setFormData(oldContact)
+    }
 
     const handleOnSubmit = (event) =>{
         event.preventDefault()
@@ -26,30 +34,7 @@ function CreateContact({addContact}){
         }   
     }
     return(
-        <form className="form" onSubmit={handleOnSubmit}>
-            <label>Firstname: <input 
-            type="text" 
-            name="firstName" 
-            value= {formData.firstName}
-            onChange={handleInput}/></label>
-            <label>Lastname: <input 
-            type="text" 
-            name="lastName" 
-            value= {formData.lastName}
-            onChange={handleInput}/></label>
-            <label>City: <input 
-            type="text" 
-            name="city" 
-            value= {formData.city}
-            onChange={handleInput}/></label>
-            <label>Street: <input 
-            type="text" 
-            name="street" 
-            value= {formData.street}
-            onChange={handleInput}/></label>
-            <input className="form_submit" type="submit" value="Submit form"/>
-
-        </form>
+        <ContactForm handleOnSubmit={handleOnSubmit} handleInput={handleInput} formData={formData}/>
     )
 }
 
