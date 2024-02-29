@@ -1,0 +1,22 @@
+h1 {
+    font-size: medium;
+}
+
+a {
+    background: pink;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.ContactName {
+    font-size: large;
+}
+
+.ContactInfo {
+    font-weight: 400;
+}
+
+.form {
+    width: 200px;
+}
+
