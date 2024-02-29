@@ -4,7 +4,7 @@ import './App.css';
 import { Dashboard } from './components/Dashboard';
 import { Profile } from './components/Profile';
 import { Create } from './components/Create';
-import { getContacts } from './utils/fetchData';
+import { getContacts, postContact } from './utils/requests';
 
 let maxId = 1;
 
@@ -14,8 +14,8 @@ function App() {
     const addContact = (contact) => {
         maxId++;
         const newContact = { ...contact, id: maxId};
-        setContacts([...contacts, newContact]);
-        console.log(contacts)
+        // setContacts([...contacts, newContact]);
+        postContact(newContact, setContacts)
     }
 
     useEffect(() => {

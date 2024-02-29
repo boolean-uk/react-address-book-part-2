@@ -10,6 +10,7 @@ export const Profile = ({contacts}) => {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street}, {contact.city}</p>
+      <p>{contact.id}</p>
     </div>
   );
 }
