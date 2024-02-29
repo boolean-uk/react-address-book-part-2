@@ -30,6 +30,7 @@ button {
   background-color: #f8f9fa;
   border: 1px solid #adb5bd;
   color: #212529;
+  margin-top: 0.4rem;
   border-radius: 0.25rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;

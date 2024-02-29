@@ -24,13 +24,14 @@ CreateContacts : Create a new contact
 
       -ContactList: Component rendering the list of contacts.
         contacts: List of contacts.
-        selectedContactId: ID of the selected contact.
+
 
           -ContacListtItem: Component representing an individual contact in the list.
             contact: Data for the contact.
 
         -ContactDetails>: Component displaying detailed information about a selected contact.
           contact: Data for the selected contact.
+          selectedContactId: ID of the selected contact.
 
       -CreateContact>: Component rendering the form for creating a new contact.
         formData: Data entered into the form fields (firstName, lastName, street, city).

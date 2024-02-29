@@ -49,7 +49,9 @@ export default function App() {
             />
             <Route
               path="/contact/:id"
-              element={<ContactDetails contacts={contacts} />}
+              element={
+                <ContactDetails contacts={contacts} setContacts={setContacts} />
+              }
             />
             {/* Define routes for other components */}
           </Routes>
@@ -59,9 +61,11 @@ export default function App() {
   );
 }
 
-function ContactDetails({ contacts }) {
+function ContactDetails({ contacts, setContacts }) {
+  // import { useNavigate } from "react-router-dom";
   const { id } = useParams();
   const [contact, setContact] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const selectedContact = contacts.find(
@@ -70,7 +74,29 @@ function ContactDetails({ contacts }) {
     setContact(selectedContact);
   }, [id, contacts]);
 
-  //const contact = contacts.find((contact) => contact.id === parseInt(id));
+  const handleDelete = () => {
+    fetch(`https://boolean-api-server.fly.dev/pialoana/contact/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Contact successfully deleted, update the contacts state by removing the deleted contact
+          setContacts((prevContacts) =>
+            prevContacts.filter((c) => c.id !== parseInt(id))
+          );
+        } else {
+          throw new Error("Failed to delete contact");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting contact:", error);
+      });
+    navigate("/contact");
+  };
+
   if (!contact) {
     return <div>Contact not found</div>;
   }
@@ -83,6 +109,7 @@ function ContactDetails({ contacts }) {
       <li>Email: {contact.email}</li>
       <li>Street: {contact.street}</li>
       <li>City: {contact.city}</li>
+      <button onClick={handleDelete}> Delete </button>
     </article>
   );
 }
