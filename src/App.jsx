@@ -4,6 +4,7 @@ import './App.css';
 import { Dashboard } from './components/Dashboard';
 import { Profile } from './components/Profile';
 import { Create } from './components/Create';
+import { getContacts } from './utils/fetchData';
 
 function App() {
     const [contacts, setContacts] = useState([]);
@@ -11,6 +12,13 @@ function App() {
     const addContact = (contact) => {
         setContacts([...contacts, contact]);
     }
+
+    useEffect(() => {
+        getContacts().then((data) => {
+            setContacts(data);
+        });
+    }, []);
+    
 
     return (
       <div className='dashboard-layout'>
