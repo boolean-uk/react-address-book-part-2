@@ -5,6 +5,7 @@ export const Profile = ({contacts}) => {
   
   const contact = contacts.find((contact) => contact.id === parseInt(id));
 
+  if (!contact) { return <h2>Contact not found</h2> }
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>

@@ -6,17 +6,25 @@ import { Profile } from './components/Profile';
 import { Create } from './components/Create';
 import { getContacts } from './utils/fetchData';
 
+let maxId = 1;
+
 function App() {
     const [contacts, setContacts] = useState([]);
 
     const addContact = (contact) => {
-        setContacts([...contacts, contact]);
+        maxId++;
+        const newContact = { ...contact, id: maxId};
+        setContacts([...contacts, newContact]);
+        console.log(contacts)
     }
 
     useEffect(() => {
-        getContacts().then((data) => {
-            setContacts(data);
-        });
+        getContacts()
+            .then((data) => {
+                setContacts(data);
+                maxId = data.reduce((max, c) => (c.id > max ? c.id : max), 0);
+            })
+            .catch((error) => console.error('Error fetching contacts:', error));
     }, []);
 
     return (
