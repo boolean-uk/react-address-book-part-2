@@ -32,6 +32,11 @@ export default function App() {
                   <button>Create Contact</button>
                 </Link>
               </li>
+              <li>
+                <Link to="/delete-all">
+                  <button>Delete ALL</button>
+                </Link>
+              </li>
             </ul>
           </header>
         </section>
@@ -53,12 +58,39 @@ export default function App() {
                 <ContactDetails contacts={contacts} setContacts={setContacts} />
               }
             />
+            <Route
+              path="/delete-all"
+              element={<DeleteALL setContacts={setContacts} />}
+            />
             {/* Define routes for other components */}
           </Routes>
         </section>
       </div>
     </Router>
   );
+}
+
+function DeleteALL({ setContacts }) {
+  const navigate = useNavigate();
+
+  const handleDeleteAll = () => {
+    fetch("https://boolean-api-server.fly.dev/pialoana/contact", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
+      if (response.ok) {
+        // If deletion is successful, update the contacts state to an empty array
+        setContacts([]);
+        navigate("/contact"); // Navigate back to the home page or contact list
+      } else {
+        throw new Error("Failed to delete all contacts");
+      }
+    });
+  };
+
+  return <button onClick={handleDeleteAll}>Delete All Contacts</button>;
 }
 
 function ContactDetails({ contacts, setContacts }) {
