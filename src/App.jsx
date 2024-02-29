@@ -13,7 +13,6 @@ function App() {
         fetch("https://boolean-api-server.fly.dev/klaand01/contact")
         .then((response) => response.json())
         .then((data) => {
-            console.log("DATA", data)
             let arr = []
 
             for (let i = 0; i < data.length; i++)
@@ -35,11 +34,20 @@ function App() {
     {
         let arr = [...contacts]
         const newId = contacts[contacts.length - 1].id + 1
+
         data.newContact.id = newId
         arr.push(data.newContact)
-        
-        console.log("NEW CONTACT", arr)
         setContacts([...arr])
+    }
+
+    const deleteContact = (data) =>
+    {
+        const arr = contacts.filter((contact) =>
+        {
+            if (contact !== data.contact) return contact
+        })
+
+        setContacts(arr)
     }
 
     return (
@@ -50,7 +58,7 @@ function App() {
 
         <Routes>
             <Route path='/contacts' element={<ContactList contacts={contacts}/>}/>
-            <Route path='/contacts/:id' element={<ViewContact contacts={contacts}/>}/>
+            <Route path='/contacts/:id' element={<ViewContact contacts={contacts} deleteContact={deleteContact}/>}/>
             <Route path='/newContact' element={<NewContact addContact={addContact}/>}/>
         </Routes>
         </>
