@@ -13,22 +13,7 @@ function App() {
     {
         fetch("https://boolean-api-server.fly.dev/klaand01/contact")
         .then((response) => response.json())
-        .then((data) => {
-            let arr = []
-
-            for (let i = 0; i < data.length; i++)
-            {
-                const obj = {
-                    firstName: data[i].firstName,
-                    lastName: data[i].lastName,
-                    street: data[i].street,
-                    city: data[i].city,
-                    id: data[i].id
-                }
-                arr.push(obj)
-            }
-            setContacts(arr)
-        })
+        .then((data) => {setContacts(data)})
     }, [])
 
     const addContact = (data) =>
