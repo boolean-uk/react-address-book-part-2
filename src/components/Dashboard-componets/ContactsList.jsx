@@ -1,7 +1,7 @@
 import ContactsListItem from "./ContactsListIteml";
 
 function ContactsList(props) {
-  console.log("Props in ContactsList: ", props.contactsList);
+  //console.log("Props in ContactsList: ", props.contactsList);
   const { contactsList } = props;
   return (
     <ul>
