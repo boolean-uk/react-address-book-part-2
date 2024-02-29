@@ -1,0 +1,74 @@
+body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #ffffff;
+}
+
+header a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.contact-list h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.contact-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-list ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ffffff;
+}
+
+.contact-list ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+.create-contact-form h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.create-contact-form form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+.create-contact-form form button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 20px;
+  border-top: 1px solid #ffffff;
+  padding-top: 20px;
+  text-align: center;
+}
