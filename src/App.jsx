@@ -1,4 +1,4 @@
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, Router } from "react-router-dom";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -28,11 +28,11 @@ function App() {
       <h2>Hello Vincent</h2>
       <header>
         <Navbar />
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/createcontact" element={<CreateNewContactFormPage />} />
-        </Routes>
       </header>
+      <Routes>
+        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/createcontact" element={<CreateNewContactFormPage />} />
+      </Routes>
     </>
   );
 }

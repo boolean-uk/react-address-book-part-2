@@ -4,7 +4,7 @@ function Navbar() {
     <nav>
       <ul>
         <li>
-          <Link to="/dashboard">Dachboard</Link>
+          <Link to="/">Dachboard</Link>
         </li>
         <li>
           <Link to="/createcontact">Create New Contact</Link>

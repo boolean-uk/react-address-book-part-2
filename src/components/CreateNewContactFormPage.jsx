@@ -1,5 +1,9 @@
 function CreateNewContactFormPage() {
-  return <p>CreateNewContactFormPage</p>;
+  return (
+    <div>
+      <p>CreateNewContactFormPage</p>
+    </div>
+  );
 }
 
 export default CreateNewContactFormPage;
