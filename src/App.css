@@ -1,0 +1,63 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact__form {
+  padding: 1rem;
+}
+
+.contacts {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+}
+
+.first-last-name {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.del-button {
+  padding: 0.1rem;
+  margin: 10px;
+}
+
+.view-button {
+  display: inline-block;
+}
+
+.form > label {
+  display: block;
+}
+
+.form input[type="text"] {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.form input[type="number"] {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}

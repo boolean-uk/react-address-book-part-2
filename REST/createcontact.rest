@@ -1,0 +1,9 @@
+POST https://boolean-api-server.fly.dev/ssuihko/contact
+Content-Type: application/json 
+
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "street": "Test Lane",
+  "city": "Testville"
+}

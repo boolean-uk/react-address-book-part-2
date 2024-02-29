@@ -1,0 +1,1 @@
+DELETE https://boolean-api-server.fly.dev/ssuihko/contact/16
