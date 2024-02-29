@@ -1,15 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { deleteContact } from "../helpers/APIRequester";
 import { useNavigate } from "react-router-dom";
-export default function ViewContactInfo({ contacts }) {
+import { ContactContext } from "../ContactsProvider";
+export default function ViewContactInfo() {
+  const { contacts, setContacts } = useContext(ContactContext);
   const navigate = useNavigate();
-  console.log(contacts);
   const params = useParams();
-  console.log(params);
   const [contact, setContact] = useState({});
+
   useEffect(() => {
     const contact = contacts.find(
       (contact) => contact.id.toString() === params.id.toString()

@@ -3,7 +3,10 @@ import { useParams } from "react-router-dom";
 import ContactForm from "./ContactForm";
 import { editContact } from "../helpers/APIRequester";
 import { useNavigate } from "react-router-dom";
-export default function UpdateContactForm({ contacts, setContacts }) {
+import { useContext } from "react";
+import { ContactContext } from "../ContactsProvider";
+export default function UpdateContactForm() {
+  const { contacts, setContacts } = useContext(ContactContext);
   const navigate = useNavigate();
   const params = useParams();
   const id = params.id;

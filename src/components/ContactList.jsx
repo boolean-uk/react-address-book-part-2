@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-
-export function ContactList({ contacts }) {
+import { ContactContext } from "../ContactsProvider";
+export function ContactList() {
+  const { contacts } = useContext(ContactContext);
   const [sortOrder, setSortOrder] = useState("asc");
 
   const sortedContacts = contacts.sort((a, b) => {
