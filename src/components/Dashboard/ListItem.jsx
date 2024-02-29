@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 export const ListItem = ({contact}) => {
     return (
-      <div>
-        <h2>Contact</h2>
+      <div className="list-item-container">
+        <Link to={`/${contact.id}`}>
+          {contact.firstName} {contact.lastName}
+        </Link>
       </div>
     );
 }

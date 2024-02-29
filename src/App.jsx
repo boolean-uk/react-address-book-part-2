@@ -18,7 +18,6 @@ function App() {
             setContacts(data);
         });
     }, []);
-    
 
     return (
       <div className='dashboard-layout'>

@@ -1,8 +1,12 @@
+import { ListItem } from "./ListItem";
+
 export const Dashboard = ({contacts}) => {
     return (
       <div>
         <h2>Contacts</h2>
-        <p>Dashboard content</p>
+        {contacts.map((contact) => (
+          <ListItem key={contact.id} contact={contact} />
+        ))}
       </div>
     );
 } 
