@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { json, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewContactPage({ contacts, setContacts }) {
   const [newContact, setNewContact] = useState({
@@ -33,6 +33,7 @@ function NewContactPage({ contacts, setContacts }) {
     event.preventDefault();
 
     console.log("Added: ", newContact, " to contacts");
+    // Make a POST request to API
     fetch(
       `https://boolean-api-server.fly.dev/VictorAdamson/contact`,
       postRequestOptions
@@ -41,12 +42,14 @@ function NewContactPage({ contacts, setContacts }) {
         if (response.ok) return response.json();
       })
       .then((jsonData) => {
+        //If request is Ok
         console.log(jsonData);
         setNewContact(jsonData);
         //Add the newly added contact to the original state
         setContacts([...contacts, newContact]);
       })
       .catch((err) => {
+        //If request is bad
         console.log(err, "Error: contact could not be added!");
       });
     console.log(contacts);

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 
 function ContactInfoPage({ contacts }) {
+  //Using parameters get the right contact
   const { id } = useParams();
   const contact = contacts.find((contact) => contact.id === parseInt(id));
   if (!contact) return <p>Loading...</p>;

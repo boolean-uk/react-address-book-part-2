@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function ContactListPage({ contacts, setContacts }) {
+  //Fetch current data from api on render to make sure all data is present in new contacts
   useEffect(() => {
     fetch(`https://boolean-api-server.fly.dev/VictorAdamson/contact`)
       .then((response) => {
