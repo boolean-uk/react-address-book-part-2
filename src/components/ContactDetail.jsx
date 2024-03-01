@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/ContactDetail.css";
+import ContactForm from "./ContactForm";
 
 export default function ContactDetail() {
   const { state: contact } = useLocation();
+  const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
 
   const deleteContact = async () => {
@@ -18,17 +22,31 @@ export default function ContactDetail() {
   };
 
   return (
-    <div>
-      <h1>
-        {contact.firstName} {contact.lastName}
-      </h1>
-      <p>Occupation: {contact.jobTitle}</p>
-      <p>
-        Address: {contact.street}, {contact.city}
-      </p>
-      <button onClick={deleteContact} className="ab-btn">
-        Delete
-      </button>
+    <div className="contact-detail">
+      {!isEditing && (
+        <>
+          <h1>
+            {contact.firstName} {contact.lastName}
+          </h1>
+          <p>Occupation: {contact.jobTitle}</p>
+          <p>
+            Address: {contact.street}, {contact.city}
+          </p>
+          <div className="contact-detail--btn-group">
+            <button onClick={() => setIsEditing(true)} className="ab-btn">
+              Edit
+            </button>
+            <button onClick={deleteContact} className="ab-btn">
+              Delete
+            </button>
+          </div>
+        </>
+      )}
+      {isEditing && (
+        <>
+          <ContactForm contact={contact} />
+        </>
+      )}
     </div>
   );
 }

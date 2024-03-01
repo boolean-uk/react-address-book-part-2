@@ -2,6 +2,7 @@ import ContactFormInput from "./ContactFormInput";
 import "../styles/ContactForm.css";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { postContact, updateContact } from "../services/ContactService";
 
 const initialFormState = {
   firstName: "",
@@ -13,28 +14,18 @@ const initialFormState = {
 
 export const ContactFormContext = createContext();
 
-export default function ContactForm() {
-  const [formState, setFormState] = useState(initialFormState);
+export default function ContactForm({ contact }) {
+  const [formState, setFormState] = useState(contact || initialFormState);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const postContact = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const response = await fetch(
-      "https://boolean-api-server.fly.dev/Sabbasn/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formState),
-      }
-    )
-      .catch((e) => console.log(e))
-      .finally(setIsLoading(false));
-    const data = await response.json();
-    setFormState(initialFormState);
+    const data = contact
+      ? await updateContact({ ...contact, ...formState })
+      : await postContact(formState);
+    setIsLoading(false);
     if (data) {
       navigate("/");
     }
@@ -45,8 +36,8 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="ab-form" onSubmit={postContact}>
-      <h1>Add Contact</h1>
+    <form className="ab-form" onSubmit={(e) => handleSubmit(e)}>
+      <h1>{!contact ? "Add Contact" : "Edit Contact"}</h1>
       {!isLoading && (
         <ContactFormContext.Provider value={{ handleChange, formState }}>
           <ContactFormInput name="First Name" />
@@ -57,7 +48,7 @@ export default function ContactForm() {
         </ContactFormContext.Provider>
       )}
       <button type="submit" className="ab-btn">
-        Register
+        {!contact ? "Register" : "Edit"}
       </button>
     </form>
   );
