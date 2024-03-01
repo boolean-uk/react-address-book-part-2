@@ -12,6 +12,7 @@ function App() {
 
     const [contacts, setcontacts] = useState([])
     const navigate = useNavigate()
+    const position = {lat: 61.2176, lng: -149.8997};
      
     useEffect(() => {
         console.log("Fetching data")
