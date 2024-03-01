@@ -28,8 +28,8 @@ function App() {
     return (
     <>
       <header>
-        <h1>Hire Your Team</h1>
-        <nav>
+        <h1>Your contacts</h1>
+        <nav className='navbar'>
           <ul>
             <li><Link to="/">Dashboard</Link></li>
             <li><Link to="/create">Create Contact</Link></li>

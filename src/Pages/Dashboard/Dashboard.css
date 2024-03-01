@@ -1,0 +1,25 @@
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the column width as needed */
+    gap: 20px; /* Adjust the gap between grid items */
+  }
+  
+  .contact-list-item {
+    background-color: #f0f0f0; /* Background color for each list item */
+    padding: 10px;
+    border: 1px solid #ccc; /* Border for each list item */
+    border-radius: 5px; /* Add rounded corners */
+    margin-bottom: 10px; /* Add space between list items */
+  }
+  
+  .contact-list-item h3 {
+    margin-bottom: 5px; /* Add space between the name and link */
+  }
+  
+  .contact-list-item a {
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    font-weight: bold; /* Bold text for the link */
+  }

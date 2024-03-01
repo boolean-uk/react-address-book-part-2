@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../Dashboard.css'
 
 function ContactListItem({contact}) {
 
   return (
-    <li>
+    <li className='contact-list-item'>
       <h3>
         {contact.firstName} {contact.lastName}
       </h3>
