@@ -1,0 +1,33 @@
+.h3 {
+  padding: 10px;
+}
+
+.contact-list-box {
+  background-color: aliceblue;
+  position: absolute;
+  right: 15%;
+  width: 300px;
+  border: 2px solid;
+  padding: 10px;
+}
+
+.contact-list-item {
+  border-bottom: 1px solid;
+  border-color: rgba(161, 161, 161, 0.434);
+  margin: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-layout {
+  margin-left: 10px;
+}
+
+.view-button {
+  position: absolute;
+  right: 20px;
+}
