@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ContactListItem } from "./ContactListItem";
+import { ContactListFilter } from "./ContactListFilter";
 
 export const ContactsListPage = ({ contacts, setContacts }) => {
+  const [filter, setFilter] = useState({ firstName: "", lastName: "" });
   const fetchContacts = async () => {
     const result = await fetch(
       "https://boolean-api-server.fly.dev/LinusWillmont/contact"
@@ -35,6 +37,14 @@ export const ContactsListPage = ({ contacts, setContacts }) => {
     setContacts([]);
   };
 
+  const filteredContacts = contacts.filter(
+    (contact) =>
+      contact.firstName
+        .toLowerCase()
+        .includes(filter.firstName.toLowerCase()) &&
+      contact.lastName.toLowerCase().includes(filter.lastName.toLowerCase())
+  );
+
   useEffect(() => {
     let ignore = false;
 
@@ -60,8 +70,9 @@ export const ContactsListPage = ({ contacts, setContacts }) => {
       <button onClick={handleDeleteAll} className="deleteButton">
         Delete All
       </button>
+      <ContactListFilter filter={filter} setFilter={setFilter} />
       <ul>
-        {contacts.map((contact) => {
+        {filteredContacts.map((contact) => {
           return (
             <ContactListItem
               key={contact.id}
