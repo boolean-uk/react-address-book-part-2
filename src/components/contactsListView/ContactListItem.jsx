@@ -1,12 +1,7 @@
 import { useNavigate } from "react-router-dom";
 // import ".."
 
-export const ContactListItem = ({
-  contact,
-  contacts,
-  setContacts,
-  deleteActive,
-}) => {
+export const ContactListItem = ({ contact, contacts, setContacts }) => {
   const navigate = useNavigate();
   const handleView = () => {
     navigate(`/contacts/${contact.id}`);
@@ -34,17 +29,11 @@ export const ContactListItem = ({
   return (
     <li>
       {`${contact.firstName} ${contact.lastName}`}
-      {deleteActive ? (
-        <button
-          onClick={() => handleDelete(contact.id)}
-          className="deleteButton"
-        >
-          Delete
-        </button>
-      ) : (
-        <button onClick={handleView}> View </button>
-      )}
+      <button onClick={handleView}> View </button>
       <button onClick={handleEdit}>Edit</button>
+      <button onClick={() => handleDelete(contact.id)} className="deleteButton">
+        Delete
+      </button>
     </li>
   );
 };

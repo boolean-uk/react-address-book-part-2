@@ -1,19 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ContactListItem } from "./ContactListItem";
 
 export const ContactsListPage = ({ contacts, setContacts }) => {
-  const [deleteActive, setDeleteActive] = useState(false);
-
-  const handleDelete = () => {
-    setDeleteActive(!deleteActive);
-  };
-
   const fetchContacts = async () => {
     const result = await fetch(
       "https://boolean-api-server.fly.dev/LinusWillmont/contact"
     );
     const json = await result.json();
     return json;
+  };
+
+  const deleteAllContacts = async () => {
+    const result = await fetch(
+      "https://boolean-api-server.fly.dev/LinusWillmont/contact",
+      { method: "DELETE" }
+    );
+    const json = await result.json();
+    return json;
+  };
+
+  const handleReset = async () => {
+    const result = await fetch(
+      "https://boolean-api-server.fly.dev/LinusWillmont/admin",
+      {
+        method: "DELETE",
+      }
+    );
+    const json = await result.json();
+    return json;
+  };
+
+  const handleDeleteAll = async () => {
+    await deleteAllContacts();
+    setContacts([]);
   };
 
   useEffect(() => {
@@ -37,11 +56,9 @@ export const ContactsListPage = ({ contacts, setContacts }) => {
 
   return (
     <>
-      <button
-        onClick={handleDelete}
-        className={deleteActive ? "deleteButton" : ""}
-      >
-        Delete mode
+      <button onClick={handleReset}>Reset</button>
+      <button onClick={handleDeleteAll} className="deleteButton">
+        Delete All
       </button>
       <ul>
         {contacts.map((contact) => {
@@ -51,7 +68,6 @@ export const ContactsListPage = ({ contacts, setContacts }) => {
               contact={contact}
               contacts={contacts}
               setContacts={setContacts}
-              deleteActive={deleteActive}
             />
           );
         })}
