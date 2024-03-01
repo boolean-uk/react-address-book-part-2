@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import { Link,
 Route,
 Routes } from 'react-router-dom';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import ContactProfile from './Pages/ContactProfile/ContactProfile';
 const URL = "https://boolean-api-server.fly.dev/thegrevling/contact"
 
@@ -15,9 +15,6 @@ function App() {
         .then(res => res.json())
         .then(setcontacts)
     }, [])
-    useEffect(()=>{
-        console.log(contacts)
-    },[contacts])
 
     return (
     <>
@@ -32,9 +29,9 @@ function App() {
       <Routes>
         <Route
             path="/"
-            element={<Dashboard/>}
+            element={<Dashboard contacts={contacts}/>}
           />
-          <Route path="/view/:id" element={<ContactProfile />} />
+          <Route path="/view/:id" element={<ContactProfile contacts={contacts}/>} />
       </Routes>
     </>
     );

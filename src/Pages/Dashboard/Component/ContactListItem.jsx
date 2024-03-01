@@ -1,8 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function ContactListItem({contact}) {
+
   return (
-    <div>ContactListItem</div>
+    <li>
+      <h3>
+        {contact.firstName} {contact.lastName}
+      </h3>
+      <Link to={`/view/${contact.id}`}>View</Link>
+    </li>
   )
 }
 

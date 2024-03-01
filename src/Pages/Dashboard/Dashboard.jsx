@@ -4,10 +4,10 @@ import ContactList from './Component/ContactList'
 function Dashboard({contacts}) {
   return (
     <main className="dashboard-layout">
-      <button></button>
+      <button>Add Contact</button>
       <section>
-        <h2>People</h2>
-        <ContactList contacts={contacts} />
+        <h2>Contacts</h2>
+        {contacts && <ContactList contacts={contacts} />}
       </section>
     </main>
   )
