@@ -31,3 +31,21 @@
     margin-bottom: 0px;
     margin-top: 10px;
 }
+
+.deleteButton {
+    background-color: #910b0b65;
+    color: white;
+    border: 1px solid white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.deleteButton:hover {
+    scale: 1.05;
+    background-color: #910b0b;
+}
