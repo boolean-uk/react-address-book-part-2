@@ -1,4 +1,4 @@
-import { Link, Routes, Route, Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { useState } from "react";
 
@@ -13,6 +13,7 @@ function App() {
   const updateContactsList = (newContactsList) => {
     setContactsList(newContactsList);
   };
+
   return (
     <>
       <h1>Hello World</h1>
@@ -20,6 +21,7 @@ function App() {
       <header>
         <Navbar />
       </header>
+
       <Routes>
         <Route
           path="/"

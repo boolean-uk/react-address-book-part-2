@@ -15,6 +15,43 @@ header a {
   font-weight: 400;
 }
 
+.form__dubmit {
+  cursor: pointer;
+  background-color: #fcfeff;
+  transition: all 0.3 ease;
+}
+
+.form__dubmit:hover {
+  background-color: azure;
+  color: black;
+}
+
+.create-contact-form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.create-contact-form > label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 20px;
+}
+
+.create-contact-form > label > input[type="text"] {
+  background-color: azure;
+  color: black;
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .material-symbols-outlined {
   font-size: 10px;
 }
