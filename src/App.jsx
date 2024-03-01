@@ -44,7 +44,7 @@ const App = () => {
             />
             <Route 
                 path="/contacts/:id"
-                element={<ContactDetails/>}
+                element={<ContactDetails refreshContacts={retrieveAllContacts}/>}
             />
             <Route 
                 path="/contacts/new"

@@ -1,7 +1,9 @@
-import { baseUrl } from "../../../Utils/apiUtils"
+import { baseUrl } from "../../Utils/apiUtils"
 import "./ConfirmDeleteAction.css"
+import { useNavigate } from 'react-router-dom'
 
 const ConfirmDeleteAction = ({content, setContent, refreshContacts}) => {
+    const navigate = useNavigate()
     const deleteContact = async (contactId) => {
         const request = {
             method: "DELETE",
@@ -12,6 +14,7 @@ const ConfirmDeleteAction = ({content, setContent, refreshContacts}) => {
         await fetch(baseUrl + "/" + contactId, request)
         await refreshContacts()
         setContent(undefined)
+        navigate("/")
     }
 
     return (

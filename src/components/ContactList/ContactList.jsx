@@ -1,6 +1,6 @@
 import "./ContactList.css"
 import ContactListItem from "./ContactListItem/ContactListItem.jsx"
-import ConfirmDeleteAction from "./ConfirmDeleteAction/ConfirmDeleteAction.jsx"
+import ConfirmDeleteAction from "../ConfirmDeleteAction/ConfirmDeleteAction.jsx"
 import { useState } from 'react'
 
 const ContactList = ({contacts, refreshContacts}) => { 

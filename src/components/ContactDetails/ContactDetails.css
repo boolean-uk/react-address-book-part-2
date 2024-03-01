@@ -21,3 +21,8 @@
     font-size: 20px;
 }
 
+.action-button-container {
+    position: relative;
+    top: 5%;
+    left: 95%;
+}
