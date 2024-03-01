@@ -1,0 +1,140 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.container_view{
+  display: flexbox;
+  justify-content: center;
+  text-align: center;
+  margin: 3rem;
+  padding: 3rem;
+}
+/* Header styles */
+.header {
+  background-color: #887171;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navigation styles */
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.nav a:hover {
+  background-color: #ccc;
+}
+
+/* Form styles */
+.form {
+  margin-top: 20px;
+}
+
+.form input[type="text"],
+.form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #555;
+}
+
+/* Contact list styles */
+.contact-list {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.contact-list li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-list li:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #080707;
+  margin-bottom: 10px;
+}
+
+/* Paragraph styles */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  padding: 3px 3px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+
+  
+}
+.btn a {
+  text-decoration: none;
+
+
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+.icon {
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 5px; 
+  vertical-align: middle; 
+}
