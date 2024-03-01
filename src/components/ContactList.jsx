@@ -3,6 +3,7 @@ import Contact from "./Contact";
 
 export default function ContactList() {
   const [contacts, setContacts] = useState([]);
+  const [filter, setFilter] = useState("");
 
   const fetchContacts = async () => {
     const response = await fetch(
@@ -16,11 +17,21 @@ export default function ContactList() {
     fetchContacts();
   }, []);
 
+  const filteredContacts = contacts.filter(
+    (c) => c.firstName.includes(filter) || c.lastName.includes(filter)
+  );
+
   return (
     <ul className="ab-list">
       <h1>Contacts</h1>
+      <input
+        className="ab-input"
+        placeholder="filter..."
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+      />
       {contacts &&
-        contacts.map((contact) => (
+        filteredContacts.map((contact) => (
           <Contact key={contact.id} contact={contact} />
         ))}
     </ul>
