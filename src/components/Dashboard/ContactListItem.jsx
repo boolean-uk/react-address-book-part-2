@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 function ContactListItem(props) {
   const { contact } = props;
 
-  // no wage included in the api data...
-
   return (
     <li>
       <p className="first-last-name">

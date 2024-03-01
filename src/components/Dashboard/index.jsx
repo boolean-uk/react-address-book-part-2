@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-// import ContactList from "./components/PeopleList";
 import ContactList from "./ContactList";
 
 function Dashboard({ contacts }) {

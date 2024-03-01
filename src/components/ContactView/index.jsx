@@ -12,15 +12,12 @@ function ContactView({ contacts, handleDelete }) {
     }
   }, [contacts, id]);
 
-  if (!contact) return <p>Loading...</p>;
-
   var style = {
     border: `5px solid ${contact.favouriteColour}`,
   };
+  var image = `https://maps.google.com/maps?q=${contact.latitude},${contact.longitude}&hl=es;&output=embed`;
 
-  var loc = `https://maps.google.com/maps?q=${contact.latitude},${contact.longitude}&hl=es;&output=embed`;
-
-  // <iframe src={loc}></iframe>
+  if (!contact) return <p>Loading...</p>;
 
   return (
     <article>
@@ -30,7 +27,7 @@ function ContactView({ contacts, handleDelete }) {
         height="200px"
         width="200px"
       ></img>
-      <iframe src={loc}></iframe>
+      <iframe src={image}></iframe>
       <h2>
         {contact.firstName} {contact.lastName}
       </h2>
@@ -43,7 +40,13 @@ function ContactView({ contacts, handleDelete }) {
       <p>Gender: {contact.gender}</p>
       <p>Email: {contact.email}</p>
       <p>Job: {contact.jobTitle}</p>
-      <button className="del-button" onClick={(e) => handleDelete(e, id)}>
+      <button
+        className="del-button"
+        onClick={(e) => {
+          e.preventDefault();
+          handleDelete(id);
+        }}
+      >
         Delete
       </button>
       <div className="update-button">

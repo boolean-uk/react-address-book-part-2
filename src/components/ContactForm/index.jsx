@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function ContactForm({ handleJson, isNew, contacts }) {
+function ContactForm({ handleEvent, isNew, contacts }) {
   const [formData, setFormData] = useState([]);
   const { id } = useParams();
 
@@ -36,7 +36,13 @@ function ContactForm({ handleJson, isNew, contacts }) {
       {formData === undefined ? (
         <p>loading </p>
       ) : (
-        <form className="form" onSubmit={(e) => handleJson(e, formData)}>
+        <form
+          className="form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleEvent(formData);
+          }}
+        >
           {isNew ? <h2>Create Contact</h2> : <h2>Update Contact</h2>}
           <label>
             First Name:

@@ -1,32 +1,32 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
-  Link,
   Route,
   Routes,
   // useLocation,
   useNavigate,
-  useParams,
 } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import ContactView from "./components/ContactView";
-import ContactForm from "./components/CreateContactForm";
+import ContactForm from "./components/ContactForm";
+import Header from "./components/Header";
 
 const API_URL = "https://boolean-api-server.fly.dev/ssuihko/contact";
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const [contactsSave, setContactSave] = useState([]);
+  const [filteredContacts, setFilteredContacts] = useState([]);
   const [filter, setFilter] = useState("");
 
   const navigate = useNavigate();
 
+  // fetch data
   useState(() => {
     fetch(API_URL)
       .then((response) => response.json())
       .then((data) => {
-        setContacts(data);
-        setContactSave(data);
+        setContacts(data); // all contacts
+        setFilteredContacts(data); // for storing the filtered contacts
       });
   }, []);
 
@@ -34,26 +34,26 @@ function App() {
   const searchContacts = (val) => {
     if (val === "") {
       setFilter("");
-      setContacts([...contactsSave]);
     } else {
       setFilter(val);
-      const filteredContacts = contacts.filter((c) => {
-        var toMatch =
-          c.firstName.toLowerCase() + " " + c.lastName.toLowerCase();
-        return toMatch.includes(filter.toLowerCase());
-      });
-      setContacts(filteredContacts);
     }
   };
 
-  // communicate with APIs
+  useEffect(() => {
+    var filteredContacts = contacts.filter((c) => {
+      var toMatch = c.firstName.toLowerCase() + " " + c.lastName.toLowerCase();
+      if (filter === "") {
+        return contacts;
+      }
+      return toMatch.includes(filter.toLowerCase());
+    });
+    setFilteredContacts(filteredContacts);
+  }, [filter, contacts]);
+
+  // communicate with the API
 
   // POST
-  const handleSubmitJson = (e, formData) => {
-    e.preventDefault();
-
-    console.log("in submit!");
-
+  const handleCreateContact = (formData) => {
     formData.longitude = parseFloat(formData.longitude);
     formData.latitude = parseFloat(formData.latitude);
 
@@ -66,21 +66,26 @@ function App() {
     };
 
     fetch(API_URL, postOptions)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error(`Something went wrong! Status: ${res.status}`);
+      })
       .then((newContact) => {
         setContacts([...contacts, newContact]);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
       });
-
-    navigate("/");
   };
 
   // DELETE
-  const handleDeleteJson = (event, id) => {
-    event.preventDefault();
-
+  const handleDeleteContact = (id) => {
     const DEL_URL = API_URL + "/" + id;
 
-    const postOptions = {
+    const deleteOptions = {
       method: "DELETE",
       url: DEL_URL,
     };
@@ -89,19 +94,24 @@ function App() {
       if (parseInt(item.id) !== parseInt(id)) return item;
     });
 
-    fetch(DEL_URL, postOptions)
-      .then((res) => res.json())
+    fetch(DEL_URL, deleteOptions)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error(`Something went wrong! Status: ${res.status}`);
+      })
       .then(() => {
         setContacts([...updatedList]);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("error occured: ", err);
       });
-
-    navigate("/");
   };
 
   // UPDATE
-  const handleUpdateJson = (e, formData) => {
-    e.preventDefault();
-
+  const handleUpdateContact = (formData) => {
     formData.longitude = parseFloat(formData.longitude);
     formData.latitude = parseFloat(formData.latitude);
 
@@ -123,39 +133,24 @@ function App() {
     };
 
     fetch(PUT_URL, putOptions)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error(`Something went wrong! Status: ${res.status}`);
+      })
       .then(() => {
-        // console.log(updated); // might be possible to use updated instead?
         setContacts([...updatedList]);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("error occured: ", err);
       });
-
-    navigate("/");
   };
-
-  let filteredContacts = contacts;
 
   return (
     <div className="main-layout">
-      <header>
-        <h2>MENU</h2>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Contacts List</Link>
-            </li>
-            <li>
-              <Link to="/create">Add New Contact</Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="search">
-          <input
-            className="search-bar"
-            placeholder="Search contact"
-            onChange={(e) => searchContacts(e.target.value)}
-          />
-        </div>
-      </header>
+      <Header searchContacts={searchContacts} />
       <Routes>
         <Route
           path="/"
@@ -165,7 +160,7 @@ function App() {
           path="/create"
           element={
             <ContactForm
-              handleJson={handleSubmitJson}
+              handleEvent={handleCreateContact}
               isNew={true}
               contacts={contacts}
             >
@@ -177,7 +172,7 @@ function App() {
           path="update/:id"
           element={
             <ContactForm
-              handleJson={handleUpdateJson}
+              handleEvent={handleUpdateContact}
               isNew={false}
               contacts={contacts}
             >
@@ -188,7 +183,7 @@ function App() {
         <Route
           path="contact/:id"
           element={
-            <ContactView contacts={contacts} handleDelete={handleDeleteJson}>
+            <ContactView contacts={contacts} handleDelete={handleDeleteContact}>
               /
             </ContactView>
           }
