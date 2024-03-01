@@ -25,6 +25,5 @@
   }
 
   .contact-list-item a:hover {
-    color: #00ffff; /* Link color */
-    font-weight: bold; /* Bold text for the link */
+    color: #bd832c; /* Link color on hover */
   }
