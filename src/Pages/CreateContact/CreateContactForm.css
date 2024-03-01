@@ -1,0 +1,37 @@
+.create-contact-form {
+    max-width: 400px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding for better aesthetics */
+  }
+  
+  .create-contact-form h2 {
+    margin-bottom: 20px; /* Add margin below the form title */
+  }
+  
+  .create-contact-form form {
+    display: grid;
+    gap: 10px; /* Add gap between form elements */
+  }
+  
+  .create-contact-form label {
+    display: block; /* Display labels as block elements for better spacing */
+  }
+  
+  .create-contact-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px; /* Add some space between input elements */
+    box-sizing: border-box; /* Include padding in the input's total width */
+  }
+  
+  .create-contact-form button {
+    background-color: #007bff; /* Set a background color for the button */
+    color: #fff; /* Set text color for the button */
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .create-contact-form button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+  

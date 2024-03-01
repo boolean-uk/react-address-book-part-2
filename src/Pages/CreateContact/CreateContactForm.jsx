@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CreateContactForm.css'
 
 function CreateContactForm({sendCreateRequest}) {
   // State to manage form data
@@ -32,7 +33,7 @@ function CreateContactForm({sendCreateRequest}) {
   };
 
   return (
-    <div>
+    <div className="create-contact-form">
       <h2>Create Contact</h2>
       <form onSubmit={handleSubmit}>
         <label>
