@@ -21,7 +21,7 @@ const ContactDetails = ({refreshContacts}) => {
     }, [id])
 
     return (
-        <div className="content-container">
+        <div className="content-container scroll-container">
             <ConfirmDeleteAction content={modalContent} refreshContacts={refreshContacts} setContent={setModalContent}/>
             <div className="title">Contact details</div>
             <div className="action-button-container">

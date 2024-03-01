@@ -26,6 +26,8 @@ const CreateContact = ({addToContacts}) => {
 
     const submitAndReset = (e) => {
         e.preventDefault()
+        // This data could/should be extracted from the provided address, but that also requires paid API's... the free internet is dead.
+        // So i just randomize it to display on the map.
         dataObject.latitude = generateRandomNumber(-90, 90)
         dataObject.longitude = generateRandomNumber(-90, 90)
         if (dataObject.profileImage === "" && dataObject.email !== "") {
@@ -39,7 +41,7 @@ const CreateContact = ({addToContacts}) => {
     }
 
     return (
-        <div className="content-container">
+        <div className="content-container scroll-container">
             <div className="title">Create new contact</div>
             <form>
                 <p>Basic information</p>

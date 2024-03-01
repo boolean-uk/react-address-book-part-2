@@ -13,7 +13,7 @@ h2 {
   
 #root {
     display: grid;
-    min-height: 100vh;
+    min-height: 105vh;
     grid-template-rows: auto 1fr;
     background-color: var(--background);
     font-family: "EB Garamond";
@@ -42,5 +42,5 @@ p, span {
     position: absolute;
     left: 300px;
     margin-top: 2%;
-    width: 50%;
+    width: 60vw;;
 }
