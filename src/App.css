@@ -1,0 +1,18 @@
+h1 {
+}
+
+ul {
+    list-style-type: none;
+}
+
+#menu {
+    display: inline-block;
+}
+
+#contactList {
+    display: inline-block;
+}
+
+h3 {
+    padding-left: 40px;
+}
