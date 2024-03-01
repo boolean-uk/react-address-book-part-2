@@ -1,20 +1,29 @@
 import './App.css';
-import { useState,useEffect } from 'react';
-import { Link,
-Route,
-Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import ContactProfile from './Pages/ContactProfile/ContactProfile';
-const URL = "https://boolean-api-server.fly.dev/thegrevling/contact"
+import CreateContactForm from './Pages/CreateContact/CreateContactForm';
+import { fetchContacts, createContact } from './Toolbox/api'
 
 function App() {
-    const [contacts,setcontacts] = useState([])
+  const [contacts, setContacts] = useState([]);
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        fetch(URL)
-        .then(res => res.json())
-        .then(setcontacts)
-    }, [])
+  useEffect(() => {
+    fetchContacts().then(setContacts);
+  }, []);
+
+  const sendCreateRequest = async (data) => {
+    try {
+      await createContact(data);
+      setContacts(await fetchContacts());
+      navigate('/');
+    } catch (error) {
+      console.error('Error submitting form:', error.message);
+      // Handle error state if needed
+    }
+  };
 
     return (
     <>
@@ -23,6 +32,7 @@ function App() {
         <nav>
           <ul>
             <li><Link to="/">Dashboard</Link></li>
+            <li><Link to="/create">Create Contact</Link></li>
           </ul>
         </nav>
       </header> 
@@ -32,6 +42,7 @@ function App() {
             element={<Dashboard contacts={contacts}/>}
           />
           <Route path="/view/:id" element={<ContactProfile contacts={contacts}/>} />
+          <Route path="/create" element={<CreateContactForm sendCreateRequest={sendCreateRequest}/>} />
       </Routes>
     </>
     );

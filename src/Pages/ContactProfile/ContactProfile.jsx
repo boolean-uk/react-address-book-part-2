@@ -11,7 +11,10 @@ function ContactProfile({contacts}) {
         {contact.firstName} {contact.lastName}
       </h2>
       <h3>
-        {contact.street} {contact.city}
+        Street : {contact.street} 
+      </h3>
+      <h3>
+        City : {contact.city} 
       </h3>
     
     </div>
