@@ -42,11 +42,7 @@ export default function ContactDetail() {
           </div>
         </>
       )}
-      {isEditing && (
-        <>
-          <ContactForm contact={contact} />
-        </>
-      )}
+      {isEditing && <ContactForm contact={contact} />}
     </div>
   );
 }
