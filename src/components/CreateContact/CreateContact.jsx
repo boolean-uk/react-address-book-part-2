@@ -7,7 +7,15 @@ const defaultObject = {
     email: "",
     street: "",
     city: "",
+    profileImage: "",
+    favouriteColour: "",
+    gender: "",
 }
+
+const generateRandomNumber = (min, max) => {
+    return Math.floor(min + Math.random()*(max - min + 1))
+}
+
 
 const CreateContact = ({addToContacts}) => {
     const [dataObject, setDataObject] = useState(defaultObject)
@@ -18,7 +26,15 @@ const CreateContact = ({addToContacts}) => {
 
     const submitAndReset = (e) => {
         e.preventDefault()
-        addToContacts(dataObject)
+        dataObject.latitude = generateRandomNumber(-90, 90)
+        dataObject.longitude = generateRandomNumber(-90, 90)
+        if (dataObject.profileImage === "" && dataObject.email !== "") {
+            addToContacts({...dataObject, 
+                profileImage: `https://www.gravatar.com/avatar/${dataObject.email}?s=120&d=identicon`
+            })
+        } else {
+            addToContacts(dataObject)
+        }
         setDataObject({...defaultObject})
     }
 
@@ -66,6 +82,39 @@ const CreateContact = ({addToContacts}) => {
                     <input 
                         id="city"
                         value={dataObject["city"]}
+                        onChange={(e) => handleChangeEvent(e)}
+                    />
+                </label>
+                <p>Other information</p>
+                <label>
+                    Occupation: <br/>
+                    <input 
+                        id="jobTitle"
+                        value={dataObject["jobTitle"]}
+                        onChange={(e) => handleChangeEvent(e)}
+                    />
+                </label>
+                <label>
+                    Profile picture link: <br/>
+                    <input 
+                        id="profileImage"
+                        value={dataObject["profileImage"]}
+                        onChange={(e) => handleChangeEvent(e)}
+                    />
+                </label>
+                <label>
+                    Favourite color (supports hex-colors)<br/>
+                    <input 
+                        id="favouriteColour"
+                        value={dataObject["favouriteColour"]}
+                        onChange={(e) => handleChangeEvent(e)}
+                    />
+                </label>
+                <label>
+                    Gender <br/>
+                    <input 
+                        id="gender"
+                        value={dataObject["gender"]}
                         onChange={(e) => handleChangeEvent(e)}
                     />
                 </label>

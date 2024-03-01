@@ -6,3 +6,12 @@ label {
 input {
     background-color: var(--background-two)
 }
+
+input[type="submit"] {
+    border: none;
+    font-size: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: lightgreen;
+}
