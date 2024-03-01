@@ -34,6 +34,7 @@ export default function ContactDetails() {
             <h2 className="name">Name: {contact.firstName} {contact.lastName}</h2>
             <p className="street">Street: {contact.street}</p>
             <p className="city">City: {contact.city}</p>
+            <button className="updateButton" onClick={() => navigate(`/update/${id}`)}>Update</button>
             <button className="deleteButton" onClick={handleDelete}>Delete</button>
         </div>
     )

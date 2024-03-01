@@ -34,6 +34,24 @@
 
 .deleteButton {
     background-color: #910b0b65;
+}
+
+.deleteButton:hover {
+    scale: 1.05;
+    background-color: #910b0b;
+}
+
+.updateButton {
+    background-color: #0b609165;
+}
+
+.updateButton:hover {
+    scale: 1.05;
+    background-color: #0b6091;
+}
+
+.deleteButton,
+.updateButton {
     color: white;
     border: 1px solid white;
     margin-top: 20px;
@@ -43,9 +61,4 @@
     height: 40px;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.deleteButton:hover {
-    scale: 1.05;
-    background-color: #910b0b;
 }
