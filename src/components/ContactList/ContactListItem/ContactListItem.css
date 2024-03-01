@@ -1,13 +1,21 @@
 .contact-list-item {
-    display: flex;
-    justify-items: center;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(65%,200px) minmax(10%, 70px) minmax(15%, 75px);
+    column-gap: 10px;
     padding: 5px;
-    width: 50%;
     border-bottom: black 1px solid;
 }
 
 .contact-list-item span {
     margin-right: auto;
+}
+
+.contact-list-item > button {
+    width: 75px;
+    background-color: var(--button-color);
+    border-radius: 25%;
+}
+
+.contact-list-item > button:hover {
+    filter: brightness(0.8);
 }

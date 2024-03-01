@@ -40,7 +40,7 @@ const App = () => {
         <Routes>
             <Route 
                 path="/"
-                element={<ContactList contacts={contacts}/>}
+                element={<ContactList contacts={contacts} refreshContacts={retrieveAllContacts}/>}
             />
             <Route 
                 path="/contacts/:id"
