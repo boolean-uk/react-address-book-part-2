@@ -1,10 +1,18 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function ViewContact(props)
 {
     const { id } = useParams()
-    const { contacts } = props
+    const { contacts, deleteContact } = props
     const contact = contacts[id - 1]
+
+    const navigate = useNavigate()
+
+    const handleDelete = () =>
+    {
+        deleteContact({contact})
+        navigate("/")
+    }
 
     return (
         <>
@@ -14,6 +22,7 @@ export default function ViewContact(props)
             <p>Street: {contact.street}</p>
             <p>City:  {contact.city}</p> 
             <p> Email: {contact.email}</p>
+            <button className= "btn" onClick={handleDelete}>Delete</button>
             
 
             </div>

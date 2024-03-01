@@ -33,6 +33,16 @@ function App() {
         })
     }, [])
 
+    const deleteContact = (data) =>
+    {
+        const arr = contacts.filter((contact) =>
+        {
+            if (contact !== data.contact) return contact
+        })
+
+        setContacts(arr)
+    }
+
     const addContact = (data) =>
     {
         let arr = [...contacts]
@@ -55,7 +65,7 @@ function App() {
 
         <Routes>
             <Route path='/contacts' element={<ContactList contacts={contacts}/>}/>
-            <Route path='/contacts/:id' element={<ViewContact contacts={contacts}/>}/>
+            <Route path='/contacts/:id' element={<ViewContact contacts={contacts} deleteContact = {deleteContact}/>}/>
             <Route path='/newContact' element={<NewContact addContact={addContact}/>}/>
         </Routes>
         </>
