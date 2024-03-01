@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function DetailedContactViewPage(props) {
   const { contactsList } = props;
-  //console.log(contactsList);
+  const URL = `https://boolean-api-server.fly.dev/llllllll-l/contact`;
 
   const [contact, setContact] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const foundContact = contactsList.find((c) => c.id === parseInt(id));
@@ -18,13 +19,29 @@ function DetailedContactViewPage(props) {
     }
   }, [id, contactsList]);
 
+  const handleDelete = async () => {
+    try {
+      const req = await fetch(URL + `/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!req.ok) {
+        console.log(`HTTP ERROR!, status code: ${req.status}`);
+      }
+
+      navigate("/");
+    } catch (er) {
+      console.log("OBS!!! Something went wrong DELETING");
+    }
+  };
+
   if (!contact) return <p>Loading...</p>;
 
   return (
     <div className="contact-item-container">
       <h3>{`${contact.firstName} ${contact.lastName}`}</h3>
       <p>{`Street: ${contact.street} | City: ${contact.city}`}</p>
-      <button>
+      <button onClick={handleDelete}>
         Delete<span className="material-symbols-outlined">delete</span>
       </button>
     </div>
