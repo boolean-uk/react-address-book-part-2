@@ -38,6 +38,7 @@ const ContactDetails = () => {
             </div>
             { (contactInfo.street || contactInfo.city) && <div className="address-information">
                 <p>Location: {contactInfo.street}, {contactInfo.city}</p>
+                {(contactInfo.latitude || contactInfo.longitude) && <MapComponent lat={contactInfo.latitude} lng={contactInfo.longitude}/>}
             </div>}
         </div>
     )
