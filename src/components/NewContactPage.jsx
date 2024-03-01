@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { json, useNavigate } from "react-router-dom";
 
 function NewContactPage({ contacts, setContacts }) {
   const [newContact, setNewContact] = useState({
@@ -10,18 +10,47 @@ function NewContactPage({ contacts, setContacts }) {
   });
 
   const navigate = useNavigate();
+
   const handleFormUpdate = (event) => {
+    //Load all data from this input
     const { id, value } = event.target;
+    //Check what text has been updated and update the state accordingly
     if (id === "firstName") setNewContact({ ...newContact, firstName: value });
     else if (id === "lastName")
       setNewContact({ ...newContact, lastName: value });
     else if (id === "city") setNewContact({ ...newContact, city: value });
     else if (id === "street") setNewContact({ ...newContact, street: value });
   };
+  const postRequestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newContact),
+  };
   function handleSubmit(event) {
+    //Prevent default
     event.preventDefault();
-    console.log(newContact);
-    setContacts([...contacts, newContact]);
+
+    console.log("Added: ", newContact, " to contacts");
+    fetch(
+      `https://boolean-api-server.fly.dev/VictorAdamson/contact`,
+      postRequestOptions
+    )
+      .then((response) => {
+        if (response.ok) return response.json();
+      })
+      .then((jsonData) => {
+        console.log(jsonData);
+        setNewContact(jsonData);
+        //Add the newly added contact to the original state
+        setContacts([...contacts, newContact]);
+      })
+      .catch((err) => {
+        console.log(err, "Error: contact could not be added!");
+      });
+    console.log(contacts);
+    //Route back to root
     navigate("/contacts");
   }
 

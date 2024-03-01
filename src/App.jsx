@@ -5,9 +5,9 @@ import MenuSidebar from "./components/MenuSidebar";
 function App() {
   return (
     <BrowserRouter>
-      <div className="main-layout">
+      <>
         <MenuSidebar />
-      </div>
+      </>
     </BrowserRouter>
   );
 }

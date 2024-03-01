@@ -7,7 +7,7 @@ import ContactInfoPage from "./ContactInfoPage";
 
 function MenuSidebar() {
   const [contacts, setContacts] = useState([
-    { firstName: "", lastName: "", street: "", city: "", id: 0 },
+    { firstName: "", lastName: "", street: "", city: "" },
   ]);
   useEffect(() => {
     fetch(`https://boolean-api-server.fly.dev/VictorAdamson/contact`)
@@ -15,11 +15,10 @@ function MenuSidebar() {
         if (response.ok) return response.json();
       })
       .then((jsonData) => {
-        console.log(jsonData);
+        console.log("Menu fetch: ", jsonData);
         setContacts(jsonData);
       });
-  }, []);
-
+  }, [setContacts]);
   return (
     <>
       <div className="main-layout">
@@ -37,7 +36,9 @@ function MenuSidebar() {
         <Routes>
           <Route
             path="/contacts"
-            element={<ContactListPage contacts={contacts} />}
+            element={
+              <ContactListPage contacts={contacts} setContacts={setContacts} />
+            }
           />
           <Route
             path="/new_contact"

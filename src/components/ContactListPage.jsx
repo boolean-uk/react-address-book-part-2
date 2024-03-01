@@ -1,6 +1,18 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function ContactListPage({ contacts }) {
+function ContactListPage({ contacts, setContacts }) {
+  useEffect(() => {
+    fetch(`https://boolean-api-server.fly.dev/VictorAdamson/contact`)
+      .then((response) => {
+        if (response.ok) return response.json();
+      })
+      .then((jsonData) => {
+        console.log("Menu fetch: ", jsonData);
+        setContacts(jsonData);
+      });
+  }, []);
+
   return (
     <>
       <section className="contact-list-box">

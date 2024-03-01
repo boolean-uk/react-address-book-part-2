@@ -12,9 +12,8 @@ function ContactInfoPage({ contacts }) {
         <p>
           {contact.firstName} {contact.lastName}
         </p>
-        <p>
-          {contact.city} : {contact.street}
-        </p>
+        <p>City: {contact.city}</p>
+        <p>Street: {contact.street}</p>
       </section>
     </>
   );
