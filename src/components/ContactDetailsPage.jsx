@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import MapWithAMarker from "./MapWithAMarker";
 
 export const ContactDetailsPage = () => {
   const [contact, setContact] = useState(null);
   const { id } = useParams();
-
-  console.log("Id", id);
 
   const fetchContact = async () => {
     const result = await fetch(
@@ -32,6 +31,8 @@ export const ContactDetailsPage = () => {
     };
   }, [setContact]);
 
+  console.log("Rendering contact details");
+
   if (!contact) return <p>Loading...</p>;
 
   return (
@@ -41,6 +42,12 @@ export const ContactDetailsPage = () => {
       </li>
       <li>
         <p>{`Adress: ${contact.city}, ${contact.street}`}</p>
+      </li>
+      <li>
+        <MapWithAMarker
+          latitude={contact.latitude}
+          longitude={contact.longitude}
+        />
       </li>
     </ul>
   );
