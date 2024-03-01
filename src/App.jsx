@@ -15,7 +15,7 @@ function App() {
         fetch(baseURL)
         .then(res => res.json())
         .then(data => setContacts(data))
-      },[])
+      },[contacts])
 
     return (
         <main className='dashboard-layout'>
@@ -31,10 +31,10 @@ function App() {
         </section>
         <Routes>
             <Route path='/contacts'
-            element={<ContactList contacts={contacts}/>}/>
+            element={<ContactList contacts={contacts} url={baseURL}/>}/>
             <Route path='/add'
             element={<CreateContact url={baseURL}/>}/>
-            <Route path={`/contact/:id`} element={<ContactDetail contacts={contacts}/>}/>
+            <Route path={`/contact/:id`} element={<ContactDetail contacts={contacts} url={baseURL}/>}/>
         </Routes>
         </main>
     );
