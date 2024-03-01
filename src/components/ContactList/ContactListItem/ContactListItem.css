@@ -1,0 +1,13 @@
+.contact-list-item {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 50%;
+    border-bottom: black 1px solid;
+}
+
+.contact-list-item span {
+    margin-right: auto;
+}
