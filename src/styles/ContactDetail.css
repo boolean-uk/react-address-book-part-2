@@ -1,4 +1,4 @@
 .contact-detail--btn-group {
-  display: flex;
+  display: grid;
   gap: 10px;
 }

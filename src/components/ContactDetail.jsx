@@ -25,12 +25,25 @@ export default function ContactDetail() {
     <div className="contact-detail">
       {!isEditing && (
         <>
+          <img src={contact.profileImage} />
           <h1>
             {contact.firstName} {contact.lastName}
           </h1>
+          <p>Email: {contact.email}</p>
           <p>Occupation: {contact.jobTitle}</p>
           <p>
             Address: {contact.street}, {contact.city}
+          </p>
+          <p>Gender: {contact.gender}</p>
+          <p>
+            Favourite Color:
+            <div
+              style={{
+                width: "32px",
+                height: "32px",
+                backgroundColor: contact.favouriteColour,
+              }}
+            />
           </p>
           <div className="contact-detail--btn-group">
             <button onClick={() => setIsEditing(true)} className="ab-btn">
