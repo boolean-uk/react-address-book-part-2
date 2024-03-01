@@ -11,8 +11,10 @@ export default function ContactList(props)
     {
         filteredContacts = filteredContacts.filter((contact) => 
         {
-            if (contact.firstName.toLowerCase().includes(searchTitle.toLowerCase())) return contact
-            else if (contact.lastName.toLowerCase().includes(searchTitle.toLowerCase())) return contact
+            const search = searchTitle.toLowerCase()
+
+            return contact.firstName.toLowerCase().includes(search)
+            || contact.lastName.toLowerCase().includes(search)
         })
     }
 
@@ -22,19 +24,20 @@ export default function ContactList(props)
     }
 
     return (
-        <>
-        <h1>Contacts</h1>
-        <h3>Filter</h3>
-        <input type='text' value={searchTitle} onChange={handleFiltering} />
-        <ul>
-          {filteredContacts.map((contact, index) =>
-          (
-            <li
-            key={index}>{contact.firstName} {contact.lastName}
-            <Link to={`/contacts/${contact.id}`} >View</Link>
-            </li>
-          ))}
-        </ul>
-        </>
+    <>
+        <div id='contactList' >
+            <h1 >Contacts</h1>
+            <h3>Filter</h3>
+            <input type='text' placeholder='Search here...' value={searchTitle} onChange={handleFiltering} />
+            <ul>
+            {filteredContacts.map((contact, index) =>
+            (
+                <li key={index}>{contact.firstName} {contact.lastName}
+                    <Link to={`/contacts/${contact.id}`} >View</Link>
+                </li>
+            ))}
+            </ul>
+        </div>
+    </>
     )
 }

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function NewContact(props)
@@ -12,17 +12,17 @@ export default function NewContact(props)
         city: ""
     }
     const [newContact, setNewContact] = useState(INITIAL_CONTACT)
-
+    const navigate = useNavigate()
+    
     const handleInput = (event) =>
     {
         const { name, value } = event.target
         setNewContact({...newContact, [name]: value})
     }
-    const navigate = useNavigate()
     const handleClick = () =>
     {
-        addContact({newContact})
         navigate("/")
+        addContact({newContact})
     }
 
     return (
