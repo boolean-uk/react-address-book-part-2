@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "./App.css";
+import { useNavigate } from "react-router-dom";
 function CreateNewContactFormPage(props) {
   const { setConstactInfoList, contactInfoList } = props;
   const [newContact, setNewContact] = useState({
@@ -12,6 +13,8 @@ function CreateNewContactFormPage(props) {
     favouriteColour: "",
     profileImage: "",
   });
+
+  const navigate = useNavigate();
 
   function handelInputData(event) {
     const inputName = event.target.name;
@@ -40,10 +43,6 @@ function CreateNewContactFormPage(props) {
     }
   }
   function handleSubmit() {
-    const number = contactInfoList.length + 1;
-    const contact = { ...newContact, id: number };
-    setNewContact(contact);
-
     console.log(newContact);
 
     MakePostRequestToAPI(newContact);
@@ -62,6 +61,7 @@ function CreateNewContactFormPage(props) {
       .then((res) => res.json())
       .then((data) => {
         setConstactInfoList([...contactInfoList, data]);
+        navigate(`/contacts/${data.id}`);
       })
       .catch((err) => {
         console.log(err);
