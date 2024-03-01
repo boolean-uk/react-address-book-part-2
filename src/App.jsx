@@ -16,8 +16,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
-
+      <h1 className="home-page-title"> Address book</h1>
       <header>
         <Navbar />
       </header>

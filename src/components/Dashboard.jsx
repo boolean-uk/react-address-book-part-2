@@ -15,7 +15,7 @@ function Dashboard(props) {
       }
     };
     fetchData();
-  }, []);
+  }, [URL, updateContactsList]);
 
   //console.log("contactsList in DashBoard: ", contactsList);
   return (
