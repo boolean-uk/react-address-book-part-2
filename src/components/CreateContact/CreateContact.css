@@ -1,0 +1,8 @@
+label {
+    margin-bottom: 20px;
+    display:block;
+}
+
+input {
+    background-color: var(--background-two)
+}
