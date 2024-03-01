@@ -32,7 +32,7 @@ function ContactForm({ handleEvent, isNew, contacts }) {
   }, [id, contacts, isNew]);
 
   return (
-    <section className="contacts">
+    <section className="parent">
       {formData === undefined ? (
         <p>loading </p>
       ) : (

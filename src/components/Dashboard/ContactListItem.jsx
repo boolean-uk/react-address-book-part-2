@@ -4,14 +4,13 @@ function ContactListItem(props) {
   const { contact } = props;
 
   return (
-    <li>
+    <li className="list-item">
       <p className="first-last-name">
         {contact.firstName} {contact.lastName}
       </p>
-
-      <div className="view-button">
-        <Link to={`/contact/${contact.id}`}>View</Link>
-      </div>
+      <Link className="view-button" to={`/contact/${contact.id}`}>
+        View
+      </Link>
     </li>
   );
 }

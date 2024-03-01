@@ -3,7 +3,7 @@ import ContactList from "./ContactList";
 
 function Dashboard({ contacts }) {
   return (
-    <div className="contacts">
+    <div className="parent">
       <section>
         <h2>Contacts</h2>
         <ContactList contacts={contacts} />

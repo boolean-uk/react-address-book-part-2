@@ -149,7 +149,7 @@ function App() {
   };
 
   return (
-    <div className="main-layout">
+    <div className="app-content">
       <Header searchContacts={searchContacts} />
       <Routes>
         <Route
