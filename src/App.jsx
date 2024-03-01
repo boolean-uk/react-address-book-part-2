@@ -33,7 +33,7 @@ function App() {
             <Route path='/contacts'
             element={<ContactList contacts={contacts}/>}/>
             <Route path='/add'
-            element={<CreateContact/>}/>
+            element={<CreateContact url={baseURL}/>}/>
             <Route path={`/contact/:id`} element={<ContactDetail contacts={contacts}/>}/>
         </Routes>
         </main>
