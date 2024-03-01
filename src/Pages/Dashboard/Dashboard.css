@@ -23,3 +23,8 @@
     color: #007bff; /* Link color */
     font-weight: bold; /* Bold text for the link */
   }
+
+  .contact-list-item a:hover {
+    color: #00ffff; /* Link color */
+    font-weight: bold; /* Bold text for the link */
+  }
