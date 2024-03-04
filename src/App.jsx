@@ -26,7 +26,7 @@ function App() {
     return (
         <Layout>
             <Routes>
-                <Route path="/" element={<ContactsList data={contacts} />} />
+                <Route path="/" element={<ContactsList contacts={contacts} />} />
                 <Route
                     path="/create/"
                     element={
