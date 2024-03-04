@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import MenuList from "./components/MenuList/MenuList.jsx"
 import ContactList from "./components/ContactList/ContactList.jsx"
 import ContactDetails from "./components/ContactDetails/ContactDetails.jsx"
@@ -51,10 +51,14 @@ const App = () => {
 
     return (
         <>
-        <MenuList />
+        <MenuList amount={contacts.length}/>
         <Routes>
             <Route 
                 path="/"
+                element={<Navigate to="/contacts/" replace={true} />}
+            />
+            <Route 
+                path="/contacts/"
                 element={<ContactList contacts={contacts} refreshContacts={retrieveAllContacts}/>}
             />
             <Route 
