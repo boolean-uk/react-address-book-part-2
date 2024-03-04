@@ -23,7 +23,7 @@ function ContactForm(props) {
 
     //This line of code return old contacts plus the newly added contacts
     setContacts((oldContacts) => [...oldContacts, {...newContact}])
-    
+    addToDb()
     // Clear form fields
     setFirstName('');
     setLastName('');
@@ -31,6 +31,15 @@ function ContactForm(props) {
     setCity('');
     navigate("/contact-list")
   };
+
+  const addToDb = async () => {
+    const reqOptions = {
+      method: 'POST',
+      headers: {'Content-type':'application/json'},
+      body: JSON.stringify(newContact)
+    }
+    await fetch("https://boolean-api-server.fly.dev/santhia97/contact", reqOptions)
+  }
 
   return (
     <form onSubmit={handleSubmit}>

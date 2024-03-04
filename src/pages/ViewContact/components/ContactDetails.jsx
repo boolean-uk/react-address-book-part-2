@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function ContactDetails() {
   const { id } = useParams(); // Get the contact ID from URL params
@@ -24,6 +24,7 @@ function ContactDetails() {
       <p>Last Name: {contact.lastName}</p>
       <p>Street: {contact.street}</p>
       <p>City: {contact.city}</p>
+      <Link to={`/edit/${contact.id}`} state={{contact: contact}} >Update contact</Link>
     </div>
   );
 }
