@@ -1,0 +1,73 @@
+.page {
+    width: 100vw;
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    padding-left: 1rem;
+    flex-direction: column;
+    width: 20%;
+
+    border: 0rem gray;
+    border-right: 0.1px gray;
+    border-style: solid;
+}
+
+.sidebar-list {
+    padding-left: 0rem;
+    list-style-type: none;
+}
+
+.sidebar-list > *{
+    padding-bottom: 0.5rem;
+}
+
+.main {
+    float: right;
+    margin-left: 1.5rem;
+}
+
+.contactListElement {
+    padding: 0;
+    list-style-type: none;
+    float: left;
+}
+
+.contactListElement > .listItem {
+    display: flex;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
+    border: 0rem;
+    border-bottom: 0.1px;
+    border-style: solid;
+}
+
+.contactListElement > .listItem > .name {
+    float: left;
+    margin-right: auto;
+}
+
+.contactListElement > .listItem > .view {
+    margin-left: 10rem;
+    float: right;
+}
+
+.main > .inputform > .textboxes {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.main > .inputform > .textboxes > * {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.main > .inputform > .submitForm {
+    float: right;
+    margin-right: 3.2rem;
+}
