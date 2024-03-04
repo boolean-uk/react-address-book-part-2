@@ -10,8 +10,13 @@ function App() {
   const [contacts, setContacts] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const updateContacts = async () =>{
     fetchContacts().then(setContacts);
+  }
+
+  //Call on render
+  useEffect(() => {
+    updateContacts()
   }, []);
 
   const sendCreateRequest = async (data) => {
@@ -41,7 +46,7 @@ function App() {
             path="/"
             element={<Dashboard contacts={contacts}/>}
           />
-          <Route path="/view/:id" element={<ContactProfile contacts={contacts}/>} />
+          <Route path="/view/:id" element={<ContactProfile contacts={contacts} updateContacts={updateContacts}/>} />
           <Route path="/create" element={<CreateContactForm sendCreateRequest={sendCreateRequest}/>} />
       </Routes>
     </>

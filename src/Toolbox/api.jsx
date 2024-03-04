@@ -21,3 +21,17 @@ export const createContact = async (data) => {
   console.log('Form submitted successfully!');
   return fetchContacts();
 };
+export const deleteContact = async (id) => {
+  const response = await fetch(URL+"/"+id, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to delete contact: ${response.status} ${response.statusText}`);
+  }
+
+  console.log('Contact deleted successfully!');
+};
