@@ -8,8 +8,11 @@ function ContactProfile({contacts, updateContacts}) {
   const navigate = useNavigate()
   const contact = contacts.find((contact) => contact.id == id); //id is string, contact.id is int, so two '=' to only check value not type
   if (!contact) return <p>Loading...</p>
+
   function handleDelete(){
-    deleteContact(id).then(updateContacts()).then(navigate("/"))
+    deleteContact(id)
+      .then(updateContacts)
+      .then(navigate("/"))
   }
   return (
     <div className='contact-profile'>
@@ -23,6 +26,7 @@ function ContactProfile({contacts, updateContacts}) {
         City : {contact.city} 
       </h3>
       <button onClick={()=>handleDelete()}>Delete</button>
+      <button onClick={()=>navigate(`/update/${id}`)}>Update</button>
     
     </div>
   )

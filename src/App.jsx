@@ -1,14 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import ContactProfile from './Pages/ContactProfile/ContactProfile';
 import CreateContactForm from './Pages/CreateContact/CreateContactForm';
 import { fetchContacts, createContact } from './Toolbox/api'
+import EditProfileForm from './Pages/EditProfile/EditProfileForm';
 
 function App() {
   const [contacts, setContacts] = useState([]);
-  const navigate = useNavigate();
 
   const updateContacts = async () =>{
     fetchContacts().then(setContacts);
@@ -18,17 +18,6 @@ function App() {
   useEffect(() => {
     updateContacts()
   }, []);
-
-  const sendCreateRequest = async (data) => {
-    try {
-      await createContact(data);
-      setContacts(await fetchContacts());
-      navigate('/');
-    } catch (error) {
-      console.error('Error submitting form:', error.message);
-      // Handle error state if needed
-    }
-  };
 
     return (
     <>
@@ -43,11 +32,12 @@ function App() {
       </header> 
       <Routes>
         <Route
-            path="/"
-            element={<Dashboard contacts={contacts}/>}
-          />
-          <Route path="/view/:id" element={<ContactProfile contacts={contacts} updateContacts={updateContacts}/>} />
-          <Route path="/create" element={<CreateContactForm sendCreateRequest={sendCreateRequest}/>} />
+          path="/"
+          element={<Dashboard contacts={contacts}/>}
+        />
+        <Route path="/view/:id" element={<ContactProfile contacts={contacts} updateContacts={updateContacts}/>} />
+        <Route path="/create" element={<CreateContactForm updateContacts={updateContacts}/>} />
+        <Route path="/update/:id" element={<EditProfileForm updateContacts={updateContacts}/>} />
       </Routes>
     </>
     );

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './CreateContactForm.css'
+import { createContact } from '../../Toolbox/api';
+import { useNavigate } from 'react-router-dom';
 
-function CreateContactForm({sendCreateRequest}) {
+function CreateContactForm({updateContacts}) {
+  const navigate = useNavigate()
   // State to manage form data
   const [formData, setFormData] = useState({
     firstName: '',
@@ -21,7 +24,9 @@ function CreateContactForm({sendCreateRequest}) {
     e.preventDefault();
 
     console.log('Form Data:', formData);
-    sendCreateRequest(formData)
+    createContact(formData)
+      .then(updateContacts)
+      
 
     // Reset the form after submission
     setFormData({
@@ -30,6 +35,8 @@ function CreateContactForm({sendCreateRequest}) {
       street: '',
       city: '',
     });
+
+    navigate("/")
   };
 
   return (
