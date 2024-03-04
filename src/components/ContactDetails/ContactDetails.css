@@ -16,6 +16,14 @@
     font-weight: bold;
 }
 
+.address-information {
+    height: 60%;
+}
+
+.address-information > div {
+    height: 100%;
+}
+
 .personal-information > span, 
 .personal-information > p,
 .address-information > p{
