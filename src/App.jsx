@@ -7,10 +7,11 @@ import { Link, Routes, Route } from 'react-router-dom';
 import EditContact from './components/EditeContact';
 
 
+
 function App() {
     const [contacts, setContacts] = useState([])
 
-    useEffect(() => 
+    useEffect( () => 
     {
         fetch("https://boolean-api-server.fly.dev/malimo326/contact")
         .then((response) => response.json())
@@ -34,6 +35,8 @@ function App() {
             setContacts(arr)
         })
     }, [])
+    
+  
 
     const deleteContact = (data) =>
     {

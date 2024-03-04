@@ -1,15 +1,29 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ContactList(props)
 {
     const { contacts } = props
+    const [searchQuery, setSearchQuery] = useState('')
+
+  const filteredContacts = contacts.filter(
+    (contact) =>
+      contact.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contact.lastName.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
     return (
         <>
         <div className=' container'>
         <h1>Contacts</h1>
+        <input
+          type='text'
+          placeholder='Search contacts...'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        className='input-text'/>
         <ul>
-          {contacts.map((contact, index) =>
+          {filteredContacts.map((contact, index) =>
           (
             <li className='container_view'
             key={index}>{contact.firstName} {contact.lastName} <br />

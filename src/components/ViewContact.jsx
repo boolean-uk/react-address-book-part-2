@@ -29,7 +29,12 @@ export default function ViewContact(props)
             <p> Email: {contact.email}</p>
             <button className= "btn" onClick={handleDelete}>Delete</button>
             <button className= "btn" onClick={handleEdit}>Edit</button>
-            
+            <iframe
+                width="50%"
+                height="250"
+                src={`https://maps.google.com/maps?q=${contact.latitude} + ${contact.longitude}&output=embed`}
+            ></iframe>
+        
 
             </div>
         </>
