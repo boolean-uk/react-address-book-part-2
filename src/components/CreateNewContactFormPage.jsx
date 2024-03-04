@@ -64,7 +64,7 @@ function CreateNewContactFormPage() {
         <input
           name="firstName"
           type="text"
-          placeholder="Anders"
+          placeholder="first name"
           onChange={handleInputChange}
           value={formData.firstName}
         />
@@ -74,7 +74,7 @@ function CreateNewContactFormPage() {
         <input
           name="lastName"
           type="text"
-          placeholder="Andersson"
+          placeholder="Surname"
           onChange={handleInputChange}
           value={formData.lastName}
         />
@@ -84,7 +84,7 @@ function CreateNewContactFormPage() {
         <input
           name="gender"
           type="text"
-          placeholder="male"
+          placeholder="Male"
           onChange={handleInputChange}
           value={formData.gender}
         />
@@ -104,7 +104,7 @@ function CreateNewContactFormPage() {
         <input
           name="city"
           type="text"
-          placeholder="Karlskrona"
+          placeholder="City"
           onChange={handleInputChange}
           value={formData.city}
         />
