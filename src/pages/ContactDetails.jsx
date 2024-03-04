@@ -10,7 +10,7 @@ export default function ContactDetails() {
     useEffect(() => {
         fetch(`https://boolean-api-server.fly.dev/spectraldesign/contact/${id}`)
             .then(response => response.json())
-            .then(data => setContact(data))
+            .then(data => { setContact(data); console.log(data) })
     }, [id])
 
     if (!contact) return (
@@ -31,9 +31,21 @@ export default function ContactDetails() {
     return (
         <div className="infoContainer">
             <h1 className="title">Contact Details</h1>
-            <h2 className="name">Name: {contact.firstName} {contact.lastName}</h2>
-            <p className="street">Street: {contact.street}</p>
-            <p className="city">City: {contact.city}</p>
+            <img className="avatar" src={contact.profileImage ?? "https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png"} alt="avatar" />
+            <h2 className="name">{contact.firstName} {contact.lastName}</h2>
+            <div className="detailsContainer">
+                <p><b>Email:</b> {contact.email}</p>
+                <p><b>Job title:</b> {contact.jobTitle}</p>
+                <p><b>Street:</b> {contact.street}</p>
+                <p><b>City:</b> {contact.city}</p>
+                <p><b>Latitude:</b> {contact.latitude}, <b>Longitude:</b> {contact.longitude}</p>
+                <b>Favourite colour:</b>
+                <div className="colourBox" style={{ backgroundColor: contact.favouriteColour }}>
+                    {contact.favouriteColour}
+                </div>
+                <b>Position on map:</b>
+                <iframe width="100%" height="500" src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}></iframe>
+            </div>
             <button className="updateButton" onClick={() => navigate(`/update/${id}`)}>Update</button>
             <button className="deleteButton" onClick={handleDelete}>Delete</button>
         </div>
