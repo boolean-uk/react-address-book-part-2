@@ -1,3 +1,4 @@
+import "../../style/contacts/ContactDetail.css";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ContactDetail = ({ contacts, setContacts }) => {
@@ -30,7 +31,10 @@ const ContactDetail = ({ contacts, setContacts }) => {
     };
 
     return (
-        <>
+        <div
+            className="contact-detail"
+            style={{ background: contact.favouriteColour }}
+        >
             <h2>{contact.firstName + " " + contact.lastName}</h2>
             <p>{contact.street + " " + contact.city}</p>
             <button onClick={goToEdit}>Edit</button>
@@ -40,7 +44,7 @@ const ContactDetail = ({ contacts, setContacts }) => {
                 height="250"
                 src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}
             ></iframe>
-        </>
+        </div>
     );
 };
 
