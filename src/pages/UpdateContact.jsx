@@ -24,19 +24,7 @@ export default function UpdateContact() {
             .then(response => response.json())
             .then(data => {
                 setContact(data);
-                setForm({
-                    firstName: data.firstName,
-                    lastName: data.lastName,
-                    street: data.street,
-                    city: data.city,
-                    email: data.email,
-                    gender: data.gender,
-                    jobTitle: data.jobTitle,
-                    favouriteColour: data.favouriteColour,
-                    profileImage: data.profileImage,
-                    latitude: data.latitude,
-                    longitude: data.longitude
-                })
+                setForm(data)
             })
             .catch(setHasErrored(true))
     }, [id])
