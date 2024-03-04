@@ -36,12 +36,12 @@ const ContactUpdate = ({ contacts, setContacts }) => {
             ApiPutRequest
         );
         const updatedContact = await response.json();
-        
+
         const indexToEdit = contacts.findIndex((c) => c.id === parseInt(id));
         const updatedContacts = [...contacts];
         updatedContacts[indexToEdit] = updatedContact;
         setContacts([...updatedContacts]);
-        nav("/");
+        nav("/detail/" + id);
     };
 
     return (
