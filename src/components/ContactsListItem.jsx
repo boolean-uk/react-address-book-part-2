@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom"
 
 export default function ContactsListItem(props) {
-    const {index, contact} = props
+    const {index, contact, onDelete} = props
+    const handleDelete = () =>{
+        onDelete(contact.id); // pass this <li> contact email to onDelete function in App
+    }
+
     return(
         <li key={index}>
             <h3>
                 {contact.firstName} {contact.lastName}
             </h3>
-            <Link to={`/contacts/${contact.firstName}${contact.lastName}`}>View</Link>
+            {contact.email && <p>Email: {contact.email}</p>}
+            <Link to={`/contacts/${contact.id}`}>View</Link>
+            <button onClick={handleDelete}>Delete contact</button> {/* extension, deletes contact */}
         </li>
     )
 }

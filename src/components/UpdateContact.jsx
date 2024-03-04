@@ -1,11 +1,12 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 
-export default function CreateNewContact(props) {
-    const {setContacts} = props
+export default function UpdateContact() {
+    const location = useLocation()
+    const {contact} = location.state
     const navigate = useNavigate()
 
-    const newContact = {
+    const newContact = {    
         firstName: "",
         lastName: "",
         gender: "",
@@ -15,7 +16,7 @@ export default function CreateNewContact(props) {
         city: ""
     }
 
-    const [contactForm, setContactForm] = useState(newContact)
+    const [contactForm, setContactForm] = useState(contact)
 
     function handleInput(event){
         const inputContact = {...contactForm}
@@ -27,27 +28,30 @@ export default function CreateNewContact(props) {
         event.preventDefault()
         // log to see if everything is working well
         console.log(contactForm)
-        // add contact to list of contacts
-        setContacts((existingContacts) => [...existingContacts, {...contactForm}])
-        // POST to API
-        addToDb()
+        // PUT to API
+        updateDb()
         // return to contacts list
-        navigate("/contacts")
+        navigate(`/contacts/${contact.id}`)
     }
+    // default values on load
+    useEffect(() => {
+        setContactForm(contact || newContact)
+    }, [])
 
-    const addToDb = async () => {
+    const updateDb = async () => {
         const reqOptions = {
-          method: 'POST',
+          method: 'PUT',
           headers: {'Content-type':'application/json'},
           body: JSON.stringify(contactForm)
         }
-        await fetch("https://boolean-api-server.fly.dev/mkmbaran/contact", reqOptions)
+    
+        await fetch(`https://boolean-api-server.fly.dev/mkmbaran/contact/${contactForm.id}`, reqOptions)
       }
 
     return(
         <form onSubmit={handleSubmit}>
-            <h2>Create New Contact</h2>
-            <h3>Personalia</h3>
+            <h2>Update Contact</h2>
+            <h3>Full name</h3>
             <label htmlFor="firstName"> First Name </label>
             <input
                 type="text"
@@ -64,7 +68,6 @@ export default function CreateNewContact(props) {
                 name="lastName"
                 value={contactForm.lastName}
                 onChange={handleInput}
-                required
             />
             <br/>
             <label htmlFor="gender"> Gender </label>
