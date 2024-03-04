@@ -1,0 +1,48 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1rem;
+}
+
+.left-menu {
+    margin-left: 1rem;
+}
+
+.li-contact {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid black;;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.contact-info h3 {
+    font-weight: normal;
+}
+
+.contact-form {
+    text-align: center;
+}
+
+.deleted {
+    text-align: center;
+}
+
+.edit-form {
+    text-align:center;
+}
