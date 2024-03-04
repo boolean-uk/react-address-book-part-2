@@ -1,0 +1,19 @@
+.header {
+    background-color: #223657;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    margin-bottom: 0px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #61a9fb;
+}

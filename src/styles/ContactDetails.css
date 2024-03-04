@@ -1,0 +1,145 @@
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    background-image: linear-gradient(to right, #5fd2ff, #c37bfe);
+    color: transparent;
+    background-clip: text;
+}
+
+.name {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.street {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.city {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.deleteButton {
+    background-color: #910b0b65;
+}
+
+.deleteButton:hover {
+    scale: 1.05;
+    background-color: #910b0b;
+}
+
+.updateButton {
+    background-color: #0b609165;
+}
+
+.updateButton:hover {
+    scale: 1.05;
+    background-color: #0b6091;
+}
+
+.deleteButton,
+.updateButton {
+    color: white;
+    border: 1px solid white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.requiredText {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.colourBox {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 2px #0000005d;
+    position: relative;
+}
+
+.colourBox::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: radial-gradient(circle, #61a9fb, #61a9fb00);
+}
+
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.detailsContainer>p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.textrow {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    width: 200px;
+    transition: all 0.3s ease;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.textrow>b {
+    margin-right: 10px;
+}
+
+.textrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 1px;
+    background: radial-gradient(circle, #61a9fb, #61a9fb00);
+}
+
+
+.posMap {
+    margin-top: 10px;
+}
