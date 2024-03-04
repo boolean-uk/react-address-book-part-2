@@ -1,4 +1,4 @@
-function UpdateContactForm({ contact, onInputChange, onSave }) {
+function UpdateContactForm({ contact, onInputChange, onSave, onBack }) {
   console.log(contact);
   return (
     <>
@@ -44,9 +44,14 @@ function UpdateContactForm({ contact, onInputChange, onSave }) {
           />
         </label>
       </form>
-      <button className="event-button" type="button" onClick={onSave}>
-        <span className="material-symbols-outlined">save</span>
-      </button>
+      <div>
+        <button className="event-button" type="button" onClick={onBack}>
+          <span className="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button className="event-button" type="button" onClick={onSave}>
+          <span className="material-symbols-outlined">save</span>
+        </button>
+      </div>
     </>
   );
 }

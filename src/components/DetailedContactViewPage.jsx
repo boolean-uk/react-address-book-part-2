@@ -41,8 +41,10 @@ function DetailedContactViewPage(props) {
   };
 
   const handleUpdate = () => {
-    console.log("update");
     setEditState(true);
+  };
+  const handleBack = () => {
+    setEditState(false);
   };
 
   const handleSave = async () => {
@@ -85,6 +87,7 @@ function DetailedContactViewPage(props) {
           contact={editedContact}
           onInputChange={onInputChange}
           onSave={handleSave}
+          onBack={handleBack}
         />
       ) : (
         <>
