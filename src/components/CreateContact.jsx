@@ -41,7 +41,7 @@ const CreateContact = (props) => {
           city: '',
         });
 
-        navigate("/");
+        navigate(`/${username}`);
       };
 
 
