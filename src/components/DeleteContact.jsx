@@ -23,12 +23,6 @@ function DeleteContact(props) {
     update()
     navigate("/")
   }, [])
-
-  return (
-    <div >
-      
-    </div>
-  )
 }
 
 DeleteContact.propTypes = {

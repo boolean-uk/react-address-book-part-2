@@ -56,10 +56,58 @@ function NewContactForm(props) {
             />
         </div>
         <div>
-            <h3>Country</h3>
+            <h3>City</h3>
             <input 
                 type="city"
                 name="city"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Gender</h3>
+            <input 
+                type="gender"
+                name="gender"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Email</h3>
+            <input 
+                type="email"
+                name="email"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Job Title</h3>
+            <input 
+                type="text"
+                name="jobTitle"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Latitude</h3>
+            <input 
+                type="number"
+                name="latitude"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Logitude</h3>
+            <input 
+                type="number"
+                name="logitude"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Favourite Colour</h3>
+            <input 
+                type="text"
+                name="favouriteColour"
                 onChange={handleChange}
             />
         </div>

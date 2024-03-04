@@ -7,18 +7,29 @@ import Contact from './Contact'
 import DeleteContact from './DeleteContact'
 import EditContact from './EditContact'
 
+const getSearchContacts = (contacts, search) =>
+    contacts.filter(contact =>
+        (contact.firstName.toLowerCase() + " " + contact.lastName.toLowerCase())
+        .includes(search.toLowerCase()))
+
 function Dashboard() {
     const [contacts, setContacts] = useState([])
-
-    useEffect(() => {
-        update()
-    }, [])
+    const [search, setSearch] = useState("")
 
     async function update() {
         await fetch("https://boolean-api-server.fly.dev/kristianverduin/contact")
             .then(res => res.json())
             .then(setContacts)
     }
+
+    useEffect(() => {
+        update()
+    }, [])
+
+    let filteredContacts = contacts
+
+    if (search !== "") 
+        filteredContacts = getSearchContacts(filteredContacts, search)
 
     return (
         <>
@@ -30,7 +41,7 @@ function Dashboard() {
                     <Route 
                         path="/"
                         element=
-                        {<ContactList contacts={contacts} />}
+                        {<ContactList contacts={filteredContacts} setContacts={setContacts} setSearch={setSearch} />}
                     />
                     <Route 
                         path="/view/:id"

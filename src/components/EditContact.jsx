@@ -71,6 +71,60 @@ function EditContact(props) {
             />
         </div>
         <div>
+            <h3>Gender</h3>
+            <input 
+                type="gender"
+                name="gender"
+                value={person.gender}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Email</h3>
+            <input 
+                type="email"
+                name="email"
+                value={person.email}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Job Title</h3>
+            <input 
+                type="text"
+                name="jobTitle"
+                value={person.jobTitle}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Latitude</h3>
+            <input 
+                type="number"
+                name="latitude"
+                value={person.latitude}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Logitude</h3>
+            <input 
+                type="number"
+                name="logitude"
+                value={person.longitude}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Favourite Colour</h3>
+            <input 
+                type="text"
+                name="favouriteColour"
+                value={person.favouriteColour}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
             <button type="submit">Edit</button>
         </div>
       </form>
