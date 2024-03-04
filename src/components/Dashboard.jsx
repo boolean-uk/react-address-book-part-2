@@ -11,7 +11,9 @@ function Dashboard(props) {
         const res = await req.json();
         updateContactsList(res);
       } catch (er) {
-        console.log(`OBS!!! Something went wrong fething from ${URL}`);
+        console.log(
+          `OBS!!! Something went wrong fething the contacts from ${URL}`
+        );
       }
     };
     fetchData();

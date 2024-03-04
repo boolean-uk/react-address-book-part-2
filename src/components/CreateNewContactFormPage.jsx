@@ -16,17 +16,17 @@ function CreateNewContactFormPage() {
     event.preventDefault();
 
     if (formData.firstName === "") {
-      throw new Error("First name connot be empty");
+      console.log("First name connot be empty");
     } else if (formData.lastName === "") {
-      throw new Error("Surname cannot be empty");
+      console.log("Surname cannot be empty");
     } else if (formData.city === "") {
-      throw new Error("Citu cannot be empty");
+      console.log("City cannot be empty");
     } else if (formData.street === "") {
-      throw new Error("Street cannot be empty");
+      console.log("Street cannot be empty");
     } else if (formData.gender === "") {
-      throw new Error("Gender cannot be empty");
+      console.log("Gender cannot be empty");
     } else if (formData.email === "") {
-      throw new Error("Email cannot be empty");
+      console.log("Email cannot be empty");
     }
     try {
       const req = await fetch(URL, {
