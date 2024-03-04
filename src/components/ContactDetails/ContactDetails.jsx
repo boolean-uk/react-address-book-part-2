@@ -26,8 +26,12 @@ const ContactDetails = ({refreshContacts}) => {
             <ConfirmDeleteAction content={modalContent} refreshContacts={refreshContacts} setContent={setModalContent}/>
             <div className="title">Contact details</div>
             <div className="action-button-container">
-                <button onClick={() => navigate(`/contacts/edit/${id}`)}>EDIT</button>
-                <button onClick={() => setModalContent(contactInfo)}>DELETE</button>
+                <button onClick={() => navigate(`/contacts/edit/${id}`)}>
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/editing-user-action/pencil-icon.png"/>
+                </button>
+                <button onClick={() => setModalContent(contactInfo)}>
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/recycle-bin-icon.png"/>
+                </button>
             </div>
             <div className="image-container">
                 

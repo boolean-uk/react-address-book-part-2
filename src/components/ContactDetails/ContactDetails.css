@@ -35,4 +35,23 @@
     top: 5%;
     left: 80%;
     z-index: 10;
+    width: 200px;
+}
+
+.action-button-container > button {
+    font-size: 20px;
+    display:inline-flex;
+    border:none;
+    background-color: var(--button-color);
+    margin: 5px;
+}
+
+.action-button-container > button > img {
+    width: auto;
+    height: 30px;
+    padding: 5px;
+}
+
+.action-button-container > button:hover {
+    background-color: lightgreen;
 }
