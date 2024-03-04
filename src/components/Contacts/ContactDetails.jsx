@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import "./styles/ContactDetails.css"
+import ContactMap from '../ContactMap';
 
 export function ContactDetails({setContacts, contacts, url}) {
     const { id } = useParams();
@@ -24,19 +25,20 @@ export function ContactDetails({setContacts, contacts, url}) {
 
     if ( contact == null ) return <p>Loading...</p>
     return (
-        <div className='Details' style={{background: contact.favouriteColour}}>
-            <img 
-                src={contact.profileImage}
-                alt={"Missing"}
-            />
-            <h3>{contact.firstName} {contact.lastName} ({contact.gender})</h3>
-            Location: {contact.street}, {contact.city} &nbsp;
-            ({contact.latitude}, {contact.longitude}) <br/>
-            email: {contact.email} <br/>
-            Job title: {contact.jobTitle} <br/>
-
-            &nbsp; <Link to={`/edit/${contact.id}`}>Update</Link>  &nbsp;
-            &nbsp; <button onClick={() => deleteContact()}>Delete</button>
+        <div className='Details'>
+            <div style={{ background: contact.favouriteColour }}>
+                <img src={contact.profileImage} alt="Missing" />
+                <h3>
+                    {contact.firstName} {contact.lastName} ({contact.gender})
+                </h3>
+                Location: {contact.street}, {contact.city} &nbsp;
+                ({contact.latitude}, {contact.longitude}) <br />
+                email: {contact.email} <br />
+                Job title: {contact.jobTitle} <br />
+            </div>
+            <ContactMap latitude={contact.latitude} longitude={contact.longitude} />
+            <Link to={`/edit/${contact.id}`}>Update</Link> &nbsp;
+            <button onClick={() => deleteContact()}>Delete</button>
         </div>
     )
 }
