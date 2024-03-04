@@ -19,13 +19,13 @@ Use [these Contacts API endpoints](https://boolean-api-server.fly.dev/api-docs/#
 
 ## Extensions
 
-1. Allow for deleting a contact
+1. Allow for deleting a contact _done_
 
-2. Allow for updating a contact's information
+2. Allow for updating a contact's information _done_
 
-3. Automatically navigate to the contact list after deleting a contact
+3. Automatically navigate to the contact list after deleting a contact _done_
 
-4. Automatically navigate to the single contact information view after updating a contact
+4. Automatically navigate to the single contact information view after updating a contact _done_
 
 5. Implement the remaining contact properties available in the API into your application
 
