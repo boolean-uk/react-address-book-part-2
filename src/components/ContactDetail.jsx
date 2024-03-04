@@ -45,6 +45,13 @@ export default function ContactDetail() {
               }}
             />
           </p>
+          {/* Skjalg Eide Hodneland (github: spectraldesign) showed me this simple way of displaying latitude and longitude
+          on google maps */}
+          <iframe
+            width="100%"
+            height="500px"
+            src={`https://maps.google.com/maps?q=${contact.latitude},${contact.longitude}&output=embed&z=4`}
+          />
           <div className="contact-detail--btn-group">
             <button onClick={() => setIsEditing(true)} className="ab-btn">
               Edit
