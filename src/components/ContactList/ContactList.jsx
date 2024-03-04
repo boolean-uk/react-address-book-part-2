@@ -1,5 +1,5 @@
 import "./ContactList.css"
-import ContactListItem from "./ContactListItem/ContactListItem.jsx"
+import ContactCard from "./ContactCard/ContactCard.jsx"
 import ConfirmDeleteAction from "../ConfirmDeleteAction/ConfirmDeleteAction.jsx"
 import { useState } from 'react'
 
@@ -26,7 +26,7 @@ const ContactList = ({contacts, refreshContacts}) => {
                     ))})
                     .map((contact, index) => (
                     <li key={index}>
-                        <ContactListItem contact={contact} confirmDelete={setModalContent}/>
+                        <ContactCard contact={contact} toggleDeleteModal={setModalContent}/>
                     </li>
                 ))}
             </ul>

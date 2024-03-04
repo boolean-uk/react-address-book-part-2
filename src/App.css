@@ -40,7 +40,7 @@ p, span {
 
 .content-container {
     position: absolute;
-    left: 300px;
+    left: 250px;
     margin-top: 2%;
-    width: 60vw;;
+    width: calc(100vw - 250px);
 }

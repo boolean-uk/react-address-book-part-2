@@ -46,6 +46,7 @@ const App = () => {
 
     useEffect(() => {
         retrieveAllContacts()
+        console.log(contacts[4])
     }, [])
 
     return (

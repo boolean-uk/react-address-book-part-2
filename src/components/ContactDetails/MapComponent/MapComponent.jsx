@@ -6,7 +6,7 @@ const MapComponent = ({lat, lng}) => {
 
   return (
     <div>
-      <iframe width="100%" height="100%" src={`https://maps.google.com/maps?q=${center.lat},${center.lng}&z=7&output=embed`} loading="lazy"></iframe>
+      <iframe width="90%" height="90%" src={`https://maps.google.com/maps?q=${center.lat},${center.lng}&z=7&output=embed`} loading="lazy"></iframe>
     </div>
   );
 };
