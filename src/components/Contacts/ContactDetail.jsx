@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 
-const ContactDetail = ({ data, setContacts }) => {
+const ContactDetail = ({ contacts, setContacts }) => {
     const { id } = useParams();
-    const person = data.find((p) => p.id === parseInt(id));
+    const person = contacts.find((p) => p.id === parseInt(id));
 
     const nav = useNavigate();
 
@@ -19,16 +19,21 @@ const ContactDetail = ({ data, setContacts }) => {
             ApiDeleteRequest
         );
 
-        const newContacts = data.filter((p) => p.id !== person.id);
+        const newContacts = contacts.filter((p) => p.id !== person.id);
         setContacts([...newContacts]);
 
         nav("/");
+    };
+
+    const goToEdit = () => {
+        nav("/update/" + id);
     };
 
     return (
         <>
             <h2>{person.firstName + " " + person.lastName}</h2>
             <p>{person.street + " " + person.city}</p>
+            <button onClick={goToEdit}>Edit</button>
             <button onClick={handleDeletion}>Delete</button>
         </>
     );

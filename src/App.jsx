@@ -5,6 +5,7 @@ import ContactsList from "./components/Contacts/ContactsList";
 import { useEffect, useState } from "react";
 import ContactDetail from "./components/Contacts/ContactDetail";
 import ContactCreate from "./components/Contacts/ContactCreate";
+import ContactUpdate from "./components/Contacts/ContactUpdate";
 
 function App() {
     const [contacts, setContacts] = useState([]);
@@ -39,7 +40,16 @@ function App() {
                     path="/detail/:id"
                     element={
                         <ContactDetail
-                            data={contacts}
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        />
+                    }
+                />
+                <Route
+                    path="/update/:id"
+                    element={
+                        <ContactUpdate
+                            contacts={contacts}
                             setContacts={setContacts}
                         />
                     }

@@ -1,20 +1,17 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ContactCreate = ({ contacts, setContacts }) => {
-    const initForm = {
-        firstName: "",
-        lastName: "",
-        street: "",
-        city: "",
-    };
+const ContactUpdate = ({ contacts, setContacts }) => {
+    const { id } = useParams();
 
-    const [contact, setContact] = useState(initForm);
+    const [contact, setContact] = useState(
+        contacts.find((p) => p.id === parseInt(id))
+    );
 
     const nav = useNavigate();
 
-    const ApiPostRequest = {
-        method: "POST",
+    const ApiPutRequest = {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
@@ -35,19 +32,21 @@ const ContactCreate = ({ contacts, setContacts }) => {
         }
 
         const response = await fetch(
-            "https://boolean-api-server.fly.dev/BloodyFM/contact",
-            ApiPostRequest
+            "https://boolean-api-server.fly.dev/BloodyFM/contact/" + id,
+            ApiPutRequest
         );
-        const newContact = await response.json();
-        console.log(newContact);
-        setContacts([...contacts, newContact]);
-        setContact({ ...initForm });
+        const updatedContact = await response.json();
+        
+        const indexToEdit = contacts.findIndex((c) => c.id === parseInt(id));
+        const updatedContacts = [...contacts];
+        updatedContacts[indexToEdit] = updatedContact;
+        setContacts([...updatedContacts]);
         nav("/");
     };
 
     return (
         <article>
-            <h2>Create Contact</h2>
+            <h2>Update Contact</h2>
             <form onSubmit={handleSubmit}>
                 <ul>
                     <li>
@@ -108,10 +107,10 @@ const ContactCreate = ({ contacts, setContacts }) => {
                         />
                     </li>
                 </ul>
-                <button type="submit">Create</button>
+                <button type="submit">Update</button>
             </form>
         </article>
     );
 };
 
-export default ContactCreate;
+export default ContactUpdate;
