@@ -15,6 +15,7 @@ function App() {
     {
         fetch("https://boolean-api-server.fly.dev/malimo326/contact")
         .then((response) => response.json())
+        /*
         .then((data) => {
             console.log("DATA", data)
             let arr = []
@@ -33,7 +34,8 @@ function App() {
                 arr.push(obj)
             }
             setContacts(arr)
-        })
+        })*/
+        .then((data) => {setContacts(data)})
     }, [])
     
   

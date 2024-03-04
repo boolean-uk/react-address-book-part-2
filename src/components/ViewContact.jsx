@@ -32,7 +32,7 @@ export default function ViewContact(props)
             <iframe
                 width="50%"
                 height="250"
-                src={`https://maps.google.com/maps?q=${contact.latitude} + ${contact.longitude}&output=embed`}
+                src={`https://maps.google.com/maps?q=${contact.latitude} + ${contact.longitude}&output=embed&z=3`}
             ></iframe>
         
 
