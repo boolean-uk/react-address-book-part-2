@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ContactUpdate = ({ contacts, setContacts }) => {
     const { id } = useParams();
+    const contactData = contacts.find((p) => p.id === parseInt(id));
+    const [contact, setContact] = useState(contactData);
 
-    const [contact, setContact] = useState(
-        contacts.find((p) => p.id === parseInt(id))
-    );
+    let isLoaded = false;
+    if (contact !== undefined) isLoaded = true;
+
+    useEffect(() => {
+        setContact(contactData);
+    }, [contactData]);
 
     const nav = useNavigate();
 
@@ -45,71 +50,80 @@ const ContactUpdate = ({ contacts, setContacts }) => {
     };
 
     return (
-        <article>
-            <h2>Update Contact</h2>
-            <form onSubmit={handleSubmit}>
-                <ul>
-                    <li>
-                        <label htmlFor="firstName">First Name</label>
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            onChange={(e) =>
-                                setContact({
-                                    ...contact,
-                                    firstName: e.target.value,
-                                })
-                            }
-                            value={contact.firstName}
-                        />
-                    </li>
-                    <li>
-                        <label htmlFor="lastName">Last Name</label>
-                        <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            onChange={(e) =>
-                                setContact({
-                                    ...contact,
-                                    lastName: e.target.value,
-                                })
-                            }
-                            value={contact.lastName}
-                        />
-                    </li>
-                    <li>
-                        <label htmlFor="street">Street</label>
-                        <input
-                            type="text"
-                            id="street"
-                            name="street"
-                            onChange={(e) =>
-                                setContact({
-                                    ...contact,
-                                    street: e.target.value,
-                                })
-                            }
-                            value={contact.street}
-                        />
-                    </li>
-                    <li>
-                        <label htmlFor="city">City</label>
-                        <input
-                            type="text"
-                            id="city"
-                            name="city"
-                            onChange={(e) =>
-                                setContact({ ...contact, city: e.target.value })
-                            }
-                            value={contact.city}
-                        />
-                    </li>
-                </ul>
-                <button type="submit">Update</button>
-            </form>
-        </article>
+        <>
+            {isLoaded ? (
+                <article>
+                    <h2>Update Contact</h2>
+                    <form onSubmit={handleSubmit}>
+                        <ul>
+                            <li>
+                                <label htmlFor="firstName">First Name</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    onChange={(e) =>
+                                        setContact({
+                                            ...contact,
+                                            firstName: e.target.value,
+                                        })
+                                    }
+                                    value={contact.firstName}
+                                />
+                            </li>
+                            <li>
+                                <label htmlFor="lastName">Last Name</label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    onChange={(e) =>
+                                        setContact({
+                                            ...contact,
+                                            lastName: e.target.value,
+                                        })
+                                    }
+                                    value={contact.lastName}
+                                />
+                            </li>
+                            <li>
+                                <label htmlFor="street">Street</label>
+                                <input
+                                    type="text"
+                                    id="street"
+                                    name="street"
+                                    onChange={(e) =>
+                                        setContact({
+                                            ...contact,
+                                            street: e.target.value,
+                                        })
+                                    }
+                                    value={contact.street}
+                                />
+                            </li>
+                            <li>
+                                <label htmlFor="city">City</label>
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    onChange={(e) =>
+                                        setContact({
+                                            ...contact,
+                                            city: e.target.value,
+                                        })
+                                    }
+                                    value={contact.city}
+                                />
+                            </li>
+                        </ul>
+                        <button type="submit">Update</button>
+                    </form>
+                </article>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </>
     );
 };
 
