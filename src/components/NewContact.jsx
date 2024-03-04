@@ -28,7 +28,7 @@ export default function NewContact(props)
 
     return (
         <>
-        <div className="form container">
+        <div className="container">
             <h1>New Contact</h1>
 
             <h3>First Name:</h3>

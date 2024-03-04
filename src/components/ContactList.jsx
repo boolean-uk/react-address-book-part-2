@@ -6,12 +6,12 @@ export default function ContactList(props)
 
     return (
         <>
-        <div className=' container_view'>
+        <div className=' container'>
         <h1>Contacts</h1>
         <ul>
           {contacts.map((contact, index) =>
           (
-            <li className='contact-list li'
+            <li className='container_view'
             key={index}>{contact.firstName} {contact.lastName} <br />
              <button className='btn'><Link to={`/contacts/${contact.id}`} >View</Link></button> 
             </li>
