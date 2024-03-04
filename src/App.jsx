@@ -1,13 +1,14 @@
 import './App.css'
+
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import { ViewContacts } from './components/View/ViewContacts';
 import { CreateContacts } from './components/Create/CreateContact';
+import { ContactDetail } from './components/View/ContactDetail';
 
 function App() {
 
     const [contacts, setContacts] = useState([])
-
     const address = 'https://boolean-api-server.fly.dev/MartinJohannessen/contact'
 
     useEffect(() => {
@@ -23,36 +24,37 @@ function App() {
 
     console.log(contacts)
 
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={
-                    <nav className="menu-header">
-                        <ul>
-                            <li><Link to="/view">View Contacts</Link></li>
-                            <li><Link to="/create">Create Contact</Link></li>
-                        </ul>
-                    </nav>
-                } />
-                <Route path="/view" element={
-                    <ViewContacts
-                        contacts={contacts}
-                    />}
-                />
-                <Route path="/view/:id" element={
-                    <ViewContacts
-                        contacts={contacts}
-                        setContacts={setContacts}
-                    />}
-                />
-                <Route path="/create" element={
-                    <CreateContacts
-                        setContacts={setContacts}
-                    />}
-                />
-            </Routes>
-        </>
-    );
+    if (contacts)
+    {
+        return (
+            <>
+                <nav className="menu-header">
+                    <ul>
+                        <div><Link to="/">View Contacts</Link></div>
+                        <div><Link to="/create">Create Contact</Link></div>
+                    </ul>
+                </nav>
+                <Routes>
+                    <Route path="/" element={
+                        <ViewContacts
+                            contacts={contacts}
+                        />}
+                    />
+                    <Route path="/:id" element={
+                        <ContactDetail
+                            contacts={contacts}
+                            setContacts={setContacts}
+                        />}
+                    />
+                    <Route path="/create" element={
+                        <CreateContacts
+                            setContacts={setContacts}
+                        />}
+                    />
+                </Routes>
+            </>
+        );
+    }
 }
 
 export default App;
