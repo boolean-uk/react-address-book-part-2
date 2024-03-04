@@ -18,11 +18,12 @@ const ContactCard = ({contact, toggleDeleteModal}) => {
                 />
             </button>
         <div 
-        style={{border: `solid 5px ${contact.favouriteColour}`}} 
+        style={{border: `solid 5px ${contact.favouriteColour}`, boxShadow: `2px 8px 16px ${contact.favouriteColour}`}}
+        onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `4px 24px 48px ${contact.favouriteColour}`)}
+        onMouseLeave={(e) => (e.currentTarget.style.boxShadow = `2px 8px 16px ${contact.favouriteColour}`)}
         className="card" 
         onClick={() => handleNavigation(contact.id)}
         >
-            
             <img src={contact.profileImage}/>
             <div className="card-container">
                 <div className="card-title">
