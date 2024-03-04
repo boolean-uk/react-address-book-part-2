@@ -5,7 +5,6 @@ const ContactDetail = ({contacts, url}) => {
     const navigate = useNavigate()
 
     const {id} = useParams()   
-    console.log("🚀 ~ ContactDetail ~ id:", id)
      
     const contact = contacts.find(contact => contact.id == id)
 
@@ -19,11 +18,19 @@ const ContactDetail = ({contacts, url}) => {
         })
         .then(navigate('/contacts'))
       }
+
+    const handleEdit = () => {
+        navigate(`/update/${id}`, {
+            state: {contact : contact, url: `${url}/${id}`}
+        })
+    }
+
     return (
         <div>
             <h2>{contact.firstName} {contact.lastName}</h2>
             <p>{contact.street}</p>
             <button onClick={handleDelete}>Delete contact</button>
+            <button onClick={() =>handleEdit()}>Edit contact</button>
         </div>
     );
 }
