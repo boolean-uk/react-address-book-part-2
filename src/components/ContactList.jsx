@@ -15,7 +15,7 @@ export default function ContactList(props)
     return (
         <>
         <div className=' container'>
-        <h1>Contacts</h1>
+        <h2>Contacts</h2>
         <input
           type='text'
           placeholder='Search contacts...'

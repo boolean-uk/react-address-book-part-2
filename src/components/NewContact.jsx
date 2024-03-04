@@ -4,15 +4,17 @@ import { useNavigate } from "react-router-dom"
 export default function NewContact(props)
 {
     const { addContact } = props
-    const INITIAL_CONTACT =
+    const CONTACT =
     {
         firstName: "",
         lastName: "",
         street: "",
         city: "",
-        email: ""
+        email: "",
+        profileImage: ""
     }
-    const [newContact, setNewContact] = useState(INITIAL_CONTACT)
+    const [newContact, setNewContact] = useState(CONTACT)
+
 
     const handleInput = (event) =>
     {
@@ -20,10 +22,11 @@ export default function NewContact(props)
         setNewContact({...newContact, [name]: value})
     }
     const navigate = useNavigate()
+
     const handleClick = () =>
     {
-        addContact({newContact})
         navigate("/")
+        addContact({newContact})
     }
 
     return (

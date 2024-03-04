@@ -9,61 +9,87 @@ import EditContact from './components/EditeContact';
 
 
 function App() {
+
+   
     const [contacts, setContacts] = useState([])
+    const URL = "https://boolean-api-server.fly.dev/malimo326/contact"
 
-    useEffect( () => 
+    const [contactCreate, setContactCreate] = useState([])
+    const [contactUpdate, setContactUpdate] = useState([])
+    const [contactDelete, setContactDelete] = useState([])
+    
+    
+    useEffect(() => 
     {
-        fetch("https://boolean-api-server.fly.dev/malimo326/contact")
+        fetch(URL)
         .then((response) => response.json())
-        /*
-        .then((data) => {
-            console.log("DATA", data)
-            let arr = []
-
-            for (let i = 0; i < data.length; i++)
-            {
-                const obj = {
-                    firstName: data[i].firstName,
-                    lastName: data[i].lastName,
-                    street: data[i].street,
-                    city: data[i].city,
-                    email: data[i].email,
-                    profileImage: data[i].profileImage,
-                    id: data[i].id
-                }
-                arr.push(obj)
-            }
-            setContacts(arr)
-        })*/
         .then((data) => {setContacts(data)})
     }, [])
-    
-  
 
-    const deleteContact = (data) =>
+    useEffect(() =>
     {
-        /*
-        const arr = contacts.filter((contact) =>
+        const postOption =
         {
-            if (contact !== data.contact) return contact
-        })
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(contactCreate)
+        }
 
-        setContacts(arr)
-        */
-        const arr = contacts.filter((contact) => {if (contact !== data.contact) return contact})
-        setContacts(arr)
-    }
+        fetch(URL, postOption)
+    }, [contactCreate])
+
+
+    useEffect(() =>
+    {
+        const putOption =
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(contactUpdate)
+        }
+        
+        fetch(`https://boolean-api-server.fly.dev/malimo326/contact/${contactUpdate.id}`, putOption)
+    }, [contactUpdate])
+
+
 
     const editContact = (data) =>
     {
         const array = contacts.map((contact) =>
         {
             if (contact.id === data.newContact.id) return data.newContact
-            return contact})
-            setContacts(array)
-
-        
+            return contact
+        })
+        setContacts(array)
+        setContactUpdate(data.newContact)
     }
+    
+    useEffect(() =>
+    {
+        const deleteOption =
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(contactDelete)
+        }
+
+        fetch(`https://boolean-api-server.fly.dev/malimo326/contact/${contactDelete.id}`, deleteOption)
+    }, [contactDelete])
+
+
+    const deleteContact = (data) =>
+    {
+        setContactDelete(data.contact)
+        const arr = contacts.filter((contact) => { return contact !== data.contact })
+        setContacts(arr)
+    }
+
 
     const addContact = (data) =>
     {
@@ -71,8 +97,7 @@ function App() {
         const newId = contacts[contacts.length - 1].id + 1
         data.newContact.id = newId
         arr.push(data.newContact)
-
-        console.log("NEW CONTACT", arr)
+        setContactCreate(data.newContact)
         setContacts([...arr])
     }
     return (
@@ -88,11 +113,11 @@ function App() {
         
 
         <Routes>
-            <Route path='/contacts' element={<ContactList contacts={contacts}/>}/>
-            <Route path='/contacts/:id' element={<ViewContact contacts={contacts} deleteContact = {deleteContact}/>}/>
-            <Route path='/newContact' element={<NewContact addContact={addContact}/>}/>
-            <Route path='/editContact/:id' element={<EditContact contacts={contacts} editContact={editContact}/>}/>
-        </Routes>
+                <Route path='/contacts' element={<ContactList contacts={contacts}/>}/>
+                <Route path='/contacts/:id' element={<ViewContact contacts={contacts} deleteContact={deleteContact}/>}/>
+                <Route path='/editContact/:id' element={<EditContact contacts={contacts} editContact={editContact}/>}/>
+                <Route path='/newContact' element={<NewContact addContact={addContact}/>}/>
+            </Routes>
         </>
     );
 }

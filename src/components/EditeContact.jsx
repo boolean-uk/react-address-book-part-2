@@ -34,20 +34,20 @@ export default function EditContact(props)
     return (
         <>
         <div className="container">
-            <h1>Edit Contact</h1>
+            <h2>Edit Contact</h2>
 
-            <h2>First Name:</h2>
+            <h3>First Name:</h3>
             <input type="text" name="firstName" value={newContact.firstName} onChange={handleInput} className="input-text"/>
 
-            <h2>Last Name:</h2>
+            <h3>Last Name:</h3>
             <input type="text" name="lastName" value={newContact.lastName} onChange={handleInput} className="input-text"/>
 
-            <h2>Street:</h2>
+            <h3>Street:</h3>
             <input type="text" name="street" value={newContact.street} onChange={handleInput} className="input-text"/>
 
-            <h2>City:</h2>
+            <h3>City:</h3>
             <input type="text" name="city" value={newContact.city} onChange={handleInput} className="input-text"/>
-            <h2>Email:</h2>
+            <h3>Email:</h3>
             <input type="text" name="email" value={newContact.email} onChange={handleInput} className="input-text"/>
 
             <button className="btn" onClick={handleClick}>Save</button>
