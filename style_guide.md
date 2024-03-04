@@ -1,5 +1,5 @@
- - Header:
+ - Menu:
     Font: Comic Sans
 
- - List items:
+ - The rest:
     Font: Helvetica

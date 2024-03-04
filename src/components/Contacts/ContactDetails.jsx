@@ -24,12 +24,19 @@ export function ContactDetails({setContacts, contacts, url}) {
 
     if ( contact == null ) return <p>Loading...</p>
     return (
-        <div className='Details'>
-            <h3>{contact.firstName} {contact.lastName}</h3>
-            {contact.street}, {contact.city}
-            <br/>
-            <Link to={`/edit/${contact.id}`}>Update</Link>  &nbsp;
-            <button onClick={() => deleteContact()}>Delete</button>
+        <div className='Details' style={{background: contact.favouriteColour}}>
+            <img 
+                src={contact.profileImage}
+                alt={"Missing"}
+            />
+            <h3>{contact.firstName} {contact.lastName} ({contact.gender})</h3>
+            Location: {contact.street}, {contact.city} &nbsp;
+            ({contact.latitude}, {contact.longitude}) <br/>
+            email: {contact.email} <br/>
+            Job title: {contact.jobTitle} <br/>
+
+            &nbsp; <Link to={`/edit/${contact.id}`}>Update</Link>  &nbsp;
+            &nbsp; <button onClick={() => deleteContact()}>Delete</button>
         </div>
     )
 }

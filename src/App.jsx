@@ -32,7 +32,7 @@ function App() {
     return (
         <>  
             <div className="split">
-            <nav>
+            <nav className="nav">
 
             <h1>Menu</h1>
             <p>
