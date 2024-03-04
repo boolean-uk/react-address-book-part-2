@@ -44,6 +44,9 @@ export default function UpdateContact() {
     const navigate = useNavigate();
 
     const handleFormChange = (e) => {
+        if (e.target.name === 'latitude' || e.target.name === 'longitude') {
+            return setForm({ ...form, [e.target.name]: parseFloat(e.target.value) })
+        }
         setForm({ ...form, [e.target.name]: e.target.value })
     }
 
