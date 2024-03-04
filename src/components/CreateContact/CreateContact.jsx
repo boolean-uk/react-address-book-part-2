@@ -1,24 +1,28 @@
 import "./CreateContact.css"
-import { useState } from 'react'
-
-const defaultObject = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    street: "",
-    city: "",
-    profileImage: "",
-    favouriteColour: "",
-    gender: "",
-}
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import emptyFormObject from "../../Utils/templates.js"
+import { baseUrl } from '../../Utils/apiUtils.js';
 
 const generateRandomNumber = (min, max) => {
     return Math.floor(min + Math.random()*(max - min + 1))
 }
 
+const CreateContact = ({addToContacts, template=emptyFormObject}) => {
+    const [dataObject, setDataObject] = useState(template)
+    const { id } = useParams()
 
-const CreateContact = ({addToContacts}) => {
-    const [dataObject, setDataObject] = useState(defaultObject)
+    const retrieveContactDetails = async (id) => {
+        await fetch(baseUrl+"/"+id)
+            .then((res) => res.json())
+            .then((res) => setDataObject({...res}))
+    }
+
+    useEffect(() => {
+        if (id) {
+            retrieveContactDetails(id)
+        }
+    }, [id])
 
     const handleChangeEvent = (e) => {
         setDataObject({...dataObject, [e.target.id]: e.target.value})
@@ -28,16 +32,17 @@ const CreateContact = ({addToContacts}) => {
         e.preventDefault()
         // This data could/should be extracted from the provided address, but that also requires paid API's... the free internet is dead.
         // So i just randomize it to display on the map.
-        dataObject.latitude = generateRandomNumber(-90, 90)
-        dataObject.longitude = generateRandomNumber(-90, 90)
+        // Limiting latitude between -60 and 70 so its less likely to just put people in water/ice
+        dataObject.latitude = dataObject.latitude || generateRandomNumber(-60, 70)
+        dataObject.longitude = dataObject.longitude || generateRandomNumber(-90, 90)
         if (dataObject.profileImage === "" && dataObject.email !== "") {
             addToContacts({...dataObject, 
                 profileImage: `https://www.gravatar.com/avatar/${dataObject.email}?s=120&d=identicon`
-            })
+            }, id)
         } else {
-            addToContacts(dataObject)
+            addToContacts(dataObject, id)
         }
-        setDataObject({...defaultObject})
+        setDataObject({...emptyFormObject})
     }
 
     return (

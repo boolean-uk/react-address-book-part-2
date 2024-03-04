@@ -1,6 +1,6 @@
 import "./ContactDetails.css"
 import { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { baseUrl } from '../../Utils/apiUtils.js';
 import MapComponent from "./MapComponent/MapComponent.jsx"
 import ConfirmDeleteAction from "../ConfirmDeleteAction/ConfirmDeleteAction.jsx";
@@ -9,6 +9,7 @@ const ContactDetails = ({refreshContacts}) => {
     const [ contactInfo, setContactInfo] = useState({})
     const [modalContent, setModalContent] = useState(undefined)
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const retrieveContactDetails = async (id) => {
         await fetch(baseUrl+"/"+id)
@@ -25,9 +26,11 @@ const ContactDetails = ({refreshContacts}) => {
             <ConfirmDeleteAction content={modalContent} refreshContacts={refreshContacts} setContent={setModalContent}/>
             <div className="title">Contact details</div>
             <div className="action-button-container">
+                <button onClick={() => navigate(`/contacts/edit/${id}`)}>EDIT</button>
                 <button onClick={() => setModalContent(contactInfo)}>DELETE</button>
             </div>
             <div className="image-container">
+                
                 {contactInfo.profileImage && <img 
                     style={{
                         border:"10px solid", 
