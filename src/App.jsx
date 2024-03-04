@@ -1,9 +1,14 @@
-import './App.css';
+import "./styles/App.css";
+import Navbar from "./components/Navbar";
+import { Outlet } from "react-router-dom";
 
 function App() {
-    return (
-        <p>Hello, world!</p>
-    );
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
