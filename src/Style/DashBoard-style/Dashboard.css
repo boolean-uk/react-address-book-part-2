@@ -1,0 +1,22 @@
+/* Style the contact list: */
+
+.contact-info {
+    display: flex;
+    align-items: center;
+}
+
+.contact-info h3 {
+    width: 200px; /* Fixed width for the name */
+    margin-right: 30px; /* Adjust spacing between name and View link */
+    background-color: rgb(134, 173, 180);
+    margin-bottom: 10px; /* Adjust spacing between each contact item */
+}
+
+.view-link {
+    margin-left: 80px; /* Adjust as needed */
+    background-color: blueviolet;
+    text-decoration: none;
+    
+ 
+}
+
