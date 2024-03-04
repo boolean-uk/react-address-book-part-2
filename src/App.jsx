@@ -12,10 +12,14 @@ function App() {
   const userName = "oysteinbjo"
   const baseURL = `https://boolean-api-server.fly.dev/${userName}/contact`
 
+  async function getData() {
+    const response = await fetch(baseURL)
+    const data = await response.json()
+    setContacts(data)
+  }
+
   useEffect(() => {
-    fetch(baseURL)
-      .then(res => res.json())
-      .then(data => setContacts(data))
+        getData()
   }, [])
 
   return (
@@ -34,9 +38,9 @@ function App() {
         <Route path='/contacts'
           element={<ContactList contacts={contacts} url={baseURL} />} />
         <Route path='/add'
-          element={<CreateContact url={baseURL} />} />
-        <Route path={`/contact/:id`} element={<ContactDetail contacts={contacts} url={baseURL} />} />
-        <Route path={`/update/:id`} element={<UpdateContact/>}/>
+          element={<CreateContact url={baseURL} getData={getData}/>} />
+        <Route path={`/contact/:id`} element={<ContactDetail contacts={contacts} url={baseURL} getData={getData} />} />
+        <Route path={`/update/:id`} element={<UpdateContact contacts={contacts} getData={getData}/>}/>
       </Routes>
     </main>
   );

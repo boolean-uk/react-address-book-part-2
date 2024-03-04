@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CreateContact = ({url}) => {
+const CreateContact = ({url, getData}) => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     firstName: "",
@@ -20,7 +20,8 @@ const CreateContact = ({url}) => {
         'Content-Type': 'application/json'
     }
     })
-    .then(navigate('/contacts'))
+    getData()
+    navigate('/contacts')
   }
 
   const handleChange = (event) => {

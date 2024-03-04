@@ -1,27 +1,27 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const ContactDetail = ({contacts, url}) => {
+const ContactDetail = ({ contacts, url, getData }) => {
     const navigate = useNavigate()
 
-    const {id} = useParams()   
-     
+    const { id } = useParams()
     const contact = contacts.find(contact => contact.id == id)
 
-    const handleDelete = (event) => {
+    const handleDelete = () => {
         fetch(`${url}/${id}`
-        , {
-          method: "DELETE",
-          headers: {
-            'Content-Type': 'application/json'
-        }
-        })
-        .then(navigate('/contacts'))
-      }
+            , {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        getData()
+        navigate('/contacts')
+    }
 
     const handleEdit = () => {
         navigate(`/update/${id}`, {
-            state: {contact : contact, url: `${url}/${id}`}
+            state: { contact: contact, url: `${url}/${id}` }
         })
     }
 
@@ -30,7 +30,7 @@ const ContactDetail = ({contacts, url}) => {
             <h2>{contact.firstName} {contact.lastName}</h2>
             <p>{contact.street}</p>
             <button onClick={handleDelete}>Delete contact</button>
-            <button onClick={() =>handleEdit()}>Edit contact</button>
+            <button onClick={() => handleEdit()}>Edit contact</button>
         </div>
     );
 }
