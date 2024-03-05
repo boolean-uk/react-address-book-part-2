@@ -13,7 +13,6 @@ function Contact(props) {
                     <button>
                         View
                     </button>
-
                 </Link>
             </div>
         </li>
