@@ -8,13 +8,13 @@ import ContactDetails from './components/ContactDetails';
 
 function App() {
     const [contacts, setContacts] = useState([])
-    const [lastId, setLastId] = useState(1)
 
     useEffect(() => {
         fetch("https://boolean-api-server.fly.dev/nora-hansen/contact")
             .then(response => response.json())
             .then(response => {
-                const withId = response.map(contact => ({...contact, id: contact.id}))
+                const withId = response.filter(contact =>
+                    Number(contact.id) > 15).map(contact => ({...contact, id: contact.id}))
                 setContacts(withId)
             })
     }, [])
@@ -27,7 +27,7 @@ function App() {
             <Routes>
                 <Route
                     path="/contactlist"
-                    element={<ContactList contacts={contacts} />}
+                    element={<ContactList contacts={contacts} setContacts={setContacts}/>}
                 />
                 <Route
                     path="/contact/create"
