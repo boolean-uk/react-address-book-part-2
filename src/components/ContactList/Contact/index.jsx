@@ -5,10 +5,11 @@ function Contact(props) {
     const navigate = useNavigate()
 
     const handleClick = (event) => {
-        const newContactList = contacts.filter((c) => {
-            c.id !== contact.id
+        fetch(`https://boolean-api-server.fly.dev/nora-hansen/contact/${contact.id}`,
+        {
+            method: "DELETE",
         })
-        setContacts(newContactList)
+        
         navigate("/contactlist")
     }
 
