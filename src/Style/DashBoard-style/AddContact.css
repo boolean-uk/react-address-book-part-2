@@ -1,0 +1,8 @@
+.add-contact-form{
+    display: grid;
+    margin: cm;
+}
+
+.add-contact-form > label {
+    display: contents;
+}
