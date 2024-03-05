@@ -11,10 +11,12 @@ const ContactCard = ({contact, toggleDeleteModal}) => {
     return (
         <>
         <button 
-            id="deleteButton" 
+            className="deleteButton" 
             onClick={() => toggleDeleteModal(contact)}>
                 <img 
                     src="https://uxwing.com/wp-content/themes/uxwing/download/user-interface/recycle-bin-icon.png"
+                    alt="Rubbish bin icon"
+                    loading="lazy"
                 />
             </button>
         <div 
@@ -24,7 +26,11 @@ const ContactCard = ({contact, toggleDeleteModal}) => {
         className="card" 
         onClick={() => handleNavigation(contact.id)}
         >
-            <img src={contact.profileImage}/>
+            <img 
+                src={contact.profileImage} 
+                alt="profile picture"
+                loading="lazy"
+            />
             <div className="card-container">
                 <div className="card-title">
                     <h2>{contact.firstName} {contact.lastName}</h2>

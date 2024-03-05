@@ -11,11 +11,14 @@ const ContactList = ({contacts, refreshContacts}) => {
         <div className="content-container scroll-container">
             <div className="title">Contact list</div>
             <div className="search-container">
+                <label>
                 Filter by name:  
                 <input 
+                    label="searchQuery"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
+                </label>
             </div>
             <ConfirmDeleteAction content={modalContent} refreshContacts={refreshContacts} setContent={setModalContent}/>
             <ul className="contacts-list">

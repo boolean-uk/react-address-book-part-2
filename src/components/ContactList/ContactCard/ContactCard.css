@@ -33,7 +33,7 @@
     margin: 0;
 }
 
-#deleteButton {
+.deleteButton {
     z-index: 10;
     position: relative;
     top: 10%;
@@ -44,10 +44,11 @@
     padding: 10px;
 }
 
-#deleteButton > img {
+.deleteButton > img {
     width: 20px;
+    height: auto;
 }
 
-#deleteButton > img:hover {
+.deleteButton > img:hover {
     background-color: crimson;
 }
