@@ -27,6 +27,7 @@ export default function ContactList({ limit }) {
   return (
     <>
       {loading && <p>Loading...</p>}
+      {!loading && contacts.length === 0 && <p>No contacts available.</p>}
       {!loading && (
         <div>
           {contacts.map((contact) => {
@@ -34,10 +35,10 @@ export default function ContactList({ limit }) {
               <div key={contact.id}>
                 <h3>
                   <Link to={`/contacts/${contact.id}`}>
-                    {contact.lastName} {contact.lastName}
+                    {contact.firstName} {contact.lastName}
                   </Link>
                 </h3>
-                <p>{contact.city}</p>
+                <p>{contact.email}</p>
               </div>
             );
           })}

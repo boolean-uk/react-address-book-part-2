@@ -9,6 +9,7 @@ const HEADERS = {
 };
 
 export const getRequest = async (urlPath) => await sendRequest(urlPath);
+
 export const postRequest = async (urlPath, payload) => {
   const options = {
     method: "POST",

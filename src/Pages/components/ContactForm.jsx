@@ -1,16 +1,17 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const DEFAULS_CONTACT = {
+const DEFAULT_CONTACT = {
   contactId: 1,
   firstName: "",
   lastName: "",
-  city: "",
+  email: "",
+  street: "",
 };
 
 export default function ContactForm({ submitCallBack, contact }) {
   const [formData, setFormData] = useState(
-    contact ? contact : { ...DEFAULS_CONTACT }
+    contact ? contact : { ...DEFAULT_CONTACT }
   );
   const [error, setError] = useState("");
   const [creating, setCreating] = useState(false);
@@ -27,20 +28,21 @@ export default function ContactForm({ submitCallBack, contact }) {
         setError(error);
       } else {
         setCreating(true);
+        setFormData({ ...DEFAULT_CONTACT });
       }
     });
   };
 
-  const nameValid = formData.firstName.length > 0;
-  const lastNameValid = formData.lastName.length > 0;
-  const cityValid = formData.city.length > 0;
+  const nameValid = formData.firstName.length > 3;
+  const lastNameValid = formData.lastName.length > 3;
+  const streetValid = formData.street.length > 3;
 
   return (
     <>
-      <from onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         {!nameValid && (
           <label style={{ color: "red" }}>
-            The first name must have at least one character.
+            The first name must have at least three character.
           </label>
         )}
         <input
@@ -52,7 +54,7 @@ export default function ContactForm({ submitCallBack, contact }) {
         />
         {!lastNameValid && (
           <label htmlFor="lastName">
-            The last name must have at least one character.
+            The last name must have at least three character.
           </label>
         )}
         <input
@@ -62,18 +64,25 @@ export default function ContactForm({ submitCallBack, contact }) {
           value={formData.lastName}
           onChange={handleChange}
         />
-        {!cityValid && <label htmlFor="city">City</label>}
+        {!streetValid && <label htmlFor="street">Street</label>}
         <input
           type="text"
-          name="city"
-          placeholder="City"
-          value={formData.city}
+          name="street"
+          placeholder="Street"
+          value={formData.street}
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
           onChange={handleChange}
         />
         <button type="submit">Create</button>
-      </from>
+      </form>
       {creating && <p>Contact created</p>}
-      {error.length > 0 && <p style={{ color: "red" }}>{error}</p>}
+      {error.length > 3 && <p style={{ color: "red" }}>{error}</p>}
     </>
   );
 }

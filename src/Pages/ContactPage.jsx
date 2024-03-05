@@ -12,7 +12,7 @@ export default function ContactPage() {
   // on load: fetch articles
   useEffect(() => {
     const runEffect = async () => {
-      const { data, error } = await getRequest(`/post/${contactId}`);
+      const { data, error } = await getRequest(`/contact/${contactId}`);
       if (error === null) {
         setContact(data);
       } else {
@@ -29,7 +29,11 @@ export default function ContactPage() {
       {loading && <p>Loading...</p>}
       {!loading && (
         <>
-          <h1>(contact.firstname) (contact.lastname)</h1>
+          <h1>
+            {contact.firstName} {contact.lastName}
+          </h1>
+          <p>Email: {contact.email}</p>
+          <p>City: {contact.street}</p>
           <button onClick={() => navigate(`/contacts/${contact.id}/edit`)}>
             Edit
           </button>
