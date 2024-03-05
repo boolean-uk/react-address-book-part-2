@@ -1,0 +1,38 @@
+.form {
+  width: 60%;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: beige;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.form > button {
+  width: fit-content;
+}
+
+h1 {
+  margin-left: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.contact-list-item {
+  width: 40%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  border-bottom: 1px dashed black;
+}
+
+.dashboard > h2 {
+  text-align: left;
+  margin-left: 10px;
+}
