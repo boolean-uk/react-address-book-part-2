@@ -1,0 +1,9 @@
+.app-container {
+  display: grid;
+  grid-template-columns: 15vw auto 15vw;
+
+}
+
+ul {
+  padding: 0.5vh 0.5vw;
+}
