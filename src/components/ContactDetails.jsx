@@ -29,10 +29,25 @@ function ContactDetails({ contacts, setContacts }) {
       <h2 className="contact-details-name">
         {contact.firstName} {contact.lastName}
       </h2>
-      <p className="contact-details-info"><span className="info-label">Address:</span> {contact.street}</p>
-      <p className="contact-details-info"><span className="info-label">City:</span> {contact.city}</p>
-      <Link to={`/contact/${contact.id}/edit`} className="edit-link">Edit</Link>
-      <button onClick={handleClick} className="delete-button">Delete contact</button>
+      <p className="contact-details-info">
+        <span className="info-label">Address:</span> {contact.street}
+      </p>
+      <p className="contact-details-info">
+        <span className="info-label">City:</span> {contact.city}
+      </p>
+      {contact.latitude && contact.longitude && (
+        <iframe
+          width="100%"
+          height="250"
+          src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed&z=5`}
+        ></iframe>
+      )}
+      <Link to={`/contact/${contact.id}/edit`} className="edit-link">
+        Edit
+      </Link>
+      <button onClick={handleClick} className="delete-button">
+        Delete contact
+      </button>
     </div>
   );
 }
