@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+h1 {
+    text-align: center;
+}
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  nav {
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+    position: sticky;
+    top: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  main {
+    text-align: center;
+    margin-top: 20px;
+    width: 80%;
+    overflow-y: auto; 
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .contact {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact h3 {
+    flex: 0.3; /* Make the span (name) take up remaining space */
+    margin-right: 80px; /* Add a bit more spacing between first and last name */
+  }
+  
+  .contact button {
+    text-decoration: none;
+    color: #333;
+    margin-left: 40px; /* Add spacing between name and button */
+    padding: 8px 15px; /* Adjust padding for the button */
+    border: 1px solid #333;
+    border-radius: 5px;
+  }
+  
