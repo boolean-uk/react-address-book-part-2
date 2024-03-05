@@ -13,7 +13,8 @@ function ContactsListItem(props) {
         {contact.firstName} {contact.lastName}
         <Link to={`/contacts/${contact.id}`}>View Profile</Link>
       </h3>
-      {contact.street && <p>street: {contact.street}</p>}
+      {/* {contact.city && <p>city: {contact.city}</p>}
+      {contact.street && <p>street: {contact.street}</p>} */}
     </li>
   )
 }

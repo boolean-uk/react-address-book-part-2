@@ -3,6 +3,8 @@ import { Link, Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import PersonProfile from './pages/PersonProfile'; 
 import AddContact from './pages/PersonProfile/components/AddContact';
+import ProfilePage from './pages/PersonProfile/components/ProfilePage';
+
 // import './App.css';
 
 function App() {
@@ -15,7 +17,7 @@ function App() {
           .then(respone => respone.json())
           .then(data => setContacts(data))
           .catch(error => console.error("Error fetching contacts fro API: ", error))
-      }, [])
+      }, [contacts])
 
 
     return (
@@ -54,6 +56,11 @@ function App() {
                 path="/contacts/:id"
                 element={<PersonProfile contacts={contacts}/>}
             /> */}
+            <Route 
+                path="/contacts/:id" 
+                element={<PersonProfile contacts={contacts} setContact={setContact}/>} 
+            />
+
   
         </Routes>
       </>

@@ -10,7 +10,7 @@ function AddContact(props) {
   const [lastName, setLastName] = useState('');
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
-  const [id, setId] = useState('');
+  const [id, setId] = useState(16);
 
 
   const navigate = useNavigate()  
@@ -27,18 +27,31 @@ function AddContact(props) {
       id: id
     };
 
-    const isNotAdded = !contacts.some(existingContact =>
-      existingContact.id === id)
+    fetch('https://boolean-api-server.fly.dev/noahlenn/contact', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newContact),
+    })
+    .then(data => {
+      console.log('Success:', data);
+      setId(prevId => prevId + 1);
+      navigate('/');
+  })
+
+    // const isNotAdded = !contacts.some(existingContact =>
+    //   existingContact.id === id)
 
 
-    if (isNotAdded) {
-      setContacts([...contacts, newContact])
-      console.log(contacts)
-    } else {
-      console.log("This person is already added.")
-    }
+    // if (isNotAdded) {
+    //   setContacts([...contacts, newContact])
+    //   console.log(contacts)
+    // } else {
+    //   console.log("This person is already added.")
+    // }
   
-    navigate("/")
+    // navigate("/")
   }
 
   
@@ -76,14 +89,14 @@ function AddContact(props) {
         onChange={e => setStreet(e.target.value)}
         value={street}
       />
-      <label htmlFor="id">id</label>
+      {/* <label htmlFor="id">id</label>
       <input
         type="text"
         id="id"
         name="id"
         onChange={e => setId(e.target.value)}
         value={id}
-      />
+      /> */}
       <button type="submit">Add contact</button>
     </form>
   )

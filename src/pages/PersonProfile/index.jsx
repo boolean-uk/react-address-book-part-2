@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import AddContact from './components/AddContact'
+import ProfilePage from './components/ProfilePage'
+
 import { useParams } from 'react-router-dom';
 
 function PersonProfile(props) {
@@ -7,23 +9,18 @@ function PersonProfile(props) {
 
   const { id } = useParams()
   const { contact, setContact, contacts, setContacts} = props
+  console.log('KSJDBFUIBS ',contacts)
 
-  useEffect(() => {
-    if (contacts && id) {
-      setContact(contacts.find((acontact) => 
-      (acontact.id) === (id)))
-    }
-  }, [contacts, id])
+  console.log('Contact in PersonProfile: ',contact)
   
-  if (!contact) return <p>Loading... PersonProfile</p>
+  if (!contacts) return <p>Loading... PersonProfile</p>
 
 
   return (
     <article>
-      <h2>
-        {contact.firstName} {contact.lastName}
-      </h2>
-      <AddContact contact={contact} contacts={contacts} setContact={setContact} setContacts={setContacts}/>
+
+        <ProfilePage contacts={contacts} />
+      
     </article>
   )
 }
