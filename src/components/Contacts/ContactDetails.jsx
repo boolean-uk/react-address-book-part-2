@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import "./styles/ContactDetails.css"
-import ContactMap from '../ContactMap';
 
 export function ContactDetails({setContacts, contacts, url}) {
     const { id } = useParams();
@@ -36,7 +35,9 @@ export function ContactDetails({setContacts, contacts, url}) {
                 email: {contact.email} <br />
                 Job title: {contact.jobTitle} <br />
             </div>
-            <ContactMap latitude={contact.latitude} longitude={contact.longitude} />
+            <iframe width="100%" height="250" 
+            src={`https://maps.google.com/maps?q=${contact.latitude}, 
+            ${contact.longitude}&output=embed`}></iframe>
             <Link to={`/edit/${contact.id}`}>Update</Link> &nbsp;
             <button onClick={() => deleteContact()}>Delete</button>
         </div>
