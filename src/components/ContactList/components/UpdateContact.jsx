@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function UpdateContact(props) {
+function UpdateContact({}) {
   return (
     <div>UpdateContact</div>
   )

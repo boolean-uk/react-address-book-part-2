@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
-import {Route, Routes} from 'react-router-dom'
+import {Route, Routes, useLocation} from 'react-router-dom'
 import './App.css';
 import Menu from './components/Menu';
 import ContactList from './components/ContactList';
 import ContactForm from './components/ContactForm';
 import ContactDetails from './components/ContactList/components/ContactDetails';
+import UpdateContact from './components/ContactList/components/UpdateContact';
 
 function App() {
     const [contacts, setContacts] = useState([])
-
+    const location = useLocation()
+   
+    
     const updateContacts = () => {
         fetch("https://boolean-api-server.fly.dev/AxelHan/contact")
         .then((res) => res.json())
@@ -19,14 +22,16 @@ function App() {
                     idOverFifteen.push(element)
                 }
             });
-            console.log(data)
+        
             setContacts(idOverFifteen)
         })
     }
 
     useEffect(() => {
         updateContacts()
-    }, [])
+    }, 
+    /* Fetch each time the url changes */
+    [location])
 
     
 
@@ -40,8 +45,9 @@ function App() {
         </header>
         <Routes>
             <Route path="/contacts" element={<ContactList contacts={contacts}/>}></Route>
-            <Route path="/contacts/add" element={<ContactForm updateContacts={updateContacts} />}></Route>
+            <Route path="/contacts/add" element={<ContactForm />}></Route>
             <Route path="/contacts/:id" element={<ContactDetails contacts={contacts} ></ContactDetails>}></Route>
+            <Route path="/contacts/:id/update" element={<UpdateContact contacts={contacts} ></UpdateContact>}></Route>
         </Routes>
         </>
     );

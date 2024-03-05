@@ -2,17 +2,26 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-function ContactForm({updateContacts}) {
+function ContactForm() {
     const [contactInfo, setContactInfo] = useState({
         firstName: "",
         lastName: "",
         city: "",
-        street: ""
+        street: "",
+        email: "",
+        profileImage: ""
     })
+
     const navigate = useNavigate()
 
     const handleChange = (event) => {
-        const {name, value} = event.target; 
+        const {name, value, type} = event.target; 
+
+        console.log(type)
+        if(type === 'email') {
+            setContactInfo({...contactInfo, profileImage: "https://www.gravatar.com/avatar/Deven.Bergstrom@gmail.com?s=120&d=identicon"})
+        }
+
         setContactInfo({...contactInfo, [name]: value})
     }
 
@@ -24,12 +33,11 @@ function ContactForm({updateContacts}) {
             const res = await fetch("https://boolean-api-server.fly.dev/AxelHan/contact", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json'},
-                body: JSON.stringify(contactInfo),
+                body: JSON.stringify(contactInfo)
             })
-
+            console.log(res.json)
             if(res.ok) {
-                console.log("succes contact added")
-                updateContacts()
+                console.log("success contact added")
                 navigate("/contacts")
             } else{
                 console.error("Failed to add contact")
@@ -95,6 +103,18 @@ function ContactForm({updateContacts}) {
                 onChange={handleChange}
                 />
             </li>
+            <li>
+          {/* File input for image upload */}
+          <label>Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={contactInfo.email}
+            onChange={handleChange}
+          />
+        </li>
             <input type="submit" value="Add Contact"></input>
         </ul>
      
