@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    background-color: #504e4e;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 25% auto;
+}
+
+.app-menu {
+
+}
