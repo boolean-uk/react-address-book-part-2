@@ -31,6 +31,11 @@ function UpdateContact(props) {
                 lastName: `${contactInput.lastName !== undefined ? contactInput.lastName[0] : contact.lastName}`,
                 street: `${contactInput.street !== undefined ? contactInput.street[0] : contact.street}`,
                 city: `${contactInput.city !== undefined ? contactInput.city[0] : contact.city}`,
+                gender: `${contactInput.gender !== undefined ? contactInput.gender[0] : contact.gender}`,
+                email: `${contactInput.email !== undefined ? contactInput.email[0] : contact.email}`,
+                jobTitle: `${contactInput.jobTitle !== undefined ? contactInput.jobTitle[0] : contact.jobTitle}`,
+                latitude: `${contactInput.latitude !== undefined ? contactInput.latitude[0] : contact.latitude}`,
+                longitude: `${contactInput.longitude !== undefined ? contactInput.longitude[0] : contact.longitude}`,
             })
         })
         setToggle(toggle => !toggle)
@@ -50,6 +55,16 @@ function UpdateContact(props) {
             <input name="street" id="street-input" type="text" placeholder="123 Fake St" onChange={handleChange}/>
             <label htmlFor="city-input"><b>City</b> ({contact.city})</label>
             <input name="city" id="city-input" type="text" placeholder="City McCityface" onChange={handleChange}/>
+            <label htmlFor="gender-input"><b>Gender</b> ({contact.gender})</label>
+            <input name="gender" id="gender-input" type="text" placeholder="Other" onChange={handleChange}/>
+            <label htmlFor="email-input"><b>E-Mail</b></label>
+            <input name="email" id="email-input" type="text" placeholder="email@email.com" onChange={handleChange}/>
+            <label htmlFor="jobtitle-input"><b>Job Title</b></label>
+            <input name="jobtitle" id="jobtitle-input" type="text" placeholder="Sqientist" onChange={handleChange}/>
+            <label htmlFor="latitude-input"><b>Latitude</b></label>
+            <input name="latitude" id="latitude-input" type="text" placeholder="0" onChange={handleChange}/>
+            <label htmlFor="longitude-input"><b>Longitude</b></label>
+            <input name="longitude" id="longitude-input" type="text" placeholder="0" onChange={handleChange}/>
             <button>Create</button>
         </form>
         </>

@@ -37,6 +37,10 @@ function ContactDetails(props) {
         <div className="contact-details">
             <h2>{contact.firstName} {contact.lastName}</h2>
             <p>{contact.street} {contact.city}</p>
+            <p>Gender: {contact.gender}</p>
+            <p>E-Mail: {contact.email}</p>
+            <p>Job Title: {contact.jobTitle}</p>
+            <iframe width="100%" height="250" src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}></iframe>
             <button name="delete" onClick={handleClick}>Delete</button>
             <button name="update" onClick={handleClick}>Edit</button>
         </div>
