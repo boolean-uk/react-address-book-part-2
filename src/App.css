@@ -1,0 +1,12 @@
+@import url('@/global.css');
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--nothingness-grey);
+}
+
+#root > .content {
+    margin-left: var(--app-navigation-width);
+    padding: 20px 1rem 20px 1rem;
+}
