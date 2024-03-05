@@ -6,8 +6,8 @@ const FormInputField = ({labelText, fieldId}) => {
 
     return (
         <label>
-            {labelText}: <br/>
             <input 
+            placeholder={labelText}
             id={fieldId}
             value={dataObject[fieldId]}
             onChange={(e) => handleChange(e)}
