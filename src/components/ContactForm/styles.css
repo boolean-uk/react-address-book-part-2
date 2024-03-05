@@ -1,0 +1,20 @@
+.create-contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-contact-form > label {
+    margin-bottom: 10px;
+}
+
+.create-contact-form > label > input {
+    display: block;
+}
+
+.create-contact-radio > label {
+    margin-right: 10px;
+}
+
+.create-contact-form > input {
+    width: fit-content;
+}
