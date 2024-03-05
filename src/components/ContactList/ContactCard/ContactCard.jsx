@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./ContactCard.css"
 
 const ContactCard = ({contact, toggleDeleteModal}) => {
+    const [imageLoaded, setImageLoaded] = useState(true)
     const navigate = useNavigate()
     
     const handleNavigation = (id) => {
@@ -26,11 +28,13 @@ const ContactCard = ({contact, toggleDeleteModal}) => {
         className="card" 
         onClick={() => handleNavigation(contact.id)}
         >
-            <img 
+            {imageLoaded && <img 
                 src={contact.profileImage} 
                 alt="profile picture"
                 loading="lazy"
-            />
+                onLoad={() => setImageLoaded(true)}
+                onError={() => setImageLoaded(false)}
+            />}
             <div className="card-container">
                 <div className="card-title">
                     <h2>{contact.firstName} {contact.lastName}</h2>

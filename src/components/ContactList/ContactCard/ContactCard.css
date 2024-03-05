@@ -15,7 +15,8 @@
     margin-top: 2px;
     border-radius:25%;
     width: 70%;
-    height: auto;
+    height: 45%;
+    object-fit: cover;
 }
 
 .card-container {

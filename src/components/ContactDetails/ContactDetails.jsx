@@ -34,7 +34,6 @@ const ContactDetails = ({refreshContacts}) => {
                 </button>
             </div>
             <div className="image-container">
-                
                 {contactInfo.profileImage && <img 
                     style={{
                         border:"10px solid", 

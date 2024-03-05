@@ -1,5 +1,5 @@
 .contacts-list {
-    padding-top: 30px;
+    padding-top: 10px;
     list-style-type: none;
     display: grid;
     grid-template-columns:  300px 300px 300px;
