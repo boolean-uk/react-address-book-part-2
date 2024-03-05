@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-function ContactForm() {
+function ContactForm({contact}) {
     const [contactInfo, setContactInfo] = useState({
         firstName: "",
         lastName: "",
@@ -11,6 +11,12 @@ function ContactForm() {
         email: "",
         profileImage: ""
     })
+    console.log(contact)
+
+    useEffect(() =>{
+        if(contact !== undefined){
+            setContactInfo({...contactInfo, firstName: contact.firstName})
+    }},[])
 
     const navigate = useNavigate()
 

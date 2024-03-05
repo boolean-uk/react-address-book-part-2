@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import ContactForm from '../../ContactForm'
 
 function ContactDetails({contacts}) {
     const [contact, setContact] = useState(null)
+    const [view, setView] = useState("details")
     const{id} = useParams()
 
-    console.log(contacts)
+    console.log()
 
     useEffect(() => {
         if(contacts && id){
@@ -14,17 +16,21 @@ function ContactDetails({contacts}) {
         }
     }, [contacts, id])
 
-
-
     if(!contact) return <p>Loading...</p>
 
   return (
     <div>
+        {view === 'updateForm' ?
+        <ContactForm contact={contact}></ContactForm>
+        :
+        <div>
         <img src={contact.profileImage} alt="" />
         <h2>{contact.firstName} {contact.lastName}</h2>
         <h3>City: {contact.city}</h3> <h3>Street: {contact.street}</h3>
         <p>email: {contact.email}</p>
-        <Link to = "/contacts/:id/update"> update </Link>
+        <button onClick={() => setView("updateForm")}>update</button>
+        </div>
+        }
     </div>
   )
 }
