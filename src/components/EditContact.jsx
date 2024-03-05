@@ -43,17 +43,17 @@ export default function EditContact(props) {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Failed to create contact');
+        throw new Error('Failed to update contact');
       }
       return response.json();
     })
     .then(data => {
-      console.log("Contact created! Response body: ", data);
+      console.log("Contact updated! Response body: ", data);
       // You may want to update your UI or perform other actions based on the response
     })
     .then(() => navigate("/"))
     .catch(error => {
-      console.error('Error creating contact:', error);
+      console.error('Error updating contact:', error);
       // You may want to display an error message to the user
     });
   };
