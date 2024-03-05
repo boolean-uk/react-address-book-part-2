@@ -1,0 +1,13 @@
+Upon posting we send a POST request with a JSON body
+{
+    firstName
+    lastName
+    street
+    city
+}
+
+When clicking the home link, we return to the contact list
+
+When clicking the create new contact, we navigate to the /create_contact form
+
+When clicking on a contact we show more information about said contact
