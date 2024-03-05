@@ -11,7 +11,7 @@ function App() {
         fetch("https://boolean-api-server.fly.dev/maha897/contact")
             .then((response) => response.json())
             .then(setContacts)
-    }, [])
+    }, [contacts])
 
     return (
       <main>
@@ -31,7 +31,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Dashboard contacts={contacts} />} />
-          <Route path="/create-contact" element={<CreateContactForm />} />
+          <Route path="/create-contact" element={<CreateContactForm contacts={contacts} setContacts={setContacts}/>} />
         </Routes>
       </main>
     );
