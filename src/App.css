@@ -1,0 +1,43 @@
+.form-title {
+  text-align: center;
+}
+.form {
+  width: 60%;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: beige;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.form > button {
+  width: fit-content;
+}
+
+h1 {
+  margin-left: 10px;
+}
+
+.contact-information {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact-information > button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.contact-list-item {
+  width: 40%;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  border-bottom: 1px dashed black;
+}
+
+.dashboard > h2 {
+  text-align: left;
+  margin-left: 10px;
+}
