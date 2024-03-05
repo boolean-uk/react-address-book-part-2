@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Menu from "../Menu";
 import axios from "axios";
+import '../../style/ContactProfile.css'
 
 const ContactProfile = (props) => {
 
@@ -41,7 +42,7 @@ const ContactProfile = (props) => {
     
     if(!contacts || !contact) {
         return <p>Loading...</p>
-    }
+    }0
 
 
 
@@ -98,12 +99,14 @@ const ContactProfile = (props) => {
     }
     return (
         <>
+        <div className="contactProfile-container">
+
+
         <div>
             <Menu />
         </div>
-
         <form onSubmit={handleSubmit}>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="firstName">First Name: </label>
                     <input 
                     type="text"
@@ -113,7 +116,7 @@ const ContactProfile = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="lastName">Last Name: </label>
                     <input 
                     type="text"
@@ -124,7 +127,7 @@ const ContactProfile = (props) => {
                     />
                 </div>
 
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="street">Street: </label>
                     <input 
                     type="text"
@@ -134,7 +137,7 @@ const ContactProfile = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="city">City: </label>
                     <input 
                     type="text"
@@ -144,7 +147,7 @@ const ContactProfile = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="longitude">Longitude: </label>
                     <input 
                     type="number"
@@ -155,7 +158,7 @@ const ContactProfile = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div >
                     <label htmlFor="latitude">Latitude: </label>
                     <input 
                     type="number"
@@ -167,10 +170,12 @@ const ContactProfile = (props) => {
                     />
                 </div>
           
-                <button type="submit" >Edit</button>
+                <button type="submit" className="createContact-form-button">Edit</button>
             </form>
             <button onClick={handleDelete}>Delete Contact</button>
-            <iframe width="100%" height="250" src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}></iframe>
+            </div>
+            
+            <iframe width="100%" height="800" src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}></iframe>
         </>
     );
 }

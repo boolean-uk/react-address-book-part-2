@@ -1,0 +1,33 @@
+.dashboard-container {
+    display: flex;
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.dashboard-items {
+    margin-left: 5%;
+    align-items: center;
+    justify-content: center;
+
+}
+.dashboard-menu {
+    
+
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.dashboard-contacts {
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+}

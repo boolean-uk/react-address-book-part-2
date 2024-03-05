@@ -9,10 +9,12 @@ const Contact = (props) => {
 
     return (
         <>
+        
         <h4>
             <Link to={`/${username}/contactProfile/${contact.id}`}>{contact.firstName} {contact.lastName}</Link>
-            
+
         </h4>
+        <img src={`${contact.profileImage}`}/>
         </>
     ); 
 }

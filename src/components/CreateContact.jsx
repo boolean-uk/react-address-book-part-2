@@ -2,8 +2,9 @@ import { useState } from "react";
 import Menu from "./Menu";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import '../style/createContact.css'
 
-const CreateContact = (props) => {
+const CreateContact = () => {
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -57,9 +58,14 @@ const CreateContact = (props) => {
 
     return (
         <>
-        <Menu />
+        <div className="createContact-container">
+        <div>
+            <Menu />
+
+        </div>
+        <div className="createContact-form">
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="firstName">First Name: </label>
                     <input 
                     type="text"
@@ -69,7 +75,7 @@ const CreateContact = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="lastName">Last Name: </label>
                     <input 
                     type="text"
@@ -80,7 +86,7 @@ const CreateContact = (props) => {
                     />
                 </div>
 
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="street">Street: </label>
                     <input 
                     type="text"
@@ -89,8 +95,8 @@ const CreateContact = (props) => {
                     value={formData.street}
                     onChange={handleChange}
                     />
-                </div>
-                <div>
+                </div >
+                <div className="createContact-form-item">
                     <label htmlFor="city">City: </label>
                     <input 
                     type="text"
@@ -100,7 +106,7 @@ const CreateContact = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="longitude">Longitude: </label>
                     <input 
                     type="number"
@@ -111,7 +117,7 @@ const CreateContact = (props) => {
                     onChange={handleChange}
                     />
                 </div>
-                <div>
+                <div className="createContact-form-item">
                     <label htmlFor="latitude">Latitude: </label>
                     <input 
                     type="number"
@@ -124,7 +130,8 @@ const CreateContact = (props) => {
                 </div>
                 <button type="submit" >Submit</button>
             </form>
-
+            </div>
+        </div>
         </>
     );
 }

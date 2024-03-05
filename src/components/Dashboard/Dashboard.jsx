@@ -3,6 +3,7 @@ import Menu from "../Menu";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import Contact from "./Contact";
+import '../../style/Dashboard.css';
 
 const Dashboard = (props) => {
 
@@ -33,11 +34,26 @@ const Dashboard = (props) => {
 
 
     return (
-        <><Menu updatedContacts={updatedContacts} setUpdatedContacts={setUpdatedContacts} contacts={contacts}/>
-        <div>Dashboard</div>
-        {updatedContacts.map( (contact, index) =>
-            <Contact contact={contact} key={index}/>
-        )}
+        <>
+        <div className="dashboard-container">
+            
+            <div className="dashboard-menu dashboard-items">
+            <Menu updatedContacts={updatedContacts} setUpdatedContacts={setUpdatedContacts} contacts={contacts}/>
+            </div>
+
+            <div className="dashboard-content dashboard-items">
+                <h1>Dashboard</h1>
+                <div className="dashboard-contacts">
+                {updatedContacts.map( (contact, index) =>
+                    <>
+                    <div className="dashboard-items">
+                    <Contact contact={contact} key={index}/>
+                    </div>
+                    </>
+                )}
+                </div>
+            </div>
+        </div>
         </>
     );
 }

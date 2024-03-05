@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
+
 const Menu = (props) => {
 
     const {username} = useParams();
@@ -9,7 +10,7 @@ const Menu = (props) => {
 
     const filterOnChange = (e) => {
         e.preventDefault();
-        setUpdatedContacts(contacts.filter((contact) => contact.firstName.toLowerCase().includes(e.target.value) || contact.lastName.toLowerCase().includes(e.target.value)))
+        setUpdatedContacts(contacts.filter((contact) => contact.firstName.toLowerCase().includes(e.target.value.toLowerCase()) || contact.lastName.toLowerCase().includes(e.target.value.toLowerCase())))
         
     }
 
@@ -29,6 +30,7 @@ const Menu = (props) => {
             id="filterContacts"
             name="filterContacts"
             onChange={filterOnChange}
+            placeholder="Filter On Name"
             />
             }
         </>
