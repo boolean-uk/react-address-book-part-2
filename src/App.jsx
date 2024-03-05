@@ -5,9 +5,11 @@ import ContactList from './components/ContactList';
 import Menu from './components/Menu';
 import CreateContact from './components/CreateContact';
 import ContactDetails from './components/ContactDetails';
+import UpdateContact from './components/UpdateContact';
 
 function App() {
     const [contacts, setContacts] = useState([])
+    const [toggle, setToggle] = useState(false)
 
     if(contacts === undefined) return <h3>Loading...</h3>
 
@@ -21,15 +23,15 @@ function App() {
                 />
                 <Route
                     path="/contact/create"
-                    element={<CreateContact contacts={contacts} setContacts={setContacts}/>}
+                    element={<CreateContact contacts={contacts} setContacts={setContacts} toggle={toggle} setToggle={setToggle} />}
                 />
                 <Route
-                    path="/contact/:id"
+                    path="/contact/:id/"
                     element={<ContactDetails contacts={contacts} />}
                 />
                 <Route
-                    path="/"
-                    element={<h1>Home</h1>}
+                    path="/contact/:id/edit"
+                    element={<UpdateContact contacts={contacts} setContacts={setContacts} toggle={toggle} setToggle={setToggle} />}
                 />
             </Routes>
 

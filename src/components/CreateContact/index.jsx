@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './style.css'
 
 function CreateContact(props) {
-    const { contacts, setContacts } = props
+    const { toggle, setToggle} = props
     const [contactInput, setContactInput] = useState({})
     const navigate = useNavigate()
 
@@ -13,8 +13,6 @@ function CreateContact(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setContacts([...contacts, {...contactInput, id: Math.max(...contacts.map(c => c.id))+1}])
-        console.log(contacts)
         fetch("https://boolean-api-server.fly.dev/nora-hansen/contact", {
             method: "POST",
             headers: {
@@ -26,6 +24,7 @@ function CreateContact(props) {
                 city: `${contactInput.city}`,
             })
         })
+        setToggle(toggle => !toggle)
         navigate("/contactlist")
     }
 
