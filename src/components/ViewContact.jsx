@@ -1,20 +1,34 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ViewContact() {
   const { id } = useParams();
   const [contact, setContact] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://boolean-api-server.fly.dev/maritmoe/contact/${id}`)
       .then((response) => response.json())
       .then(setContact);
-  }, [id]);
+  }, [id, contact]);
 
-  if (!contact) return <p>No person with that id found...</p>;
+  if (!contact) return <p>No contact with that id found...</p>;
+
+  const handleDelete = () => {
+    // Deletes contact by making DELETE request
+    fetch(`https://boolean-api-server.fly.dev/maritmoe/contact/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+
+    // Navigate to dashboard
+    navigate("/");
+  };
 
   return (
-    <article>
+    <article className="contact-information">
       <h2>
         {contact.firstName} {contact.lastName}
       </h2>
@@ -29,6 +43,8 @@ function ViewContact() {
           ></iframe>
         </p>
       )}
+      <button onClick={() => navigate(`/edit/${id}`)}>Update</button>
+      <button onClick={() => handleDelete()}>Delete</button>
     </article>
   );
 }

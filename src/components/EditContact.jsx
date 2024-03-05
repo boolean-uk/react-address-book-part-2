@@ -1,41 +1,42 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function CreateContact() {
-  const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-  });
-
+function EditContact() {
+  const { id } = useParams();
+  const [contact, setContact] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`https://boolean-api-server.fly.dev/maritmoe/contact/${id}`)
+      .then((response) => response.json())
+      .then(setContact);
+  }, [id]);
+
+  if (!contact) return <p>No contact with that id found...</p>;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setUserData({ ...userData, [name]: value });
+    setContact({ ...contact, [name]: value });
   };
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Adds new contact by making POST request
-    const requestOptions = {
-      method: "POST",
+    // Updates existing contact by making PUT request
+    fetch(`https://boolean-api-server.fly.dev/maritmoe/contact/${id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userData),
-    };
-
-    fetch("https://boolean-api-server.fly.dev/maritmoe/contact", requestOptions)
+      body: JSON.stringify(contact),
+    })
       .then((response) => response.json())
       .then((data) => console.log(data));
 
-    // Navigate to dashboard
-    navigate("/");
+    // Navigate to contact information page
+    navigate(`/view/${id}`);
   }
 
   return (
     <article>
-      <h2 className="form-title">Create Contact</h2>
+      <h2 className="form-title">Update Contact</h2>
       <form onSubmit={handleSubmit} className="form">
         <label>
           First name
@@ -44,7 +45,7 @@ function CreateContact() {
             name="firstName"
             required
             onChange={handleChange}
-            value={userData.firstName}
+            value={contact.firstName}
           />
         </label>
         <label>
@@ -54,7 +55,7 @@ function CreateContact() {
             name="lastName"
             required
             onChange={handleChange}
-            value={userData.lastName}
+            value={contact.lastName}
           />
         </label>
         <label>
@@ -64,7 +65,7 @@ function CreateContact() {
             name="street"
             required
             onChange={handleChange}
-            value={userData.street}
+            value={contact.street}
           />
         </label>
         <label>
@@ -74,13 +75,13 @@ function CreateContact() {
             name="city"
             required
             onChange={handleChange}
-            value={userData.city}
+            value={contact.city}
           />
         </label>
-        <button type="submit">Create</button>
+        <button type="submit">Update</button>
       </form>
     </article>
   );
 }
 
-export default CreateContact;
+export default EditContact;

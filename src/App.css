@@ -1,3 +1,6 @@
+.form-title {
+  text-align: center;
+}
 .form {
   width: 60%;
   margin: 3rem auto;
@@ -17,12 +20,14 @@ h1 {
   margin-left: 10px;
 }
 
-h2 {
+.contact-information {
   text-align: center;
+  margin-bottom: 10px;
 }
 
-p {
-  text-align: center;
+.contact-information > button {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .contact-list-item {
