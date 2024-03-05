@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import "./App.css";
+import "./css/App.css";
 import ContactsList from "./components/ContactsList";
 import CreateContact from "./components/CreateContact";
 import Dashboard from "./components/Dashboard";
@@ -39,7 +39,7 @@ export default function App() {
       <div className="content">
         <Routes>
           
-          <Route path="/contacts-list" element={<Dashboard contacts={contacts} />} />
+          <Route path="/contacts-list" element={<Dashboard contacts={contacts} setContacts={setContacts} setDataFetched={setDataFetched} />} />
           <Route path="/view/:id" element={<PersonProfile contacts={contacts} />} />
           <Route path="/create-contact" element={<CreateContact setDataFetched={setDataFetched} />} />
         </Routes>

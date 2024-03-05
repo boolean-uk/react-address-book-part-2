@@ -1,9 +1,22 @@
 import { Link } from "react-router-dom";
 import ContactsListItem from "./ContactsListItem";
-import "../ContactsList.css";
+import "../css/ContactsList.css";
 
 export default function ContactsList(props) {
-  const { contacts } = props;
+  const { contacts, setContacts, setDataFetched } = props;
+
+  const handleDelete = (id) => {
+    fetch(`https://boolean-api-server.fly.dev/nicolaiklokmose/contact/${id}`, {
+        method: "DELETE",
+      })
+      .then((response) => {
+          if (response.ok) {
+              const updatedContacts = contacts.filter((contact) => contact.id !== id);
+              setContacts(updatedContacts);
+              setDataFetched(false);
+          }
+      })
+  };
 
   return (
     <ul className="contacts-list">
@@ -12,9 +25,8 @@ export default function ContactsList(props) {
           <li key={contact.id} className="contact-item">
             <div className="contact-info">
               <ContactsListItem contact={contact} />
-              <Link to={`/view/${contact.id}`}>
-                <span className="view">View Profile</span>
-              </Link>
+              <Link to={`/view/${contact.id}`} className="view">View Profile</Link>
+              <button className="delete-button" onClick={() => handleDelete(contact.id)}>Delete Contact</button>
             </div>
           </li>
         ))

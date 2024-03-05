@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import "../CreateContact.css";
+import "../css/CreateContact.css";
 
 export default function CreateContact(props) {
   const { setDataFetched } = props;
@@ -36,7 +36,7 @@ export default function CreateContact(props) {
           city: "",
         });
       }
-      navigate("/");
+      navigate("/contacts-list");
     });
   };
 

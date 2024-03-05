@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import "../PersonProfile.css";
+import "../css/PersonProfile.css";
 
 export default function PersonProfile(props) {
   const [contact, setContact] = useState(null);

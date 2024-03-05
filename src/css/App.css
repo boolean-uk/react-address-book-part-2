@@ -61,4 +61,10 @@
   .view {
     color: palevioletred;
   }
+
+  .nav li a:hover {
+    background-color: #ec006e;
+    color: white; 
+  }
+  
   
