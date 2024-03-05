@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-export const Profile = ({contacts}) => {
+export const Profile = ({contacts, removeContact}) => {
   const { id } = useParams();
   
   const contact = contacts.find((contact) => contact.id === parseInt(id));
@@ -10,7 +10,11 @@ export const Profile = ({contacts}) => {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street}, {contact.city}</p>
-      <p>{contact.id}</p>
+      <button
+      onClick={() => {
+        removeContact(contact.id);
+      }}
+      >Delete</button>
     </div>
   );
 }

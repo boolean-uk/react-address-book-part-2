@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom'
 
 export const Create = ({addContact}) => {
-  const navigate = useNavigate();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -13,7 +11,6 @@ export const Create = ({addContact}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addContact(form);
-    navigate('/');
   }
 
   return (

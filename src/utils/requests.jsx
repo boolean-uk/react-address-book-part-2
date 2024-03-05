@@ -26,3 +26,16 @@ export const postContact = async (contact, setContacts) => {
   })
   .catch(error => console.error('Error adding new contact to https://boolean-api-server.fly.dev/olemarkusroland/contact:', error));
 }
+
+export const deleteContact = async (id, setContacts) => {
+  fetch(`https://boolean-api-server.fly.dev/olemarkusroland/contact/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  .then(() => {
+    setContacts(prevAnswers => prevAnswers.filter(contact => contact.id !== id));
+  })
+  .catch(error => console.error(`Error deleting contact with id ${id} from https://boolean-api-server.fly.dev/olemarkusroland/contact:`, error));
+}

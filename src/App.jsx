@@ -1,21 +1,27 @@
 import { useEffect, useState } from 'react'
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import './App.css';
 import { Dashboard } from './components/Dashboard';
 import { Profile } from './components/Profile';
 import { Create } from './components/Create';
-import { getContacts, postContact } from './utils/requests';
+import { deleteContact, getContacts, postContact } from './utils/requests';
 
 let maxId = 1;
 
 function App() {
+  const navigate = useNavigate();
     const [contacts, setContacts] = useState([]);
 
     const addContact = (contact) => {
         maxId++;
         const newContact = { ...contact, id: maxId};
-        // setContacts([...contacts, newContact]);
         postContact(newContact, setContacts)
+        navigate('/');
+    }
+
+    const removeContact = (id) => {
+      deleteContact(id, setContacts);
+      navigate('/');
     }
 
     useEffect(() => {
@@ -44,7 +50,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Dashboard contacts={contacts} />} />
-          <Route path="/:id" element={<Profile contacts={contacts} />} />
+          <Route path="/:id" element={<Profile contacts={contacts} removeContact={removeContact}/>} />
           <Route path="/create" element={<Create addContact={addContact} />} />
         </Routes>
       </div>
