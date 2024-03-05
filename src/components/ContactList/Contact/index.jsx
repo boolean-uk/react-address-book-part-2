@@ -6,7 +6,7 @@ function Contact(props) {
     return(
         <li>
             <p>{contact.firstName} {contact.lastName}</p>
-            <Link to="/contact/:id">View</Link>
+            <Link to={`/contact/${contact.id}`}>View</Link>
         </li>
     )
 }
