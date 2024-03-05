@@ -14,6 +14,7 @@ function CreateContact(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         setContacts([...contacts, {...contactInput, id: Math.max(...contacts.map(c => c.id))+1}])
+        console.log(contacts)
         fetch("https://boolean-api-server.fly.dev/nora-hansen/contact", {
             method: "POST",
             headers: {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import './style.css'
 
@@ -7,6 +7,7 @@ function ContactDetails(props) {
     const [contact, setContact] = useState(null)
     const { id } = useParams()
     const { contacts } = props
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (contacts && id) {
@@ -18,10 +19,19 @@ function ContactDetails(props) {
 
     if(!contact) return <p>Loading contact...</p>
 
+    const handleClick = (event) => {
+        fetch(`https://boolean-api-server.fly.dev/nora-hansen/contact/${contact.id}`,
+        {
+            method: "DELETE",
+        })
+        navigate("/contactlist")
+    }
+
     return(
         <div className="contact-details">
             <h2>{contact.firstName} {contact.lastName}</h2>
             <p>{contact.street} {contact.city}</p>
+            <button onClick={handleClick}>Delete</button>
         </div>
     )
 }

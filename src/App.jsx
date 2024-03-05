@@ -9,16 +9,6 @@ import ContactDetails from './components/ContactDetails';
 function App() {
     const [contacts, setContacts] = useState([])
 
-    useEffect(() => {
-        fetch("https://boolean-api-server.fly.dev/nora-hansen/contact")
-            .then(response => response.json())
-            .then(response => {
-                const withId = response.filter(contact =>
-                    Number(contact.id) > 15).map(contact => ({...contact, id: contact.id}))
-                setContacts(withId)
-            })
-    }, [])
-
     if(contacts === undefined) return <h3>Loading...</h3>
 
     return (
