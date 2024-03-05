@@ -1,0 +1,32 @@
+.contacts-list {
+    padding-top: 10px;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns:  300px 300px 300px;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .contacts-list {
+        grid-template-columns:  300px 300px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .contacts-list {
+        grid-template-columns:  300px;
+    }
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    font-size: 20px;
+}
+
+.search-container > input {
+    margin-right: 20px;
+    font-size: 20px;
+}

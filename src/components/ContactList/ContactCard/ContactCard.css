@@ -1,0 +1,55 @@
+.card {
+    position: relative;
+    border-radius: 4%;
+    border: solid 5px;
+    background-color: var(--background-two);
+    width: 275px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.card img {
+    margin-top: 2px;
+    border-radius:25%;
+    width: 70%;
+    height: 45%;
+    object-fit: cover;
+}
+
+.card-container {
+    padding: none;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card-title {
+    margin: 0;
+}
+
+.card-container > p {
+    margin: 0;
+}
+
+.deleteButton {
+    z-index: 10;
+    position: relative;
+    top: 10%;
+    left: 80%;
+    background: none;
+    border: none;
+    border-radius: 20%;
+    padding: 10px;
+}
+
+.deleteButton > img {
+    width: 20px;
+    height: auto;
+}
+
+.deleteButton > img:hover {
+    background-color: crimson;
+}

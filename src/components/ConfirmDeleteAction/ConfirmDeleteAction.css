@@ -1,0 +1,22 @@
+#confirmDeleteModal {
+    z-index: 15;
+    position: fixed;
+    top: 20%;
+    left: 0%;
+    width: 400px;
+    border-radius: 20%;
+}
+
+.confirm-cancel-button-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.confirm-cancel-button-container > button {
+    background-color: var(--button-color);
+    border-radius: 10%;
+    width: 80px;
+    height: 35px;
+    font-size: 20px;
+}

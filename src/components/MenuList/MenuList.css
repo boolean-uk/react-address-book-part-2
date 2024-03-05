@@ -1,0 +1,18 @@
+.menu-container {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin-top: 2%;
+    margin-left: 20px;
+}
+
+.link-container {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 20px;
+}
+
+.link-container > a  {
+    text-decoration: none;
+}

@@ -1,0 +1,92 @@
+label {
+    margin-bottom: 20px;
+}
+
+input {
+    background-color: var(--background-two);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+input[type="submit"] {
+    border: none;
+    font-size: 20px;
+    background-color: var(--button-color);
+}
+
+input[type="submit"]:hover {
+    background-color: lightgreen;
+}
+
+.double-line-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 40vw;
+}
+
+.double-line-container > label {
+    margin-right: 10px;
+    width: 100%;
+    min-width: 100px;
+    max-width: 200px;
+}
+
+.double-line-container > label > input {
+    width: calc((40vw - 40px)/ 2);
+    min-width: 100px;
+    max-width: 200px;
+}
+
+.single-line-container > label {
+    min-width: 100px;
+    max-width: 400px;
+}
+
+.single-line-container > label > input {
+    width: 90%;
+    min-width: 100px;
+    max-width: 410px;
+}
+
+.small-single-line-container > label {
+
+    width: 100%;
+    min-width: 100px;
+    max-width: 200px;
+}
+
+.small-single-line-container > label > input {
+    width: 90%;
+    min-width: 100px;
+    max-width: 390px;
+    margin-bottom: 20px;
+}
+
+
+.padding-line {
+    padding-top: 50px;
+}
+
+.colour-preview {
+    position: relative;
+}
+
+.colour-preview > div {
+    position: relative;
+    left: 420px;
+    top: -50px;
+    border-radius: 45%;
+    width: 30px;
+    height: 30px;
+}
+
+
+.image-preview > img {
+    display: block;
+    margin-bottom: 50px;
+    top: 20px;
+    border-radius: 25%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
