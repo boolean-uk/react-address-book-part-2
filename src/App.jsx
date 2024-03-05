@@ -4,6 +4,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import CreateContact from "./components/CreateContact";
 import Dashboard from "./components/Dashboard";
 import ProfileView from "./components/ProfileView";
+import UpdateContact from "./components/UpdateContact";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -34,20 +35,25 @@ export default function App() {
         </nav>
       </header>
       <Routes>
-        <Route
-          path="/dashboard"
-          element={<Dashboard contacts={contacts}/>}
-        />
+        <Route path="/dashboard" element={<Dashboard contacts={contacts} />} />
         <Route
           path="/createContact"
           element={
-            <CreateContact
-              contacts={contacts}
-              setContacts={setContacts}
-            />
+            <CreateContact contacts={contacts} setContacts={setContacts} />
           }
         />
-        <Route path="/view/:id" element={<ProfileView contacts={contacts} />} />
+        <Route
+          path="/view/:id"
+          element={
+            <ProfileView contacts={contacts} setContacts={setContacts} />
+          }
+        />
+        <Route
+          path="/update/:id"
+          element={
+            <UpdateContact contacts={contacts} setContacts={setContacts} />
+          }
+        />
       </Routes>
     </>
   );

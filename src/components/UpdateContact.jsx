@@ -1,40 +1,47 @@
-import {useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-const initState = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: ""
-};
 
-export default function CreateContact(props) {
-  const [newContact, setNewContact] = useState(initState);
+export default function UpdateContact(props) {
+  const [updatedContact, setUpdatedContact] = useState(null);
   const navigate = useNavigate();
+
+  const { id } = useParams();
   const { contacts, setContacts } = props;
 
+  useEffect(() => {
+    if (contacts && id) {
+      setUpdatedContact(contacts.find((person) => person.id === Number(id)));
+    }
+  }, [contacts, id]);
+
+  if (!updatedContact) return <p>Loading...</p>;
+
   function handleChange(event) {
-    setNewContact({ ...newContact, [event.target.name]: event.target.value });
+    setUpdatedContact({ ...updatedContact, [event.target.name]: event.target.value });
   }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-
-    fetch("https://boolean-api-server.fly.dev/pkekkonen/contact/", {
-      method: "POST",
+    fetch("https://boolean-api-server.fly.dev/pkekkonen/contact/" + id, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newContact),
+      body: JSON.stringify(updatedContact),
     })
       .then((response) => {
         return response.json();
       })
       .then((responseData) => {
-        setContacts([...contacts, responseData]);  
-    });
+        const updatedContacts = contacts.filter(
+          (person) => person.id !== Number(id)
+        );
 
-    navigate("/dashboard");
+        setContacts([...updatedContacts, responseData]);
+      });
+
+    navigate("/view/"+id);
   };
 
   return (
@@ -45,7 +52,7 @@ export default function CreateContact(props) {
         id="firstName"
         name="firstName"
         onChange={(event) => handleChange(event)}
-        value={newContact.firstName}
+        value={updatedContact.firstName}
       />
       <label htmlFor="lastName"> Last name: </label>
       <input
@@ -53,7 +60,7 @@ export default function CreateContact(props) {
         id="lastName"
         name="lastName"
         onChange={(event) => handleChange(event)}
-        value={newContact.lastName}
+        value={updatedContact.lastName}
       />
       <label htmlFor="street"> Street: </label>
       <input
@@ -61,7 +68,7 @@ export default function CreateContact(props) {
         id="street"
         name="street"
         onChange={(event) => handleChange(event)}
-        value={newContact.street}
+        value={updatedContact.street}
       />
       <label htmlFor="city"> City: </label>
       <input
@@ -69,9 +76,9 @@ export default function CreateContact(props) {
         id="city"
         name="city"
         onChange={(event) => handleChange(event)}
-        value={newContact.city}
+        value={updatedContact.city}
       />
-      <button type="submit">Create</button>
+      <button type="submit">Update</button>
     </form>
   );
 }
