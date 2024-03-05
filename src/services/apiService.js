@@ -1,6 +1,6 @@
 import { mulberry32 } from "./utils"
 
-const CONTACTS_BASE_URL = "https://boolean-api-server.fly.dev/api-docs/"
+const CONTACTS_BASE_URL = "https://boolean-api-server.fly.dev/"
 const MALE_PORTRAITS_BASE_URL = "https://randomuser.me/api/portraits/men/"
 const FEMALE_PORTRAITS_BASE_URL = "https://randomuser.me/api/portraits/women/"
 
@@ -30,11 +30,9 @@ export const getRandomPortraitURL = (seed, gender) => {
   let baseURL;
   switch(true) {
     case (gender.toLowerCase().includes('woman')):
-    case (gender.toLowerCase().includes('female')):
       baseURL = FEMALE_PORTRAITS_BASE_URL;
       break;
     case (gender.toLowerCase().includes('man')):
-    case (gender.toLowerCase().includes('male')):
       baseURL = MALE_PORTRAITS_BASE_URL;
       break;
     default:

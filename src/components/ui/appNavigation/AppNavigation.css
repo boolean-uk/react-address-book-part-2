@@ -11,7 +11,7 @@
     padding-top: 20px;
 }
 
-.app-navigation > .Link {
+.app-navigation > .link {
     display: inline-block;
     width: 100%;
     margin-bottom: 1rem 0 1rem 0;
@@ -20,11 +20,11 @@
     user-select: none;
 }
 
-.app-navigation > .Link::before {
+.app-navigation > .link::before {
     content: "\00a0\00a0";
 }
 
-.app-navigation > .Link:hover {
+.app-navigation > .link:hover {
     background-color: var(--silverlining-white);
     color: black;
 }

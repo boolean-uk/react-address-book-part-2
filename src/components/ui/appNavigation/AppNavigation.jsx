@@ -9,14 +9,14 @@ function AppNavigation(props) {
     <nav className="app-navigation">
       <Link
         to="/"
-        className={location.pathname === "/contacts/" ? "Link active" : "Link"}
+        className={location.pathname === "/contacts/" ? "link active" : "link"}
       >
         Contacts
       </Link>
       <Link
         to="/contacts/new/"
         className={
-          location.pathname === "/contacts/new/" ? "Link active" : "Link"
+          location.pathname === "/contacts/new/" ? "link active" : "link"
         }
       >
         New Contact

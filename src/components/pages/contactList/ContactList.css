@@ -1,0 +1,47 @@
+@import url('@/global.css');
+
+.contact-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    list-style-type: none;
+}
+
+.contact-list > ul > .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 15rem;
+    height: 15rem;
+    padding: 5px;
+    background-color: var(--existence-grey);
+    border: 1px solid var(--existence-grey);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    user-select: none;
+    z-index: 1;
+}
+
+.contact-list > ul > .card:hover {
+    border: 1px solid var(--silverlining-white);
+    transform: scale(1.01);
+    z-index: 2;
+}
+
+.contact-list > ul > .card > h2 {
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 1.2rem;
+}
+
+.contact-list > ul > .card > img {
+    height: 80%;
+    width: auto;
+    user-select: none;
+    object-fit: contain;
+}
