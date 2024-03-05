@@ -14,10 +14,7 @@ export default function EditContact(props) {
     const { contact } = location.state
 
     const [contactToAdd, setContactToAdd] = useState({
-        firstName: contact.firstName,
-        lastName: contact.lastName,
-        street: contact.street,
-        city: contact.city
+        ...contact
     });
     
   
@@ -36,13 +33,12 @@ export default function EditContact(props) {
             else {return p}
         })
         setContact(updateContacts)
+        navigate(`/view/${contact.id}`, {state: {contact: contactToAdd}});     // USING NAVIGATE WITH state!
+        alert("Updated")
     }
-    navigate('/')   // Switch to dashboard
-    alert("Updated")
     }
 
     
-  
     function handleInputChange(event) {
       const {name, value} = event.target;
       // This is the contactToAdd: with prevState, and attribute = the new value
