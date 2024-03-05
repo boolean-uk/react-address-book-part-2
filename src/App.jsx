@@ -31,7 +31,7 @@ function App() {
                 />
                 <Route
                     path="/contact/create"
-                    element={<CreateContact contacts={contacts} />}
+                    element={<CreateContact contacts={contacts} setContacts={setContacts}/>}
                 />
                 <Route
                     path="/contact/:id"
@@ -39,7 +39,7 @@ function App() {
                 />
                 <Route
                     path="/"
-                    element={<></>}
+                    element={<h1>Home</h1>}
                 />
             </Routes>
 
