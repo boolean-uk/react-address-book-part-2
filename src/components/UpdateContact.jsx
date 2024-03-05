@@ -2,9 +2,20 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
+const textInputFields = [
+  "firstName",
+  "lastName",
+  "gender",
+  "jobTitle",
+  "city",
+  "street",
+  "latitude",
+  "longitude",
+  "profileImage",
+];
 
 export default function UpdateContact(props) {
-  const [updatedContact, setUpdatedContact] = useState(null);
+  const [contact, setContact] = useState(null);
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -12,14 +23,21 @@ export default function UpdateContact(props) {
 
   useEffect(() => {
     if (contacts && id) {
-      setUpdatedContact(contacts.find((person) => person.id === Number(id)));
+      setContact(contacts.find((person) => person.id === Number(id)));
     }
   }, [contacts, id]);
 
-  if (!updatedContact) return <p>Loading...</p>;
+  if (!contact) return <p>Loading...</p>;
 
   function handleChange(event) {
-    setUpdatedContact({ ...updatedContact, [event.target.name]: event.target.value });
+    if (["latitude", "longitude"].includes(event.target.name)) {
+      setContact({
+        ...contact,
+        [event.target.name]: Number(event.target.value),
+      });
+      return;
+    }
+    setContact({ ...contact, [event.target.name]: event.target.value });
   }
 
   const handleSubmit = (event) => {
@@ -28,57 +46,62 @@ export default function UpdateContact(props) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedContact),
+      body: JSON.stringify(contact),
     })
       .then((response) => {
         return response.json();
       })
       .then((responseData) => {
-        const updatedContacts = contacts.filter(
-          (person) => person.id !== Number(id)
+        const updatedContacts = contacts.map(
+          (person) => person.id === Number(id) ? responseData: person
         );
 
-        setContacts([...updatedContacts, responseData]);
+        setContacts(updatedContacts);
       });
 
-    navigate("/view/"+id);
+    navigate("/view/" + id);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="firstName"> First name: </label>
-      <input
-        type="text"
-        id="firstName"
-        name="firstName"
-        onChange={(event) => handleChange(event)}
-        value={updatedContact.firstName}
-      />
-      <label htmlFor="lastName"> Last name: </label>
-      <input
-        type="text"
-        id="lastName"
-        name="lastName"
-        onChange={(event) => handleChange(event)}
-        value={updatedContact.lastName}
-      />
-      <label htmlFor="street"> Street: </label>
-      <input
-        type="text"
-        id="street"
-        name="street"
-        onChange={(event) => handleChange(event)}
-        value={updatedContact.street}
-      />
-      <label htmlFor="city"> City: </label>
-      <input
-        type="text"
-        id="city"
-        name="city"
-        onChange={(event) => handleChange(event)}
-        value={updatedContact.city}
-      />
-      <button type="submit">Update</button>
-    </form>
+    <>
+      <h1>Update contact</h1>
+      <form onSubmit={handleSubmit}>
+        <ul>
+          {textInputFields.map((textInputField, index) => (
+            <li key={index}>
+              <label htmlFor={textInputField}> {textInputField}: </label>
+              <input
+                type="text"
+                id={textInputField}
+                name={textInputField}
+                onChange={handleChange}
+                value={contact[textInputField]}
+              />
+            </li>
+          ))}
+          <li>
+            <label htmlFor="email"> E-mail: </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+              value={contact.email}
+            />
+          </li>
+          <li>
+            <label htmlFor="favouriteColour">Favourite colour:</label>
+            <input
+              type="color"
+              id="favouriteColour"
+              name="favouriteColour"
+              value={contact.favouriteColour}
+              onChange={handleChange}
+            ></input>
+          </li>
+          <button type="submit">Update</button>
+        </ul>
+      </form>
+    </>
   );
 }

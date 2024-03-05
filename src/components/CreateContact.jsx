@@ -1,77 +1,109 @@
-import {useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initState = {
   firstName: "",
   lastName: "",
+  gender: "",
+  email: "",
   street: "",
-  city: ""
+  city: "",
+  latitude: "",
+  longitude: "",
+  favouriteColour: "#000000",
+  profileImage: "",
 };
 
+const textInputFields = [
+  "firstName",
+  "lastName",
+  "gender",
+  "jobTitle",
+  "city",
+  "street",
+  "latitude",
+  "longitude",
+  "profileImage",
+];
+
 export default function CreateContact(props) {
-  const [newContact, setNewContact] = useState(initState);
+  const [contact, setContact] = useState(initState);
   const navigate = useNavigate();
   const { contacts, setContacts } = props;
 
   function handleChange(event) {
-    setNewContact({ ...newContact, [event.target.name]: event.target.value });
+    if (["latitude", "longitude"].includes(event.target.name)) {
+      setContact({
+        ...contact,
+        [event.target.name]: Number(event.target.value),
+      });
+      return;
+    }
+    setContact({ ...contact, [event.target.name]: event.target.value });
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(contact);
 
     fetch("https://boolean-api-server.fly.dev/pkekkonen/contact/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newContact),
+      body: JSON.stringify(contact),
     })
       .then((response) => {
         return response.json();
       })
       .then((responseData) => {
-        setContacts([...contacts, responseData]);  
-    });
+        console.log(responseData);
+        setContacts([...contacts, responseData]);
+      });
 
     navigate("/dashboard");
   };
 
   return (
+    <>
+    <h1>Create contact</h1>
     <form onSubmit={handleSubmit}>
-      <label htmlFor="firstName"> First name: </label>
-      <input
-        type="text"
-        id="firstName"
-        name="firstName"
-        onChange={(event) => handleChange(event)}
-        value={newContact.firstName}
-      />
-      <label htmlFor="lastName"> Last name: </label>
-      <input
-        type="text"
-        id="lastName"
-        name="lastName"
-        onChange={(event) => handleChange(event)}
-        value={newContact.lastName}
-      />
-      <label htmlFor="street"> Street: </label>
-      <input
-        type="text"
-        id="street"
-        name="street"
-        onChange={(event) => handleChange(event)}
-        value={newContact.street}
-      />
-      <label htmlFor="city"> City: </label>
-      <input
-        type="text"
-        id="city"
-        name="city"
-        onChange={(event) => handleChange(event)}
-        value={newContact.city}
-      />
-      <button type="submit">Create</button>
+      <ul>
+        {textInputFields.map((textInputField, index) => (
+          <li key={index}>
+            <label htmlFor={textInputField}> {textInputField}: </label>
+            <input
+              type="text"
+              id={textInputField}
+              name={textInputField}
+              onChange={handleChange}
+              value={contact[textInputField]}
+            />
+          </li>
+        ))}
+        <li>
+          <label htmlFor="email"> E-mail: </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={contact.email}
+          />
+        </li>
+        <li>
+          <label htmlFor="favouriteColour">Favourite colour:</label>
+          <input
+            type="color"
+            id="favouriteColour"
+            name="favouriteColour"
+            value={contact.favouriteColour}
+            onChange={handleChange}
+          ></input>
+        </li>
+        <button type="submit">Create</button>
+      </ul>
     </form>
+    </>
   );
 }

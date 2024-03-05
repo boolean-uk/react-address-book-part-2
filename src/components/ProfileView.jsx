@@ -2,6 +2,17 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+const textInputFields = [
+  "firstName",
+  "lastName",
+  "gender",
+  "jobTitle",
+  "city",
+  "street",
+  "latitude",
+  "longitude",
+];
+
 export default function ProfileView(props) {
   const [contact, setContact] = useState(null);
   const navigate = useNavigate();
@@ -39,15 +50,45 @@ export default function ProfileView(props) {
 
   return (
     <article>
-      <h2>
-        {contact.firstName} {contact.lastName}
-      </h2>
+      <h2>Profile</h2>
       <ul>
-        <li>Street: {contact.street}</li>
-        <li>City: {contact.city}</li>
+        {textInputFields.map((textInputField, index) => (
+          <li key={index} className="field">
+            <label className="valueLabel" htmlFor={textInputField}>
+              {textInputField}:
+            </label>
+            <p className="value" name={textInputField}>
+              {contact[textInputField]}
+            </p>
+          </li>
+        ))}
+        <li className="field">
+          <label className="valueLabel" htmlFor="favouriteColour">
+            Favourite colour:
+            <p
+              className="value"
+              name="favouriteColour"
+              style={{ color: contact.favouriteColour }}
+            >
+              ■
+            </p>
+          </label>
+        </li>
+        <li>
+          {contact.profileImage !== "none" && <img className="profileImage" src={contact.profileImage} />}
+        </li>
+        <li>
+          <iframe
+            width="100%"
+            height="250"
+            src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}
+          ></iframe>
+        </li>
       </ul>
       <button onClick={deleteContact}>Delete contact</button>
-      <button onClick={() => navigate(`/update/${contact.id}`)}>Update contact</button>
+      <button onClick={() => navigate(`/update/${contact.id}`)}>
+        Update contact
+      </button>
     </article>
   );
 }

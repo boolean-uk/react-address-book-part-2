@@ -1,5 +1,6 @@
 import ContactListItem from "./ContactListItem";
 
+
 export default function ContactList(props) {
   const { contacts } = props;
 
