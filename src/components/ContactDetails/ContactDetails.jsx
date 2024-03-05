@@ -36,7 +36,7 @@ const ContactDetails = ({refreshContacts}) => {
             <div className="image-container">
                 {contactInfo.profileImage && <img 
                     style={{
-                        border:"10px solid", 
+                        border:"4px solid", 
                         borderColor: contactInfo.favouriteColour}} 
                     src={contactInfo.profileImage}
                 />}
