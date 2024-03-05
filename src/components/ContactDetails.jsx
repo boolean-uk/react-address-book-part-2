@@ -26,13 +26,13 @@ function ContactDetails({ contacts, setContacts }) {
 
   return (
     <div className="contact-details">
-      <h2>
+      <h2 className="contact-details-name">
         {contact.firstName} {contact.lastName}
       </h2>
-      <p>Address: {contact.street}</p>
-      <p>City: {contact.city}</p>
-      <Link to={`/contact/${contact.id}/edit`}>Edit</Link>
-      <button onClick={handleClick}>Delete contact</button>
+      <p className="contact-details-info"><span className="info-label">Address:</span> {contact.street}</p>
+      <p className="contact-details-info"><span className="info-label">City:</span> {contact.city}</p>
+      <Link to={`/contact/${contact.id}/edit`} className="edit-link">Edit</Link>
+      <button onClick={handleClick} className="delete-button">Delete contact</button>
     </div>
   );
 }

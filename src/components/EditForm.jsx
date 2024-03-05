@@ -4,14 +4,12 @@ import { useNavigate, useParams } from "react-router-dom"
 function EditForm({ contacts, setContacts }) {
     const { id } = useParams()
     const [contact, setContact] = useState(null)
-    const [input, setInput] = useState({})
     const navigate = useNavigate()
 
     useEffect(() => {
         if (contacts && id) {
             const theContact = contacts.find((contact) => parseInt(contact.id) === parseInt(id))
             setContact(theContact)
-            setInput(theContact)
         }
     }, [])
 
@@ -25,13 +23,13 @@ function EditForm({ contacts, setContacts }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(input),
+        body: JSON.stringify(contact),
       })
         .then((response) => response.json())
         .then((updatedContact) => {
             const updatedContacts = contacts.map(c => c.id === updatedContact.id ? updatedContact : c)
           setContacts(updatedContacts);
-          navigate("/");
+          navigate(`/contact/${id}`);
         })
         .catch((error) => console.error("Error updating contact: ", error));
     }
@@ -39,52 +37,64 @@ function EditForm({ contacts, setContacts }) {
 
     function handleChange(event) {
       const { name, value } = event.target;
-      setInput({ ...input, [name]: value });
+      setContact({ ...contact, [name]: value });
     }
 
     return (
       <div className="edit-form-div">
-        <h2>
+        <h2 className="form-heading">
           {contact.firstName} {contact.lastName}
         </h2>
         <form className="edit-form" onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First name: </label>
+          <label className="form-label" htmlFor="firstName">
+            First name:{" "}
+          </label>
           <input
+            className="form-input"
             type="text"
             id="new-fname-input"
             name="firstName"
             onChange={handleChange}
-            value={input.firstName}
+            value={contact.firstName}
           />
           <br /> <br />
-          <label htmlFor="lastName">Last name: </label>
+          <label className="form-label" htmlFor="lastName">
+            Last name:{" "}
+          </label>
           <input
+            className="form-input"
             type="text"
             id="new-lname-input"
             name="lastName"
             onChange={handleChange}
-            value={input.lastName}
+            value={contact.lastName}
           />
           <br /> <br />
-          <label htmlFor="street">Street: </label>
+          <label className="form-label" htmlFor="street">
+            Street:{" "}
+          </label>
           <input
+            className="form-input"
             type="text"
             id="new-street-input"
             name="street"
             onChange={handleChange}
-            value={input.street}
+            value={contact.street}
           />
           <br /> <br />
-          <label htmlFor="city">City: </label>
+          <label className="form-label" htmlFor="city">
+            City:{" "}
+          </label>
           <input
+            className="form-input"
             type="text"
             id="new-city-input"
             name="city"
             onChange={handleChange}
-            value={input.city}
+            value={contact.city}
           />
           <br /> <br />
-          <button type="submit">Apply changes</button>
+          <button className="submit-button" type="submit">Apply changes</button>
         </form>
       </div>
     );
