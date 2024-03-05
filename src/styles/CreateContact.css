@@ -1,0 +1,26 @@
+.createContactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cForm input {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 0px;
+    border: 1px;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding-left: 10px;
+}

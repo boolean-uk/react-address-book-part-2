@@ -1,0 +1,31 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    background-image: linear-gradient(to right);
+    color: transparent;
+    background-clip: text;
+    margin-bottom: 0px;
+}
+
+.createButton {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 0px;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.createButton:hover {
+    scale: 1.05;
+    background-color: aliceblue;
+}
