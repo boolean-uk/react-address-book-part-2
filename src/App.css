@@ -1,0 +1,27 @@
+.menu {
+  display: flex;
+}
+
+.contact-list {
+  width: 400px;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  list-style-type: none;
+}
+.contact-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+}
+.right {
+  margin-left: 40px;
+}
+.left {
+  width: 20%;
+  margin-left: 5px;
+}
