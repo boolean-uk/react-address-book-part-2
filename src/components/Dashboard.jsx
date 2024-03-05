@@ -4,10 +4,12 @@ import CreateContactForm from "./CreateContactForm";
 import ContactList from "./ContactList";
 import ContactDetail from "./ContactDetail";
 
-function Dashboard({contacts, createForm}) {
+function Dashboard() {
 
     return (
-        <></>
+        <>
+        <CreateContactForm/>
+        </>
     );
 }
 

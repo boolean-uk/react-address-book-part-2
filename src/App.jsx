@@ -46,7 +46,7 @@ function App() {
 
 
       <Routes>
-        <Route path="/" element={<Dashboard contacts={contacts} />}></Route>
+        <Route path="/" element={<Dashboard/>}></Route>
         <Route
           path="/contacts"
           element={<ContactList contactList={contacts} />}
