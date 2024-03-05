@@ -26,17 +26,27 @@ const CreateContact = () => {
         if(type === "number") {
             value = parseFloat(value)
         }
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
+   
+
+        if(name === "firstName") {
+            setFormData({
+                ...formData,
+                profileImage: `https://www.gravatar.com/avatar/${formData.firstName}@hotmail.com?s=120&d=identicon`,
+                [name]: value,
+              });
+
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+              });
+        }
       };
 
 
       const handleSubmit = async (e) => {
         e.preventDefault();
 
-        setFormData({...formData, profileImage: `https://www.gravatar.com/avatar/${username}@hotmail.com?s=120&d=identicon`})
         try {
             const response = await axios.post(`https://boolean-api-server.fly.dev/${username}/contact`, formData)
             console.log(response.data)
@@ -51,7 +61,7 @@ const CreateContact = () => {
           city: '',
           latitude: 0,
           longitude: 0,
-          profileImage: "https://www.gravatar.com/avatar/Cordelia_Torphy@hotmail.com?s=120&d=identicon"
+          profileImage: "https://www.gravatar.com/avatar/Cordelia_Torphy@hotmail.com?s=120&d=identicon",
 
         });
 
