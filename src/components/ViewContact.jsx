@@ -20,6 +20,15 @@ function ViewContact() {
       </h2>
       <p>Street: {contact.street}</p>
       <p>City: {contact.city}</p>
+      {contact.latitude && contact.longitude && (
+        <p>
+          <iframe
+            height="350"
+            width="50%"
+            src={`https://maps.google.com/maps?q=${contact.latitude},${contact.longitude}&output=embed&z=2`}
+          ></iframe>
+        </p>
+      )}
     </article>
   );
 }
