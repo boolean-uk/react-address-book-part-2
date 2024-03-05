@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import './style.css'
 
 function CreateContact(props) {
     const { contacts, setContacts } = props
@@ -8,26 +9,36 @@ function CreateContact(props) {
 
     const handleChange = (event) => {
         setContactInput({...contactInput, [event.target.name]: [event.target.value]})
-        console.log("input ", contactInput)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         setContacts([...contacts, {...contactInput, id: Math.max(...contacts.map(c => c.id))+1}])
+        fetch("https://boolean-api-server.fly.dev/nora-hansen/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"},
+            body: JSON.stringify({
+                firstName: `${contactInput.firstName}`,
+                lastName: `${contactInput.lastName}`,
+                street: `${contactInput.street}`,
+                city: `${contactInput.city}`,
+            })
+        })
         navigate("/contactlist")
     }
 
     return(
         <div>
             <h1>Create Contact</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="first-name-input">First name</label> 
+            <form className="create-form" onSubmit={handleSubmit}>
+                <label htmlFor="first-name-input"><b>First name</b></label> 
                 <input name="firstName" id="first-name-input" type="text" placeholder="Jane" onChange={handleChange}/>
-                <label htmlFor="last-name-input">Last name</label>
+                <label htmlFor="last-name-input"><b>Last name</b></label>
                 <input name="lastName" id="last-name-input" type="text" placeholder="Doe" onChange={handleChange}/>
-                <label htmlFor="street-input">Street</label>
+                <label htmlFor="street-input"><b>Street</b></label>
                 <input name="street" id="street-input" type="text" placeholder="123 Fake St" onChange={handleChange}/>
-                <label htmlFor="city-input">City</label>
+                <label htmlFor="city-input"><b>City</b></label>
                 <input name="city" id="city-input" type="text" placeholder="City McCityface" onChange={handleChange}/>
                 <button>Create</button>
             </form>

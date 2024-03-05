@@ -1,0 +1,8 @@
+.create-form {
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 30vw;
+    margin: 15px;
+}
