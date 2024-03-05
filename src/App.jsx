@@ -5,6 +5,7 @@ import ShowContacts from "./ShowContacts";
 import Dashboard from "./Dashboard";
 import ContactDetails from "./ContactDetails";
 import AddContactForm from "./AddContactForm";
+import DeleteContact from "./DeleteContact";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -32,6 +33,17 @@ function App() {
           path="/create"
           element={
             <AddContactForm
+              contacts={contacts}
+              setContacts={setContacts}
+              currContactID={currContactID}
+              setCurrContactID={setCurrContactID}
+            />
+          }
+        />
+        <Route
+          path="/delete/:id"
+          element={
+            <DeleteContact
               contacts={contacts}
               setContacts={setContacts}
               currContactID={currContactID}

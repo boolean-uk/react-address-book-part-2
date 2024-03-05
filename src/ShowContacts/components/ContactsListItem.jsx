@@ -11,6 +11,9 @@ function ContactsListItem(props) {
       <p>
         <Link to={`/view/${contact.id}`}>View</Link>
       </p>
+      <p>
+        <Link to={`/delete/${contact.id}`}>Delete</Link>
+      </p>
     </li>
   );
 }
