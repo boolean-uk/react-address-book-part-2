@@ -6,7 +6,7 @@ function ContactList(props) {
   let content
   if(props.contactList !== null) {
     content = props.contactList.map((item) => {
-      return <ContactItem contact={item} key={item.id}/>
+      return <ContactItem contact={item} baseURL={props.baseURL} key={item.id}/>
     })
   }
 

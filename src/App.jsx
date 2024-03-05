@@ -36,7 +36,7 @@ function App() {
           />
           <Route
             path="/view/:id"
-            element={<ContactView contactList={contactList}/>}
+            element={<ContactView contactList={contactList} baseURL={baseURL}/>}
           />
 
         </Routes>
