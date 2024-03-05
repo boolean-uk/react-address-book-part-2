@@ -11,6 +11,7 @@ export default function SideBar() {
                     <Link to={"/"}>Dashboard</Link>
                     <ul>
                     <li>View contact</li>
+                    <li>Edit contact</li>
                     </ul>
                 </li>
                 <li className="sidebar-list addL" >

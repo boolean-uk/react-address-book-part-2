@@ -1,5 +1,6 @@
 @import "DashBoard-style/Dashboard.css";
 @import "DashBoard-style/ViewPage.css";
+@import "DashBoard-style/AddContact.css";
 
 
 
@@ -46,7 +47,7 @@ body {
   }
 
   .app {
-    background-color: rgb(121, 122, 122);
+    /* background-color: rgb(121, 122, 122); */
     display: flex;
     flex-direction: row;
   }

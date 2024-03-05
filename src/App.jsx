@@ -5,11 +5,12 @@ import './Style/App.css';
 import { Route, Routes,} from 'react-router-dom';
 import { useState, useEffect} from "react"
 import ContactForm from './Sections/DashBoard/Components/addContact/ContactForm';
+import EditContact from './Sections/DashBoard/Components/contactList/EditContact';
 
 function App() {
     const [contacts, setContact] = useState([]);
     const url = `https://boolean-api-server.fly.dev/Kanthee%20K/contact`
-    
+
    //Calling random contacts API:
    
    useEffect(() => {
@@ -35,7 +36,7 @@ function App() {
             {/* 1. Dashboard: */}
                 <Route 
                     path='/'
-                    element={<Dashboard contacts={contacts} />}
+                    element={<Dashboard contacts={contacts} setContact={setContact} />}
                 />
                 {/* 2. ViewContact*/}
                 <Route 
@@ -46,6 +47,11 @@ function App() {
                     <Route 
                     path='/addNewContact'
                     element={<ContactForm contacts={contacts} setContact={setContact}/>}
+                />
+                {/* 4. EditContact*/}
+                <Route 
+                    path='/edit/:id'
+                    element={<EditContact contacts={contacts} setContact={setContact}/>}
                 />
             </Routes>
 

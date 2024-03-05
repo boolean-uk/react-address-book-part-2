@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 
+
 ContactForm.propTypes = {
     contacts: PropTypes.array,
     setContact: PropTypes.func
@@ -10,6 +11,7 @@ export default function ContactForm(props) {
   const { contacts, setContact} = props
   const contactToAdd = {}
   const navigate = useNavigate()
+  
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -24,20 +26,20 @@ export default function ContactForm(props) {
       navigate('/addNewContact'); // Navigate to addNewContact route
     }
     else{
-      alert("AADADADADA!")
-      console.log(contactToAdd);
+      alert("Contact added!")
+      //console.log(contactToAdd);
       setContact([...contacts, contactToAdd])
       navigate('/')   // Switch to dashboard
     }
   }
 
   function handleInputChange(event) {
-    const {name, type, value} = event.target;
+    const {name, value} = event.target;
     contactToAdd[name] = value;
   }
 
   return (
-   <form onSubmit={handleSubmit}>
+   <form className="add-contact-form" onSubmit={handleSubmit}>
       <header> Add new contact informations</header>
       <label htmlFor="add-contact firstname"> First Name:
         <input type="text" name="firstName" onChange={handleInputChange} />
