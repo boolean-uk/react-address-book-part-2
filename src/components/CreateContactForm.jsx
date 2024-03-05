@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialForm = {
     firstName:"",
@@ -9,6 +10,7 @@ const initialForm = {
 
 function CreateContactForm({ contacts, setContacts }) {
     const [input, setInput] = useState(initialForm)
+    const navigate = useNavigate()
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -24,8 +26,10 @@ function CreateContactForm({ contacts, setContacts }) {
             .then((newContact) => {
                 setContacts([...contacts, newContact]);
                 setInput(initialForm);
+                navigate("/")
             }).catch((error) => console.error("Error adding contact: ", error))
 
+        
     }
 
     function handleChange(event) {

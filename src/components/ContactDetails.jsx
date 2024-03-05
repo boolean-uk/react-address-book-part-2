@@ -17,6 +17,7 @@ function ContactDetails({ contacts }) {
         <div className="contact-details">
             <h2>{contact.firstName} {contact.lastName}</h2>
             <h4>{contact.street}</h4>
+            <h4>{contact.city}</h4>
         </div>
     )
 }
