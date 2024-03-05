@@ -1,0 +1,8 @@
+.contact-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+    background-color: beige;
+    justify-content: space-around;
+}
