@@ -1,12 +1,16 @@
 import ContactListItem from "./ContactListItem"
+import { Link } from "react-router-dom"
 
-function Dashboard({contactData}) {
+function Dashboard() {
     return (<>
         <p>Dashboard</p>
         <ul>
-            {contactData ? contactData.map((contact, i) =>
-            <ContactListItem index={i} contact={contact}/>) 
-            : "Loading..."}
+            <Link to={"/contacts"}>
+                <button>View Contacts</button>
+            </Link>
+            <Link to={"/contacts/create"}>
+                <button>Create Contact</button>
+            </Link>
         </ul>
         </>
     )

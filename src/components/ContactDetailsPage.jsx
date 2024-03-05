@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom"
 
-function ContactDetailsPage({contactData}) {
-
+function ContactDetailsPage({contactData, fetchContacts}) {
     const {id} = useParams()
     const navigate = useNavigate()
 
@@ -9,6 +8,21 @@ function ContactDetailsPage({contactData}) {
     // console.log("ID:", id)
 
     if (!contact) return (<p>Loading...</p>)
+
+
+
+        async function handleDelete(id)
+        {
+            const response = await fetch(`https://boolean-api-server.fly.dev/Eddy1108/contact/${id}`, {
+                method: 'DELETE',
+                headers: {'Content-Type' : 'application/json'},
+            })
+    
+            if(!response) console.log("DELETE ERROR")
+
+            fetchContacts()
+            navigate("/contacts")
+        }
 
   return (
     <div>
@@ -19,7 +33,9 @@ function ContactDetailsPage({contactData}) {
         <p>Job: {contact.jobTitle}</p>
         <p>Email: {contact.email}</p>
 
-        <button onClick={() => navigate("/")}>Back</button>
+        <button onClick={() => navigate("/contacts")}>Back</button>
+        <button onClick={() => handleDelete(contact.id)}>Delete</button>
+
     </div>
 
   )

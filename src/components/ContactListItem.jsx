@@ -4,7 +4,7 @@ function ContactListItem({index, contact}) {
   return (
 
     <li key={index}>
-        <Link to={`/view/${contact.id}`}>
+        <Link to={`/contacts/view/${contact.id}`}>
             <h2>{contact.firstName} {contact.lastName}</h2>
         </Link>
     </li>

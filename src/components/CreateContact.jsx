@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 
 
-function CreateContact() {
+function CreateContact({fetchContacts}) {
     const navigate = useNavigate()
 
     const [contactInfo, setContactInfo] = useState(
@@ -42,8 +42,8 @@ function CreateContact() {
                 email: ""
             })
 
-
-            navigate("/")
+            fetchContacts()
+            navigate("/contacts")
         }
   
     return (

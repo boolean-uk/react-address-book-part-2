@@ -4,6 +4,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import ContactDetailsPage from './components/ContactDetailsPage';
 import CreateContact from './components/CreateContact';
+import ContactList from './components/ContactList';
 
 function App() {
 
@@ -19,13 +20,20 @@ function App() {
         console.log(contactData)
     }, [contactData])
 
+    function fetchContacts(){
+        fetch("https://boolean-api-server.fly.dev/Eddy1108/contact")
+        .then(response => response.json())
+        .then(setContactData)
+    }
+
     return (
         <div className="App">
             <h1>Address Book</h1>
             <Routes>
-                <Route path="/" element={<Dashboard contactData={contactData}/>} />
-                <Route path="/view/:id" element={<ContactDetailsPage contactData={contactData}/>} />
-                <Route path="create/" element={<CreateContact contactData={contactData} setContactData={setContactData}/>} />
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/contacts" element={<ContactList contactData={contactData}/>} />
+                <Route path="/contacts/view/:id" element={<ContactDetailsPage contactData={contactData} fetchContacts={fetchContacts}/>} />
+                <Route path="/contacts/create/" element={<CreateContact fetchContacts={fetchContacts}/>} />
             </Routes>
         </div>
     );
