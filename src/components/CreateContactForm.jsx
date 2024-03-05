@@ -28,8 +28,6 @@ function CreateContactForm({ contacts, setContacts }) {
                 setInput(initialForm);
                 navigate("/")
             }).catch((error) => console.error("Error adding contact: ", error))
-
-        
     }
 
     function handleChange(event) {
