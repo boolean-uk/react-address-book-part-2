@@ -10,11 +10,18 @@ export const Edit = ({ editContact, contacts }) => {
         id: parseInt(id),
         firstName: contact.firstName,
         lastName: contact.lastName,
+        gender: contact.gender,
+        email: contact.email,
+        jobTitle: contact.jobTitle,
         street: contact.street,
         city: contact.city,
+        latitude: contact.latitude,
+        longitude: contact.longitude,
+        favouriteColour: contact.favouriteColour,
+        profileImage: contact.profileImage,
     });
 
-    const headers = ["First Name", "Last Name", "Street", "City"];
+    const headers = ["First Name", "Last Name", "Gender", "Email", "Job Title", "Street", "City", "Latitude", "Longitude", "Favourite Colour", "Profile Image"];
 
     const handleSubmit = (e) => {
         e.preventDefault();

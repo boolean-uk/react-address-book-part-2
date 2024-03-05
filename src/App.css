@@ -4,9 +4,78 @@
 }
 
 .dashboard-layout {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+
+}
+
+.list-item-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.create-link {
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  transition: background-color 0.3s ease; /* Add transition for smoother effect */
+}
+
+.profile-link:hover {
+  background-color: lightgray; 
 }
 
 
+.small-profile-image {
+  max-width: 24px;
+  max-height: 24px;
+  margin-right: 8px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.name-container {
+  flex-grow: 1;
+}
+
+.first-name,
+.last-name {
+  font-size: 14px;
+  margin: 0;
+}
+
+.dashboard-layout {
+  display: flex;
+  gap: 1rem;
+}
+
+.menu, .routes, .contact-list {
+  flex: 1;
+}
+
+.menu {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.routes {
+  flex-grow: 6;
+}
+
+.contact-list {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.dashboard-header,
+.menu-header {
+  text-align: center;
+}

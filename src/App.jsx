@@ -40,26 +40,37 @@ function App() {
     }, []);
 
     return (
-      <div className='dashboard-layout'>
-        <div>
-          <div>
-            <h2>Menu</h2>
-            <ul>
-                <li>
-                    <Link to="/">Contact List</Link>
-                </li>
-                <li>
-                    <Link to="/create">Add New Contact</Link>
-                </li>
-            </ul>
-          </div>
+      <div className="dashboard-layout">
+        <div className="menu">
+          <h2 className="menu-header ">Menu</h2>
+          <Link to="/" className="create-link profile-link">Home</Link>
+          <Link to="/create" className="create-link profile-link">Create contact</Link>
         </div>
-        <Routes>
-          <Route path="/" element={<Dashboard contacts={contacts} />} />
-          <Route path="/:id" element={<Profile contacts={contacts} editContact={editContact} removeContact={removeContact}/>} />
-          <Route path="/create" element={<Create addContact={addContact} />} />
-          <Route path="/:id/edit" element={<Edit editContact={editContact} contacts={contacts}/>} />
-        </Routes>
+        
+        <div className="routes">
+          <Routes>
+            <Route
+              path="/:id"
+              element={
+                <Profile
+                  contacts={contacts}
+                  editContact={editContact}
+                  removeContact={removeContact}
+                />
+              }
+            />
+            <Route
+              path="/create"
+              element={<Create addContact={addContact} />}
+            />
+            <Route
+              path="/:id/edit"
+              element={<Edit editContact={editContact} contacts={contacts} />}
+            />
+          </Routes>
+        </div>
+
+        <div className="contact-list"><Dashboard contacts={contacts} /></div>
       </div>
     );
 }
