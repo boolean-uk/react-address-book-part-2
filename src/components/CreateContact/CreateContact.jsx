@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import emptyFormObject from "../../Utils/templates.js"
 import { baseUrl } from '../../Utils/apiUtils.js';
-
-const generateRandomNumber = (min, max) => {
-    return Math.floor(min + Math.random()*(max - min + 1))
-}
+import FormInputField from "./FormInputField/FormInputField.jsx";
+import { generateRandomNumber } from "../../Utils/numUtils.js";
+import { formContext } from "./Context.js";
 
 const CreateContact = ({addToContacts, template=emptyFormObject}) => {
     const [dataObject, setDataObject] = useState(template)
@@ -46,88 +45,56 @@ const CreateContact = ({addToContacts, template=emptyFormObject}) => {
     }
 
     return (
+        <formContext.Provider
+            value={{dataObject: dataObject, handleChange: handleChangeEvent}}
+        >
         <div className="content-container scroll-container">
             <div className="title">Create new contact</div>
             <form>
                 <p>Basic information</p>
-                <label>
-                    First name: <br/>
-                    <input 
-                        id="firstName"
-                        value={dataObject["firstName"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
-                <label>
-                    Last name: <br/>
-                    <input 
-                        id="lastName"
-                        value={dataObject["lastName"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
+                <FormInputField 
+                    labelText="First Name"
+                    fieldId="firstName"
+                />
+                <FormInputField 
+                    labelText="Last name"
+                    fieldId="lastName"
+                />
                 <p>Contact information</p>
-                <label>
-                    Email address: <br/>
-                    <input 
-                        id="email"
-                        value={dataObject["email"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
+                <FormInputField 
+                    labelText="Email address"
+                    fieldId="email"
+                />
                 <p>Physical address</p>
-                <label>
-                    Street name: <br/>
-                    <input 
-                        id="street"
-                        value={dataObject["street"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
-                <label>
-                    City: <br/>
-                    <input 
-                        id="city"
-                        value={dataObject["city"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
+                <FormInputField 
+                    labelText="Street name"
+                    fieldId="street"
+                />
+                <FormInputField 
+                    labelText="City"
+                    fieldId="city"
+                />
                 <p>Other information</p>
-                <label>
-                    Occupation: <br/>
-                    <input 
-                        id="jobTitle"
-                        value={dataObject["jobTitle"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
-                <label>
-                    Profile picture link: <br/>
-                    <input 
-                        id="profileImage"
-                        value={dataObject["profileImage"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
-                <label>
-                    Favourite color (supports hex-colors)<br/>
-                    <input 
-                        id="favouriteColour"
-                        value={dataObject["favouriteColour"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
-                <label>
-                    Gender <br/>
-                    <input 
-                        id="gender"
-                        value={dataObject["gender"]}
-                        onChange={(e) => handleChangeEvent(e)}
-                    />
-                </label>
-                <input type="submit" value="Submit" onClick={(e) => submitAndReset(e)}/>
+                <FormInputField 
+                    labelText="Occupation"
+                    fieldId="jobTitle"
+                />
+                <FormInputField 
+                    labelText="Profile picture link"
+                    fieldId="profileImage"
+                />
+                <FormInputField 
+                    labelText="Favourite color"
+                    fieldId="favouriteColour"
+                />
+                <FormInputField 
+                    labelText="Gender"
+                    fieldId="gender"
+                />
+                <input type="submit" id="submitButton" value="Submit" onClick={(e) => submitAndReset(e)}/>
             </form>
         </div>
+        </formContext.Provider>
     )
 }
 
