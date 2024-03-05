@@ -1,0 +1,25 @@
+.contactProfile-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5%; 
+    
+}
+
+
+
+.contactProfile-form-item {
+    margin-top: 5%;
+}
+
+.contactProfile-container button {
+    margin-bottom: 1%;
+}
+
+.createContact-form-button {
+    margin-top: 11%;
+}
