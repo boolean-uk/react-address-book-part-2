@@ -1,14 +1,70 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+li {
+  list-style-type: none;
+}
+
+.profileImage {
+  margin-top: 2rem;
+}
+
+.valueLabel {
+  font-weight: bold;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+}
+
+.valueLabel {
+  margin-right: 10px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 700px auto;
+}
+
+form ul {
+  list-style: none;
+  padding: 0;
+}
+
+form li {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: inline-block;
+  margin-left: 20px;
+  width: 40%;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="color"] {
+  width: 40%;
+  box-sizing: border-box;
+}
+
+form button {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.search-bar {
+  margin-left: 20px;
+}
