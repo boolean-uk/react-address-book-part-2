@@ -17,6 +17,8 @@ const ContactProfile = (props) => {
         lastName: "",
         street: "",
         city: "",
+        latitude: 0,
+        longitude: 0,
 
     });
 
@@ -30,6 +32,8 @@ const ContactProfile = (props) => {
             lastName: contactFound.lastName,
             street: contactFound.street,
             city: contactFound.city,
+            longitude: contactFound.longitude,
+            latitude: contactFound.latitude,
         });
         
     }, []);
@@ -59,6 +63,8 @@ const ContactProfile = (props) => {
           lastName: '',
           street: '',
           city: '',
+          longitude: 0,
+          latitude: 0,
         });
 
         navigate(`/${username}`);
@@ -138,11 +144,33 @@ const ContactProfile = (props) => {
                     onChange={handleChange}
                     />
                 </div>
+                <div>
+                    <label htmlFor="longitude">Longitude: </label>
+                    <input 
+                    type="number"
+                    step='0.0001'
+                    id="longitude"
+                    name="longitude"
+                    value={formData.longitude}
+                    onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="latitude">Latitude: </label>
+                    <input 
+                    type="number"
+                    step='0.0001'
+                    id="latitude"
+                    name="latitude"
+                    value={formData.latitude}
+                    onChange={handleChange}
+                    />
+                </div>
           
                 <button type="submit" >Edit</button>
             </form>
             <button onClick={handleDelete}>Delete Contact</button>
-
+            <iframe width="100%" height="250" src={`https://maps.google.com/maps?q=${contact.latitude}, ${contact.longitude}&output=embed`}></iframe>
         </>
     );
 }

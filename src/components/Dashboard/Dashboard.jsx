@@ -7,8 +7,11 @@ import Contact from "./Contact";
 const Dashboard = (props) => {
 
     const {contacts, setContacts} = props ?? {};
+    const [updatedContacts, setUpdatedContacts] = useState();
+    
+
     const {username} = useParams();
- 
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,21 +19,23 @@ const Dashboard = (props) => {
                 const response = await axios.get(`https://boolean-api-server.fly.dev/${username}/contact`);
                 console.log(response.data);
                 setContacts(response.data);
+                setUpdatedContacts(response.data)
             } catch (error) {
                 console.log(error)
             }
         }
        
         fetchData();
+  
     }, []);
 
-    if(!contacts) return <p>Loading...</p>
+    if(!updatedContacts) return <p>Loading...</p>
 
 
     return (
-        <><Menu />
+        <><Menu updatedContacts={updatedContacts} setUpdatedContacts={setUpdatedContacts} contacts={contacts}/>
         <div>Dashboard</div>
-        {contacts.map( (contact, index) =>
+        {updatedContacts.map( (contact, index) =>
             <Contact contact={contact} key={index}/>
         )}
         </>

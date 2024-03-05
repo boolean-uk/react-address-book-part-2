@@ -9,7 +9,8 @@ const CreateContact = (props) => {
         lastName: "",
         street: "",
         city: "",
-
+        latitude: 0,
+        longitude: 0,
     });
 
 
@@ -17,7 +18,13 @@ const CreateContact = (props) => {
     const navigate = useNavigate();
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, type } = e.target;
+        let {value} = e.target;
+
+        if(type === "number") {
+            value = parseFloat(value)
+        }
+        console.log(typeof value)
         setFormData({
           ...formData,
           [name]: value,
@@ -39,6 +46,8 @@ const CreateContact = (props) => {
           lastName: '',
           street: '',
           city: '',
+          latitude: 0,
+          longitude: 0,
         });
 
         navigate(`/${username}`);
@@ -88,6 +97,28 @@ const CreateContact = (props) => {
                     id="city"
                     name="city"
                     value={formData.city}
+                    onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="longitude">Longitude: </label>
+                    <input 
+                    type="number"
+                    step='0.0001'
+                    id="longitude"
+                    name="longitude"
+                    value={formData.longitude}
+                    onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="latitude">Latitude: </label>
+                    <input 
+                    type="number"
+                    step='0.0001'
+                    id="latitude"
+                    name="latitude"
+                    value={formData.latitude}
                     onChange={handleChange}
                     />
                 </div>
