@@ -7,6 +7,8 @@ import AddContact from './pages/PersonProfile/components/AddContact';
 
 function App() {
     const [contacts, setContacts] = useState([])
+    const [contact, setContact] = useState(null)
+
 
     useEffect(() => {
         fetch('https://boolean-api-server.fly.dev/noahlenn/contact')
@@ -42,7 +44,7 @@ function App() {
             />
             <Route
                 path="/createcontact"
-                element={<AddContact contacts={contacts}/>}
+                element={<AddContact contact={contact} contacts={contacts} setContact={setContact} setContacts={setContacts}/>}
             />
             <Route
                 path="/contacts"

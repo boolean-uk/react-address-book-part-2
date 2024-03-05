@@ -5,13 +5,13 @@ import { useParams } from 'react-router-dom';
 function PersonProfile(props) {
   console.log("Inside PersonProfile: ", { props });
 
-  const [contact, setContact] = useState(null)
   const { id } = useParams()
-  const { contacts } = props
+  const { contact, setContact, contacts, setContacts} = props
+
   useEffect(() => {
     if (contacts && id) {
-      setContact(contacts.find((contact) => 
-      (contact.id) === (id)))
+      setContact(contacts.find((acontact) => 
+      (acontact.id) === (id)))
     }
   }, [contacts, id])
   
@@ -23,7 +23,7 @@ function PersonProfile(props) {
       <h2>
         {contact.firstName} {contact.lastName}
       </h2>
-      <AddContact contact={contact} contacts={contacts} setContact={setContact}/>
+      <AddContact contact={contact} contacts={contacts} setContact={setContact} setContacts={setContacts}/>
     </article>
   )
 }
