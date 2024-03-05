@@ -7,7 +7,7 @@ function ContactDetails({ contacts }) {
 
     useEffect(() => {
         if (contacts && id) {
-            setContact(contacts.find((contact) => contact.id === id))
+            setContact(contacts.find((contact) => parseInt(contact.id) === parseInt(id)))
         }
     }, [contacts, id])
 

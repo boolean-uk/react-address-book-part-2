@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
+
 function ContactListItem({ contact }) {
     return (
       <li className="contact-li">
-        <h3>
-          {contact.firstName} {contact.lastName}
-        </h3>
+        <Link to={`/contact/${contact.id}`}>{contact.firstName} {contact.lastName}</Link>
       </li>
     );
 }

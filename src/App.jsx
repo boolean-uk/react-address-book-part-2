@@ -3,6 +3,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import CreateContactForm from "./components/CreateContactForm";
 import Dashboard from "./components/Dashboard";
+import ContactDetails from "./components/ContactDetails";
 
 function App() {
     const [contacts, setContacts] = useState([])
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard contacts={contacts} />} />
           <Route path="/create-contact" element={<CreateContactForm contacts={contacts} setContacts={setContacts}/>} />
+          <Route path="/contact/:id" element={<ContactDetails contacts={contacts}/>} />
         </Routes>
       </main>
     );
