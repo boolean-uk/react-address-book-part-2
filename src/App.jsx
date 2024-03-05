@@ -4,7 +4,8 @@ import './App.css';
 import { Dashboard } from './components/Dashboard';
 import { Profile } from './components/Profile';
 import { Create } from './components/Create';
-import { deleteContact, getContacts, postContact } from './utils/requests';
+import { Edit } from './components/Edit';
+import { deleteContact, getContacts, postContact, putContact } from './utils/requests';
 
 let maxId = 1;
 
@@ -17,6 +18,11 @@ function App() {
         const newContact = { ...contact, id: maxId};
         postContact(newContact, setContacts)
         navigate('/');
+    }
+
+    const editContact = (contact) => {
+        putContact(contact, setContacts);
+        navigate(`/${contact.id}`);
     }
 
     const removeContact = (id) => {
@@ -50,8 +56,9 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Dashboard contacts={contacts} />} />
-          <Route path="/:id" element={<Profile contacts={contacts} removeContact={removeContact}/>} />
+          <Route path="/:id" element={<Profile contacts={contacts} editContact={editContact} removeContact={removeContact}/>} />
           <Route path="/create" element={<Create addContact={addContact} />} />
+          <Route path="/:id/edit" element={<Edit editContact={editContact} contacts={contacts}/>} />
         </Routes>
       </div>
     );

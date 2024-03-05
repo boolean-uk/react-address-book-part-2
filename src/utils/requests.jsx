@@ -24,7 +24,22 @@ export const postContact = async (contact, setContacts) => {
   .then(newContact => {
     setContacts(prevAnswers => [newContact, ...prevAnswers]);
   })
-  .catch(error => console.error('Error adding new contact to https://boolean-api-server.fly.dev/olemarkusroland/contact:', error));
+  .catch(error => console.error('Error adding new contact to https://boolean-api-server.fly.dev/olemarkusroland/contact: ', error));
+}
+
+export const putContact = async (contact, setContacts) => {
+  fetch(`https://boolean-api-server.fly.dev/olemarkusroland/contact/${contact.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contact),
+  })
+  .then(response => response.json())
+  .then(updatedContact => {
+    setContacts(prevAnswers => prevAnswers.map(contact => contact.id === updatedContact.id ? updatedContact : contact));
+  })
+  .catch(error => console.error(`Error updating contact with id ${contact.id} at https://boolean-api-server.fly.dev/olemarkusroland/contact/${contact.id}: `, error));
 }
 
 export const deleteContact = async (id, setContacts) => {
@@ -37,5 +52,5 @@ export const deleteContact = async (id, setContacts) => {
   .then(() => {
     setContacts(prevAnswers => prevAnswers.filter(contact => contact.id !== id));
   })
-  .catch(error => console.error(`Error deleting contact with id ${id} from https://boolean-api-server.fly.dev/olemarkusroland/contact:`, error));
+  .catch(error => console.error(`Error deleting contact with id ${id} from https://boolean-api-server.fly.dev/olemarkusroland/contact/${id}: `, error));
 }

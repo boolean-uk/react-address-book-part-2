@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export const Profile = ({contacts, removeContact}) => {
   const { id } = useParams();
@@ -10,9 +10,10 @@ export const Profile = ({contacts, removeContact}) => {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street}, {contact.city}</p>
+      <Link to={`/${contact.id}/edit`}>Edit</Link>
       <button
-      onClick={() => {
-        removeContact(contact.id);
+        onClick={() => {
+          removeContact(contact.id);
       }}
       >Delete</button>
     </div>
