@@ -64,6 +64,14 @@ function NewContactForm(props) {
             />
         </div>
         <div>
+            <h3>Email</h3>
+            <input 
+                type="email"
+                name="email"
+                onChange={handleChange}
+            />
+        </div>
+        <div>
             <button type="submit">Create</button>
         </div>
       </form>

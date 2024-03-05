@@ -62,11 +62,20 @@ function EditContact(props) {
             />
         </div>
         <div>
-            <h3>Country</h3>
+            <h3>City</h3>
             <input 
                 type="city"
                 name="city"
                 value={person.city}
+                onChange={handleChange}
+            />
+        </div>
+        <div>
+            <h3>Email</h3>
+            <input 
+                type="email"
+                name="email"
+                value={person.email}
                 onChange={handleChange}
             />
         </div>

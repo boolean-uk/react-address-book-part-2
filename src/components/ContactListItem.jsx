@@ -6,9 +6,9 @@ function Contact(props) {
   return (
     <li className="li-contact">
         <h3>{contact.firstName} {contact.lastName}</h3>
-        <Link to={`/view/${contact.id}`}><p>View</p></Link>
-        <Link to={`/edit/${contact.id}`}><p>Edit</p></Link>
-        <Link to={`/delete/${contact.id}`}><p>Delete</p></Link>
+        <Link to={`/view/${contact.id}`}><p>View info</p></Link>
+        <Link to={`/edit/${contact.id}`}><p>Edit info</p></Link>
+        <Link to={`/delete/${contact.id}`}><p>Delete info</p></Link>
     </li>
   )
 }
