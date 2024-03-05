@@ -1,0 +1,64 @@
+/* App.css */
+
+.container {
+    display: flex;
+  }
+  
+  .nav {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav li {
+    font-size: 18px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .nav a:hover {
+    color: #555;
+  }
+  
+  .nav a.active {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  .contacts-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .view {
+    color: palevioletred;
+  }
+  

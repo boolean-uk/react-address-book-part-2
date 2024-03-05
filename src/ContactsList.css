@@ -1,0 +1,10 @@
+.contacts-list {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+  }
+  
+  .contact-item {
+    border-bottom: 1px solid #ccc; /* Add border to bottom of each item */
+    padding: 10px; /* Add padding for spacing */
+  }
+  

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import ContactsList from "./components/ContactsList";
 import CreateContact from "./components/CreateContact";
 import Dashboard from "./components/Dashboard";
+import PersonProfile from "./components/PersonProfile";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -19,8 +20,8 @@ export default function App() {
   }, [dataFetched]);
 
   return (
-    <>
-      <div className="app">
+    <div className="container">
+      <div className="nav">
         <header>
           <h1>Menu</h1>
           <nav>
@@ -35,11 +36,14 @@ export default function App() {
           </nav>
         </header>
       </div>
-      <Routes>
-        <Route path="/" element={<Dashboard/>}/>
-        <Route path="/contacts-list" element={<ContactsList contacts={contacts} />} />
-        <Route path="/create-contact" element={<CreateContact />} />
-      </Routes>
-    </>
+      <div className="content">
+        <Routes>
+          
+          <Route path="/contacts-list" element={<Dashboard contacts={contacts} />} />
+          <Route path="/view/:id" element={<PersonProfile contacts={contacts} />} />
+          <Route path="/create-contact" element={<CreateContact setDataFetched={setDataFetched} />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
