@@ -15,10 +15,6 @@ function AddContactForm(props) {
 
   console.log("contacts length", contacts.length);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
-
   const handleChange = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
@@ -37,14 +33,24 @@ function AddContactForm(props) {
     }
   };
 
-  const handleCreate = () => {
+  const handleCreate = (event) => {
+    event.preventDefault();
+    console.log("Handle submit");
+
+    fetch("https://boolean-api-server.fly.dev/svennas/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newContact),
+    });
+
     setCurrContactID(parseInt(currContactID) + 1);
     setContacts((contact) => [...contact, newContact]);
+
     goToDashboard("/list");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form >
       <label htmlFor="first_name">First Name</label>
       <p></p>
       <input
