@@ -4,6 +4,7 @@ import ContactList from "./components/ContactList";
 import ContactProfile from "./components/ContactProfile";
 import Form from "./components/Form";
 import Menu from "./components/Menu";
+import UpdateContact from "./components/UpdateContact";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/form" element={<Form />} />
             <Route path="/contact/:id" element={<ContactProfile />} />
+            <Route path="/contact/update/:id" element={<UpdateContact />} />
             <Route path="/contact" element={<ContactList />} />
           </Routes>
         </section>

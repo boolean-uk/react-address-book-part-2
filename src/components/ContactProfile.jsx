@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ContactProfile = () => {
   const [contact, setContact] = useState();
+  const navigator = useNavigate()
   const { id } = useParams();
 
   useEffect(() => {
@@ -10,6 +11,20 @@ const ContactProfile = () => {
       .then((response) => response.json())
       .then(setContact);
   }, []);
+
+  const handleDelete = (e) => {
+    e.preventDefault()
+
+    fetch(`https://boolean-api-server.fly.dev/toege/contact/${id}`, {
+        method: "DELETE"
+    })
+    . then(() => {navigator("/contact")})
+  }
+
+  const handleUpdate = (e) => {
+    e.preventDefault()
+    navigator(`/contact/update/${contact.id}`)
+  }
 
   if (!contact) {
     return (<div>Loading...</div>)
@@ -25,6 +40,10 @@ const ContactProfile = () => {
       </div>
       <div>
         <h3>{"City: "} {contact.city}</h3>
+      </div>
+      <div>
+        < button onClick={handleDelete}>Delete</button>
+        < button onClick={handleUpdate}>Update</button>
       </div>
     </main>
   );

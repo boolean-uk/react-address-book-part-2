@@ -1,18 +1,19 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-const initContact = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-};
-
-const Form = () => {
-  const [contact, setContact] = useState(initContact);
+const UpdateContact = () => {
+  const [contact, setContact] = useState();
   const [pending, setPending] = useState(false);
+  const { id } = useParams()
   const navigator = useNavigate()
 
+  useEffect(() => {
+    fetch(`https://boolean-api-server.fly.dev/toege/contact/${id}`)
+      .then((response) => response.json())
+      .then(setContact);
+  }, []);
+
+  
   const handleChange = (e) => {
     e.preventDefault();
     const value = e.target.value
@@ -25,20 +26,24 @@ const Form = () => {
     e.preventDefault();
 
     setPending(true)
-    fetch('https://boolean-api-server.fly.dev/toege/contact/', {
-      method: 'POST',
+    fetch(`https://boolean-api-server.fly.dev/toege/contact/${id}`, {
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(contact)
       })
       .then(() => {
         setPending(false)
-        navigator("/contact")
+        navigator(`/contact/${id}`)
       });
   };
 
+  if (!contact) {
+    return (<div>Loading...</div>)
+  }
+
   return (
     <main>
-      <h1>Add New Contact</h1>
+      <h1>Update Contact</h1>
 
       <form className="form" onSubmit={handleSubmit}>
         <div>
@@ -87,12 +92,12 @@ const Form = () => {
             />
           </ul>
         </div>
-        {!pending && <input className="form__submit" type="submit" value="Add Contact" />}
-        {pending && <button>Sending...</button>}
+        {!pending && <input className="form__submit" type="submit" value="Update Contact" />}
+        {pending && <button>Updating...</button>}
         
       </form>
     </main>
   );
 };
 
-export default Form;
+export default UpdateContact;
