@@ -9,19 +9,14 @@ function ViewContact(props) {
 
     const { contacts } = props;
 
-    // Use `useEffect` so that when we navigate to a product's detailed page
-    // we update our product state with the product found by the `id` parameter.
+    // Use `useEffect` so that when we navigate to a contact's detailed page
+    // we update our contact state with the contact found by the `id` parameter.
     useEffect(() => {
-        console.log('id: ' + id)
-        // We only update the product state when we have all the necessary data
+        // We only update the contact state when we have all the necessary data
         if (contacts && id) {
             setContact(contacts.find((contact) => Number(contact.id) === Number(id)));
         }
     }, [contacts, id]);
-
-    // When the component first renders, we won't have the product yet,
-    // so we should display a useful message.
-    if (!contact) return <div>Loading...</div>;
 
     return (
         <div>

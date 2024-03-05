@@ -25,8 +25,9 @@ function CreateContact() {
 
     const submitForm = (event) => {
         //log answers to console
+        //console.log(contactData)
+
         event.preventDefault()
-        console.log(contactData)
 
         //skicka till api med post request
         fetch('https://boolean-api-server.fly.dev/alexandra7667/contact', {

@@ -13,7 +13,7 @@ function App() {
         fetch('https://boolean-api-server.fly.dev/alexandra7667/contact')
             .then((response) => response.json())
             .then((result) => setContacts(result))
-    }, [])  //when api collection gets modified this will update. tom = renderar en gång istället för att loopa
+    }, [])  //wtom = renderar en gång istället för att loopa
 
     return (
         <div className="App">
