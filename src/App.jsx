@@ -31,6 +31,18 @@ function App() {
   }, [location]);
   console.log(location);
 
+  const addNewContact = (formData) => {
+    return(
+    fetch("https://boolean-api-server.fly.dev/hannapham1007/contact", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }))
+      .catch((error) => console.error("Error adding new answer", error));
+  };
+
   const deleteContact = (contactId) => {
     fetch(
       `https://boolean-api-server.fly.dev/hannapham1007/contact/${contactId}`,
@@ -72,7 +84,7 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/" element={<Dashboard addNewContact={addNewContact} />}></Route>
         <Route
           path="/contacts"
           element={<ContactList contactList={contacts} />}
@@ -90,7 +102,7 @@ function App() {
         ></Route>
         <Route
           path="/create"
-          element={<CreateContactForm contacts={contacts} />}
+          element={<CreateContactForm addNewContact={addNewContact}/>}
         ></Route>
       </Routes>
     </main>
