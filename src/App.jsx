@@ -37,18 +37,22 @@ function App() {
 
     return (
         <>
-        <header>
-            <h1>Menu</h1>
-            <nav>
-                <Menu></Menu>
-            </nav>
-        </header>
-        <Routes>
-            <Route path="/contacts" element={<ContactList contacts={contacts}/>}></Route>
-            <Route path="/contacts/add" element={<ContactForm />}></Route>
-            <Route path="/contacts/:id" element={<ContactDetails contacts={contacts} ></ContactDetails>}></Route>
-            <Route path="/contacts/:id/update" element={<UpdateContact contacts={contacts} ></UpdateContact>}></Route>
-        </Routes>
+        <div className='app-container'>
+            <header className='header'>
+                <h1>Menu</h1>
+                <nav>
+                    <Menu></Menu>
+                </nav>
+            </header>
+            <div className='content-container'>
+                <Routes>
+                    <Route path="/contacts" element={<ContactList contacts={contacts}/>}></Route>
+                    <Route path="/contacts/add" element={<ContactForm />}></Route>
+                    <Route path="/contacts/:id" element={<ContactDetails contacts={contacts} ></ContactDetails>}></Route>
+                    <Route path="/contacts/:id/update" element={<UpdateContact contacts={contacts} ></UpdateContact>}></Route>
+                </Routes>
+            </div>
+        </div>
         </>
     );
 }

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { Link, useNavigate } from 'react-router-dom'
+import ".././styles.css"
 
 function ContactListItem(contact) {
 
@@ -30,12 +31,13 @@ const navigate = useNavigate()
     }
   }
   return (
-    <li>
-        <h4>
+    <li className='contact-list-item'>
+
+        <h4 className='contact-name'>
             {contact.contact.firstName} {contact.contact.lastName}
         </h4>
-        <Link to = {`/contacts/${contact.contact.id}`}>Details</Link>
-        {<button onClick={handleDelete}>Delete</button>}
+        <Link to = {`/contacts/${contact.contact.id}`} className='details-link'>Details</Link>
+        {<button onClick={handleDelete} className='delete-button'>Delete</button>}
     </li>
   )
 }

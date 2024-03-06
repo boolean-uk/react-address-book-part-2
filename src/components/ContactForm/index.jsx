@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./styles.css"
 
 
 function ContactForm({contact}) {
@@ -79,7 +80,7 @@ function ContactForm({contact}) {
     }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="contact-form-container">
         <ul>
             <li>
                 <label>

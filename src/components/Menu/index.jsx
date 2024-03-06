@@ -1,15 +1,18 @@
 import {Link} from 'react-router-dom'
+import './styles.css';
 
 function Menu() {
   return (
-    <ul>
-        <li>
-            <Link to = "/contacts">List of Contacts</Link>
+    <div className='menu-container'>
+    <ul className='menu-list'> 
+        <li className='menu-item'>
+            <Link to = "/contacts" className='menu-link'>List of Contacts</Link>
         </li>
-        <li>
-            <Link to = "/contacts/add">Add Contact</Link>
+        <li className='menu-item'>
+            <Link to = "/contacts/add" className='menu-link'>Add Contact</Link>
         </li>
     </ul>
+    </div>
   )
 }
 
