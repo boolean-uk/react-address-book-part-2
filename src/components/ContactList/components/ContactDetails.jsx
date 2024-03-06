@@ -22,7 +22,7 @@ function ContactDetails({contacts}) {
         <ContactForm contact={contact}></ContactForm>
         :
         <div>
-        <img src={contact.profileImage} alt="" />
+        <img src={contact.profileImage} alt="img" />
         <h2>{contact.firstName} {contact.lastName}</h2>
         <h3>City: {contact.city}</h3> <h3>Street: {contact.street}</h3>
         <p>email: {contact.email}</p>

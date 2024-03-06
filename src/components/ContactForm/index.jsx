@@ -21,14 +21,9 @@ function ContactForm({contact}) {
     const navigate = useNavigate()
 
     const handleChange = (event) => {
-        const {name, value, type} = event.target; 
-
-        console.log(type)
-        if(type === 'email') {
-            setContactInfo({...contactInfo, profileImage: "https://www.gravatar.com/avatar/Deven.Bergstrom@gmail.com?s=120&d=identicon"})
-        }
-
-        setContactInfo({...contactInfo, [name]: value})
+        const {name, value} = event.target; 
+        setContactInfo({...contactInfo, [name]: value, profileImage: `https://www.gravatar.com/avatar/${contactInfo
+    .email}?s=120&d=identicon`})
     }
 
     const handleSubmit = async (event) =>{
