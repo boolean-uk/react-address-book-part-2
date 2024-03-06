@@ -4,6 +4,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import ContactPage from './components'
 import ContactProfile from './components/ContactProfile.jsx'
 import ContactAdd from './components/ContactAdd.jsx'
+import ContactChange from './components/ContactChange.jsx';
 
 function App() {
 
@@ -51,6 +52,15 @@ function App() {
                         setContacts={setContacts}
                     />
                 }/>
+
+                <Route path='/change/:id' element={
+                    <ContactChange
+                        contacts={contacts}
+                        setContacts={setContacts}
+                        
+                    />
+                }/>
+                
             </Routes>
         </>
     );

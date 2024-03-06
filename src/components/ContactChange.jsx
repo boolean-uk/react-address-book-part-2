@@ -1,47 +1,28 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactAdd(props) {
-    
-    const[person, setPerson] = useState({
-        firstName: "", 
-        lastName: "", 
-        gender: "", 
-        email: "", 
-        city: "", 
-        street: "", 
-        jobTitle: "",
-        latitude: 0,
-        longitude: 0,
-        favouriteColour: "",
-        profileImage: ""
-    })
+function ContactChange(props) {
+
+    const {id} = useParams();
+
+    const[person, setPerson] = useState()
     const navigate = useNavigate();
 
     const { contacts, setContacts } = props;
+
+    const thePerson = contacts.find((person) => Number(person.id) === Number(id))
+    
+   
+    useEffect(() => {
+        setPerson(thePerson);
+        console.log("hehehe",person)
+    }, [person]);
+   
 
     const handleChange = (event) => {
         const inputName = event.target.name;
         const inputValue = event.target.value;
     
-        // if (inputName === "firstName") {
-        //     person.firstName = inputValue
-        // }
-        // if (inputName === "lastName") {
-        //     person.lastName = inputValue
-        // }
-        // if (inputName === "gender") {
-        //     person.gender = inputValue
-        // }
-        // if (inputName === "email") {
-        //     person.email = inputValue
-        // }
-        // if (inputName === "city") {
-        //     person.city = inputValue
-        // }
-        // if (inputName === "street") {
-        //     person.street = inputValue
-        // }
         setPerson(prevPerson => ({
             ...prevPerson,
             [inputName]: inputValue
@@ -49,30 +30,18 @@ function ContactAdd(props) {
     }
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        fetch("https://boolean-api-server.fly.dev/StevenTPh/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(person),
-        });
-        const incrementId = contacts[contacts.length - 1].id + 1
-        person.id = incrementId
-
-        setContacts([...contacts, person])
-        navigate(-1);
+        
       };
 
     return(
         <main>
-            <h2>Create contact</h2>
+            <h2>Change contact</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name: </label>
                 <input
                     type="text"
                     name="firstName"
-                    value={person.firstName}
+                    value=""
                     onChange={handleChange}
                 />
                 <br/>
@@ -80,7 +49,7 @@ function ContactAdd(props) {
                 <input
                     type="text"
                     name="lastName"
-                    value={person.lastName}
+                    value=""
                     onChange={handleChange}
                 />
                 <br/>
@@ -88,7 +57,7 @@ function ContactAdd(props) {
                 <input
                     type="text"
                     name="gender"
-                    value={person.gender}
+                    value=""
                     onChange={handleChange}
                 />
                 <br/>
@@ -96,7 +65,7 @@ function ContactAdd(props) {
                 <input
                     type="email"
                     name="email"
-                    value={person.email}
+                    value=""
                     onChange={handleChange}
                 />
                 <br/>
@@ -104,7 +73,7 @@ function ContactAdd(props) {
                 <input
                     type="text"
                     name="city"
-                    value={person.city}
+                    value=""
                     onChange={handleChange}
                 />
                 <br/>
@@ -112,7 +81,7 @@ function ContactAdd(props) {
                 <input
                     type="text"
                     name="street"
-                    value={person.street}
+                    // value={person.street}
                     onChange={handleChange}
                 />
                 <br/>
@@ -122,4 +91,4 @@ function ContactAdd(props) {
     )
 }
 
-export default ContactAdd
+export default ContactChange
