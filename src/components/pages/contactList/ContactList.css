@@ -1,23 +1,46 @@
 @import url('@/global.css');
 
-.contact-list > ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    margin: 1rem;
-    list-style-type: none;
+
+.contact-list-page {
+    width: 85%;
+    max-width: 80%;
+    margin-left: 3rem;
+    overflow-y: hidden;
+}
+.contact-list-page > .page-title {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    background-color: var(--existence-grey);
+    border-bottom: 5px solid var(--silverlining-white);
 }
 
-.contact-list > ul > .card {
+.contact-list-page > .contact-list {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--existence-grey);
+    overflow-y: scroll;
+    scrollbar-width: 0;
+}
+
+.contact-list-page > .contact-list::-webkit-scrollbar {
+    display: none;
+}
+
+.contact-list > .card {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 15rem;
-    height: 15rem;
+    width: 18rem;
+    height: 18rem;
     padding: 5px;
     background-color: var(--existence-grey);
-    border: 1px solid var(--existence-grey);
     border-radius: 10px;
     transition: transform 0.2s ease;
     overflow: hidden;
@@ -25,13 +48,19 @@
     z-index: 1;
 }
 
-.contact-list > ul > .card:hover {
+.contact-list > .card:hover {
     border: 1px solid var(--silverlining-white);
-    transform: scale(1.01);
+    transform: scale(1.02);
     z-index: 2;
 }
 
-.contact-list > ul > .card > h2 {
+.contact-list > .card > * {
+    width: 100%;
+    text-align: center;
+}
+
+.contact-list > .card > #name {
+    letter-spacing: 0.1rem;
     text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -39,9 +68,37 @@
     font-size: 1.2rem;
 }
 
-.contact-list > ul > .card > img {
-    height: 80%;
+.contact-list > .card > #profile-pic {
+    height: 75%;
     width: auto;
     user-select: none;
     object-fit: contain;
+    border-radius: 5px;
+}
+
+.contact-list > .card > #job-title {
+    font-size: 0.7rem;
+    font-weight: 300;
+}
+
+.contact-list > .card > #email {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@media (max-width: 1600px) {
+    .contact-list-page > .contact-list {
+      grid-template-columns: repeat(4, 1fr); /* Switches to two columns for small screens */
+    }
+
+    .contact-list > .card {
+        width: 14rem;
+        height: 14rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .contact-list-page > .contact-list {
+      grid-template-columns: repeat(3, 1fr); /* Switches to two columns for small screens */
+    }
 }

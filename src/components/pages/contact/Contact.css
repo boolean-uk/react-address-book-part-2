@@ -1,0 +1,60 @@
+@import url('@/global.css');
+
+.header {
+    width: 100%;
+    height: 3.3rem;
+}
+
+.contact-page {
+    margin: 0 5rem 0 5rem;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-page > .image-column {
+    width: 18%;
+}
+
+.contact-page > .image-column > #profile-image {
+    width: 100%;
+}
+
+.contact-page > .unit-profile-array {
+    width: 82%;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-page > .unit-profile-array > #name {
+    width: 100%;
+    font-size: 3.5rem;
+    letter-spacing: 0.6rem;
+    text-align: start;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.contact-page > .unit-profile-array > .data-point {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+}
+
+.contact-page > .unit-profile-array > .data-point > .label {
+    width: 40%;
+    font-weight: bolder;
+}
+
+.contact-page > .unit-profile-array > .data-point > .label:after {
+    content: ":";
+}
+
+.contact-page > .unit-profile-array > .data-point > .value {
+    width: 60%;
+    letter-spacing: 1px;
+    font-weight: 400;
+}

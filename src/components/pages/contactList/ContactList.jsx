@@ -6,9 +6,9 @@ import "./ContactList.css";
 function ContactList() {
   const { contacts } = useContext(UserContext);
   return (
-    <div className="contact-list">
-      <h1>My Contacts</h1>
-      <ul>
+    <div className="contact-list-page">
+      <h1 className="page-title">My Contacts</h1>
+      <ul className="contact-list">
         {contacts.map((contact, index) => (
           <ContactListCard key={index} contact={contact} />
         ))}
