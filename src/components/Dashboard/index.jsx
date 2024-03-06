@@ -1,7 +1,7 @@
 
 import ContactListItem from "./components/ContactListItem"
 
-function ContactList({contacts}){
+function ContactList({ contacts }){
     
     return(
         <ul>

@@ -31,13 +31,13 @@ function App() {
                 <Routes>
                   <Route
                     path='/'
-                    element={<ContactList contacts={contacts} />}
+                    element={<ContactList contacts={contacts}/>}
                   />
                   <Route
                     path='/add'
                     element={<AddContact contacts={contacts} setContacts={setContacts}/>}/>
                   <Route path='/view/:id'
-                      element={<ViewContacts contacts={contacts} />} />
+                      element={<ViewContacts contacts={contacts} setContacts={setContacts}/>} />
                 </Routes>
                 </main>
             </div>
