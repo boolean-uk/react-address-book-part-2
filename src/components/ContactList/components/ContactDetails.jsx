@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ContactForm from '../../ContactForm'
 
 function ContactDetails({contacts}) {
     const [contact, setContact] = useState(null)
     const [view, setView] = useState("details")
     const{id} = useParams()
-
-    console.log()
-
     useEffect(() => {
         if(contacts && id){
             setContact(contacts.find((contact) => Number(contact.id) === Number(id)))

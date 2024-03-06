@@ -11,11 +11,10 @@ function ContactForm({contact}) {
         email: "",
         profileImage: ""
     })
-    console.log(contact)
 
     useEffect(() =>{
         if(contact !== undefined){
-            setContactInfo({...contactInfo, firstName: contact.firstName})
+            setContactInfo(contact)
     }},[])
 
     const navigate = useNavigate()
@@ -34,7 +33,31 @@ function ContactForm({contact}) {
     const handleSubmit = async (event) =>{
         event.preventDefault()
         console.log(contactInfo)
+        //Update 
+        if (contact){
+        try {
+            const res = await fetch(`https://boolean-api-server.fly.dev/AxelHan/contact/${contact.id}`, {
+                method: "PUT",
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify(contactInfo)
+            })
+            console.log(res.json)
+            if(res.ok) {
+                console.log("success contact updated")
+                navigate("/contacts")
+            } else{
+                console.error("Failed to update contact")
+            }
+        }
+        catch (error){
+            console.error('Error:', error)
+        }
+    }
+    
 
+        // Add new
+
+        else{
         try {
             const res = await fetch("https://boolean-api-server.fly.dev/AxelHan/contact", {
                 method: "POST",
@@ -52,6 +75,7 @@ function ContactForm({contact}) {
         catch (error){
             console.error('Error:', error)
         }
+    }
     }
 
   return (
@@ -121,7 +145,8 @@ function ContactForm({contact}) {
             onChange={handleChange}
           />
         </li>
-            <input type="submit" value="Add Contact"></input>
+        {contact ? <input type="submit" value="Update Contact"></input> : <input type="submit" value="Add Contact"></input>}
+            
         </ul>
      
 
