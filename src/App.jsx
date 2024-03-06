@@ -2,6 +2,7 @@ import './App.css';
 import SideBar from './components/SideBar/SideBar';
 import ContactList from './components/ContactList/ContactList';
 import CreateContactForm from './components/CreateContactForm/CreateContactForm';
+import UpdateContactForm from './components/UpdateContactForm/UpdateContactForm'
 
 import { useEffect, useState } from 'react';
 import { Routes, Route} from 'react-router-dom';
@@ -36,7 +37,11 @@ function App() {
           />
           <Route
             path="/view/:id"
-            element={<ContactView contactList={contactList} baseURL={baseURL}/>}
+            element={<ContactView contactList={contactList}/>}
+          />
+          <Route
+            path="/update/:id"
+            element={<UpdateContactForm contactList={contactList}/>}
           />
 
         </Routes>

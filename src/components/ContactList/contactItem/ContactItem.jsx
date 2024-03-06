@@ -19,7 +19,7 @@ function ContactItem(props) {
       <span>{`${contact.firstName} ${contact.lastName}`}</span>
       </Link>
       <button className="delete-btn" onClick={() => handleDelete()}><b>DELETE</b></button>
-      <button>EDIT</button>
+      <button onClick={() => navigate(`/update/${contact.id}`)}>EDIT</button>
 
     </li>
   )
