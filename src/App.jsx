@@ -11,7 +11,7 @@ function App() {
   let location = useLocation();
 
   const fetchData = () => {
-    fetch("https://boolean-api-server.fly.dev/hannpham1007/contact")
+    fetch("https://boolean-api-server.fly.dev/hannapham1007/contact")
       .then((response) => response.json())
       .then((data) => {
         const idOverFifteen = []
@@ -29,6 +29,16 @@ function App() {
     fetchData();
   }, [location]);
   console.log(location)
+
+  const deleteContact = (contactId) =>{
+    fetch(`https://boolean-api-server.fly.dev/hannapham1007/contact/${contactId}`,
+    {
+      method: "DELETE",
+    })
+    .catch((error) => console.error("Error deleting contact", error));
+
+  }
+  
 
   return (
     <main className="app">
@@ -49,11 +59,11 @@ function App() {
         <Route path="/" element={<Dashboard/>}></Route>
         <Route
           path="/contacts"
-          element={<ContactList contactList={contacts} />}
+          element={<ContactList contactList={contacts}/>}
         ></Route>
         <Route
           path="/view/:id"
-          element={<ContactDetail contacts={contacts} />}
+          element={<ContactDetail contacts={contacts} onDelete={deleteContact}/>}
         ></Route>
         <Route path="/create" element={<CreateContactForm contacts={contacts}/>}></Route>
       </Routes>

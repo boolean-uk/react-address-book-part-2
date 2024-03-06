@@ -13,7 +13,7 @@ function CreateContactForm() {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    fetch("https://boolean-api-server.fly.dev/hannpham1007/contact")
+    fetch("https://boolean-api-server.fly.dev/hannapham1007/contact")
       .then((response) => response.json())
       .then((data) => {
         const idOverFifteen = []
@@ -32,7 +32,7 @@ function CreateContactForm() {
   }, []);
 
   const addNewContact = () => {
-    fetch("https://boolean-api-server.fly.dev/hannpham1007/contact", {
+    fetch("https://boolean-api-server.fly.dev/hannapham1007/contact", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -47,12 +47,11 @@ function CreateContactForm() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     addNewContact();
-    fetchData();
-
     setFormData({
       firstName: "",
       lastName: "",
@@ -60,6 +59,8 @@ function CreateContactForm() {
       city: "",
     });
     navigate('/contacts');
+    fetchData();
+
 
   };
   return (

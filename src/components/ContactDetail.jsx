@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactDetail({ contacts }) {
+function ContactDetail({ contacts, onDelete }) {
   const { id } = useParams();
   const [contact, setContact] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (contacts && id) {
@@ -11,6 +12,11 @@ function ContactDetail({ contacts }) {
       setContact(contacts.find((item) => Number(item.id) === Number(id)));
     }
   }, [contacts, id]); // effect run if contacts or id changes
+
+  const handleDelete = (id) => {
+    onDelete(id);
+    navigate("/");
+  };
 
   return (
     <>
@@ -21,6 +27,8 @@ function ContactDetail({ contacts }) {
           </p>
           <p>{contact.street}</p>
           <p>{contact.city}</p>
+
+          <button onClick={() => handleDelete(contact.id)}>Delete</button>
         </>
       )}
     </>
