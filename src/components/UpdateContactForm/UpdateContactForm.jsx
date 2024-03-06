@@ -3,14 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 function CreateContactForm(props) {
   const contactList = props.contactList
-  const [contact, setContact] = useState(null)
   const { id } = useParams()
+  const [contact, setContact] = useState(contactList.find(person => Number(person.id) === Number(id)))
   const navigate = useNavigate()
 
-  useEffect(() => {
-    contact = contactList.find(person => Number(person.id) === Number(id))
-    console.log(contact)
-  }, [])
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
