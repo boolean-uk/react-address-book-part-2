@@ -62,4 +62,9 @@ h1 {
     border: 1px solid #333;
     border-radius: 5px;
   }
+
+  .article ul{
+    text-align: start;
+    margin-left: 50px;
+  }
   

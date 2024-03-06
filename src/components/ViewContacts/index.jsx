@@ -16,7 +16,7 @@ function ViewContacts({contacts}){
     if(!person) return <p>Loading...</p>
 
     return(
-        <article>
+        <article className="article">
             <h2>{person.firstName} {person.lastName}</h2>
             <ul>
                 <div>
