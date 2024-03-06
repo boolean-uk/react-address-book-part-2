@@ -26,7 +26,7 @@ function CreateContactForm(props) {
     })
     .then(res => res.json())
     
-    navigate('/')
+    navigate(`/view/${id}`)
   }
 
   

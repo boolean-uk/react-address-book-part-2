@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 
 function ContactView(props) {
   const contactList = props.contactList
   const [contact, setContact] = useState(null)
   const { id } = useParams()
+  const navigate = useNavigate()
 
   console.log(contactList)
   console.log(id)
@@ -31,6 +32,7 @@ function ContactView(props) {
   }
   return (
     <>
+    <button onClick={() => navigate('/')}></button>
     {content}
     </>
   )
