@@ -1,0 +1,13 @@
+.leftMenu {
+    width: 200px;
+    height: 250px;
+    border-radius: 25px;
+    margin-top: 20px;
+    border: 2px solid #333;   
+    display: inline-block;
+    float: left;
+}
+
+.linkList {
+    font-style: italic;
+}

@@ -1,0 +1,18 @@
+.contactView {
+    border-radius: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 2px solid #333;   
+    display: inline-block;  
+
+}
+
+.deleteButton {
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.updateButton {
+    margin-left: 20px;
+    border-radius: 5px;
+}
