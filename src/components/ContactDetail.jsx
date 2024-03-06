@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function ContactDetail({ contacts, onDelete }) {
+function ContactDetail({ contacts, onDelete, onUpdate }) {
   const { id } = useParams();
   const [contact, setContact] = useState(null);
   const navigate = useNavigate();
@@ -18,6 +18,11 @@ function ContactDetail({ contacts, onDelete }) {
     navigate("/");
   };
 
+  const handleUpdate = (id, updatedContact) => {
+    navigate(`/view/${contact.id}/edit`);
+    onUpdate(id, updatedContact);
+  };
+
   return (
     <>
       {contact && (
@@ -29,6 +34,9 @@ function ContactDetail({ contacts, onDelete }) {
           <p>{contact.city}</p>
 
           <button onClick={() => handleDelete(contact.id)}>Delete</button>
+          <button onClick={() => handleUpdate(contact.id, contact)}>
+            Update
+          </button>
         </>
       )}
     </>
