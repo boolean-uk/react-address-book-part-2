@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Contact from "./Contact"
 import './style.css'
 
 function ContactList(props) {
-    const { contacts, setContacts, toggle, setToggle } = props
+    const { contacts, setContacts, toggle } = props
 
     useEffect(() => {
         fetch("https://boolean-api-server.fly.dev/nora-hansen/contact")

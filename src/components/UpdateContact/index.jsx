@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 function UpdateContact(props) {
     const [contact, setContact] = useState(null)
     const { id } = useParams()
-    const { contacts, setToggle, toggle } = props
+    const { contacts, setToggle } = props
     const [contactInput, setContactInput] = useState({})
     const navigate = useNavigate()
 

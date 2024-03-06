@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import './style.css'
 
 function CreateContact(props) {
-    const { toggle, setToggle} = props
+    const { setToggle} = props
     const [contactInput, setContactInput] = useState({})
     const navigate = useNavigate()
 

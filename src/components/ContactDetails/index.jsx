@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate, Routes, Route } from 'react-router-dom'
-import UpdateContact from '../UpdateContact'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import './style.css'
 

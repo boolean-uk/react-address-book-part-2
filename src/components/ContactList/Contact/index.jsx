@@ -1,9 +1,8 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import './style.css'
 
 function Contact(props) {
     const { contact } = props
-    const navigate = useNavigate()
 
     return(
         <li className="contact-list-item">

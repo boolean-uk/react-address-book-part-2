@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import ContactList from './components/ContactList';
 import Menu from './components/Menu';
