@@ -1,0 +1,17 @@
+contacts =
+[
+  {
+    firstName: "...",
+  lastName: "...",
+  street: "...",
+  city: "...",
+  gender: "...",
+  email: "...",
+  jobTitle: "...",
+  latitude: ...,
+  longitude: ...,
+  favouriteColour: "...",
+  profileImage: "https://www.....",
+  id": 1
+  }, {...}, {...}
+]
