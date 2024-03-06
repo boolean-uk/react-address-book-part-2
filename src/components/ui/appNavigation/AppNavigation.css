@@ -24,12 +24,11 @@
     content: "\00a0\00a0";
 }
 
-.app-navigation > .link:hover {
-    background-color: var(--silverlining-white);
-    color: black;
+.app-navigation > .link:hover::before {
+    content: "> ";
 }
 
-
-.app-navigation > .active::before {
-    content: "> ";
+.app-navigation > .active {
+    color: black;
+    background-color: var(--silverlining-white);
 }

@@ -2,9 +2,9 @@
 
 
 .contact-list-page {
-    width: 85%;
+    width: 70%;
     max-width: 80%;
-    margin-left: 3rem;
+    margin-left: 5rem;
     overflow-y: hidden;
 }
 .contact-list-page > .page-title {
@@ -22,9 +22,11 @@
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     align-items: center;
+    gap: 5px;
     padding: 1rem;
     margin-top: 1rem;
-    background-color: var(--existence-grey);
+    border: 1px solid var(--existence-grey);
+    border-radius: 5px;
     overflow-y: scroll;
     scrollbar-width: 0;
 }
@@ -41,7 +43,8 @@
     height: 18rem;
     padding: 5px;
     background-color: var(--existence-grey);
-    border-radius: 10px;
+    border: 1px solid var(--nothingness-grey);
+    border-radius: 5px;
     transition: transform 0.2s ease;
     overflow: hidden;
     user-select: none;
@@ -69,11 +72,11 @@
 }
 
 .contact-list > .card > #profile-pic {
-    height: 75%;
+    height: 70%;
     width: auto;
     user-select: none;
     object-fit: contain;
-    border-radius: 5px;
+    border-radius: 45%;
 }
 
 .contact-list > .card > #job-title {
@@ -100,5 +103,12 @@
 @media (max-width: 1250px) {
     .contact-list-page > .contact-list {
       grid-template-columns: repeat(3, 1fr); /* Switches to two columns for small screens */
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .contact-list-page > .contact-list {
+      grid-template-columns: repeat(1, 1fr); /* Switches to two columns for small screens */
     }
 }

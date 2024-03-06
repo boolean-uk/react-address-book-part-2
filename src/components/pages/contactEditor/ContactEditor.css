@@ -1,0 +1,28 @@
+@import url('@/global.css');
+
+.contact-editor-form {
+    width: 500px;
+    padding: 1rem 2rem 5rem 2rem;
+    margin-left: 1rem;
+    background-color: var(--existence-grey);
+    border-radius: 1rem;
+}
+
+.contact-editor-form > #header {
+    margin-bottom: 1rem;
+}
+
+.contact-editor-form > .data-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.contact-editor-form > .data-input > .value {
+    color: black;
+    background-color: var(--silverlining-white);
+}
+
+

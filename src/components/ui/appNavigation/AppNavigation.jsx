@@ -23,7 +23,7 @@ function AppNavigation(props) {
           location.pathname === "/contacts/new/" ? "link active" : "link"
         }
       >
-        New Contact
+        Add Contact
       </Link>
     </nav>
   );
