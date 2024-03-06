@@ -4,6 +4,7 @@ import ContactList from './components/Dashboard'
 import AddContact from './components/AddContact'
 import ViewContacts from './components/ViewContacts'
 import './App.css';
+import EditContact from './components/EditContact';
 
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
                     element={<AddContact contacts={contacts} setContacts={setContacts}/>}/>
                   <Route path='/view/:id'
                       element={<ViewContacts contacts={contacts} setContacts={setContacts}/>} />
+                  <Route path='/edit/:id'
+                      element={<EditContact contacts={contacts} setContacts={setContacts}/>} />
                 </Routes>
                 </main>
             </div>

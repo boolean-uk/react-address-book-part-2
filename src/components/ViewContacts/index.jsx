@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 
 function ViewContacts({contacts, setContacts}){
     const [person, setPerson] = useState(null)
@@ -39,7 +39,10 @@ function ViewContacts({contacts, setContacts}){
                     <label>City: </label><span>{person.city}</span>
                 </div> 
                 <div>
-                    <button onClick={handleDelete}> Delete contact</button>
+                    <Link to={`/edit/${person.id}`}>
+                        <button className="edit">edit</button>
+                    </Link>
+                    <button className="delete" onClick={handleDelete}> Delete contact</button>
                 </div>
             </ul>  
         </article>

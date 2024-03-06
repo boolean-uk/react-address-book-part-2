@@ -13,6 +13,7 @@ function ContactListItem ({ person }){
                     <button>View</button>
                 </Link>
             </div>
+
         </li>
     )
 }
