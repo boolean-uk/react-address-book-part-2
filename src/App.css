@@ -1,0 +1,112 @@
+/* App.css */
+
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+  }
+  
+  .links {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .links li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .links li a:hover {
+    color: #555;
+  }
+  
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .contact-list-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .contact-list-item p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .contact-list-item button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .contact-list-item button:hover {
+    background-color: #e04100;
+  }
+  
+  .submit-form {
+    width: 300px;
+    margin: auto;
+  }
+  
+  .submit-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-form button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .update-form {
+    width: 300px;
+    margin: auto;
+  }
+  
+  .update-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .update-form button {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .update-form button:hover {
+    background-color: #218838;
+  }
