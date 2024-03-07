@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
 import ContactListItem from './ListComponent.jsx/ContactListItem'
 
-const apiURL = 'https://boolean-api-server.fly.dev/'
-const gitUser = 'alkolbodo'
-export const fullURL = apiURL + gitUser
+
 
 export default function ContactList(props) {
     const { contacts } = props
