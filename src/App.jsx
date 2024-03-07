@@ -1,3 +1,4 @@
+// App.jsx
 import { useEffect, useState } from 'react'
 import './App.css'
 import { Link, Routes, Route } from "react-router-dom"
@@ -10,10 +11,10 @@ import ViewContact from './pages/ContactForms/ViewContact'
 function App() {
     const [contacts, setContacts] = useState([])
 
-    //GET
+    // GET
     useEffect(() => {
         getContacts();
-    }, [contacts])
+    }, [])
 
     function getContacts() {
         fetch("https://boolean-api-server.fly.dev/Hjaldrgud/contact")
@@ -21,7 +22,7 @@ function App() {
             .then((data) => setContacts(data))
     }
 
-    //POST
+    // POST
     const addContact = async (newContact) => {
         try {
             const response = await fetch("https://boolean-api-server.fly.dev/Hjaldrgud/contact", {
@@ -47,7 +48,7 @@ function App() {
         }
     }
 
-    //PUT (Update)
+    // PUT (Update)
     const updateContact = async (contactId, updatedContact) => {
         try {
             const response = await fetch(`https://boolean-api-server.fly.dev/Hjaldrgud/contact/${contactId}`, {
@@ -60,7 +61,7 @@ function App() {
 
             if (response.ok) {
                 // If the request is successful, update the contact in the state
-                setContacts(contacts.map(c => c.id === contactId ? updatedContact : c));
+                getContacts(); // Reload contacts after updating
                 return true;
             } else {
                 // Handle errors
@@ -73,7 +74,7 @@ function App() {
         }
     }
 
-    //DELETE
+    // DELETE
     const deleteContact = async (contactId) => {
         try {
             const response = await fetch(`https://boolean-api-server.fly.dev/Hjaldrgud/contact/${contactId}`, {
@@ -127,7 +128,7 @@ function App() {
                     />
                     <Route
                         path="/edit/:id"
-                        element={<EditContact contacts={contacts} setContacts={setContacts} updateContact={updateContact} />}
+                        element={<EditContact contacts={contacts} updateContact={updateContact} />}
                     />
                 </Routes>
             </div>

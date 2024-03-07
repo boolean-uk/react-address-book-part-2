@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-function ContactForm(props) {
-    const { contact, mode, addContact, updateContact } = props;
+function AddContactForm(props) {
+    const { addContact } = props;
     const navigate = useNavigate();
 
-    const emptyContact = {
+    const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         gender: "",
@@ -18,44 +18,25 @@ function ContactForm(props) {
         longitude: 25.783561,
         favouriteColour: "#111111",
         profileImage: "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon"
-    }
-
-    const [formData, setFormData] = useState(emptyContact)
-
-    useEffect(() => {
-        if (mode === 'edit' && contact) {
-            setFormData(contact)
-        }
-    }, [mode, contact])
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
             [name]: value
-        }))
-    }
+        }));
+    };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        if (mode === "add") {
-            const success = await addContact(formData);
-            if (success) {
-                navigate("/");
-            } else {
-                console.error("Failed to add contact")
-            }
-        } else if (mode === "edit") {
-            const success = await updateContact(formData.id, formData);
-            if (success) {
-                navigate("/");
-            } else {
-                console.error("Failed to update contact")
-            }
+        e.preventDefault();
+        const success = await addContact(formData);
+        if (success) {
+            navigate("/");
+        } else {
+            console.error("Failed to add contact");
         }
-    }
-
+    };
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
@@ -92,16 +73,13 @@ function ContactForm(props) {
             <label htmlFor="profileImage">Profile image (link):</label>
             <input type="text" name="profileImage" id="profileImage" placeholder="profileImage" required onChange={handleChange} value={formData.profileImage} />
 
-            <button type="submit">{mode === "add" ? "Add" : "Edit"}</button>
+            <button type="submit">Add</button>
         </form>
     )
 }
 
-ContactForm.propTypes = {
-    mode: PropTypes.oneOf(["add", "edit"]).isRequired,
-    contact: PropTypes.object,
-    addContact: PropTypes.func,
-    updateContact: PropTypes.func,
-}
+AddContactForm.propTypes = {
+    addContact: PropTypes.func.isRequired,
+};
 
-export default ContactForm
+export default AddContactForm;
