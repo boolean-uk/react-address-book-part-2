@@ -1,9 +1,14 @@
 import PropTypes from "prop-types";
 import "./App.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 function ContactsListPage(props) {
   if (!props.contactInfoList) return <p>Loading...</p>;
 
+  useEffect(() => {
+    //location.reload();  <=== this caused an infinate loop. DO NOT USE THIS!
+  }, []);
   return (
     <section>
       <p>Contact List</p>
@@ -30,5 +35,5 @@ function ContactsListPage(props) {
 export default ContactsListPage;
 
 ContactsListPage.propTypes = {
-  contactsListPage: PropTypes.arrayOf(PropTypes.object),
+  contactInfoList: PropTypes.arrayOf(PropTypes.object),
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 function CreateNewContactFormPage(props) {
-  const { setConstactInfoList, contactInfoList } = props;
+  const { setContactInfoList, contactInfoList } = props;
   const [newContact, setNewContact] = useState({
     firstName: "",
     lastName: "",
@@ -16,7 +16,7 @@ function CreateNewContactFormPage(props) {
 
   const navigate = useNavigate();
 
-  function handelInputData(event) {
+  function handleInputData(event) {
     const inputName = event.target.name;
     const inputValue = event.target.value;
 
@@ -41,11 +41,13 @@ function CreateNewContactFormPage(props) {
     if (inputName === "url") {
       setNewContact({ ...newContact, profileImage: inputValue });
     }
+    event.preventDefault();
   }
-  function handleSubmit() {
+  function handleSubmit(event) {
     console.log(newContact);
 
     MakePostRequestToAPI(newContact);
+    event.preventDefault();
   }
 
   function MakePostRequestToAPI(newContact) {
@@ -60,7 +62,7 @@ function CreateNewContactFormPage(props) {
     )
       .then((res) => res.json())
       .then((data) => {
-        setConstactInfoList([...contactInfoList, data]);
+        setContactInfoList([...contactInfoList, data]);
         navigate(`/contacts/${data.id}`);
       })
       .catch((err) => {
@@ -78,7 +80,7 @@ function CreateNewContactFormPage(props) {
             type="text"
             name="firstName"
             required
-            onChange={handelInputData}
+            onChange={handleInputData}
           />
         </label>
       </li>
@@ -90,7 +92,7 @@ function CreateNewContactFormPage(props) {
             type="text"
             name="lastName"
             required
-            onChange={handelInputData}
+            onChange={handleInputData}
           />
         </label>
       </li>
@@ -102,7 +104,7 @@ function CreateNewContactFormPage(props) {
             className="contact-list-box-link"
             type="email"
             name="email"
-            onChange={handelInputData}
+            onChange={handleInputData}
           />
         </label>
       </li>
@@ -113,7 +115,7 @@ function CreateNewContactFormPage(props) {
             className="contact-list-box-link"
             type="text"
             name="street"
-            onChange={handelInputData}
+            onChange={handleInputData}
           />
         </label>
       </li>
@@ -124,7 +126,7 @@ function CreateNewContactFormPage(props) {
             className="contact-list-box-link"
             type="text"
             name="city"
-            onChange={handelInputData}
+            onChange={handleInputData}
           />
         </label>
       </li>
@@ -135,7 +137,7 @@ function CreateNewContactFormPage(props) {
             className="contact-list-box-link"
             type="text"
             name="colour"
-            onChange={handelInputData}
+            onChange={handleInputData}
             placeholder="in hexcode"
           />
         </label>
@@ -147,7 +149,7 @@ function CreateNewContactFormPage(props) {
             className="contact-list-box-link"
             type="text"
             name="url"
-            onChange={handelInputData}
+            onChange={handleInputData}
           />
         </label>
       </li>
@@ -164,6 +166,6 @@ function CreateNewContactFormPage(props) {
 export default CreateNewContactFormPage;
 
 CreateNewContactFormPage.propTypes = {
-  setConstactInfoList: PropTypes.func,
+  setContactInfoList: PropTypes.func,
   contactInfoList: PropTypes.arrayOf(PropTypes.object),
 };

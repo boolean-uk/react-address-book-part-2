@@ -6,18 +6,7 @@ import CreateNewContactFormPage from "./CreateNewContactFormPage";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [contactInfoList, setConstactInfoList] = useState([
-    {
-      firstName: "",
-      lastName: "",
-      email: "",
-      street: "",
-      city: "",
-      favouriteColour: "",
-      profileImage: "",
-      id: null,
-    },
-  ]);
+  const [contactInfoList, setContactInfoList] = useState([]);
   useEffect(() => {
     fetch("https://boolean-api-server.fly.dev/MackanPalm/contact")
       .then((response) => {
@@ -27,7 +16,7 @@ function App() {
       })
       .then((data) => {
         console.log(data);
-        setConstactInfoList(data);
+        setContactInfoList(data);
       });
   }, []);
   return (
@@ -57,7 +46,7 @@ function App() {
             element={
               <CreateNewContactFormPage
                 contactInfoList={contactInfoList}
-                setConstactInfoList={setConstactInfoList}
+                setContactInfoList={setContactInfoList}
               />
             }
           />
