@@ -1,0 +1,28 @@
+.page {
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+.left-menu {
+    width: 20%;
+    background-color: f0f0f0;
+    padding: 1rem;
+}
+
+.left-menu h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.left-menu ul li {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.main {
+    flex: 1;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+

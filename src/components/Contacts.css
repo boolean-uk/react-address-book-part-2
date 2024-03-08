@@ -1,0 +1,36 @@
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+
+.contact-list-item, .list-item {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+
+.contact-name {
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+
+.view-button {
+    margin-left: 1rem;
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+    background-color: #005ea6;
+}

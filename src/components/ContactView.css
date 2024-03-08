@@ -1,0 +1,41 @@
+
+
+.contact-details {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center; 
+}
+
+
+.contact-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-address {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.nav-edit-contact,
+.delete-contact {
+    display: block;
+    width: 10%;
+    padding: 0.5rem;
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.nav-edit-contact:hover,
+.delete-contact:hover {
+    background-color: #005ea6;
+}
