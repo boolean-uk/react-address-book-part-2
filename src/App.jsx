@@ -6,12 +6,11 @@ import {
     Link,
 } from "react-router-dom"
 import ContactList from './components/ContactList';
+import ViewContact from './components/ViewContact';
+import { fullURL } from './components/API-Helper';
+import EditContact from './components/EditContact';
 
 function App() {
-    
-    const apiURL = 'https://boolean-api-server.fly.dev/'
-    const gitUser = 'alkolbodo'
-    const fullURL = apiURL + gitUser
 
     const [contacts, setContacts] = useState([])
     
@@ -25,7 +24,7 @@ function App() {
           .catch((error) => console.log(error));
       }
 
-      useEffect(getContacts)
+      useEffect(() => {getContacts()}, [])
   
 
     return (
@@ -42,7 +41,9 @@ function App() {
                <Routes>
                 <Route path='/' element={<ContactList contacts={contacts} />} />
 
+                <Route path='/view/:id' element={<ViewContact />}></Route>
 
+                <Route path='/edit/:id' element={<EditContact />}></Route>
                </Routes>
             </main>
         </div>

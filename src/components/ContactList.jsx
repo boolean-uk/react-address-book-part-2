@@ -7,6 +7,7 @@ export default function ContactList(props) {
     const { contacts } = props
 
     
+    
     return (
         <div>
             <header>

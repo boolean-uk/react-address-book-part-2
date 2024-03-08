@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { fullURL } from "./ContactList"
+import { fullURL } from "./API-Helper"
 
-export default function ViewContact(props) {
+export default function ViewContact() {
     //Navigation and ID recognition
     const nav = useNavigate()
     const { id } = useParams()
     //Contact info state
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [street, setStreet] = useState("")
-    const [city, setCity] = useState("")
+
+    const [contact, setContact] = useState({})
+
+    //check if data exists
+    console.log(`${fullURL}/contact/${id}`)
 
     useEffect(() => {
         fetch(`${fullURL}/contact/${id}`)
-            .then(resp => resp.json)
+            .then(resp => resp.json())
             .then((data) => setContact(data))
+            .catch((error) => {
+                console.error("Error fetching data:", error)
+            })
     }, [])
 
     const DeleteContact = async (d) => {
@@ -32,14 +36,14 @@ export default function ViewContact(props) {
         <>
             <header>
                 <h2>
-                    {firstName + " " + lastName}
+                    {contact.firstName + " " + contact.lastName}
                 </h2>
             </header>
             <div>
-                {street}
-                {city}
+                {contact.street}
+                {contact.city}
             </div>
-            <button class="delete-contact" onclick={DeleteContact}>Delete</button>
+            <button className="delete-contact" onClick={DeleteContact}>Delete</button>
         </>
     )
 }
