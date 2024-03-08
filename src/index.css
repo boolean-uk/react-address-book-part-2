@@ -12,3 +12,7 @@ body {
       monospace;
   }
   
+  .app-container {
+    display: flex;
+}
+

@@ -1,9 +1,15 @@
+import Index from './sections/Index';
+
 import './App.css';
 
 function App() {
-    return (
-        <p>Hello, world!</p>
-    );
+  
+
+  return (
+    <div>
+    <Index />
+    </div>
+  )
 }
 
-export default App;
+export default App
