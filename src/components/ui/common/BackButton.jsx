@@ -6,7 +6,7 @@ function BackButton() {
     <img
       className="nav-button"
       src="https://uxwing.com/wp-content/themes/uxwing/download/arrow-direction/angle-circle-left-icon.png"
-      onClick={() => navigate(-1)}
+      onClick={() => navigate("../")}
     />
   );
 }

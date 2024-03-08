@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import "./AppNavigation.css";
 import { useLocation, Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
+import { useContext } from "react";
 
-function AppNavigation(props) {
+function AppNavigation() {
   const { contacts } = useContext(UserContext);
   let location = useLocation();
   return (
@@ -28,7 +27,5 @@ function AppNavigation(props) {
     </nav>
   );
 }
-
-AppNavigation.propTypes = {};
 
 export default AppNavigation;

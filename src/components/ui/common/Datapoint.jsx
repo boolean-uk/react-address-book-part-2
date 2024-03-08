@@ -11,7 +11,7 @@ function Datapoint({ label, value }) {
 
 Datapoint.propTypes = {
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
 };
 
 export default Datapoint;

@@ -6,7 +6,7 @@ import ContactList from "./components/pages/contactList/ContactList";
 import ContactEditor from "./components/pages/contactEditor/ContactEditor";
 import Contact from "./components/pages/contact/contact";
 
-function App(props) {
+function App() {
   return (
     <>
       <AppNavigation />
@@ -14,7 +14,7 @@ function App(props) {
         <Routes>
           <Route path="/" element={<Navigate replace to="/contacts/" />} />
           <Route path="/contacts/" element={<ContactList />} />
-          <Route path="/contacts/:id" element={<Contact />} />
+          <Route path="/contacts/:id/*" element={<Contact />} />
           <Route path="/contacts/new" element={<ContactEditor />} />
         </Routes>
       </main>

@@ -2,7 +2,7 @@
 
 
 .contact-list-page {
-    width: 70%;
+    width: 75%;
     max-width: 80%;
     margin-left: 5rem;
     overflow-y: hidden;
@@ -19,12 +19,12 @@
     width: 100%;
     height: 800px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     justify-items: center;
     align-items: center;
-    gap: 5px;
     padding: 1rem;
-    margin-top: 1rem;
+    gap: 2.5px;
+    margin-top: 0.75rem;
     border: 1px solid var(--existence-grey);
     border-radius: 5px;
     overflow-y: scroll;
@@ -39,8 +39,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 18rem;
-    height: 18rem;
+    width: 15rem;
+    height: 15rem;
     padding: 5px;
     background-color: var(--existence-grey);
     border: 1px solid var(--nothingness-grey);
@@ -91,7 +91,7 @@
 
 @media (max-width: 1600px) {
     .contact-list-page > .contact-list {
-      grid-template-columns: repeat(4, 1fr); /* Switches to two columns for small screens */
+      grid-template-columns: repeat(4, 1fr);
     }
 
     .contact-list > .card {
@@ -102,13 +102,13 @@
 
 @media (max-width: 1250px) {
     .contact-list-page > .contact-list {
-      grid-template-columns: repeat(3, 1fr); /* Switches to two columns for small screens */
+      grid-template-columns: repeat(3, 1fr); 
     }
 }
 
 
 @media (max-width: 1000px) {
     .contact-list-page > .contact-list {
-      grid-template-columns: repeat(1, 1fr); /* Switches to two columns for small screens */
+      grid-template-columns: repeat(1, 1fr);
     }
 }

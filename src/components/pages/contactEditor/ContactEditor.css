@@ -3,9 +3,12 @@
 .contact-editor-form {
     width: 500px;
     padding: 1rem 2rem 5rem 2rem;
+    display: flex;
+    flex-direction: column;
     margin-left: 1rem;
     background-color: var(--existence-grey);
     border-radius: 1rem;
+    justify-content: center;
 }
 
 .contact-editor-form > #header {
@@ -21,8 +24,15 @@
 }
 
 .contact-editor-form > .data-input > .value {
+    width: 50%;
     color: black;
     background-color: var(--silverlining-white);
 }
 
-
+.contact-editor-form > .data-input > .value:disabled {
+    width: 50%;
+    color: white;
+    background-color: transparent;
+    border: none;
+    user-select: none;
+}

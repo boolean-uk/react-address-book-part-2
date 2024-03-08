@@ -21,6 +21,18 @@
     transform: scale(1.2);
 }
 
+.form-button {
+    margin: 1rem auto;
+    padding: 0.5rem;
+    background-color: var(--existence-grey);
+    border: 1px solid var(--silverlining-white);
+    border-radius: 10px;
+}
+
+.form-button:hover {
+    background-color: var(--i-trust-you-green);
+}
+
 h1, h2, h3 {
     text-align: center;
 }

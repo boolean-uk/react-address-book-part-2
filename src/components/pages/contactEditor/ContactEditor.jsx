@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import Datainput from "../../ui/common/Datainput";
 import { newContact } from "../../../services/defaultValues";
 import "./ContactEditor.css";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../contexts/UserContext";
 
-function ContactEditor(props) {
-  const { id } = useParams();
-  const [formData, setFormData] = useState(newContact);
+function ContactEditor({ contact }) {
+  const { insertContact, updateContact } = useContext(UserContext);
+  const [formData, setFormData] = useState(contact ? contact : newContact);
+  const navigate = useNavigate();
 
   const handleInput = (key, value) => {
     setFormData((data) => ({ ...data, [key]: value }));
-    console.log(id);
+  };
+
+  const handleSubmit = () => {
+    contact ? updateContact(formData) : insertContact(formData);
+    contact ? navigate("../") : navigate("/");
   };
 
   return (
     <div className="contact-editor-form">
-      <h2 id="header">New contact</h2>
+      <h2 id="header">{contact ? "Edit Contatct" : "New Contact"}</h2>
       {Object.entries(formData).map(([key, value]) => (
         <Datainput
           key={key}
@@ -25,10 +31,15 @@ function ContactEditor(props) {
           onChange={(newValue) => handleInput(key, newValue)}
         />
       ))}
+      <button className="form-button" onClick={handleSubmit}>
+        {contact ? "Update" : "Submit"}
+      </button>
     </div>
   );
 }
 
-ContactEditor.propTypes = {};
+ContactEditor.propTypes = {
+  id: PropTypes.any,
+};
 
 export default ContactEditor;

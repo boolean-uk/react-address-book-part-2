@@ -60,7 +60,8 @@ export const postToURL = async (url, body) => {
       },
       body: JSON.stringify(body)
     });
-    return await response.json();
+    if(response.ok) return await response.json();
+    else console.log('Error:', response.status);
   } catch (error) {
     console.error("Error fetching data: " + error);
   }
