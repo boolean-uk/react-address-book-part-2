@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fullURL } from "./API-Helper"
+import { Link } from 'react-router-dom'
+import "./ContactView.css"
 
 export default function ViewContact() {
     //Navigation and ID recognition
@@ -39,10 +41,16 @@ export default function ViewContact() {
                     {contact.firstName + " " + contact.lastName}
                 </h2>
             </header>
-            <div>
-                {contact.street}
-                {contact.city}
+            <div className="contact-address">
+                Street: {contact.street}
+                <br />
+                City: {contact.city}
             </div>
+            <Link to={`/edit/${contact.id}`}>
+                <button className="nav-edit-contact">
+                    Edit
+                </button>
+            </Link>
             <button className="delete-contact" onClick={DeleteContact}>Delete</button>
         </>
     )

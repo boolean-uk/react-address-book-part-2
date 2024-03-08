@@ -1,12 +1,8 @@
-import { useEffect } from 'react'
 import ContactListItem from './ListComponent.jsx/ContactListItem'
-
-
+import './Contacts.css'
 
 export default function ContactList(props) {
     const { contacts } = props
-
-    
     
     return (
         <div>

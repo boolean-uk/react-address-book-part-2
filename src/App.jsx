@@ -9,6 +9,8 @@ import ContactList from './components/ContactList';
 import ViewContact from './components/ViewContact';
 import { fullURL } from './components/API-Helper';
 import EditContact from './components/EditContact';
+import CreateContact from './components/CreateContact';
+
 
 function App() {
 
@@ -34,16 +36,19 @@ function App() {
                 <nav>
                     <ul className='left-menu-list'>
                         <li><Link to='/'>Contact List</Link></li>
+                        <li><Link to='/add/'>Add new contact</Link></li>
                     </ul>
                 </nav>
             </div>
-            <main>
+            <main className='main'>
                <Routes>
                 <Route path='/' element={<ContactList contacts={contacts} />} />
 
+                <Route path='/add/' element={<CreateContact contacts={contacts} />} />
+
                 <Route path='/view/:id' element={<ViewContact />}></Route>
 
-                <Route path='/edit/:id' element={<EditContact />}></Route>
+                <Route path='/edit/:id' element={<EditContact contacts={contacts} />}></Route>
                </Routes>
             </main>
         </div>
