@@ -39,7 +39,7 @@ function ContactEditor({ contact }) {
 }
 
 ContactEditor.propTypes = {
-  id: PropTypes.any,
+  contact: PropTypes.object,
 };
 
 export default ContactEditor;
