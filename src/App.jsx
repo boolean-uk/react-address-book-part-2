@@ -1,4 +1,4 @@
-import Index from './sections';
+import Index from './sections/Index';
 
 import './App.css';
 

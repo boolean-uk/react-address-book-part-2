@@ -1,29 +1,33 @@
-//index.jsx
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ContactList from './Users/ContactList';
 import NewContactForm from './NewUsers/NewContactForm';
 import ContactListItem from './Users/ContactListItem';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import ContactListItemUpdate from './Users/ContactListItemUpdate';
 
 export default function Index() {
-  const [contacts, setContacts] = useState();
+  const [contacts, setContacts] = useState([])
   const [createContact, setCreateContact] = useState({
     firstName: '',
     lastName: '',
     street: '',
     city: ''
-  });
+  })
+
+  useEffect(() => {
+    fetchContacts()
+  }, [])
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setCreateContact(prevCreateContact => ({
       ...prevCreateContact,
       [name]: value
-    }));
-  };
+    }))
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     fetch("https://boolean-api-server.fly.dev/hkyksk/contact", {
       method: 'POST',
       headers: {
@@ -38,17 +42,16 @@ export default function Index() {
             lastName: '',
             street: '',
             city: ''
-          });
+          })
           fetchContacts()
         }
-      });
-  };
+      })
+  }
 
   const fetchContacts = () => {
     fetch("https://boolean-api-server.fly.dev/hkyksk/contact")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setContacts(data)
       })
       .catch(error => {
@@ -56,9 +59,31 @@ export default function Index() {
       })
   }
 
-  useEffect(() => {
-    fetchContacts()
-  }, [])
+  const handleDelete = (contactId) => {
+    fetch(`https://boolean-api-server.fly.dev/hkyksk/contact/${contactId}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (response.ok) {
+          fetchContacts()
+        }
+      })
+  }
+
+  const handleUpdate = (contactId, updatedContact) => {
+    fetch(`https://boolean-api-server.fly.dev/hkyksk/contact/${contactId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedContact)
+    })
+      .then(response => {
+        if (response.ok) {
+          fetchContacts()
+        }
+      })
+  }
 
   return (
     <Router>
@@ -72,9 +97,10 @@ export default function Index() {
         </div>
         <div className="content">
           <Routes>
-            <Route path="/contacts" element={<ContactList contacts={contacts}/>} />
-            <Route path="/contacts/view/:contactId" element={<ContactListItem contacts={contacts} />} />
-            <Route path="/create-contact" element={<NewContactForm createContact={createContact} handleChange= {handleChange} handleSubmit={handleSubmit} />} />
+            <Route path="/contacts" element={<ContactList contacts={contacts} onDelete={handleDelete} onUpdate={handleUpdate} />} />
+            <Route path="/contacts/view/:contactId" element={<ContactListItem contacts={contacts} onDelete={handleDelete} />} />
+            <Route path="/contacts/edit/:contactId" element={<ContactListItemUpdate contacts={contacts} onDelete={handleDelete} />} />
+            <Route path="/create-contact" element={<NewContactForm createContact={createContact} handleChange={handleChange} handleSubmit={handleSubmit} /> } />
           </Routes>
         </div>
       </div>

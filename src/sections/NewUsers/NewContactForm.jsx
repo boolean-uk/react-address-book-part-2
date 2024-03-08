@@ -1,55 +1,34 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function NewContactForm(props) {
     const {handleSubmit, createContact, handleChange} = props
+    const navigate = useNavigate()
+
+    const attributes = [
+        "firstName", "lastName", "gender", "email", "jobTitle",
+        "street", "city", "latitude", "longitude", "favouriteColour",
+        "profileImage"
+    ]
 
     return (
         <div>
             <h2>Add New Contact</h2>
             <form onSubmit={handleSubmit}>
-                 <div className="form-row">
-                    <label htmlFor="firstName">First Name:</label>
-                    <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={createContact.firstName}
-                        onChange={handleChange}
-                    />
-                </div>
-                 <div className="form-row">
-                    <label htmlFor="lastName">Last Name:</label>
-                    <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={createContact.lastName}
-                        onChange={handleChange}
-                    />
-                </div>
-                 <div className="form-row">
-                    <label htmlFor="street">Street:</label>
-                    <input
-                        type="text"
-                        id="street"
-                        name="street"
-                        value={createContact.street}
-                        onChange={handleChange}
-                    />
-                </div>
-                 <div className="form-row">
-                    <label htmlFor="city">City:</label>
-                    <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={createContact.city}
-                        onChange={handleChange}
-                    />
-                </div>
+                {attributes.map((attribute, index) => (
+                    <div className="form-row" key={index}>
+                        <label htmlFor={attribute}>{attribute.charAt(0).toUpperCase() + attribute.slice(1)}:</label>
+                        <input
+                            type={attribute === "email" ? "email" : attribute === "latitude" || attribute === "longitude" ? "number" : "text"}
+                            id={attribute}
+                            name={attribute}
+                            value={createContact[attribute]}
+                            onChange={handleChange}
+                        />
+                    </div>
+                ))}
                 <button className="button-50" type="submit">Submit</button>
             </form>
-            <Link to="/contacts">Back to Contact List</Link>
+            <button className="button-50" onClick={() => navigate(-1)}>Back to Contact List</button>
         </div>
     )
 }

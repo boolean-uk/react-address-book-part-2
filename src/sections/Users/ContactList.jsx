@@ -16,7 +16,9 @@ export default function ContactList(props) {
               <p className="contact-name">
                 {contact.firstName} {contact.lastName}
               </p>
-              <Link to={`/contacts/view/${contact.id}`} className="contact-button">View Profile 
+              <Link to={`/contacts/edit/${contact.id}`} className="update-link">Update Profile 
+              </Link>
+              <Link to={`/contacts/view/${contact.id}`} className="view-link">View Profile 
               </Link>
             </div>
             <p>_______________________________________________</p>
