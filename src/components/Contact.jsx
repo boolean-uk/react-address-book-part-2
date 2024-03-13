@@ -1,13 +1,13 @@
 import ContactListItem from './ContactListItem'
 
 export default function Contact(props) {
-  const { data } = props
+  const { data , deleteContact} = props
 
   console.log(data)
   return (
     <ul>
-      {data.map((person, index) => (
-        <ContactListItem key={index} person={person} />
+      {data.map((person) => (
+     <ContactListItem key={person.id} person={person} deleteContact={deleteContact} />
       ))}
     </ul>
   )

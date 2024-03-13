@@ -2,41 +2,60 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ContactCreate(props) {
-  const { data, setData } = props;
-
-  // Initialize the nextId state to 15
-  const [nextId, setNextId] = useState(15);
+  const { setData } = props;
 
   const navigate = useNavigate();
 
-  const initialData = {
-    id: '', // The id will be assigned upon form submission
-    firstName: '',
-    lastName: '',
-    city: '',
-    state: ''
-  };
+const initialData = {
+  id: '',
+  firstName: '',
+  lastName: '',
+  city: '',
+  state: '',
+  street: '', 
+};
 
   const [createContact, setCreateContact] = useState(initialData);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    const newContact = {
-      ...createContact,
-      id: nextId 
-    };
+const newContact = {
+  firstName: createContact.firstName,
+  lastName: createContact.lastName,
+  city: createContact.city,
+  state: createContact.state,
+  street: createContact.street,
+};
 
-    setData([...data, newContact]);
 
-    setNextId(nextId + 1);
-
-    setCreateContact({
-      ...initialData,
-      id: ''
+ fetch('https://boolean-api-server.fly.dev/ateeb020301/contact', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(newContact),
+})
+.then(response => {
+  if (!response.ok) {
+    return response.json().then(errorData => {
+      console.error('Detailed error message:', errorData);
+      throw new Error('Network response was not ok');
     });
-    navigate('/')
-  };
+  }
+  return response.json();
+})
+.then(data => {
+  setData(currentData => [...currentData, data]);
+  setCreateContact(initialData);
+  navigate('/');
+})
+.catch(error => {
+  console.error('Error creating contact:', error);
+});
+
+};
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -76,6 +95,16 @@ export default function ContactCreate(props) {
         onChange={handleChange}
         value={createContact.city}
         required
+        />
+        <br />
+        <label htmlFor="street">Street:</label>
+        <input
+          type="text"
+          id="street"
+          name="street"
+          onChange={handleChange}
+          value={createContact.street}
+          required
         />
         <br />
         <label htmlFor="state">State:</label>
