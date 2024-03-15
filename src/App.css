@@ -1,0 +1,38 @@
+.parent {
+  display: flex;
+}
+
+.side-by-side-flex {
+  width: 50%;
+}
+.contact-details-box {
+  width: 500px;
+}
+
+.links {
+  width: 25%;
+}
+.main {
+}
+.no-list-style {
+  list-style: none;
+}
+
+.contact {
+  border-bottom: 1px solid;
+}
+.contact-list-box {
+  margin: 5px;
+}
+
+.margin-left {
+  margin-left: 45px;
+}
+
+.contact-list-box-link {
+  float: right;
+}
+
+.formBox {
+  border: 2px solid;
+}
