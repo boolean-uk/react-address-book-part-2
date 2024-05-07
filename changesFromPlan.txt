@@ -1,0 +1,6 @@
+ComponentTree:
+
+ContactItem => ContactListItem
+ContactView => /view/id <ContactView>
+Headercomponent
+

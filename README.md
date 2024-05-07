@@ -35,6 +35,6 @@ Use [these Contacts API endpoints](https://boolean-uk-api-server.fly.dev/api-doc
 
 ## Example application
 
-**Note: Your application does not need to look like this.**
+**Note: Your application does not need to look like this.**l
 
 ![](./_assets/address-book.gif)
