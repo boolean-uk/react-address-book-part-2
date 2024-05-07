@@ -1,8 +1,21 @@
+import { useEffect, useState } from 'react';
 import './App.css';
+import ContactList from './components/ContactList/Index';
 
 function App() {
+    const [allContacts, setAllContacts] = useState([])
+
+    useEffect(() => {
+        fetch('https://boolean-uk-api-server.fly.dev/tzoltie/contact')
+        .then(response => response.json())
+        .then(json => setAllContacts(json))
+    }, [])
+
+    
     return (
-        <p>Hello, world!</p>
+        <>
+        <ContactList allContacts={allContacts}/>
+        </>
     );
 }
 
