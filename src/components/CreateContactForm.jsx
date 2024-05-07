@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function CreateContactForm({ contacts, setContacts }) {
     const navigation = useNavigate()
-    const [addContact, setAddcontact] = useState({
+    const [addContact, setAddContact] = useState({
         firstName: '',
         lastName: '',
         street: '',
@@ -12,7 +12,7 @@ export default function CreateContactForm({ contacts, setContacts }) {
 
     function handleChange(e) {
         const {name, value} = e.target
-        setAddcontact({
+        setAddContact({
             ...addContact,
             [name] : value
         })
@@ -30,16 +30,17 @@ export default function CreateContactForm({ contacts, setContacts }) {
                 },
             }
 
-            await fetch('https://boolean-uk-api-server.fly.dev/MyrtheDullaart/contact', options)
+            const response = await fetch('https://boolean-uk-api-server.fly.dev/MyrtheDullaart/contact', options)
+            const data = await response.json()
 
             setContacts([
                 ...contacts,
-                addContact
+                data
             ])
         }
 
         addContactToList()
-        setAddcontact({
+        setAddContact({
             firstName: '',
             lastName: '',
             street: '',
