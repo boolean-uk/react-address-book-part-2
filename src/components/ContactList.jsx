@@ -21,7 +21,7 @@ useEffect(() => {
             {
                 contacts.map((contact, index) => {
                     return (
-                        <ContactItem key={index} contact={contact}/>
+                        <ContactItem key={index} contact={contact} setContacts={setContacts} contacts={contacts}/>
                     )
                 })
             }

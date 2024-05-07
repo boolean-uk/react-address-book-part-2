@@ -13,18 +13,28 @@ export default function CreateContact() {
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    
-    fetch('https://boolean-api-server.fly.dev/MrStashy/contact', {
-        method: 'POST',
+    const postData = await fetch(
+      "https://boolean-api-server.fly.dev/MrStashy/contact",
+      {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
+        body: JSON.stringify(formData),
+      }
+    );
+    if (postData.ok) {
+      console.log("Created Successfully");
+    }
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      street: "",
+      city: "",
+    });
   }
 
   return (
