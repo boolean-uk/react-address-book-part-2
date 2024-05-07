@@ -9,7 +9,7 @@
 
 ## API
 
-Use [these Contacts API endpoints](https://boolean-uk-api-server.fly.dev/api-docs/#/contact) for your data.
+Use [these Contacts API endpoints](https://boolean-uk-api-server.fly.dev/api-docs/#/contact) for your data. Base URL: `https://boolean-uk-api-server.fly.dev`
 
 ## Core Criteria
 
