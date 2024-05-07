@@ -1,0 +1,28 @@
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.contact-item {
+    width: 400px;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+}
+
+.contact-name {
+    width: 200px;
+}
+
+.create-contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 5px;
+}
