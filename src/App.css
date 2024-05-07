@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+}
+
+#root {
+    height: 1fr;
+    width: 40rem;
+    justify-self: center;
+    display: grid;
+    grid-template: 
+        'nav contact' / 10rem minmax(10rem, 30rem);
+    gap: 2rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+aside,
+.contacts-list,
+.create-contact,
+.contact-details {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.contacts-list div {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+form {
+    display: grid;
+    gap: 0.5rem;
+}
+
+input,
+button {
+    padding: 0.2rem;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+ul {
+    display: grid;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+div {
+    display: grid;
+    gap: 1rem;
+}
