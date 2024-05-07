@@ -18,7 +18,7 @@ export default function MainComponent() {
             <Routes>
                 <Route 
                     path='/contacts'
-                    element={<ContactsUl />}
+                    element={<ContactsUl contacts={contacts}/>}
                 />
             </Routes>
         </>
