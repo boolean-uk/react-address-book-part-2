@@ -17,14 +17,21 @@ export default function ContactDetail() {
   }, [contactId]);
 
   return (
-    <>
+    <div className='detail-card' style={{backgroundColor: `${contactToDisplay.favouriteColour}` }}>
+      
+      <img src={contactToDisplay.profileImage} />
       <h2>
         {contactToDisplay.firstName} {contactToDisplay.lastName}
       </h2>
       <p>
-        {contactToDisplay.street} {contactToDisplay.city}
+        {contactToDisplay.street}, {contactToDisplay.city}
       </p>
+      <p>Gender: {contactToDisplay.gender}</p>
+      <p>email: {contactToDisplay.email}</p>
+      <p>Occupation: {contactToDisplay.jobTitle}</p>
+      <p>Latitude: {contactToDisplay.latitude}</p>
+      <p>Longitude: {contactToDisplay.longitude}</p>
       <Link to={`/contact-list/edit/${contactId}`}><button>Edit</button></Link>
-    </>
+    </div>
   );
 }

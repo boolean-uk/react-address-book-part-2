@@ -26,3 +26,9 @@ nav {
     width: 400px;
     gap: 5px;
 }
+
+.detail-card {
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+}
