@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import ContactsUl from "./ContactsUl";
 import { useEffect, useState } from "react";
 import CreateContactForm from "./CreateContactForm";
+import ContactDetails from "./ContactDetails";
 
 export default function MainComponent() {
     const [contacts, setContacts] = useState([])
@@ -24,7 +25,12 @@ export default function MainComponent() {
 
                 <Route 
                     path='/form'
-                    element={<CreateContactForm contacts={contacts} />}
+                    element={<CreateContactForm contacts={contacts} setContacts={setContacts}/>}
+                />
+
+                <Route 
+                    path='/contact/:id'
+                    element={<ContactDetails contacts={contacts}/>}
                 />
             </Routes>
         </>
