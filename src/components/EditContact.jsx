@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 export default function EditContact () {
     const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ export default function EditContact () {
       });
 
     const contactId = useParams().id
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getData = async () => {
@@ -33,6 +34,7 @@ export default function EditContact () {
         })
         if (update.ok) {
             console.log('updated successfully')
+            navigate(`/contact-list/${contactId}`)
         }
     }
 
