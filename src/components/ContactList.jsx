@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react'
 export default function ContactList () {
     const [contacts, setContacts] = useState([])
 
-useEffect(() => {
     const getData = async () => {
         const data = await fetch('https://boolean-api-server.fly.dev/MrStashy/contact')
         const json = await data.json()
         setContacts(json)
     }
+
+useEffect(() => {
     getData()
 }, [])
 
@@ -21,7 +22,7 @@ useEffect(() => {
             {
                 contacts.map((contact, index) => {
                     return (
-                        <ContactItem key={index} contact={contact} setContacts={setContacts} contacts={contacts}/>
+                        <ContactItem key={index} contact={contact} getData={getData} />
                     )
                 })
             }

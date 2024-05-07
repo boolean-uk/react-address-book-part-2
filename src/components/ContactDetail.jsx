@@ -23,6 +23,7 @@ export default function ContactDetail() {
       <p>
         {contactToDisplay.street} {contactToDisplay.city}
       </p>
+      <button>Edit</button>
     </>
   );
 }

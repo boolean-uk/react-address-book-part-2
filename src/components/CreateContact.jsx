@@ -7,6 +7,7 @@ export default function CreateContact() {
     street: "",
     city: "",
   });
+  const [error, setError] = useState(undefined)
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -26,7 +27,7 @@ export default function CreateContact() {
       }
     );
     if (postData.ok) {
-      console.log("Created Successfully");
+      setError(null)
     }
 
     setFormData({
@@ -71,6 +72,8 @@ export default function CreateContact() {
         />
         <button type="submit">Create</button>
       </form>
+      {error === null && <div>Created Successfully!</div>}
+      {error != null && <div>Error!</div>}
     </>
   );
 }
