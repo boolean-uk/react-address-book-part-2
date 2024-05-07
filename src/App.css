@@ -1,0 +1,44 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+header {
+  text-align: center; /* Center the text inside the header */
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center; /* Center the items vertically */
+}
+
+header nav ul li {
+  margin: 0 10px; /* Add margin between list items */
+}
+
+input, select, textarea {
+    display: block; /* Display each form element on its own line */
+    margin-bottom: 10px; /* Add some space between form elements */
+}
+
+.color-square {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  /* Set background color dynamically using inline style */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.routes-container {
+  width: 50%; /* Adjust the width as needed */
+}
+
