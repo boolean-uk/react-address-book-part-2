@@ -6,8 +6,12 @@ export default function CreateContact() {
     lastName: "",
     street: "",
     city: "",
+    gender: "",
+    email: "",
+    jobTitle: "",
+    latitude: "",
+    longitude: "",
   });
-  const [error, setError] = useState(undefined)
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -26,15 +30,17 @@ export default function CreateContact() {
         body: JSON.stringify(formData),
       }
     );
-    if (postData.ok) {
-      setError(null)
-    }
 
     setFormData({
       firstName: "",
       lastName: "",
       street: "",
       city: "",
+      gender: "",
+      email: "",
+      jobTitle: "",
+      latitude: "",
+      longitude: "",
     });
   }
 
@@ -70,10 +76,43 @@ export default function CreateContact() {
           name="city"
           type="textbox"
         />
+        <label htmlFor="gender">Gender</label>
+        <input
+          onChange={handleChange}
+          value={formData.gender}
+          name="gender"
+          type="textbox"
+        />
+        <label htmlFor="email">Email</label>
+        <input
+          onChange={handleChange}
+          value={formData.email}
+          name="email"
+          type="textbox"
+        />
+        <label htmlFor="jobTitle">Occupation</label>
+        <input
+          onChange={handleChange}
+          value={formData.jobTitle}
+          name="jobTitle"
+          type="textbox"
+        />
+        <label htmlFor="latitude">Latitude</label>
+        <input
+          onChange={handleChange}
+          value={formData.latitude}
+          name="latitude"
+          type="textbox"
+        />
+        <label htmlFor="longitude">Longitude</label>
+        <input
+          onChange={handleChange}
+          value={formData.longitude}
+          name="longitude"
+          type="textbox"
+        />
         <button type="submit">Create</button>
       </form>
-      {error === null && <div>Created Successfully!</div>}
-      {error != null && <div>Error!</div>}
     </>
   );
 }
