@@ -30,7 +30,7 @@ export default function MainComponent() {
 
                 <Route 
                     path='/contact/:id'
-                    element={<ContactDetails contacts={contacts}/>}
+                    element={<ContactDetails contacts={contacts} setContacts={setContacts}/>}
                 />
             </Routes>
         </>
