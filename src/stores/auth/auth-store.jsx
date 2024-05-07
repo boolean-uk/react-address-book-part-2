@@ -11,10 +11,13 @@ export const AuthCtxProvider = (props) => {
 	const [user, setUser] = useState({ name: "", image: "" });
 
 	async function login() {
-		setTimeout(() => {
-			setIsLoggedIn(true);
-			setUser({ name: "Rj", image: "" });
-		}, 500);
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				setIsLoggedIn(true);
+				setUser({ name: "Rj", image: "" });
+				resolve();
+			}, 1000);
+		});
 	}
 	async function logout() {
 		setIsLoggedIn(false);
