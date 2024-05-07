@@ -1,9 +1,17 @@
 import Concact from "./Contact";
-
-export default function ContactsList() {
+import '/src/style/ContactsList.css'
+export default function ContactsList( {contacts}) {
+  console.log(contacts)
   return(
-    <ul>
-      <Concact/>
+    <ul id="contacs-list">
+      {
+        contacts.map((contact) => {
+          return (
+            <Concact contact = {contact} key={contact.id}/>
+          )
+        })
+      }
+      
     </ul>
   )
 }
