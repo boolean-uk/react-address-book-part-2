@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 
 export default function ContactDetail() {
   const [contactToDisplay, setContactToDisplay] = useState({});
@@ -23,7 +24,7 @@ export default function ContactDetail() {
       <p>
         {contactToDisplay.street} {contactToDisplay.city}
       </p>
-      <button>Edit</button>
+      <Link to={`/contact-list/edit/${contactId}`}><button>Edit</button></Link>
     </>
   );
 }
