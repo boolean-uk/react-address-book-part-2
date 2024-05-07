@@ -1,9 +1,14 @@
-import './App.css';
+import "./App.css"
+import ContactsList from "./components/ContactsList"
+
 
 function App() {
     return (
-        <p>Hello, world!</p>
-    );
+        <>
+        <h1>test</h1>
+        <ContactsList/>
+        </>
+    )
 }
 
-export default App;
+export default App
