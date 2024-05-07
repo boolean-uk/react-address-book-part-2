@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
-export default function ContactDetails({ contacts, setContacts }) {
-    const [selectedContact, setSelectedContact] = useState(null)
+export default function ContactDetails({ contacts, setContacts, selectedContact, setSelectedContact }) {
     const params = useParams()
     const navigation = useNavigate()
 
@@ -23,7 +22,6 @@ export default function ContactDetails({ contacts, setContacts }) {
 
             const response = await fetch(`https://boolean-uk-api-server.fly.dev/MyrtheDullaart/contact/${params.id}`, options)
             const data = await response.json()
-            console.log(data)
 
             setContacts([
                 ...contacts.filter((contact) => contact.id !== data.id)
@@ -34,6 +32,10 @@ export default function ContactDetails({ contacts, setContacts }) {
         navigation('/contacts')
     }
 
+    function handleUpdate() {
+        navigation(`/contact/${params.id}/edit`)
+    }
+
     return (
         <div>
             { selectedContact && 
@@ -41,6 +43,7 @@ export default function ContactDetails({ contacts, setContacts }) {
                     <h2>{`${selectedContact.firstName} ${selectedContact.lastName}`}</h2>
                     <p>{`${selectedContact.street} ${selectedContact.city}`}</p>
                     <button onClick={handleClick}>Delete</button>
+                    <button onClick={handleUpdate}>Update</button>
                 </>
             }
         </div>

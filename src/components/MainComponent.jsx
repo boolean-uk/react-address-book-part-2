@@ -3,9 +3,11 @@ import ContactsUl from "./ContactsUl";
 import { useEffect, useState } from "react";
 import CreateContactForm from "./CreateContactForm";
 import ContactDetails from "./ContactDetails";
+import UpdateContactForm from "./UpdateContactForm";
 
 export default function MainComponent() {
     const [contacts, setContacts] = useState([])
+    const [selectedContact, setSelectedContact] = useState(null)
 
     useEffect(() => {
         fetch('https://boolean-uk-api-server.fly.dev/MyrtheDullaart/contact')
@@ -30,7 +32,12 @@ export default function MainComponent() {
 
                 <Route 
                     path='/contact/:id'
-                    element={<ContactDetails contacts={contacts} setContacts={setContacts}/>}
+                    element={<ContactDetails contacts={contacts} setContacts={setContacts} selectedContact={selectedContact} setSelectedContact={setSelectedContact}/>}
+                />
+
+                <Route 
+                    path='/contact/:id/edit'
+                    element={<UpdateContactForm contacts={contacts} setContacts={setContacts} selectedContact={selectedContact} setSelectedContact={setSelectedContact}/>}
                 />
             </Routes>
         </>
