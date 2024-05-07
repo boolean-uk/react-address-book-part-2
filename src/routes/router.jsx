@@ -4,6 +4,7 @@ import {
 	createBrowserRouter,
 	createRoutesFromChildren,
 } from "react-router-dom";
+import Login from "../pages/Login/Login";
 import App from "../App";
 
 export const ROUTE_NAMES = {
@@ -17,10 +18,10 @@ const router = createBrowserRouter(
 	createRoutesFromChildren(
 		<>
 			<Route
-				path={"/*"}
-				element={<App></App>}>
+				path={"/"}
+				element={<App />}>
 				<Route
-					path={"/*"}
+					path={"*/"}
 					element={
 						<>
 							<h1>dashboard</h1>
@@ -45,11 +46,7 @@ const router = createBrowserRouter(
 				</Route>
 				<Route
 					path={ROUTE_NAMES.login}
-					element={
-						<>
-							<h1>Login</h1>
-						</>
-					}
+					element={<Login></Login>}
 				/>
 			</Route>
 			<Route
