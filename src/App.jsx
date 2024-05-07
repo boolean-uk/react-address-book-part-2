@@ -7,6 +7,8 @@ import AccordionList from "./components/AccordionList/AccordionList";
 import Input from "./components/Form/Input";
 import FileInput from "./components/Form/FileInput";
 import { Overlay } from "react-bootstrap";
+import Toast from "./components/Toast/Toast";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 	const navigate = useNavigate();
@@ -21,6 +23,7 @@ function App() {
 	return (
 		<>
 			<h1>App root</h1>
+			<Toast />
 			<Outlet></Outlet>
 		</>
 	);

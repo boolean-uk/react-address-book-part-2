@@ -10,12 +10,14 @@ export const AuthCtxProvider = (props) => {
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [user, setUser] = useState({ name: "", image: "" });
 
-	async function login() {
-		return new Promise((resolve) => {
+	async function login(username, password) {
+		return new Promise((resolve, reject) => {
 			setTimeout(() => {
-				setIsLoggedIn(true);
-				setUser({ name: "Rj", image: "" });
-				resolve();
+				if (username === "borat" && password === "greatsuccess") {
+					setIsLoggedIn(true);
+					setUser({ name: "Rj", image: "" });
+					resolve();
+				} else reject();
 			}, 1000);
 		});
 	}

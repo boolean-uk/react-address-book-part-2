@@ -5,6 +5,7 @@ import AuthCtx from "../../stores/auth/auth-store";
 import Input from "../../components/Form/Input";
 import { Button, Container, Form } from "react-bootstrap";
 import styles from "./login.module.css";
+import { toast } from "react-toastify";
 export default function Login() {
 	const navigate = useNavigate();
 	const { isLoggedIn, login } = useContext(AuthCtx);
@@ -15,15 +16,25 @@ export default function Login() {
 		}
 	}, [isLoggedIn]);
 
-	const loginHandler = () => {
-		login();
-		//display toast
+	const loginHandler = (e) => {
+		e.preventDefault();
+		//Not sure why...but this doesnt work with react-bootstrap
+		// const data = new FormData(e.target);
+
+		const name = document.querySelector("#name").value;
+		const pass = document.querySelector("#password").value;
+
+		toast.promise(login(name, pass), {
+			error: "Invalid User",
+			pending: "Loading...",
+			success: "Welcome back!",
+		});
 	};
 
 	return (
 		<Container className={styles.wrapper}>
 			<h1 className="mb-4">Address Book</h1>
-			<Form>
+			<Form onSubmit={loginHandler}>
 				<Input
 					id={"name"}
 					label={"Username"}></Input>
@@ -31,13 +42,14 @@ export default function Login() {
 					id={"password"}
 					label={"Password"}
 					type={"password"}></Input>
+
+				<Button
+					type="submit"
+					className="mt-2"
+					size="lg">
+					Log in
+				</Button>
 			</Form>
-			<Button
-				className="mt-2"
-				size="lg"
-				onClick={loginHandler}>
-				Log in
-			</Button>
 		</Container>
 	);
 }

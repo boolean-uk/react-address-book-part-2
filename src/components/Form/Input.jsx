@@ -6,6 +6,7 @@ export default function Input({ id, label, type, value, onChange }) {
 		<FloatingLabel
 			controlId={id}
 			label={label}
+			name={id}
 			className="mb-3">
 			<Form.Control
 				type={type}
