@@ -1,21 +1,22 @@
-import React, { useEffect } from "react";
-import { login, user } from "../../stores/auth/auth-store";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_NAMES } from "../../routes/router";
+import AuthCtx from "../../stores/auth/auth-store";
 
 export default function Login() {
 	const navigate = useNavigate();
+	const { isLoggedIn, login } = useContext(AuthCtx);
 
 	useEffect(() => {
-		if (user.isLoggedIn) {
+		if (isLoggedIn) {
 			navigate(ROUTE_NAMES.dashboard);
 		}
-	}, []);
+	}, [isLoggedIn]);
 
 	return (
 		<div>
 			Login
-			<button>Log in</button>
+			<button onClick={login}>Log in</button>
 		</div>
 	);
 }
