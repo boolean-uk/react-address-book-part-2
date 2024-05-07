@@ -3,6 +3,10 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { ROUTE_NAMES } from "./routes/router";
 import { useContext, useEffect } from "react";
 import AuthCtx from "./stores/auth/auth-store";
+import AccordionList from "./components/AccordionList/AccordionList";
+import Input from "./components/Form/Input";
+import FileInput from "./components/Form/FileInput";
+import { Overlay } from "react-bootstrap";
 
 function App() {
 	const navigate = useNavigate();
@@ -16,7 +20,7 @@ function App() {
 
 	return (
 		<>
-			<p>Hello, world!</p>
+			<h1>App root</h1>
 			<Outlet></Outlet>
 		</>
 	);
