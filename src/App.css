@@ -1,0 +1,63 @@
+.header{
+    display: grid;
+    border: 1px solid #FF6347;
+    border-radius: 30px;
+    margin: 5rem;
+    padding: 2rem;
+}
+
+.nav-menu-container {
+    place-self: center;
+}
+
+.nav-menu h4 {
+    background-color: #FF6347;
+    width: 9rem;
+    padding: 1rem;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+
+.contacts-list-container {
+    display: grid;
+    margin: 5rem;
+    padding: 1rem;
+    width: 30rem;
+    background-color: #FF6347;
+    border-radius: 30px;
+}
+
+.contacts-list {
+    list-style: none;
+}
+
+.addContacts-container {
+    display: grid;
+    margin-left: 55rem;
+    padding: 1rem;
+    width: 30rem;
+    background-color: #FF6347;
+    border-radius: 30px;
+}
+
+.addContacts-form {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.addContacts-form button {
+    width: fit-content;
+    place-self: center;
+}
+
+.addContacts-form input {
+    height: 2rem;
+    outline: none;
+    background-color: #FF6347;
+    border: none;
+    border-bottom: 1px solid #F2EBE3;
+    color: #F2EBE3;
+}
