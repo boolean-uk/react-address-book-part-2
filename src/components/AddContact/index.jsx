@@ -22,6 +22,12 @@ export default function AddContact({contact, setContact, setAllContacts}) {
             .then(response => response.json())
             .then(response => setAllContacts(response))
         
+        setContact({
+            firstName: '', 
+            lastName: '',
+            street: '',
+            city: ''
+        })
     }
 
     return (
