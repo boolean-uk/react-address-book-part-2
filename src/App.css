@@ -28,3 +28,14 @@ body {
     gap: 1rem;
     padding-bottom: 10px;
 }
+
+.create-contact-form {
+    display: grid;
+    width: 300px;
+    gap: 0.5rem;
+}
+
+.create-button {
+    display: grid;
+    width: 60px;
+}
