@@ -1,5 +1,9 @@
+import { useLocation } from "react-router-dom"
+
 export default function Inputs(props) {
     const { formData, handleChange } = props
+
+    const location = useLocation()
 
     return (
         <>
@@ -43,7 +47,9 @@ export default function Inputs(props) {
                 />
             </div>
         
-            <button type="submit">Create</button>
+            <button type="submit">
+                {location.pathname.includes('update') ? 'Update' : 'Create'}
+            </button>
         </>
     )
 }

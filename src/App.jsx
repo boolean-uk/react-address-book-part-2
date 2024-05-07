@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import ContactsList from './components/ContactsList';
 import CreateContact from './components/CreateContact';
 import ContactDetails from './components/ContactDetails';
+import UpdateContact from './components/UpdateContact';
 
 export default function App() {
     const [contacts, setContacts] = useState([])
@@ -30,6 +31,14 @@ export default function App() {
                 <Route 
                     path='/contact/:id'
                     element={<ContactDetails contacts={contacts} />}
+                />
+
+                <Route 
+                    path='/contact/update/:id'
+                    element={<UpdateContact 
+                        contacts={contacts}
+                        setContacts={setContacts} 
+                    />}
                 />
             </Routes>
         </>

@@ -25,7 +25,8 @@ body {
 aside,
 .contacts-list,
 .create-contact,
-.contact-details {
+.contact-details,
+.update-contact {
     display: grid;
     grid-template-rows: auto 1fr;
     justify-content: center;
@@ -34,7 +35,7 @@ aside,
 
 .contacts-list div {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: 1fr auto auto auto;
 }
 
 form {
@@ -47,7 +48,8 @@ button {
     padding: 0.2rem;
 }
 
-button {
+.create-contact button,
+.update-contact button {
     margin-top: 1rem;
 }
 
