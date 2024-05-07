@@ -1,17 +1,18 @@
 import { Outlet, useNavigate } from "react-router-dom";
 
-import { user } from "./stores/auth/auth-store";
 import { ROUTE_NAMES } from "./routes/router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import AuthCtx from "./stores/auth/auth-store";
 
 function App() {
 	const navigate = useNavigate();
+	const { isLoggedIn } = useContext(AuthCtx);
 
 	useEffect(() => {
-		if (!user.isLoggedIn) {
+		if (!isLoggedIn) {
 			navigate(ROUTE_NAMES.login);
 		}
-	}, [user.isLoggedIn]);
+	}, [isLoggedIn]);
 
 	return (
 		<>
