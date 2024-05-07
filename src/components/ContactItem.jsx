@@ -5,6 +5,7 @@ export default function ContactItem ( {contact} ) {
         <div className='contact-item'>
             <p className='contact-name'>{contact.firstName} {contact.lastName}</p>
             <Link to={`${contact.id}`}>View</Link>
+            <button>Delete</button>
         </div>
     )
 }
