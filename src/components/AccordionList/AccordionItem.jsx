@@ -19,12 +19,12 @@ export default function AccordionItem({
 		</Accordion.Item>
 	);
 }
-const Header = ({ image, firstName, lastName }) => (
+const Header = ({ profileImage, firstName, lastName }) => (
 	<Accordion.Header>
 		<Stack
 			direction="horizontal"
 			gap={3}>
-			<Image src={image} />
+			<Image src={profileImage} />
 			<span>{firstName}</span>
 			<span>{lastName}</span>
 		</Stack>
@@ -41,7 +41,7 @@ const Body = ({ data, onEditHandler, onDeleteHandler }) => (
 							className="w-50">
 							Gender: {data?.gender}
 						</Col>
-						<Col md={"auto"}>Job: {data?.job}</Col>
+						<Col md={"auto"}>Job: {data?.jobTitle}</Col>
 					</Row>
 					<Row className="">
 						<Col
