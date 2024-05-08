@@ -1,7 +1,7 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 
-export default function Input({ id, label, type, value, onChange }) {
+export default function Input({ id, label, type, value, onChange, ...props }) {
 	return (
 		<FloatingLabel
 			controlId={id}
@@ -9,6 +9,7 @@ export default function Input({ id, label, type, value, onChange }) {
 			name={id}
 			className="">
 			<Form.Control
+				{...props}
 				type={type}
 				placeholder=""
 				value={value}
