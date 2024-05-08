@@ -9,12 +9,11 @@ body {
 }
 
 #root {
-    height: 1fr;
-    width: 40rem;
+    width: auto;
     justify-self: center;
     display: grid;
     grid-template: 
-        'nav contact' / 10rem minmax(10rem, 30rem);
+        'nav contact' / 10rem minmax(10rem, 1fr);
     gap: 2rem;
     border: 1px solid black;
     border-radius: 1.5rem;
@@ -35,12 +34,22 @@ aside,
 
 .contacts-list div {
     display: grid;
-    grid-template-columns: 1fr auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+    align-items: center;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 0.3rem;
+    text-align: center;
 }
 
 form {
     display: grid;
-    gap: 0.5rem;
+    gap: 0.8rem;
 }
 
 input,
@@ -48,13 +57,37 @@ button {
     padding: 0.2rem;
 }
 
+.contacts-list button {
+    border: none;
+    background: none;
+}
+
 .create-contact button,
 .update-contact button {
-    margin-top: 1rem;
+    margin-top: 0.2rem;
+}
+
+img {
+    height: 2.65rem;
+}
+
+.svg-icon {
+    cursor: pointer;
+}
+
+.profile-image,
+.contact-details img {
+    object-fit: cover;
+    height: 6rem;
+    border-radius: 0.4rem;
+    height: 6rem;
+    max-height: 6rem;
+    max-width: 6rem;
 }
 
 ul {
     display: grid;
+    justify-content: center;
     gap: 1rem;
     list-style-type: none;
 }

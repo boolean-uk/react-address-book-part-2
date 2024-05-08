@@ -46,6 +46,76 @@ export default function Inputs(props) {
                     onChange={handleChange}
                 />
             </div>
+
+            <div>
+                <label htmlFor="city">Profile Image (URL)</label>
+                <input 
+                    type="url" 
+                    name="profileImage" 
+                    value={formData.profileImage} 
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="city">Gender</label>
+                <input 
+                    type="text" 
+                    name="gender" 
+                    value={formData.gender} 
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="city">Job</label>
+                <input 
+                    type="text" 
+                    name="jobTitle" 
+                    value={formData.jobTitle} 
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="city">Favourite Colour</label>
+                <input 
+                    type="color" 
+                    name="favouriteColour" 
+                    value={formData.favouriteColour} 
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="city">E-mail</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    value={formData.email} 
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="city">Latitude</label>
+                <input 
+                    type="number" 
+                    name="latitude" 
+                    value={formData.latitude} 
+                    onChange={handleChange}
+                />
+            </div>
+
+            <div>
+                <label htmlFor="city">Longitude</label>
+                <input 
+                    type="number" 
+                    name="longitude" 
+                    value={formData.longitude} 
+                    onChange={handleChange}
+                />
+            </div>
         
             <button type="submit">
                 {location.pathname.includes('update') ? 'Update' : 'Create'}

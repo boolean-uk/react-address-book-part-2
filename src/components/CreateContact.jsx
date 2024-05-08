@@ -9,16 +9,30 @@ export default function CreateContact() {
         firstName: '',
         lastName: '',
         street: '',
-        city: ''
+        city: '',
+        profileImage: '',
+        gender: '',
+        jobTitle: '',
+        favouriteColour: '',
+        email: '',
+        latitude: '',
+        longitude: ''
     })
 
     const handleChange = (e) => {
         const { name , value } = e.target
 
-        setFormData({
-            ...formData,
-            [name]: value 
-        })
+        if (name === 'latitude' || name === 'longitude') {
+            setFormData({
+                ...formData,
+                [name]: parseFloat(value)
+            })
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value
+            })
+        }
     }
 
     const handleSubmit = (e) => {

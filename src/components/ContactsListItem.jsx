@@ -1,4 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
+import remove from '../../_assets/remove.svg'
+import update from '../../_assets/update.svg'
+import user from '../../_assets/user.svg'
 
 export default function ContactsListItem(props) {
     const { contacts, loadContacts } = props
@@ -9,15 +12,17 @@ export default function ContactsListItem(props) {
         <>
             {contacts.map(contact => 
                 <div key={contact.id}>
-                    <p>{contact.firstName} {contact.lastName}</p>
+                    <img className="profile-image" src={`${contact.profileImage}`} alt={`${contact.firstName} ${contact.lastName}'s picture`} />
                     
-                    <Link to={`contact/${contact.id}`}>View</Link>
+                    <p>{contact.firstName} {contact.lastName}</p>
+
+                    <Link to={`contact/${contact.id}`}><img className="svg-icon" src={user}></img></Link>
 
                     <button onClick={() => {
                         fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/contact/${contact.id}`, { method: 'DELETE' }).then(loadContacts)
-                    }}>Remove</button>
+                    }}><img className="svg-icon" src={remove}></img></button>
 
-                    <button onClick={() => navigate(`/contact/update/${contact.id}`)}>Update</button>
+                    <button onClick={() => navigate(`/contact/update/${contact.id}`)}><img className="svg-icon" src={update}></img></button>
                 </div>
             )}
         </>

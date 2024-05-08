@@ -15,7 +15,14 @@ export default function UpdateContact(props) {
         firstName: '',
         lastName: '',
         street: '',
-        city: ''
+        city: '',
+        profileImage: '',
+        gender: '',
+        jobTitle: '',
+        favouriteColour: '',
+        email: '',
+        latitude: '',
+        longitude: ''
     })
 
     useEffect(() => {
@@ -24,7 +31,14 @@ export default function UpdateContact(props) {
                 firstName: updateContact.firstName,
                 lastName: updateContact.lastName,
                 street: updateContact.street,
-                city: updateContact.city
+                city: updateContact.city,
+                profileImage: updateContact.profileImage,
+                gender: updateContact.gender,
+                jobTitle: updateContact.jobTitle,
+                favouriteColour: updateContact.favouriteColour,
+                email: updateContact.email,
+                latitude: updateContact.latitude,
+                longitude: updateContact.longitude
             })
         }
     }, [updateContact])
@@ -32,10 +46,17 @@ export default function UpdateContact(props) {
     const handleChange = (e) => {
         const { name , value } = e.target
 
-        setUpdateFormData({
-            ...updateFormData,
-            [name]: value 
-        })
+        if (name === 'latitude' || name === 'longitude') {
+            setUpdateFormData({
+                ...updateFormData,
+                [name]: parseFloat(value)
+            })
+        } else {
+            setUpdateFormData({
+                ...updateFormData,
+                [name]: value
+            })
+        }
     }
 
     const handleSubmit = (e) => {

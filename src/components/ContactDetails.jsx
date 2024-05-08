@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import ContactDetailsItem from "./ContactDetailsItem"
 
 export default function ContactDetails(props) {
     const { contacts } = props
@@ -9,11 +10,7 @@ export default function ContactDetails(props) {
 
     return (
         <main className="contact-details">
-            {contact && 
-            <>
-                <h2>{contact.firstName} {contact.lastName}</h2>
-                <p>{contact.street}, {contact.city}</p>
-            </>}
+            {contact && <ContactDetailsItem contact={contact} />}
 
             {!contact &&
                 <p>
