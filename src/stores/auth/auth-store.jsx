@@ -15,7 +15,10 @@ export const AuthCtxProvider = (props) => {
 			setTimeout(() => {
 				if (username === "borat" && password === "greatsuccess") {
 					setIsLoggedIn(true);
-					setUser({ name: "Rj", image: "" });
+					setUser({
+						name: "Borat Sagdiyev",
+						image: "https://imgs.search.brave.com/PlUp-eWqPODMpLmHZWHaur07iohjCLpwGDcXS9-VaOU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi83LzdlL0Jv/cmF0X2luX0NvbG9n/bmUuanBnLzUxMnB4/LUJvcmF0X2luX0Nv/bG9nbmUuanBn",
+					});
 					resolve();
 				} else reject();
 			}, 1000);
