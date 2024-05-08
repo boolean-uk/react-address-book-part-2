@@ -1,8 +1,14 @@
 import './App.css';
+import Aside from './components/Aside';
+import MainComponent from './components/MainComponent';
 
 function App() {
     return (
-        <p>Hello, world!</p>
+        <>
+            <Aside />
+
+            <MainComponent />
+        </>
     );
 }
 
