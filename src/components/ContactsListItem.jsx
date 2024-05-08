@@ -25,6 +25,8 @@ export default function ContactsListItem(props) {
                     <button onClick={() => navigate(`/contact/update/${contact.id}`)}><img className="svg-icon" src={update}></img></button>
                 </div>
             )}
+
+            {contacts.length === 0 && <p>No one was found..</p>}
         </>
     )
 }
