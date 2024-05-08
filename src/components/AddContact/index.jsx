@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function AddContact({allContacts, setAllContacts}) {
+export default function AddContact({ allContacts, setAllContacts}) {
     const [contactFormData, setContactFormData] = useState({
         firstName: '', 
         lastName: '',
@@ -32,13 +32,14 @@ export default function AddContact({allContacts, setAllContacts}) {
         })
             .then(response => response.json())
             .then(response => setAllContacts([...allContacts, response]))
-        
-        setContactFormData({
-            firstName: '', 
-            lastName: '',
-            street: '',
-            city: ''
-        })
+
+            setContactFormData({
+                firstName: '', 
+                lastName: '',
+                street: '',
+                city: ''
+            })
+            
         navigate('/contact-list')
     }
 
@@ -70,7 +71,7 @@ export default function AddContact({allContacts, setAllContacts}) {
                 placeholder="City"
                 value={contactFormData.city}
                 onChange={(event) => handleChange(event)}/>
-                <button>Submit</button>
+                <button>Add</button>
             </form>
         </section>
         

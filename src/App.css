@@ -24,7 +24,7 @@
     border: none;
 }
 
-.contacts-list-container {
+.contacts-list-container, .update-user-container  {
     display: grid;
     margin: 5rem;
     padding: 1rem;
@@ -61,33 +61,45 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.addContacts-form {
+.addContacts-form, .updateContact-form {
     display: grid;
     grid-template-rows: 1fr;
     gap: 2rem;
     padding: 2rem;
 }
 
-.addContacts-form button {
-    width: fit-content;
+.addContacts-form button, .updateContact-form button {
+    width: 7rem;
     place-self: center;
+    height: 3rem;
+    color: #FF6347;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #F2EBE3;
+    font-size: medium;
 }
 
-.addContacts-form input {
+.addContacts-form input, .updateContact-form input {
     height: 2rem;
     outline: none;
     background-color: #FF6347;
     border: none;
     border-bottom: 1px solid #F2EBE3;
-    color: #F2EBE3;
+}
+
+.updateContact-form input::placeholder, .addContacts-form input::placeholder {
+    color: #f2ebe372;
+    font-size: medium;
 }
 
 .icon {
     width: 1.5rem;
 }
 
-#bin, #edit {
-    place-self: center end;
+#bin {
+    place-self: center right;
     padding-right: 0.5rem;
     fill: #F2EBE3;
 }
@@ -95,6 +107,14 @@
 #user {
     fill: #F2EBE3;
     padding: 0.5rem;
+}
+
+#edit {
+    padding: 0.5rem;
+}
+
+a {
+    place-content: center left;
 }
 
 .icon:hover {
