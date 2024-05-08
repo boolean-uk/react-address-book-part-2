@@ -10,7 +10,7 @@ export default function ContactsList() {
 			.then(setContacts)
 	}, [])
 
-
+    console.log(contacts.length);
 
 	return (
 		<div className='contacts'>

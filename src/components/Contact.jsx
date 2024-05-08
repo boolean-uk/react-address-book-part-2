@@ -17,7 +17,7 @@ export default function Contact({ contact, setContacts }) {
 	}
 
 	return (
-		<li style={{ paddingLeft: "30px" }}>
+		<li style={{ padding: "30px", border: '2px solid orange',listStyle:'none', width:'300px' }}>
 			<h3>
 				{contact.firstName} {contact.lastName}
 			</h3>
