@@ -1,3 +1,7 @@
+body {
+    background-color: darkslategray;
+}
+
 .App {
     font-family: sans-serif;
     text-align: center;
@@ -8,30 +12,30 @@
 .main {
     height: 100vh;
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-auto-columns: 100px 1fr;
     padding-left: 30px;
     background-color: darkslategray;
     color: rgb(99, 202, 20);
 }
 
  .menu  {
-    background-color: darkslategray;
+    background-color: rgb(28, 40, 40);
     color: rgb(99, 202, 20);
+    padding: 30px;
     
 }
 
-/* .menu a {
+.menu a {
     color:rgb(99, 202, 20);
     text-decoration: none;
 }
 
 .menu a:hover {
     color: #ffcc00;
-} */
+}
 
 .top-bar{
-    position: fixed;
-    height: 100vh;
+    /* position: fixed; */
     width: 100%;
     display: flex;
     flex-flow: row;
@@ -40,7 +44,7 @@
 }
 
 .contacts {
-        padding-left: 300px;
+        /* padding-left: 300px; */
         background-color: darkslategray;
         color: rgb(99, 202, 20);
 

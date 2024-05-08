@@ -11,7 +11,7 @@ export default function Menu() {
                 <Link to='/' style={{ color: 'rgb(99, 202, 20)', textDecoration: 'none' }} >Home</Link>
                 </p>
                 <p className="menu" >
-                <Link to='/ContactsList' style={{ color: 'rgb(99, 202, 20)', textDecoration: 'none' }} >Contacts List</Link>
+                <Link to='/contacts' style={{ color: 'rgb(99, 202, 20)', textDecoration: 'none' }} >Contacts List</Link>
                 </p>
             </nav>
         </div>
