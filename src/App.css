@@ -86,7 +86,7 @@
     width: 1.5rem;
 }
 
-#bin {
+#bin, #edit {
     place-self: center end;
     padding-right: 0.5rem;
     fill: #F2EBE3;
@@ -95,4 +95,8 @@
 #user {
     fill: #F2EBE3;
     padding: 0.5rem;
+}
+
+.icon:hover {
+    cursor: pointer;
 }

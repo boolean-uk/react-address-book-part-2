@@ -21,7 +21,6 @@ function App() {
         .then(json => setAllContacts(json))
     }, [])
 
-    
     return (
         <>
             <header className='header'>

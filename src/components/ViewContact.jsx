@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import bin from '../../_assets/Icons/bin.svg'
+import edit from '../../_assets/Icons/edit.svg'
 
 export default function ViewContact({contact, setContact, allContacts, setAllContacts}) {
     const urlParams = useParams()
@@ -26,8 +27,9 @@ export default function ViewContact({contact, setContact, allContacts, setAllCon
     return (
         <section className="contact-details">
             <h2>{contact.firstName} {contact.lastName}</h2>
-            <img src={bin} className="icon" id="bin" onClick={removeUser}/>
+            <img src={bin} className="icon" id="bin" onClick={removeUser} alt="remove contact"/>
             <p>{contact.street}, {contact.city}</p>
+            <img src={edit} className="icon" id="edit" alt="edit contact"/>
         </section>
     )
 }

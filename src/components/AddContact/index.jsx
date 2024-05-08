@@ -1,13 +1,21 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function AddContact({contact, setContact, allContacts, setAllContacts}) {
+export default function AddContact({allContacts, setAllContacts}) {
+    const [contactFormData, setContactFormData] = useState({
+        firstName: '', 
+        lastName: '',
+        street: '',
+        city: ''
+    })
     const navigate = useNavigate()
+    
 
     const handleChange = () => {
         const {name, value} = event.target
 
-        setContact({
-            ...contact,
+        setContactFormData({
+            ...contactFormData,
             [name]: value,
         })
     }
@@ -15,19 +23,17 @@ export default function AddContact({contact, setContact, allContacts, setAllCont
     const updateApi = (event) => {
         event.preventDefault()
 
-        
-
         fetch('https://boolean-uk-api-server.fly.dev/tzoltie/contact', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(contact)
+            body: JSON.stringify(contactFormData)
         })
             .then(response => response.json())
             .then(response => setAllContacts([...allContacts, response]))
         
-        setContact({
+        setContactFormData({
             firstName: '', 
             lastName: '',
             street: '',
@@ -44,25 +50,25 @@ export default function AddContact({contact, setContact, allContacts, setAllCont
                 type="text" 
                 name="firstName" 
                 placeholder="First Name" 
-                value={contact.firstName}
+                value={contactFormData.firstName}
                 onChange={(event) => handleChange(event)}/>
                 <input 
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
-                value={contact.lastName}
+                value={contactFormData.lastName}
                 onChange={(event) => handleChange(event)}/>
                 <input 
                 type="text"
                 name="street"
                 placeholder="Street"
-                value={contact.street}
+                value={contactFormData.street}
                 onChange={(event) => handleChange(event)}/>
                 <input 
                 type="text"
                 name="city"
                 placeholder="City"
-                value={contact.city}
+                value={contactFormData.city}
                 onChange={(event) => handleChange(event)}/>
                 <button>Submit</button>
             </form>
