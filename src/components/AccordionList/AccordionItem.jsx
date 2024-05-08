@@ -1,19 +1,26 @@
 import React from "react";
 import { Accordion, Col, Container, Image, Row, Stack } from "react-bootstrap";
 import IconButton, { ICONS } from "../Buttons/IconButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSubmit } from "react-router-dom";
 import { ROUTE_NAMES } from "../../routes/router";
 import { delEntry } from "../../stores/serverActions";
+import { toast } from "react-toastify";
 export default function AccordionItem({ eventKey, data }) {
 	const navigate = useNavigate();
-
+	const submit = useSubmit();
 	return (
 		<Accordion.Item eventKey={eventKey}>
 			<Header {...data} />
 			<Body
 				data={data}
 				onEditHandler={() => navigate(ROUTE_NAMES.editEntry)}
-				onDeleteHandler={() => delEntry(data)}
+				onDeleteHandler={() => {
+					toast.promise(delEntry(data), {
+						error: "Error deleting...",
+						success: "Deleted successfully",
+					});
+					submit(null, { method: "post", action: "/" });
+				}}
 			/>
 		</Accordion.Item>
 	);

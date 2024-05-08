@@ -7,6 +7,7 @@ import {
 import Login from "../pages/Login/Login";
 import App from "../App";
 import Dashboard, { dashboardRouteLoader } from "../pages/Dashboard/Dashboard";
+import NewEntry from "../pages/Dashboard/NewEntry";
 
 export const ROUTE_NAMES = {
 	dashboard: "/",
@@ -22,16 +23,20 @@ const router = createBrowserRouter(
 				path={"/"}
 				element={<App />}>
 				<Route
-					loader={dashboardRouteLoader}
+					loader={() => {
+						console.log("revalidating");
+						return dashboardRouteLoader();
+					}}
+					shouldRevalidate={() => true}
+					action={() => {
+						console.log("im here");
+						return true;
+					}}
 					path={ROUTE_NAMES.dashboard}
 					element={<Dashboard />}>
 					<Route
 						path={ROUTE_NAMES.newEntry}
-						element={
-							<>
-								<h2>New Entry Modal</h2>
-							</>
-						}
+						element={<NewEntry />}
 					/>
 					<Route
 						path={ROUTE_NAMES.editEntry}

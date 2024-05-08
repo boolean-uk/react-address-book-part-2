@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion } from "react-bootstrap";
 import AccordionItem from "./AccordionItem";
 
-export default function AccordionList({ id, list }) {
+export default function AccordionList({ id="", list }) {
 	return (
 		<Accordion
 			alwaysOpen
