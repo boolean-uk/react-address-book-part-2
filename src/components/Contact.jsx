@@ -3,9 +3,17 @@ import { Link } from "react-router-dom"
 export default function Contact({ contact, setContacts }) {
 
 	function handleDelete() {
-		setContacts((prevContacts) =>
-			prevContacts.filter((currContact) => currContact.id !== contact.id)
-		);
+		const isConfirmed = window.confirm(
+			`Are you sure you want to delete ${contact.firstName} ${contact.lastName}?`
+		)
+
+		if (isConfirmed) {
+			setContacts((prevContacts) =>
+				prevContacts.filter(
+					(currentContact) => currentContact.id !== contact.id
+				)
+			)
+		}
 	}
 
 	return (
