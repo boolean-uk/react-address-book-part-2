@@ -11,20 +11,22 @@ export default function UserNav() {
 		<Stack
 			direction="horizontal"
 			gap={2}
-			className="px-4">
+			className="bg-primary mb-5 px-4 rounded-3 ">
 			<Image
 				src={user.image}
 				className={styles.image}></Image>
-			<h1>{`${user.name}'s Address Book`}</h1>
+			<h1 className="text-white">{`${user.name}'s Address Book`}</h1>
 			<Stack
 				direction="horizontal"
 				gap={4}
 				className="ms-auto">
-				<Button onClick={() => navigate(ROUTE_NAMES.newEntry)}>
+				<Button
+					variant="light"
+					onClick={() => navigate(ROUTE_NAMES.newEntry)}>
 					New Entry
 				</Button>
 				<Button
-					variant="outline-primary"
+					variant="outline-light"
 					onClick={logout}>
 					Logout
 				</Button>

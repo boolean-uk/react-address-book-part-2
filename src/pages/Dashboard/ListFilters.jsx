@@ -39,7 +39,8 @@ export default function ListFilters({ list, onUpdate }) {
 	return (
 		<Stack
 			className={
-				"justify-content-center p-4 bg-secondary " + styles.wrapper
+				"justify-content-center p-4 bg-secondary rounded-3 " +
+				styles.wrapper
 			}
 			direction="horizontal"
 			gap={2}>
