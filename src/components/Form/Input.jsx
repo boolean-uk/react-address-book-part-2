@@ -7,7 +7,7 @@ export default function Input({ id, label, type, value, onChange }) {
 			controlId={id}
 			label={label}
 			name={id}
-			className="mb-3">
+			className="">
 			<Form.Control
 				type={type}
 				placeholder=""

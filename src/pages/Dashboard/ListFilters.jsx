@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Stack } from "react-bootstrap";
+import { Button, Col, Container, Row, Stack } from "react-bootstrap";
 import Input from "../../components/Form/Input";
 import styles from "./list-filters.module.css";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_NAMES } from "../../routes/router";
 
 export default function ListFilters({ list, onUpdate }) {
+	const navigate = useNavigate();
 	const [filteredList, setFilteredList] = useState(list);
 
 	const [name, setName] = useState("");
@@ -14,7 +17,7 @@ export default function ListFilters({ list, onUpdate }) {
 	const handleFiltering = () => {
 		const createFilter = (search) =>
 			search ? (str) => new RegExp(search, "i").test(str) : () => true;
-		console.log(createFilter());
+		//
 		const filterName = createFilter(name),
 			filterEmail = createFilter(email),
 			filterCity = createFilter(city),
@@ -37,42 +40,59 @@ export default function ListFilters({ list, onUpdate }) {
 	}, [name, email, city, job]);
 
 	return (
-		<Stack
-			className={
-				"justify-content-center p-4 bg-secondary rounded-3 " +
-				styles.wrapper
-			}
-			direction="horizontal"
-			gap={2}>
-			<Input
-				id={"name"}
-				label="Name"
-				onChange={(e) => {
-					setName(e.target.value);
-				}}
-				value={name}></Input>{" "}
-			<Input
-				id={"email"}
-				label="Email"
-				type={"email"}
-				onChange={(e) => {
-					setEmail(e.target.value);
-				}}
-				value={email}></Input>
-			<Input
-				id={"city"}
-				label="City"
-				onChange={(e) => {
-					setCity(e.target.value);
-				}}
-				value={city}></Input>
-			<Input
-				id={"job"}
-				label="Job"
-				onChange={(e) => {
-					setJob(e.target.value);
-				}}
-				value={job}></Input>
-		</Stack>
+		<Container>
+			<Row
+				className={
+					"justify-content-center align-content-center p-4 bg-secondary rounded-3 gap-3"
+				}>
+				<Col md="auto">
+					<Input
+						id={"name"}
+						label="Name"
+						onChange={(e) => {
+							setName(e.target.value);
+						}}
+						value={name}></Input>
+				</Col>
+				<Col md="auto">
+					<Input
+						id={"email"}
+						label="Email"
+						type={"email"}
+						onChange={(e) => {
+							setEmail(e.target.value);
+						}}
+						value={email}></Input>
+				</Col>
+				<Col md="auto">
+					<Input
+						id={"city"}
+						label="City"
+						onChange={(e) => {
+							setCity(e.target.value);
+						}}
+						value={city}></Input>
+				</Col>
+				<Col md="auto">
+					<Input
+						id={"job"}
+						label="Job"
+						onChange={(e) => {
+							setJob(e.target.value);
+						}}
+						value={job}></Input>
+				</Col>
+				<Col
+					md="auto"
+					className="d-flex align-content-center justify-content-end">
+					<Button
+						className=""
+						variant="light"
+						onClick={() => navigate(ROUTE_NAMES.newEntry)}>
+						New Entry
+					</Button>
+				</Col>
+			</Row>
+		</Container>
 	);
 }
