@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import App from "../App";
+import Dashboard, { dashboardRouteLoader } from "../pages/Dashboard/Dashboard";
 
 export const ROUTE_NAMES = {
 	dashboard: "/",
@@ -21,12 +22,9 @@ const router = createBrowserRouter(
 				path={"/"}
 				element={<App />}>
 				<Route
-					path={"*/"}
-					element={
-						<>
-							<h1>dashboard</h1>
-						</>
-					}>
+					loader={dashboardRouteLoader}
+					path={ROUTE_NAMES.dashboard}
+					element={<Dashboard />}>
 					<Route
 						path={ROUTE_NAMES.newEntry}
 						element={

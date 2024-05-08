@@ -1,0 +1,6 @@
+.image {
+	width: 250px;
+	margin: 1em;
+	border-radius: 100%;
+	clip-path: circle();
+}
