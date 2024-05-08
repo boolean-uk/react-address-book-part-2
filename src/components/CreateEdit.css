@@ -1,0 +1,58 @@
+
+.editform {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+
+.editform h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+.textboxes li {
+    margin-bottom: 1rem;
+}
+
+
+.textboxes div {
+    font-weight: bold;
+}
+
+
+.textboxes input {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+
+.submitForm {
+    display: block;
+    width: 20%;
+    padding: 0.5rem;
+    background-color: #0074d9;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    left: 36%;
+
+}
+
+.submitForm:hover {
+    background-color: #005ea6;
+}
+
+
