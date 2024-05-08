@@ -1,0 +1,33 @@
+#root {
+    display: flex;
+    height: 100%;
+}
+
+nav {
+    height: 100%;
+    width: 200px;
+    background-color: gray;
+    padding: 20px;
+}
+
+html, body {
+    height: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    padding: 50px;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
