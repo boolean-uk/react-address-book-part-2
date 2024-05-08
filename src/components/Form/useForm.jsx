@@ -5,8 +5,12 @@ const formDataReducer = (state, action) => {
 	const { name, value, isValid } = action.payload;
 
 	switch (action.action) {
+		case "CREATE": {
+			formData[name] = { value, isValid, wasTouched: false };
+			return formData;
+		}
 		case "MUTATE": {
-			formData[name] = { value, isValid };
+			formData[name] = { value, isValid, wasTouched: true };
 			return formData;
 		}
 		case "DELETE": {
@@ -17,6 +21,10 @@ const formDataReducer = (state, action) => {
 			return state;
 	}
 };
+const createFormInputAction = (name, value, isValid) => ({
+	action: "CREATE",
+	payload: { name, value, isValid },
+});
 const mutateFormInputAction = (name, value = "", isValid = false) => ({
 	action: "MUTATE",
 	payload: { name, value, isValid },

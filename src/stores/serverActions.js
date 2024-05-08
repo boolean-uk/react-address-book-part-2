@@ -6,10 +6,25 @@ export const addNewEntry = async (data) =>
 	fetch(BASE_URL, {
 		method: "POST",
 		body: JSON.stringify(data),
+		headers: {
+			"Content-Type": "application/json",
+		},
 	});
 
 export const updateEntry = async (data) =>
-	fetch(BASE_URL + "/" + data?.id, { method: "PUT", body });
+	fetch(BASE_URL + "/" + data?.id, {
+		method: "PUT",
+		body: JSON.stringify(data),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 
-export const delEntry = async (data) =>
-	fetch(BASE_URL + "/" + data?.id, { method: "DEL" });
+export const delEntry = async (data) => {
+	fetch(BASE_URL + "/" + data?.id, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+};
