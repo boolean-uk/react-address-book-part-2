@@ -1,0 +1,122 @@
+* {
+    color: #F2EBE3;
+    text-decoration: none;
+}
+
+.header{
+    display: grid;
+    border: 1px solid #FF6347;
+    border-radius: 30px;
+    margin: 5rem;
+    padding: 2rem;
+}
+
+.nav-menu-container {
+    place-self: center;
+}
+
+.nav-menu h4 {
+    background-color: #FF6347;
+    width: 9rem;
+    padding: 1rem;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+
+.contacts-list-container, .update-user-container  {
+    display: grid;
+    margin: 5rem;
+    padding: 1rem;
+    width: 30rem;
+    background-color: #FF6347;
+    border-radius: 30px;
+    
+}
+.contacts-list-container h1 {
+    place-self: center;
+}
+
+.contacts-list {
+    list-style: none;
+}
+
+.contact-list-item {
+    display: grid;
+    grid-template-columns: 1fr 6rem;
+    color: #F2EBE3;
+    border-bottom: 1px solid #F2EBE3;
+}
+
+.addContacts-container, .contact-details {
+    display: grid;
+    margin-left: 55rem;
+    padding: 1rem;
+    width: 30rem;
+    background-color: #FF6347;
+    border-radius: 30px;
+}
+
+.contact-details {
+    grid-template-columns: 1fr 1fr;
+}
+
+.addContacts-form, .updateContact-form {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.addContacts-form button, .updateContact-form button {
+    width: 7rem;
+    place-self: center;
+    height: 3rem;
+    color: #FF6347;
+    font-weight: bold;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #F2EBE3;
+    font-size: medium;
+}
+
+.addContacts-form input, .updateContact-form input {
+    height: 2rem;
+    outline: none;
+    background-color: #FF6347;
+    border: none;
+    border-bottom: 1px solid #F2EBE3;
+}
+
+.updateContact-form input::placeholder, .addContacts-form input::placeholder {
+    color: #f2ebe372;
+    font-size: medium;
+}
+
+.icon {
+    width: 1.5rem;
+}
+
+#bin {
+    place-self: center right;
+    padding-right: 0.5rem;
+    fill: #F2EBE3;
+}
+
+#user {
+    fill: #F2EBE3;
+    padding: 0.5rem;
+}
+
+#edit {
+    padding: 0.5rem;
+}
+
+a {
+    place-content: center left;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
