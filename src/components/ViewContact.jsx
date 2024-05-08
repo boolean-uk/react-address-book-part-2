@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 export default function ViewContact() {
     const [viewContact, setViewContact] = useState({});
-    // const { id } = useParams();
     const params = useParams()
 
     useEffect(() => {

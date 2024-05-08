@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import ViewContact from "./ViewContact"
 
 export default function AddNewContact() {
 	const [newContact, setNewContact] = useState({
@@ -27,22 +26,24 @@ export default function AddNewContact() {
 			},
 			body: JSON.stringify(newContact),
 		})
-		setNewContact({
-			firstName: "",
-			lastName: "",
-			city: "",
-			street: "",
-			email: "",
-			profileImage:
-            "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon",
-        })
-        // return (<Link to="/contact/:id" ></Link>)             
-    }
-    
-    
+			.then((response) => response.json())
+			.then(
+				setNewContact({
+					firstName: "",
+					lastName: "",
+					city: "",
+					street: "",
+					email: "",
+					profileImage:
+						"https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon",
+				})
+			)
+	}
+
 	return (
 		<>
 			<h2>Add a contact</h2>
+
 			<form onSubmit={handleSubmit}>
 				<label htmlFor='firstName'>First Name</label>
 				<input
@@ -78,10 +79,9 @@ export default function AddNewContact() {
 					name='email'
 					value={newContact.email}
 					onChange={handleChange}
-                />
+				/>
 				<button type='submit'>Add Contact</button>
-            </form>
-            <ContactsList />
+			</form>
 		</>
 	)
 }

@@ -10,8 +10,6 @@ export default function ContactsList() {
 			.then(setContacts)
 	}, [])
 
-    console.log(contacts.length);
-
 	return (
 		<div className='contacts'>
 			<h2 style={{ paddingLeft: "30px" }}>Contacts List</h2>
