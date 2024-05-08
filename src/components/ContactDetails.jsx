@@ -46,6 +46,17 @@ export default function ContactDetails({ contacts, setContacts, selectedContact,
                     <p>{`Job title: ${selectedContact.jobTitle}`}</p>
                     <img src={selectedContact.profileImage} alt="Profile picture" />
                     <br />
+                    <iframe
+                        width="600"
+                        height="450"
+                        style={{border:"0"}}
+                        loading="lazy"
+                        allowFullScreen
+                        referrerPolicy="no-referrer-when-downgrade"
+                        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD92nogJWZFD7d-FTbHaeCZZeT-5fJOMYw
+                            &q=${selectedContact.latitude},${selectedContact.longitude}`}>
+                    </iframe>
+                    <br />
                     <button onClick={handleClick}>Delete</button>
                     <button onClick={handleUpdate}>Update</button>
                 </>

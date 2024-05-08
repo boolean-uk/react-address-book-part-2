@@ -66,6 +66,12 @@ export default function UpdateContactForm({ contacts, setContacts, selectedConta
             <label htmlFor="profile-image">Picture :</label>
             <input type="text" name="profileImage" id="profile-image" value={contactToUpdate.profileImage} onChange={handleChange} />
 
+            <label htmlFor="latitude">Latitude :</label>
+            <input type="text" name="latitude" id="latitude" value={contactToUpdate.latitude} onChange={handleChange} />
+
+            <label htmlFor="longitude">Longitude :</label>
+            <input type="text" name="longitude" id="longitude" value={contactToUpdate.longitude} onChange={handleChange} />
+
             <button className="create-button">Update</button>
         </form>
     )

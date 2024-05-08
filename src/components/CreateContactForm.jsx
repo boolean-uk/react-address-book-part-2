@@ -10,16 +10,29 @@ export default function CreateContactForm({ contacts, setContacts }) {
         city: '',
         email: '',
         jobTitle: '',
-        profileImage: ''
+        profileImage: '',
+        latitude: 0,
+        longitude: 0
     })
 
     function handleChange(e) {
         const {name, value} = e.target
-        setAddContact({
-            ...addContact,
-            [name] : value
-        })
+
+        if (name === "latitude" || name === 'longitude') {
+            setAddContact({
+                ...addContact,
+                [name] : Number(value)
+            })
+
+        } else {
+            setAddContact({
+                ...addContact,
+                [name] : value
+            })
+        }
     }
+
+    console.log(addContact)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -47,7 +60,12 @@ export default function CreateContactForm({ contacts, setContacts }) {
             firstName: '',
             lastName: '',
             street: '',
-            city: ''
+            city: '',
+            email: '',
+            jobTitle: '',
+            profileImage: '',
+            latitude: 0,
+            longitude: 0
         })
 
         navigation('/contacts')
@@ -76,6 +94,12 @@ export default function CreateContactForm({ contacts, setContacts }) {
 
             <label htmlFor="profile-image">Picture :</label>
             <input type="text" name="profileImage" id="profile-image" value={addContact.profileImage} onChange={handleChange} />
+
+            <label htmlFor="latitude">Latitude :</label>
+            <input type="text" name="latitude" id="latitude" value={addContact.latitude} onChange={handleChange} />
+
+            <label htmlFor="longitude">Longitude :</label>
+            <input type="text" name="longitude" id="longitude" value={addContact.longitude} onChange={handleChange} />
 
             <button className="create-button">Create</button>
         </form>

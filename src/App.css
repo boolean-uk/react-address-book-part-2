@@ -42,6 +42,5 @@ body {
 
 .profile-view img {
     border-radius: 50%;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 10px 0px;
 }
