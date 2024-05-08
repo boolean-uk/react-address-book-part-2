@@ -105,7 +105,8 @@ em {
     object-fit: cover;
     height: 6rem;
     border-radius: 0.4rem;
-    height: 6rem;
+    min-height: 6rem;
+    min-width: 6rem;
     max-height: 6rem;
     max-width: 6rem;
 }
