@@ -31,7 +31,10 @@ export default function ContactDetail() {
       <p>Occupation: {contactToDisplay.jobTitle}</p>
       <p>Latitude: {contactToDisplay.latitude}</p>
       <p>Longitude: {contactToDisplay.longitude}</p>
+      <iframe src={`http://maps.google.com/maps?q=${contactToDisplay.longitude},${contactToDisplay.latitude}&z=16&output=embed`} height="400" width="400"></iframe> <br/>
       <Link to={`/contact-list/edit/${contactId}`}><button>Edit</button></Link>
+      
+
     </div>
     
   );
