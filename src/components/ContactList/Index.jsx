@@ -1,6 +1,8 @@
 import ContactListItem from "./ContactListItem";
 
+
 export default function ContactList({allContacts}) {
+   
     return (
         <section className="contacts-list-container">
             <h1>Contacts</h1>

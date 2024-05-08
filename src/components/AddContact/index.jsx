@@ -1,4 +1,7 @@
-export default function AddContact({contact, setContact, setAllContacts}) {
+import { useNavigate } from "react-router-dom"
+
+export default function AddContact({contact, setContact, allContacts, setAllContacts}) {
+    const navigate = useNavigate()
 
     const handleChange = () => {
         const {name, value} = event.target
@@ -11,7 +14,9 @@ export default function AddContact({contact, setContact, setAllContacts}) {
 
     const updateApi = (event) => {
         event.preventDefault()
-        console.log(contact)
+
+        
+
         fetch('https://boolean-uk-api-server.fly.dev/tzoltie/contact', {
             method: 'POST',
             headers: {
@@ -20,7 +25,7 @@ export default function AddContact({contact, setContact, setAllContacts}) {
             body: JSON.stringify(contact)
         })
             .then(response => response.json())
-            .then(response => setAllContacts(response))
+            .then(response => setAllContacts([...allContacts, response]))
         
         setContact({
             firstName: '', 
@@ -28,6 +33,7 @@ export default function AddContact({contact, setContact, setAllContacts}) {
             street: '',
             city: ''
         })
+        navigate('/contact-list')
     }
 
     return (

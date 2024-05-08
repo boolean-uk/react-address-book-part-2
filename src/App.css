@@ -1,3 +1,8 @@
+* {
+    color: #F2EBE3;
+    text-decoration: none;
+}
+
 .header{
     display: grid;
     border: 1px solid #FF6347;
@@ -26,19 +31,34 @@
     width: 30rem;
     background-color: #FF6347;
     border-radius: 30px;
+    
+}
+.contacts-list-container h1 {
+    place-self: center;
 }
 
 .contacts-list {
     list-style: none;
 }
 
-.addContacts-container {
+.contact-list-item {
+    display: grid;
+    grid-template-columns: 1fr 6rem;
+    color: #F2EBE3;
+    border-bottom: 1px solid #F2EBE3;
+}
+
+.addContacts-container, .contact-details {
     display: grid;
     margin-left: 55rem;
     padding: 1rem;
     width: 30rem;
     background-color: #FF6347;
     border-radius: 30px;
+}
+
+.contact-details {
+    grid-template-columns: 1fr 1fr;
 }
 
 .addContacts-form {
@@ -60,4 +80,19 @@
     border: none;
     border-bottom: 1px solid #F2EBE3;
     color: #F2EBE3;
+}
+
+.icon {
+    width: 1.5rem;
+}
+
+#bin {
+    place-self: center end;
+    padding-right: 0.5rem;
+    fill: #F2EBE3;
+}
+
+#user {
+    fill: #F2EBE3;
+    padding: 0.5rem;
 }

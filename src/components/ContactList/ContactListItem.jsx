@@ -1,9 +1,12 @@
-export default function ContactListItem({contact, id}) {
+import { Link } from "react-router-dom";
+import userLogo from '../../../_assets/Icons/user.svg'
 
+export default function ContactListItem({contact, id}) {
+    
     return (
-        <li key={id}>
+        <li key={id} className="contact-list-item">
             <p>{contact.firstName} {contact.lastName}</p>
-            <p>View More</p>
+            <Link to={`/view/${contact.id}`}><img src={userLogo} className="icon" id="user"/></Link>
         </li>
     )
 }

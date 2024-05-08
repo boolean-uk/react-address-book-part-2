@@ -33,8 +33,8 @@ function App() {
                 path='/contact-list' 
                 element={<ContactList allContacts={allContacts}/>}/>
                 <Route
-                path='/view'
-                element={<ViewContact/>} />
+                path='/view/:id'
+                element={<ViewContact contact={contact} setContact={setContact} allContacts={allContacts} setAllContacts={setAllContacts}/>} />
                 <Route 
                 path='/add'
                 element={<AddContact contact={contact} setContact={setContact} allContacts={allContacts} setAllContacts={setAllContacts}/>}/>
