@@ -7,10 +7,19 @@ export default function UpdateContactForm({ contacts, setContacts, selectedConta
 
     function handleChange(e) {
         const {name, value} = e.target
-        setContactToUpdate({
-            ...selectedContact,
-            [name] : value
-        })
+
+        if (name === "latitude" || name === 'longitude') {
+            setContactToUpdate({
+                ...selectedContact,
+                [name] : Number(value)
+            })
+        } else {
+            setContactToUpdate({
+                ...selectedContact,
+                [name] : value
+            })
+        }
+
     }
 
     function handleSubmit(e) {

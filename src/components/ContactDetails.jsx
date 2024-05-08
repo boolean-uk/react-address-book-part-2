@@ -53,8 +53,7 @@ export default function ContactDetails({ contacts, setContacts, selectedContact,
                         loading="lazy"
                         allowFullScreen
                         referrerPolicy="no-referrer-when-downgrade"
-                        src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyD92nogJWZFD7d-FTbHaeCZZeT-5fJOMYw
-                            &q=${selectedContact.latitude},${selectedContact.longitude}`}>
+                        src={`https://www.google.com/maps?q=${selectedContact.latitude},${selectedContact.longitude}&output=embed`}>
                     </iframe>
                     <br />
                     <button onClick={handleClick}>Delete</button>

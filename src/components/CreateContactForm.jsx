@@ -32,8 +32,6 @@ export default function CreateContactForm({ contacts, setContacts }) {
         }
     }
 
-    console.log(addContact)
-
     function handleSubmit(e) {
         e.preventDefault()
         
@@ -56,6 +54,7 @@ export default function CreateContactForm({ contacts, setContacts }) {
         }
 
         addContactToList()
+        
         setAddContact({
             firstName: '',
             lastName: '',
