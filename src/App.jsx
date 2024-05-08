@@ -13,7 +13,7 @@ function App() {
         <Nav />
         <main className='p-5 bg-outrun-violet'>
         <Routes>
-        <Route path='/' element={<p>Let us Get Started</p>} />
+        <Route path='/'/>
         <Route path='/add-new-contact' element={<CreateContact />} />
         <Route path='/contact-list' element={<ContactList />} />
         <Route path='/contact-list/:id' element={<ContactDetail />} />

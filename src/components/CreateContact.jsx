@@ -11,7 +11,7 @@ export default function CreateContact() {
     jobTitle: "",
     latitude: '',
     longitude: '',
-    favouriteColor: '',
+    favouriteColour: '',
     profileImage: ''
   });
 
@@ -59,8 +59,8 @@ export default function CreateContact() {
 
   return (
     <>
-      <h2>Create Contact</h2>
-      <form onSubmit={handleSubmit} className="create-contact-form flex flex-col">
+      <h2 className="text-4xl text-outrun-pink">Create Contact</h2>
+      <form onSubmit={handleSubmit} className="create-contact-form my-4 flex flex-col gap-2 text-outrun-pink">
         <label htmlFor="firstName">First Name</label>
         <input
           onChange={handleChange}
@@ -124,21 +124,21 @@ export default function CreateContact() {
           name="longitude"
           type="textbox"
         />
-         <label htmlFor="favouriteColor">Favourite Color (hex code)</label>
+         <label htmlFor="favouriteColour">Favourite Colour (hex code)</label>
         <input
           onChange={handleChange}
           value={formData.favouriteColour}
-          name="favouriteColor"
+          name="favouriteColour"
           type="textbox"
         />
            <label htmlFor="proileImage">Profile Image (url)</label>
         <input
           onChange={handleChange}
           value={formData.proileImage}
-          name="favouriteColor"
+          name="favouriteColour"
           type="textbox"
         />
-        <button type="submit">Create</button>
+        <button className="bg-outrun-blue rounded-full border-2 border-outrun-pink" type="submit">Create</button>
       </form>
     </>
   );

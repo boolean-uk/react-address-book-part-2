@@ -58,8 +58,8 @@ export default function EditContact() {
 
   return (
     <>
-      <h2>Edit Contact</h2>
-      <form onSubmit={handleSubmit} className="create-contact-form create-contact-form flex flex-col">
+      <h2 className="text-4xl text-outrun-pink">Edit Contact</h2>
+      <form onSubmit={handleSubmit} className="create-contact-form my-4 flex flex-col gap-2 text-outrun-pink">
         <label htmlFor="firstName">First Name</label>
         <input
           onChange={handleChange}
@@ -123,21 +123,21 @@ export default function EditContact() {
           name="longitude"
           type="textbox"
         />
-        <label htmlFor="favouriteColour">Favourite Color (hex code)</label>
+         <label htmlFor="favouriteColour">Favourite Colour (hex code)</label>
         <input
           onChange={handleChange}
           value={formData.favouriteColour}
           name="favouriteColour"
           type="textbox"
         />
-        <label htmlFor="profileImage">Profile Image (url)</label>
+           <label htmlFor="proileImage">Profile Image (url)</label>
         <input
           onChange={handleChange}
-          value={formData.profileImage}
-          name="profileImage"
+          value={formData.proileImage}
+          name="favouriteColour"
           type="textbox"
         />
-        <button type="submit">Update</button>
+        <button className="bg-outrun-blue rounded-full border-2 border-outrun-pink" type="submit">Edit</button>
       </form>
     </>
   );

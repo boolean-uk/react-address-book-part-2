@@ -23,10 +23,10 @@ export default function ContactList() {
 
   return (
     <>
-      <h2 className='text-4xl'>Contacts</h2>
-        <label htmlFor='filter'>Filter Contacts  </label>
+      <h2 className='text-4xl text-outrun-blue'>Contacts</h2>
+        <label className='text-outrun-blue' htmlFor='filter'>Filter Contacts  </label>
         <select onChange={handleChange} name='filter'>
-            <option value=''>Choose...</option>
+            <option value=''>All</option>
             <option value='northernHemisphere'>Northern Hemisphere</option>
             <option value='southernHemisphere'>Southern Hemisphere</option>
         </select>
