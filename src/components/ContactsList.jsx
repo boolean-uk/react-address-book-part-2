@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import Contact from "./Contact"
 
+
 export default function ContactsList() {
     const [contacts, setContacts] = useState([])
 
@@ -9,15 +10,16 @@ export default function ContactsList() {
             .then(response => response.json())
             .then(setContacts)
     },[])
-    console.log(contacts);
+    
     return (
-        <>  
-            <h2>Contacts List</h2>    
+        <div className='contacts'>  
+            <h2 style={{paddingLeft:'30px'}}>Contacts List</h2>    
             <ul>
                 {contacts.map((contact, id) => (
                     <Contact contact={contact} key={id} />
                 ))}
             </ul>
-        </>
+        </div>
     )
 }
+

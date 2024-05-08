@@ -1,16 +1,62 @@
 .App {
     font-family: sans-serif;
     text-align: center;
+    background-color: darkslategray;
+
+}
+
+.main {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    padding-left: 30px;
+    background-color: darkslategray;
+    color: rgb(99, 202, 20);
+}
+
+ .menu  {
+    background-color: darkslategray;
+    color: rgb(99, 202, 20);
     
 }
 
-.home {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding-left: 30px;
-    background-color: darkgrey;
+/* .menu a {
+    color:rgb(99, 202, 20);
+    text-decoration: none;
 }
-.home h2 {
-    background-color: blueviolet;
+
+.menu a:hover {
+    color: #ffcc00;
+} */
+
+.top-bar{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    padding-left: 30px;
+    color: rgb(99, 202, 20);
+}
+
+.contacts {
+        padding-left: 300px;
+        background-color: darkslategray;
+        color: rgb(99, 202, 20);
+
+    }
+.view-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+}
+
+.view-contact img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    
 }

@@ -1,14 +1,25 @@
 import "./App.css"
-import ContactsList from "./components/ContactsList"
-
+import { Route, Routes } from "react-router-dom";
+import ContactsList from "./components/ContactsList";
+import Menu from "./components/Menu";
+import ViewContact from "./components/ViewContact";
 
 function App() {
     return (
-        <>
-        <h1>test</h1>
-        <ContactsList/>
-        </>
-    )
+  
+            <main className="main">
+                <header className="top-bar">
+                    <Menu />
+                </header>
+
+                <Routes>
+                    <Route path="/" element={Menu} />
+                    <Route path="/ContactsList" element={<ContactsList />} />
+                    <Route path="/ViewContact/:id" element={<ViewContact />} />
+                </Routes>
+            </main>
+        
+    );
 }
 
-export default App
+export default App;
