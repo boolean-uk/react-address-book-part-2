@@ -30,7 +30,7 @@ export default function ContactList() {
             <option value='northernHemisphere'>Northern Hemisphere</option>
             <option value='southernHemisphere'>Southern Hemisphere</option>
         </select>
-
+        <div className='contact-list flex-col flex gap-3 rounded-md bg-outrun-blue p-4 my-4'>
       {contacts.map((contact, index) => {
         if (!filter) {
             return <ContactItem key={index} contact={contact} getData={getData} />;  
@@ -41,6 +41,7 @@ export default function ContactList() {
             return <ContactItem key={index} contact={contact} getData={getData} />; 
         }
       })}
+      </div>
       </>
   );
 }

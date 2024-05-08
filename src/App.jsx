@@ -9,7 +9,7 @@ import EditContact from './components/EditContact'
 function App() {
 
     return (
-       <div className='h-screen container grid grid-cols-[200px_1fr]'>
+       <div className='h-screen container grid grid-cols-[200px_1fr] max-w-full'>
         <Nav />
         <main className='p-5 bg-outrun-violet'>
         <Routes>
