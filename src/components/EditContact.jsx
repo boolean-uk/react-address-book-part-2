@@ -59,7 +59,7 @@ export default function EditContact() {
   return (
     <>
       <h2>Edit Contact</h2>
-      <form onSubmit={handleSubmit} className="create-contact-form">
+      <form onSubmit={handleSubmit} className="create-contact-form create-contact-form flex flex-col">
         <label htmlFor="firstName">First Name</label>
         <input
           onChange={handleChange}

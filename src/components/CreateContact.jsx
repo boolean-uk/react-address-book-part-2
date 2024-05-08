@@ -60,7 +60,7 @@ export default function CreateContact() {
   return (
     <>
       <h2>Create Contact</h2>
-      <form onSubmit={handleSubmit} className="create-contact-form">
+      <form onSubmit={handleSubmit} className="create-contact-form flex flex-col">
         <label htmlFor="firstName">First Name</label>
         <input
           onChange={handleChange}

@@ -23,7 +23,7 @@ export default function ContactList() {
 
   return (
     <>
-      <h2>Contacts</h2>
+      <h2 className='text-4xl'>Contacts</h2>
         <label htmlFor='filter'>Filter Contacts  </label>
         <select onChange={handleChange} name='filter'>
             <option value=''>Choose...</option>

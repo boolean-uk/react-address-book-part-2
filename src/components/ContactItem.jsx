@@ -13,7 +13,7 @@ export default function ContactItem ( { contact, getData } ) {
     }
 
     return (
-        <div className='contact-item'>
+        <div className='contact-item w-[400px] flex place-items-center justify-between'>
             <p className='contact-name'>{contact.firstName} {contact.lastName}</p>
             <Link to={`${contact.id}`}><button>View</button></Link>
             <button onClick={handleClick}>Delete</button>

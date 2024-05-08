@@ -1,4 +1,3 @@
-import './App.css';
 import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
 import CreateContact from './components/CreateContact'
@@ -9,12 +8,10 @@ import EditContact from './components/EditContact'
 
 function App() {
 
-
-
     return (
-       <div className='container'>
+       <div className='h-screen container grid grid-cols-[200px_1fr]'>
         <Nav />
-        <main>
+        <main className='p-5 bg-outrun-violet'>
         <Routes>
         <Route path='/' element={<p>Let us Get Started</p>} />
         <Route path='/add-new-contact' element={<CreateContact />} />
