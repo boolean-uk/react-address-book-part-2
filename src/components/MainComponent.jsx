@@ -37,7 +37,7 @@ export default function MainComponent() {
 
                 <Route 
                     path='/contact/:id/edit'
-                    element={<UpdateContactForm contacts={contacts} setContacts={setContacts} selectedContact={selectedContact} setSelectedContact={setSelectedContact}/>}
+                    element={<UpdateContactForm contacts={contacts} setContacts={setContacts} selectedContact={selectedContact}/>}
                 />
             </Routes>
         </>

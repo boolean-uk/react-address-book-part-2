@@ -7,7 +7,10 @@ export default function CreateContactForm({ contacts, setContacts }) {
         firstName: '',
         lastName: '',
         street: '',
-        city: ''
+        city: '',
+        email: '',
+        jobTitle: '',
+        profileImage: ''
     })
 
     function handleChange(e) {
@@ -64,6 +67,15 @@ export default function CreateContactForm({ contacts, setContacts }) {
 
             <label htmlFor="city">City :</label>
             <input type="text" name="city" id="city" value={addContact.city} onChange={handleChange} />
+
+            <label htmlFor="email">Email :</label>
+            <input type="email" name="email" id="email" value={addContact.email} onChange={handleChange} />
+
+            <label htmlFor="job-title">Job title :</label>
+            <input type="text" name="jobTitle" id="job-title" value={addContact.jobTitle} onChange={handleChange} />
+
+            <label htmlFor="profile-image">Picture :</label>
+            <input type="text" name="profileImage" id="profile-image" value={addContact.profileImage} onChange={handleChange} />
 
             <button className="create-button">Create</button>
         </form>

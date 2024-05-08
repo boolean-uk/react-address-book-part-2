@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function UpdateContactForm({ contacts, setContacts, selectedContact, setSelectedContact }) {
+export default function UpdateContactForm({ contacts, setContacts, selectedContact }) {
     const navigation = useNavigate()
     const [contactToUpdate, setContactToUpdate] = useState(selectedContact)
 
@@ -56,6 +56,15 @@ export default function UpdateContactForm({ contacts, setContacts, selectedConta
 
             <label htmlFor="city">City :</label>
             <input type="text" name="city" id="city" value={contactToUpdate.city} onChange={handleChange} />
+
+            <label htmlFor="email">Email :</label>
+            <input type="email" name="email" id="email" value={contactToUpdate.email} onChange={handleChange} />
+
+            <label htmlFor="job-title">Job title :</label>
+            <input type="text" name="jobTitle" id="job-title" value={contactToUpdate.jobTitle} onChange={handleChange} />
+
+            <label htmlFor="profile-image">Picture :</label>
+            <input type="text" name="profileImage" id="profile-image" value={contactToUpdate.profileImage} onChange={handleChange} />
 
             <button className="create-button">Update</button>
         </form>

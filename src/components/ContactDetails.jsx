@@ -8,7 +8,7 @@ export default function ContactDetails({ contacts, setContacts, selectedContact,
     useEffect(() => {
         const person = contacts.find(c => c.id === Number(params.id))
         setSelectedContact(person)
-    }, [params.id, contacts])
+    }, [params.id, contacts, setSelectedContact])
 
     function handleClick() {
         async function removeContact() {
@@ -37,11 +37,15 @@ export default function ContactDetails({ contacts, setContacts, selectedContact,
     }
 
     return (
-        <div>
+        <div className="profile-view">
             { selectedContact && 
                 <>
                     <h2>{`${selectedContact.firstName} ${selectedContact.lastName}`}</h2>
-                    <p>{`${selectedContact.street} ${selectedContact.city}`}</p>
+                    <p>{` Address: ${selectedContact.street} ${selectedContact.city}`}</p>
+                    <p>{`Email: ${selectedContact.email}`}</p>
+                    <p>{`Job title: ${selectedContact.jobTitle}`}</p>
+                    <img src={selectedContact.profileImage} alt="Profile picture" />
+                    <br />
                     <button onClick={handleClick}>Delete</button>
                     <button onClick={handleUpdate}>Update</button>
                 </>
