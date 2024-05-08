@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function ContactForm() {
 
@@ -8,6 +9,8 @@ export default function ContactForm() {
         street: "",
         city: ""
     }
+
+    const navigate = useNavigate()
     
     const [formState, setFormState] = useState(blankForm)
 
@@ -25,6 +28,7 @@ export default function ContactForm() {
             .catch(err => new Error("Failed to add Contact " + err))
 
         setFormState(blankForm)
+        navigate('/dashboard')
     }
 
     function handleChange(e) {
