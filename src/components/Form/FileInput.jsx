@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { FormControl, Image } from "react-bootstrap";
 import placeholderImg from "../../media/user-image-placeholder.png";
 import styles from "./file-input.module.css";
-export default function FileInput({ value, onChange }) {
-	const [src, setSrc] = useState(value || placeholderImg);
+export default function FileInput({ initialValue, onChange }) {
+	const [src, setSrc] = useState(initialValue || placeholderImg);
 
 	const handleImageUpload = (e) => {
 		const img = e.target.files[0];
@@ -26,7 +26,6 @@ export default function FileInput({ value, onChange }) {
 				ref={ref}
 				className="visually-hidden "
 				type="file"
-				value={value}
 				onChange={handleImageUpload}></FormControl>
 		</div>
 	);
