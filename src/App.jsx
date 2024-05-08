@@ -12,11 +12,11 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
 	const navigate = useNavigate();
-	const { isLoggedIn } = useContext(AuthCtx);
+	const { isLoggedIn, checkLogin } = useContext(AuthCtx);
 
 	useEffect(() => {
 		if (!isLoggedIn) {
-			navigate(ROUTE_NAMES.login);
+			checkLogin() || navigate(ROUTE_NAMES.login);
 		}
 	}, [isLoggedIn]);
 
