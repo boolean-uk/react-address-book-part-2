@@ -71,8 +71,33 @@ img {
     height: 2.65rem;
 }
 
+em {
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
 .svg-icon {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    font-size: 16px;
+    text-decoration: none;
+    justify-content: center;
     cursor: pointer;
+    gap: 0.25rem;
+    color: black;
+}
+
+.nav-svg-icon {
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-svg-icon li {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 0.25rem;
 }
 
 .profile-image,

@@ -6,12 +6,18 @@ export default function NavLinks() {
     return (
         <nav>
             <ul>
-                <Link to='/'>
-                    <li><img src={users}></img></li>
+                <Link className="nav-svg-icon" to='/'>
+                    <li>
+                        <img src={users}></img>
+                        <em>Contact List</em>
+                    </li>
                 </Link>
 
-                <Link to='/contact/new'>
-                    <li><img src={add}></img></li>
+                <Link className="nav-svg-icon" to='/contact/new'>
+                    <li>
+                        <img src={add}></img>
+                        <em>Add Contact</em>
+                    </li>
                 </Link>
             </ul>
         </nav>

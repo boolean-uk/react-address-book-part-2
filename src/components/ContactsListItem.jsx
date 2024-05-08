@@ -12,17 +12,31 @@ export default function ContactsListItem(props) {
         <>
             {contacts.map(contact => 
                 <div key={contact.id}>
-                    <img className="profile-image" src={`${contact.profileImage}`} alt={`${contact.firstName} ${contact.lastName}'s picture`} />
+                    <img 
+                        className="profile-image" 
+                        src={`${contact.profileImage}`} 
+                        alt={`${contact.firstName} ${contact.lastName}'s picture`} 
+                    />
                     
                     <p>{contact.firstName} {contact.lastName}</p>
 
-                    <Link to={`contact/${contact.id}`}><img className="svg-icon" src={user}></img></Link>
+                    <Link className="svg-icon" to={`contact/${contact.id}`}>
+                        <img src={user}></img>
+                        <em>View</em>
+                    </Link>
 
-                    <button onClick={() => {
-                        fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/contact/${contact.id}`, { method: 'DELETE' }).then(loadContacts)
-                    }}><img className="svg-icon" src={remove}></img></button>
+                    <button className="svg-icon" onClick={() => {
+                        fetch(`https://boolean-uk-api-server.fly.dev/LeonardoSaraceli/contact/${contact.id}`, 
+                        { method: 'DELETE' }).then(loadContacts)
+                    }}>
+                        <img src={remove}></img>
+                        <em>Remove</em>
+                    </button>
 
-                    <button onClick={() => navigate(`/contact/update/${contact.id}`)}><img className="svg-icon" src={update}></img></button>
+                    <button className="svg-icon" onClick={() => navigate(`/contact/update/${contact.id}`)}>
+                        <img src={update}></img>
+                        <em>Update</em>
+                    </button>
                 </div>
             )}
 
