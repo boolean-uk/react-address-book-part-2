@@ -1,20 +1,37 @@
 import React from "react";
-import { FloatingLabel, Form } from "react-bootstrap";
+import { FloatingLabel, Form, InputGroup } from "react-bootstrap";
 
-export default function Input({ id, label, type, value, onChange, ...props }) {
+export default function Input({
+	id,
+	label,
+	type,
+	value,
+	onChange,
+	invalidText,
+	isInvalid,
+	...props
+}) {
 	return (
-		<FloatingLabel
-			controlId={id}
-			label={label}
-			name={id}
-			className="">
-			<Form.Control
-				{...props}
-				type={type}
-				placeholder=""
-				value={value}
-				onChange={onChange}
-			/>
-		</FloatingLabel>
+		<InputGroup hasValidation={isInvalid}>
+			<FloatingLabel
+				controlId={id}
+				label={label}
+				name={id}
+				className="">
+				<Form.Control
+					{...props}
+					isInvalid={isInvalid}
+					type={type}
+					placeholder=""
+					value={value}
+					onChange={onChange}
+				/>
+				{isInvalid && (
+					<Form.Control.Feedback type="invalid">
+						{invalidText || "Input is invalid"}
+					</Form.Control.Feedback>
+				)}
+			</FloatingLabel>
+		</InputGroup>
 	);
 }
