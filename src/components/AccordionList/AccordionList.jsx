@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion } from "react-bootstrap";
 import AccordionItem from "./AccordionItem";
 
-export default function AccordionList({ id, list, onEditItem, onDeleteItem }) {
+export default function AccordionList({ id, list }) {
 	return (
 		<Accordion
 			alwaysOpen
@@ -12,8 +12,6 @@ export default function AccordionList({ id, list, onEditItem, onDeleteItem }) {
 					eventKey={i}
 					key={`${id}-${i}`}
 					data={e}
-					onEditHandler={onEditItem}
-					onDeleteHandler={onDeleteItem}
 				/>
 			))}
 		</Accordion>

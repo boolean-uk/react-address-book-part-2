@@ -1,20 +1,19 @@
 import React from "react";
 import { Accordion, Col, Container, Image, Row, Stack } from "react-bootstrap";
 import IconButton, { ICONS } from "../Buttons/IconButton";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_NAMES } from "../../routes/router";
+import { delEntry } from "../../stores/serverActions";
+export default function AccordionItem({ eventKey, data }) {
+	const navigate = useNavigate();
 
-export default function AccordionItem({
-	eventKey,
-	data,
-	onEditHandler,
-	onDeleteHandler,
-}) {
 	return (
 		<Accordion.Item eventKey={eventKey}>
 			<Header {...data} />
 			<Body
 				data={data}
-				onEditHandler={onEditHandler}
-				onDeleteHandler={onDeleteHandler}
+				onEditHandler={() => navigate(ROUTE_NAMES.editEntry)}
+				onDeleteHandler={() => delEntry(data)}
 			/>
 		</Accordion.Item>
 	);
