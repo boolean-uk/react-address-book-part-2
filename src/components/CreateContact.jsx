@@ -9,17 +9,21 @@ export default function CreateContact() {
     gender: "",
     email: "",
     jobTitle: "",
-    latitude: "",
-    longitude: "",
+    latitude: 0,
+    longitude: 0,
   });
 
   function handleChange(e) {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    if (name === 'latitude' || name === 'longitude') {
+        value = Number(value)
+    }
     setFormData({ ...formData, [name]: value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(formData)
     const postData = await fetch(
       "https://boolean-api-server.fly.dev/MrStashy/contact",
       {
@@ -31,17 +35,22 @@ export default function CreateContact() {
       }
     );
 
-    setFormData({
-      firstName: "",
-      lastName: "",
-      street: "",
-      city: "",
-      gender: "",
-      email: "",
-      jobTitle: "",
-      latitude: "",
-      longitude: "",
-    });
+    if (postData.ok) {
+      setFormData({
+        firstName: "",
+        lastName: "",
+        street: "",
+        city: "",
+        gender: "",
+        email: "",
+        jobTitle: "",
+        latitude: 0,
+        longitude: 0,
+      });
+    } else {
+      const errorResponse = await postData.json()
+      console.log(errorResponse.error)
+    }
   }
 
   return (
