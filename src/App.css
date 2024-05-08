@@ -6,7 +6,6 @@ body {
     font-family: sans-serif;
     text-align: center;
     background-color: darkslategray;
-
 }
 
 .main {
@@ -18,15 +17,14 @@ body {
     color: rgb(99, 202, 20);
 }
 
- .menu  {
+.menu {
     background-color: rgb(28, 40, 40);
     color: rgb(99, 202, 20);
     padding: 30px;
-    
 }
 
 .menu a {
-    color:rgb(99, 202, 20);
+    color: rgb(99, 202, 20);
     text-decoration: none;
 }
 
@@ -34,7 +32,7 @@ body {
     color: #ffcc00;
 }
 
-.top-bar{
+.top-bar {
     /* position: fixed; */
     width: 100%;
     display: flex;
@@ -44,23 +42,25 @@ body {
 }
 
 .contacts {
-        /* padding-left: 300px; */
-        background-color: darkslategray;
-        color: rgb(99, 202, 20);
+    /* padding-left: 300px; */
+    background-color: darkslategray;
+    color: rgb(99, 202, 20);
 
-    }
+}
+
 .view-contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    
+    height: 1vh;
+    color: rgb(99, 202, 20);
+
 }
 
 .view-contact img {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
-    
+
 }
