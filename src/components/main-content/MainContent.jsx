@@ -7,9 +7,9 @@ export default function MainContent({contacts}){
 
   return (
     <main>
-      <NewContactForm/>
+      {/* <NewContactForm/> */}
       <ContactsList contacts = {contacts}/>
-      <ContactDetails/>
+      {/* <ContactDetails/> */}
     </main>
   )
 }
