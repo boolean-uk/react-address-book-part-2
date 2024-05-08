@@ -9,8 +9,10 @@ export default function CreateContact() {
     gender: "",
     email: "",
     jobTitle: "",
-    latitude: 0,
-    longitude: 0,
+    latitude: '',
+    longitude: '',
+    favouriteColor: '',
+    profileImage: ''
   });
 
   function handleChange(e) {
@@ -44,8 +46,10 @@ export default function CreateContact() {
         gender: "",
         email: "",
         jobTitle: "",
-        latitude: 0,
-        longitude: 0,
+        latitude: '',
+        longitude: '',
+        favouriteColor: '',
+        profileImage: ''
       });
     } else {
       const errorResponse = await postData.json()
@@ -118,6 +122,20 @@ export default function CreateContact() {
           onChange={handleChange}
           value={formData.longitude}
           name="longitude"
+          type="textbox"
+        />
+         <label htmlFor="favouriteColor">Favourite Color (hex code)</label>
+        <input
+          onChange={handleChange}
+          value={formData.favouriteColour}
+          name="favouriteColor"
+          type="textbox"
+        />
+           <label htmlFor="proileImage">Profile Image (url)</label>
+        <input
+          onChange={handleChange}
+          value={formData.proileImage}
+          name="favouriteColor"
           type="textbox"
         />
         <button type="submit">Create</button>

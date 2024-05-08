@@ -19,7 +19,7 @@ export default function ContactDetail() {
   return (
     <div className='detail-card' style={{backgroundColor: `${contactToDisplay.favouriteColour}` }}>
       
-      <img src={contactToDisplay.profileImage} />
+      <img height={100} src={contactToDisplay.profileImage} />
       <h2>
         {contactToDisplay.firstName} {contactToDisplay.lastName}
       </h2>
@@ -33,5 +33,6 @@ export default function ContactDetail() {
       <p>Longitude: {contactToDisplay.longitude}</p>
       <Link to={`/contact-list/edit/${contactId}`}><button>Edit</button></Link>
     </div>
+    
   );
 }

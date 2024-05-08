@@ -9,9 +9,11 @@ export default function EditContact() {
     city: "",
     gender: "",
     email: "",
-    jobTitle: '',
-    latitude: '',
-    longitude: ''
+    jobTitle: "",
+    latitude: "",
+    longitude: "",
+    favouriteColour: "",
+    profileImage: "",
   });
 
   const contactId = useParams().id;
@@ -47,7 +49,10 @@ export default function EditContact() {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
+    if (name === "latitude" || name === "longitude") {
+      value = Number(value);
+    }
     setFormData({ ...formData, [name]: value });
   };
 
@@ -111,11 +116,25 @@ export default function EditContact() {
           name="latitude"
           type="textbox"
         />
-          <label htmlFor="longitude">Longitude</label>
+        <label htmlFor="longitude">Longitude</label>
         <input
           onChange={handleChange}
           value={formData.longitude}
           name="longitude"
+          type="textbox"
+        />
+        <label htmlFor="favouriteColour">Favourite Color (hex code)</label>
+        <input
+          onChange={handleChange}
+          value={formData.favouriteColour}
+          name="favouriteColour"
+          type="textbox"
+        />
+        <label htmlFor="profileImage">Profile Image (url)</label>
+        <input
+          onChange={handleChange}
+          value={formData.profileImage}
+          name="profileImage"
           type="textbox"
         />
         <button type="submit">Update</button>
