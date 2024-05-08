@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Container, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import Input from "../../components/Form/Input";
+import styles from "./list-filters.module.css";
 
 export default function ListFilters({ list, onUpdate }) {
 	const [filteredList, setFilteredList] = useState(list);
@@ -37,6 +38,9 @@ export default function ListFilters({ list, onUpdate }) {
 
 	return (
 		<Stack
+			className={
+				"justify-content-center p-4 bg-secondary " + styles.wrapper
+			}
 			direction="horizontal"
 			gap={2}>
 			<Input
