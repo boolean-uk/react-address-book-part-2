@@ -7,7 +7,8 @@ import {
 import Login from "../pages/Login/Login";
 import App from "../App";
 import Dashboard, { dashboardRouteLoader } from "../pages/Dashboard/Dashboard";
-import NewEntry from "../pages/Dashboard/NewEntry";
+import NewEntry from "../pages/Dashboard/Modals/NewEntry";
+import EditEntry from "../pages/Dashboard/Modals/EditEntry";
 
 export const ROUTE_NAMES = {
 	dashboard: "/",
@@ -40,11 +41,7 @@ const router = createBrowserRouter(
 					/>
 					<Route
 						path={ROUTE_NAMES.editEntry}
-						element={
-							<>
-								<h2>Edit Entry Modal</h2>
-							</>
-						}
+						element={<EditEntry />}
 					/>
 				</Route>
 				<Route
