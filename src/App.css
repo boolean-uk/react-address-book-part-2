@@ -1,0 +1,48 @@
+.appStyle {
+  margin: 50px;
+  display: grid;
+  grid-template-columns: 300px 400px;
+}
+
+li {
+  list-style-type: none;
+}
+a {
+  color: blue;
+}
+
+#contacs-list {
+  margin: 10px;
+  padding: 0;
+}
+
+#contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  align-items:flex-start;
+  flex-direction: column;
+}
+
+form div{
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+input {
+  padding: 5px;
+  margin-top: 2px;
+  width: 380px;
+}
+
+#button {
+  margin-top: 10px;
+  height: 30px;
+  width: 75px;
+  margin-left: auto;
+}
+

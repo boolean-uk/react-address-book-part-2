@@ -1,8 +1,67 @@
+import { useEffect, useState } from 'react';
 import './App.css';
+import Navigation from './components/navigation/Navigation';
+import { Route, Routes } from 'react-router-dom';
+import ContactsList from './components/main-content/ContactsList';
+import CreateForm from './components/main-content/CreateForm';
+import ContactDetails from './components/main-content/ContactDetails';
 
 function App() {
+    const url = 'https://boolean-api-server.fly.dev/FBagdeli/contact'
+    const [contacts , setContact] = useState([])
+    useEffect(() => {
+        fetch(url)
+            .then(response => response.json())
+            .then(setContact)
+    }, [])
+
+    function handleSubmit(event){
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        console.log(formData)
+        const newContact = {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            street: formData.get('street'),
+            city: formData.get('city'),
+            gender: "Male",
+            email: "rick@sanchez.com",
+            jobTitle: "Scientist",
+            latitude: 42,
+            longitude: 629,
+            favouriteColour: "#0d7f26",
+            profileImage: "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon"
+        }
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(newContact),
+            headers:{
+                'Content-type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setContact([... contacts, data])
+            event.target.reset()
+        })
+    }
     return (
-        <p>Hello, world!</p>
+        <>
+            <nav>
+                <Navigation />
+            </nav>
+            <Routes>
+                <Route
+                    path='/' element={<ContactsList contacts={contacts}/>}
+                />
+                <Route
+                    path='/CreateContact' element={<CreateForm handleSubmit={handleSubmit}/>}
+                />
+                <Route
+                    path='/Details/:id' element={<ContactDetails contacts={contacts}/>}
+                />
+            </Routes>
+        </>
     );
 }
 
