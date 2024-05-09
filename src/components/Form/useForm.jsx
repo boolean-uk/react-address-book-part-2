@@ -41,7 +41,7 @@ const useForm = (inputFields) => {
 			if (Array.isArray(inputFields)) {
 				obj[inputFields[field]] = { value: "", isValid: false };
 			} else {
-				obj[field] = inputFields[field];
+				obj[field] = { value: inputFields[field], isValid: true };
 			}
 		}
 		return obj;
