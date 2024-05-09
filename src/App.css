@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-areas:"nav pages" ;
+    padding: 20px 50px;
+    justify-items: center;
+    font-size: 30px;
+}
+
+.nav{
+    grid-area: nav;
+}
+
+.pages{
+    grid-area: pages;
+}
+
+.create-contact{
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0px;
+    gap: 32px
+}
+
+.create-contact input, .create-contact button{
+    border: 3px black solid;
+    font-size: 40px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 768px;
+    gap: 40px;
+}
