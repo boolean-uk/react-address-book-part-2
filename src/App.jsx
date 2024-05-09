@@ -15,12 +15,10 @@ function App() {
             .then(setContact)
     }, [])
 
-    console.log(contacts)
     function handleSubmit(event){
-
         event.preventDefault()
-        console.log('test' ,event.target.value)
         const formData = new FormData(event.target)
+        console.log(formData)
         const newContact = {
             firstName: formData.get('firstName'),
             lastName: formData.get('lastName'),
@@ -46,16 +44,12 @@ function App() {
             setContact([... contacts, data])
             event.target.reset()
         })
-
-
     }
-
     return (
         <>
             <nav>
                 <Navigation />
             </nav>
-
             <Routes>
                 <Route
                     path='/' element={<ContactsList contacts={contacts}/>}
