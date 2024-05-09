@@ -76,8 +76,9 @@ const useForm = (inputFields) => {
 		return get(name)?.wasTouched && !get(name).isValid;
 	}
 
-	function canSubmit() {
+	function canSubmit(exceptions = []) {
 		for (const key in data) {
+			if (exceptions.includes(key)) continue;
 			if (!data[key].isValid) return false;
 		}
 		return true;
