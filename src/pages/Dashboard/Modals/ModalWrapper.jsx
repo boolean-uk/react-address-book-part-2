@@ -8,22 +8,17 @@ import {
 	Row,
 	Stack,
 } from "react-bootstrap";
-import Input from "../../components/Form/Input";
+import Input from "../../../components/Form/Input";
 import { useNavigate, useSubmit } from "react-router-dom";
-import { ROUTE_NAMES } from "../../routes/router";
-import FileInput from "../../components/Form/FileInput";
-import useForm from "../../components/Form/useForm";
-import { addNewEntry } from "../../stores/serverActions";
+import { ROUTE_NAMES } from "../../../routes/router";
+import FileInput from "../../../components/Form/FileInput";
+import useForm from "../../../components/Form/useForm";
+import { addNewEntry } from "../../../stores/serverActions";
 import { toast } from "react-toastify";
+import IconButton, { ICONS } from "../../../components/Buttons/IconButton";
 
-export default function NewEntry() {
-	const navigate = useNavigate();
-	const submit = useSubmit();
-
-	const handleClose = () => {
-		navigate(ROUTE_NAMES.dashboard);
-	};
-	const { mutateEntry, entries, get } = useForm([
+export default function ModalWrapper({
+	data = [
 		"profileImage",
 		"firstName",
 		"lastName",
@@ -33,42 +28,51 @@ export default function NewEntry() {
 		"city",
 		"street",
 		"favouriteColour",
-	]);
+		"longitude",
+		"latitude",
+	],
+	title,
+	onSubmitButtonText = "Ok",
+	toastResponses = {
+		pending: "Sending...",
+		error: "Something went wrong.",
+		success: "Great Success!",
+	},
+	onSubmitServerAction = () => {},
+}) {
+	const navigate = useNavigate();
+	const submit = useSubmit();
+
+	const handleClose = () => {
+		navigate(ROUTE_NAMES.dashboard);
+	};
+	const { mutateEntry, entries, get } = useForm(data);
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
 		const data = {
 			...entries(),
-			...navigator.geolocation.getCurrentPosition((position) => ({
-				longitude: position.coords.latitude,
-				latitude: position.coords.latitude,
-			})),
 		};
-		console.log("submited", JSON.stringify(data));
 
-		// "firstName": "Rick",
-		// "lastName": "Sanchez",
-		// "street": "Morty Lane",
-		// "city": "Jerryville",
-		// "gender": "Male",
-		// "email": "rick@sanchez.com",
-		// "jobTitle": "Scientist",
-		// "latitude": 42,
-		// "longitude": 629,
-		// "favouriteColour": "#0d7f26",
-		// "profileImage": "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon"
+		console.log("Submiting data", data);
 
-		// addNewEntry(data)
-		// 	.then((res) => res.json())
-		// 	.then((e) => console.log(e));
-
-		toast.promise(addNewEntry(data), {
-			pending: "Sending...",
-			error: "Something went wrong.",
-			success: "Created new entry!",
-		});
-		submit(null, { method: "POST", action: "/" });
+		toast.promise(onSubmitServerAction(data), toastResponses);
+		submit(null, { method: "POST", action: ROUTE_NAMES.dashboard });
 	};
+
+	function handleGeoLocalization() {
+		if (
+			!get("city").value ||
+			!get("city").isValid ||
+			!get("street").value ||
+			!get("street").isValid
+		) {
+			toast("Can´t auto detect without proper fields", { type: "error" });
+		}
+
+		
+
+	}
 
 	return (
 		<Modal
@@ -77,7 +81,7 @@ export default function NewEntry() {
 			<Modal.Header
 				closeButton
 				className="">
-				<Modal.Title>Create New Entry</Modal.Title>
+				<Modal.Title>{title}</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className="">
 				<Form
@@ -87,6 +91,7 @@ export default function NewEntry() {
 						<Row className="gap-2">
 							<Col className="d-flex justify-content-center">
 								<FileInput
+									initialValue={get("profileImage").value}
 									onChange={(file) =>
 										mutateEntry("profileImage", file, true)
 									}
@@ -166,6 +171,31 @@ export default function NewEntry() {
 									}
 								/>
 							</Col>
+						</Row>{" "}
+						<Row>
+							<Col>
+								<Input
+									label={"Latitude"}
+									value={get("latitude").value}
+									onChange={(e) =>
+										mutateEntry("latitude", e.target.value)
+									}
+								/>
+							</Col>
+							<Col>
+								<Input
+									label={"Longitude"}
+									value={get("longitude").value}
+									onChange={(e) =>
+										mutateEntry("longitude", e.target.value)
+									}
+								/>
+							</Col>
+							<Col className="align-content-center">
+								<IconButton
+									onClick={handleGeoLocalization}
+									icon={ICONS.geolocation}></IconButton>
+							</Col>
 						</Row>
 						<Row>
 							<Col>
@@ -191,13 +221,13 @@ export default function NewEntry() {
 					type="button"
 					variant="secondary"
 					onClick={handleClose}>
-					Close
+					Cancel
 				</Button>
 				<Button
 					form="new-entry-form"
 					type="submit"
 					variant="primary">
-					Add
+					{onSubmitButtonText}
 				</Button>
 			</Modal.Footer>
 		</Modal>
