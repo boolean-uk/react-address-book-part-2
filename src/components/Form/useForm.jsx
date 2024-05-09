@@ -46,7 +46,7 @@ const useForm = (inputFields) => {
 		}
 		return obj;
 	});
-	function mutateEntry(name, value, isValid) {
+	function mutateEntry(name, value, isValid = true) {
 		const validation =
 			typeof isValid === "function" ? isValid(value) : isValid;
 		dispatchFormUpdate(mutateFormInputAction(name, value, validation));
@@ -69,6 +69,13 @@ const useForm = (inputFields) => {
 		return get(name)?.wasTouched && !get(name).isValid;
 	}
 
-	return { mutateEntry, deleteEntry, entries, get, isInvalid };
+	function canSubmit() {
+		for (const key in data) {
+			if (!data[key].isValid) return false;
+		}
+		return true;
+	}
+
+	return { mutateEntry, deleteEntry, entries, get, isInvalid, canSubmit };
 };
 export default useForm;
