@@ -5,7 +5,7 @@ export default function Concact( {contact}){
   return (
     <>
       <li id="contact" >
-        <p>{contact.firstName}</p> <Link to='/Details'>View</Link>
+        <p>{contact.firstName}</p> <Link to={`/Details/${contact.id}`}>View</Link>
       </li>
       <hr/>
     </>

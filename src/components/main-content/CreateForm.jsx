@@ -1,24 +1,27 @@
 import '/src/style/CreateForm.css'
-export default function CreateForm(){
+export default function CreateForm({ handleSubmit }){
+  console.log(handleSubmit)
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
-        <label>First Name</label>
-        <input placeholder="Enter First Name"></input>
+        <label htmlFor="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter First Name" />
+      </div>
+        <div>
+        <label htmlFor="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name" />
+      </div>
+        <div>
+        <label htmlFor="street">Address</label>
+        <input type="text" id="street" name="street" placeholder="Enter Address" />
       </div>
       <div>
-        <label>Last Name</label>
-        <input placeholder="Enter Last Name"></input>
+        <label htmlFor="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Enter your City" />
       </div>
-      <div>
-        <label>Address</label>
-        <input placeholder="Enter Address"></input>
-      </div>
-      <div>
-        <label>City</label>
-        <input placeholder="Enter your City"></input>
-      </div>
-      <button id='button'>Create</button>
+      <button id='button' type="submit">Create</button>
     </form>
   )
 }
+
+
