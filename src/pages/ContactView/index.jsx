@@ -12,7 +12,7 @@ export default function ContactView() {
     }, [id, contact])
     if (contact) {
         return (
-            <>
+            <main>
                 <h1>
                     {contact.firstName} {contact.lastName}
                 </h1>
@@ -24,7 +24,7 @@ export default function ContactView() {
                 <h2>
                     {contact.city}
                 </h2>
-            </>
+            </main>
         )
     }
 }
