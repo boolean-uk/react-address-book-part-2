@@ -58,15 +58,9 @@ export default function Login() {
 					label={"Password"}
 					type={"password"}
 					required
-					isInvalid={isInvalid("password")}
-					invalidText={"Password is too short"}
 					value={get("password").value}
 					onChange={(e) =>
-						mutateEntry(
-							"password",
-							e.target.value,
-							validatePassword
-						)
+						mutateEntry("password", e.target.value)
 					}></Input>
 
 				<Button
