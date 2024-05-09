@@ -47,7 +47,9 @@ const useForm = (inputFields) => {
 		return obj;
 	});
 	function mutateEntry(name, value, isValid) {
-		dispatchFormUpdate(mutateFormInputAction(name, value, isValid));
+		const validation =
+			typeof isValid === "function" ? isValid(value) : isValid;
+		dispatchFormUpdate(mutateFormInputAction(name, value, validation));
 	}
 	function deleteEntry(name) {
 		dispatchFormUpdate(deleteFormInputAction(name));
