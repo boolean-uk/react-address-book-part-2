@@ -65,6 +65,10 @@ const useForm = (inputFields) => {
 		return data[name];
 	}
 
-	return { mutateEntry, deleteEntry, entries, get };
+	function isInvalid(name) {
+		return get(name)?.wasTouched && !get(name).isValid;
+	}
+
+	return { mutateEntry, deleteEntry, entries, get, isInvalid };
 };
 export default useForm;
