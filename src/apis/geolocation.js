@@ -4,7 +4,7 @@
  */
 
 export async function getCoordinatesFromAddress(city, street) {
-	const random = (min, max) => Math.random() * (max - min) + min;
+	const random = (min, max) => (Math.random() * (max - min) + min).toFixed(6);
 	//NOTE: bounds according to this https://stackoverflow.com/a/13824556/22510505
 	return { latitude: random(85, -85), longitude: random(180, -180) };
 }
