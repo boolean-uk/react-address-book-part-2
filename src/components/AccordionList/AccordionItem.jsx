@@ -6,6 +6,7 @@ import { ROUTE_NAMES } from "../../routes/router";
 import { delEntry } from "../../apis/serverActions";
 import { toast } from "react-toastify";
 import ImageThumbnail from "../Misc/ImageThumbail";
+import Map from "../Map/Map";
 export default function AccordionItem({ eventKey, data }) {
 	const navigate = useNavigate();
 	const submit = useSubmit();
@@ -67,9 +68,7 @@ const Body = ({ data, onEditHandler, onDeleteHandler }) => (
 					</Row>
 				</Col>
 				<Col md="auto">
-					<h3 style={{ height: 350, background: "#f005" }}>
-						Display Map here
-					</h3>
+					<Map {...data} />
 				</Col>
 				<Col
 					md="auto"
