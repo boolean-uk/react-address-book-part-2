@@ -4,7 +4,7 @@ import UserNav from "./UserNav";
 import { Outlet, useLoaderData } from "react-router-dom";
 import AccordionList from "../../components/AccordionList/AccordionList";
 import ListFilters from "./ListFilters";
-import { getAllEntries } from "../../stores/serverActions";
+import { getAllEntries } from "../../apis/serverActions";
 
 export const dashboardRouteLoader = getAllEntries;
 //

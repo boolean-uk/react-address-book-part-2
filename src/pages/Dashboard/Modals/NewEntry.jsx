@@ -13,7 +13,7 @@ import { useNavigate, useSubmit } from "react-router-dom";
 import { ROUTE_NAMES } from "../../../routes/router";
 import FileInput from "../../../components/Form/FileInput";
 import useForm from "../../../components/Form/useForm";
-import { addNewEntry } from "../../../stores/serverActions";
+import { addNewEntry } from "../../../apis/serverActions";
 import { toast } from "react-toastify";
 import ModalWrapper from "./ModalWrapper";
 

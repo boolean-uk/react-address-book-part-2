@@ -22,7 +22,6 @@ function App() {
 
 	return (
 		<>
-			<h1>App root</h1>
 			<Toast />
 			<Outlet></Outlet>
 		</>

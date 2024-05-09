@@ -3,7 +3,7 @@ import { Accordion, Col, Container, Image, Row, Stack } from "react-bootstrap";
 import IconButton, { ICONS } from "../Buttons/IconButton";
 import { useNavigate, useSubmit } from "react-router-dom";
 import { ROUTE_NAMES } from "../../routes/router";
-import { delEntry } from "../../stores/serverActions";
+import { delEntry } from "../../apis/serverActions";
 import { toast } from "react-toastify";
 export default function AccordionItem({ eventKey, data }) {
 	const navigate = useNavigate();

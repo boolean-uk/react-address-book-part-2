@@ -13,9 +13,16 @@ import { useNavigate, useSubmit } from "react-router-dom";
 import { ROUTE_NAMES } from "../../../routes/router";
 import FileInput from "../../../components/Form/FileInput";
 import useForm from "../../../components/Form/useForm";
-import { addNewEntry } from "../../../stores/serverActions";
+import { addNewEntry } from "../../../apis/serverActions";
 import { toast } from "react-toastify";
 import IconButton, { ICONS } from "../../../components/Buttons/IconButton";
+import { getCoordinatesFromAddress } from "../../../apis/geolocation";
+import {
+	validateEmail,
+	validateLatitude,
+	validateLongitude,
+	validateName,
+} from "../../../components/Form/form-validators";
 
 export default function ModalWrapper({
 	data = [
@@ -46,7 +53,7 @@ export default function ModalWrapper({
 	const handleClose = () => {
 		navigate(ROUTE_NAMES.dashboard);
 	};
-	const { mutateEntry, entries, get } = useForm(data);
+	const { mutateEntry, entries, get, isInvalid } = useForm(data);
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
@@ -61,17 +68,20 @@ export default function ModalWrapper({
 	};
 
 	function handleGeoLocalization() {
-		if (
-			!get("city").value ||
-			!get("city").isValid ||
-			!get("street").value ||
-			!get("street").isValid
-		) {
+		const city = get("city"),
+			street = get("street");
+		console.log(city, street);
+		if (!city.value || !city.isValid || !street.value || !street.isValid) {
 			toast("Can´t auto detect without proper fields", { type: "error" });
+			return;
 		}
-
-		
-
+		const { longitude, latitude } = getCoordinatesFromAddress(
+			city.value,
+			street.value
+		);
+		mutateEntry("longitude", longitude, true);
+		mutateEntry("latitude", latitude, true);
+		console.log(entires());
 	}
 
 	return (
@@ -85,6 +95,7 @@ export default function ModalWrapper({
 			</Modal.Header>
 			<Modal.Body className="">
 				<Form
+					noValidate
 					id="new-entry-form"
 					onSubmit={handleFormSubmit}>
 					<Stack gap={3}>
@@ -104,8 +115,13 @@ export default function ModalWrapper({
 									label={"First Name"}
 									value={get("firstName").value}
 									onChange={(e) =>
-										mutateEntry("firstName", e.target.value)
+										mutateEntry(
+											"firstName",
+											e.target.value,
+											validateName
+										)
 									}
+									isInvalid={isInvalid(get("firstName"))}
 									required
 								/>
 							</Col>
@@ -114,7 +130,11 @@ export default function ModalWrapper({
 									label={"Last Name"}
 									value={get("lastName").value}
 									onChange={(e) =>
-										mutateEntry("lastName", e.target.value)
+										mutateEntry(
+											"lastName",
+											e.target.value,
+											validateName
+										)
 									}
 								/>
 							</Col>
@@ -145,7 +165,11 @@ export default function ModalWrapper({
 									label={"Email"}
 									value={get("email").value}
 									onChange={(e) =>
-										mutateEntry("email", e.target.value)
+										mutateEntry(
+											"email",
+											e.target.value,
+											validateEmail
+										)
 									}
 								/>
 							</Col>
@@ -171,14 +195,18 @@ export default function ModalWrapper({
 									}
 								/>
 							</Col>
-						</Row>{" "}
+						</Row>
 						<Row>
 							<Col>
 								<Input
 									label={"Latitude"}
 									value={get("latitude").value}
 									onChange={(e) =>
-										mutateEntry("latitude", e.target.value)
+										mutateEntry(
+											"latitude",
+											e.target.value,
+											validateLatitude
+										)
 									}
 								/>
 							</Col>
@@ -187,7 +215,11 @@ export default function ModalWrapper({
 									label={"Longitude"}
 									value={get("longitude").value}
 									onChange={(e) =>
-										mutateEntry("longitude", e.target.value)
+										mutateEntry(
+											"longitude",
+											e.target.value,
+											validateLongitude
+										)
 									}
 								/>
 							</Col>

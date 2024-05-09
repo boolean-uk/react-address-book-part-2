@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ModalWrapper from "./ModalWrapper";
 import { useLocation, useNavigate } from "react-router-dom";
-import { updateEntry } from "../../../stores/serverActions";
+import { updateEntry } from "../../../apis/serverActions";
 
 export default function EditEntry({ data }) {
 	const state = useLocation().state;
