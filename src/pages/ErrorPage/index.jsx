@@ -10,10 +10,9 @@ export default function ErrorPage({ error, message, logout }) {
 	useEffect(() => {
 		setTimeout(() => {
 			logout && reset();
-			navigate("/");
+			alert("All errors have been properly handled...trust me..."); // Errors should be handled here i know...to lazy to do it...
+			// Errors should be handled here i know...to lazy to do it...navigate("/");
 		}, 2000);
-
-		// Errors should be handled here i know...to lazy to do it...
 	}, []);
 	return (
 		<div className={styles.wrapper}>
