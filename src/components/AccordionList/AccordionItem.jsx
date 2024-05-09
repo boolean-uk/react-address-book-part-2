@@ -13,7 +13,11 @@ export default function AccordionItem({ eventKey, data }) {
 			<Header {...data} />
 			<Body
 				data={data}
-				onEditHandler={() => navigate(ROUTE_NAMES.editEntry)}
+				onEditHandler={() =>
+					navigate(ROUTE_NAMES.editEntry.replace(":id", data.id), {
+						state: data,
+					})
+				}
 				onDeleteHandler={() => {
 					toast.promise(delEntry(data), {
 						error: "Error deleting...",
