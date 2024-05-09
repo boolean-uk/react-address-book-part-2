@@ -1,12 +1,5 @@
 import React from "react";
-import {
-	Button,
-	Col,
-	Form,
-	Modal,
-	Row,
-	Stack
-} from "react-bootstrap";
+import { Button, Col, Form, Modal, Row, Stack } from "react-bootstrap";
 import { useNavigate, useSubmit } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getCoordinatesFromAddress } from "../../../apis/geolocation";
