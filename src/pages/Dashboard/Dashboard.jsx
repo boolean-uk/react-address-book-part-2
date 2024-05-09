@@ -4,7 +4,7 @@ import UserNav from "./UserNav";
 import { Outlet, useLoaderData } from "react-router-dom";
 import AccordionList from "../../components/AccordionList/AccordionList";
 import ListFilters from "./ListFilters";
-import { getAllEntries } from "../../apis/serverActions";
+import { getAllEntries } from "../../stores/serverActions";
 
 export const dashboardRouteLoader = getAllEntries;
 //
@@ -36,7 +36,7 @@ export default function Dashboard() {
 		);
 
 	return (
-		<Container fluid>
+		<Container>
 			<Outlet></Outlet>
 			<Stack>
 				<UserNav />

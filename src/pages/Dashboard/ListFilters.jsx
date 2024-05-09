@@ -41,6 +41,7 @@ export default function ListFilters({ list, onUpdate }) {
 
 	return (
 		<Container>
+			<h3>Search List</h3>
 			<Row
 				className={
 					"justify-content-center align-content-center p-4 bg-secondary rounded-3 gap-3"
