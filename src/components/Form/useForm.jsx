@@ -17,6 +17,12 @@ const formDataReducer = (state, action) => {
 			delete formData[name];
 			return formData;
 		}
+		case "TOUCH_ALL": {
+			for (const key in formData) {
+				formData[key] = { ...formData[key], wasTouched: true };
+			}
+			return formData;
+		}
 		default:
 			return state;
 	}
@@ -33,6 +39,7 @@ const deleteFormInputAction = (name) => ({
 	action: "DELETE",
 	payload: { name },
 });
+const touchAllFormAction = () => ({ action: "TOUCH_ALL", payload: {} });
 
 const useForm = (inputFields) => {
 	const [data, dispatchFormUpdate] = useReducer(formDataReducer, {}, () => {
@@ -76,6 +83,18 @@ const useForm = (inputFields) => {
 		return true;
 	}
 
-	return { mutateEntry, deleteEntry, entries, get, isInvalid, canSubmit };
+	function touchAll() {
+		dispatchFormUpdate(touchAllFormAction());
+	}
+
+	return {
+		mutateEntry,
+		deleteEntry,
+		entries,
+		get,
+		isInvalid,
+		canSubmit,
+		touchAll,
+	};
 };
 export default useForm;
