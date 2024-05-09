@@ -9,7 +9,8 @@ import App from "../App";
 import Dashboard, { dashboardRouteLoader } from "../pages/Dashboard/Dashboard";
 import NewEntry from "../pages/Dashboard/Modals/NewEntry";
 import EditEntry from "../pages/Dashboard/Modals/EditEntry";
-import NotFoundPage from "../pages/404";
+import ErrorPage from "../pages/ErrorPage";
+
 
 export const ROUTE_NAMES = {
 	dashboard: "/",
@@ -22,6 +23,12 @@ const router = createBrowserRouter(
 	createRoutesFromChildren(
 		<>
 			<Route
+				errorElement={
+					<ErrorPage
+						error={"Internal App Error"}
+						logout
+						message={"Damn jew did it again..."}></ErrorPage>
+				}
 				path={"/"}
 				element={<App />}>
 				<Route
@@ -52,7 +59,12 @@ const router = createBrowserRouter(
 			</Route>
 			<Route
 				path="*"
-				element={<NotFoundPage />}
+				element={
+					<ErrorPage
+						error={"404 - Page Not Found"}
+						message={"Oh no...terrible jew stole page"}
+					/>
+				}
 			/>
 		</>
 	)
