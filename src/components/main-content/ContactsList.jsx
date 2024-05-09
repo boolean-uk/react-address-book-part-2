@@ -1,5 +1,4 @@
 import Concact from "./Contact";
-import '/src/style/ContactsList.css'
 export default function ContactsList( {contacts}) {
   return(
     <ul id="contacs-list">

@@ -34,7 +34,6 @@ function App() {
             favouriteColour: "#0d7f26",
             profileImage: "https://www.gravatar.com/avatar/sdfa@fasdf.com?s=120&d=identicon"
         }
-        console.log('test', event)
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(newContact),
@@ -45,6 +44,7 @@ function App() {
         .then(res => res.json())
         .then(data => {
             setContact([... contacts, data])
+            event.target.reset()
         })
 
 

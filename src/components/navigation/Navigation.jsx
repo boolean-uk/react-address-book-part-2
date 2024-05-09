@@ -1,5 +1,4 @@
 
-import '/src/style/Navigation.css'
 import ContactsList from "./ContactsList";
 import CreateNewContact from './CreateNewConcact';
 export default function Navigation(){

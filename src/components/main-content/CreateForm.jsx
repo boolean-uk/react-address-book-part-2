@@ -1,4 +1,4 @@
-import '/src/style/CreateForm.css'
+
 export default function CreateForm({ handleSubmit }){
   console.log(handleSubmit)
   return (
