@@ -8,7 +8,7 @@ import styles from "./login.module.css";
 import { toast } from "react-toastify";
 import useForm from "../../components/Form/useForm";
 import {
-	validateNameInput,
+	validateName,
 	validatePassword,
 } from "../../components/Form/form-validators";
 export default function Login() {
@@ -22,7 +22,10 @@ export default function Login() {
 	}, [isLoggedIn]);
 
 	//========= Form Handling
-	const { entries, get, mutateEntry } = useForm(["username", "password"]);
+	const { entries, get, mutateEntry, isInvalid } = useForm([
+		"username",
+		"password",
+	]);
 
 	const loginHandler = (e) => {
 		e.preventDefault();
@@ -44,33 +47,25 @@ export default function Login() {
 					id={"name"}
 					label={"Username"}
 					required
-					isInvalid={
-						get("username").wasTouched && !get("username").isValid
-					}
+					isInvalid={isInvalid("username")}
 					invalidText={"Username contains only letters"}
 					value={get("username").value}
 					onChange={(e) =>
-						mutateEntry(
-							"username",
-							e.target.value,
-							validateNameInput(e.target.value)
-						)
+						mutateEntry("username", e.target.value, validateName)
 					}></Input>
 				<Input
 					id={"password"}
 					label={"Password"}
 					type={"password"}
 					required
-					isInvalid={
-						get("password").wasTouched && !get("password").isValid
-					}
+					isInvalid={isInvalid("password")}
 					invalidText={"Password is too short"}
 					value={get("password").value}
 					onChange={(e) =>
 						mutateEntry(
 							"password",
 							e.target.value,
-							validatePassword(e.target.value)
+							validatePassword
 						)
 					}></Input>
 
