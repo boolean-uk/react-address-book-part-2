@@ -6,8 +6,8 @@ export default function FileInput({ initialValue, onChange }) {
 	const [src, setSrc] = useState(initialValue || placeholderImg);
 
 	const handleImageUpload = (e) => {
-		const img = e.target.files[0];
-		setSrc(URL.createObjectURL(img));
+		const img = URL.createObjectURL(e.target.files[0]);
+		setSrc(img);
 		onChange(img);
 	};
 	const ref = useRef(null);
