@@ -9,6 +9,7 @@ import App from "../App";
 import Dashboard, { dashboardRouteLoader } from "../pages/Dashboard/Dashboard";
 import NewEntry from "../pages/Dashboard/Modals/NewEntry";
 import EditEntry from "../pages/Dashboard/Modals/EditEntry";
+import NotFoundPage from "../pages/404";
 
 export const ROUTE_NAMES = {
 	dashboard: "/",
@@ -51,11 +52,7 @@ const router = createBrowserRouter(
 			</Route>
 			<Route
 				path="*"
-				element={
-					<>
-						<h1>404</h1>
-					</>
-				}
+				element={<NotFoundPage />}
 			/>
 		</>
 	)
