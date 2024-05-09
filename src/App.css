@@ -1,0 +1,10 @@
+.divContainer {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    margin-left: 30px;
+}
+
+input {
+    display: block;
+    margin-bottom: 15px;
+}
