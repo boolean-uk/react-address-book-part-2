@@ -5,6 +5,7 @@ import { useNavigate, useSubmit } from "react-router-dom";
 import { ROUTE_NAMES } from "../../routes/router";
 import { delEntry } from "../../apis/serverActions";
 import { toast } from "react-toastify";
+import ImageThumbnail from "../Misc/ImageThumbail";
 export default function AccordionItem({ eventKey, data }) {
 	const navigate = useNavigate();
 	const submit = useSubmit();
@@ -34,7 +35,7 @@ const Header = ({ profileImage, firstName, lastName }) => (
 		<Stack
 			direction="horizontal"
 			gap={3}>
-			<Image src={profileImage} />
+			<ImageThumbnail src={profileImage} />
 			<span>{firstName}</span>
 			<span>{lastName}</span>
 		</Stack>
