@@ -11,7 +11,6 @@ import NewEntry from "../pages/Dashboard/Modals/NewEntry";
 import EditEntry from "../pages/Dashboard/Modals/EditEntry";
 import ErrorPage from "../pages/ErrorPage";
 
-
 export const ROUTE_NAMES = {
 	dashboard: "/",
 	login: "login",

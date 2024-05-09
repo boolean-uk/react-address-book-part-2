@@ -12,8 +12,9 @@ export default function ErrorPage({ error, message, logout }) {
 			logout && reset();
 			navigate("/");
 		}, 2000);
-	}, []);
 
+		// Errors should be handled here i know...to lazy to do it...
+	}, []);
 	return (
 		<div className={styles.wrapper}>
 			<h1>{error}</h1>
