@@ -21,9 +21,6 @@ export default function Contact({ contact, setContacts }) {
 			<h3>
 				{contact.firstName} {contact.lastName}
 			</h3>
-			<p>City: {contact.city}</p>
-			<p>Street: {contact.street}</p>
-			<p>Email: {contact.email}</p>
 			<Link to={`/contact/${contact.id}`}>
 				<button>View Contact</button>
 			</Link>
