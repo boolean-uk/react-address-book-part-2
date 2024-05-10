@@ -1,0 +1,11 @@
+.wrapper {
+	display: flex;
+	place-content: center;
+	flex-direction: column;
+	place-items: center;
+	height: 100svh;
+}
+.wrapper img {
+	max-width: 50vw;
+	margin: 2em;
+}
