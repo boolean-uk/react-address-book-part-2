@@ -1,42 +1,43 @@
 import './App.css';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import ContactList from './components/ContactList'
+import { Routes, Route, Link } from 'react-router-dom'
+import ContactDetails from './components/ContactDetails';
 
 
 function App() {
 
-    const [ contactList, setContactList ] = useState([])
+    const [selectedContact, setSelectedContact] = useState('')
 
-    useEffect(() => {
-        fetch(`https://boolean-uk-api-server.fly.dev/homonoviscoding/contact`)
-            .then(response => response.json())
-            .then(setContactList)
-        }, [])
-        console.log(contactList)
+    const handleClick = (e) => {
+        setSelectedContact(e)
+    
+    }
 
     return (
-        <body>
-            <aside className='sidebar'>
+        <main>
+
+            <header className='right-header'>
                 <h1 className='side-header'>
                     Menu
                 </h1>
-                <menu>Contact List</menu>
+            </header>
+
+            <section className='section-menu'>
+                <menu><Link to='/contact-list'>Contact List</Link></menu>
                 <menu>Add New Contact</menu>
-            </aside>        
-    
-            <main>
-                <header>
-                    <h1 className='main-header'>Contacts</h1>
-                </header>
-                <ul className='list-contacts'>
-                  {contactList.map(contact =>
-                    <>
-                        <li> { contact.firstName } {contact.lastName} <button>View</button></li>
-                    </>
-                    )
-                  }  
-                </ul>
-            </main>
-        </body>
+            </section>
+            <Routes>
+                <Route 
+                    path='/contact-list'
+                    element={<ContactList handleClick={handleClick}/>}
+                />
+                <Route 
+                    path='/contact/:id'
+                    element={<ContactDetails contact={selectedContact}/>}
+                />
+            </Routes>
+        </main>
     );
 }
 

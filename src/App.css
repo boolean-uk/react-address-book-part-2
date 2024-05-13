@@ -1,67 +1,65 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
-
-}
-
-body {
-    /* margin: 0; */
+main {
     height: 100vh;
-    width: 100%;
-    padding: 0.5rem;
-    background-color: #b7d9e2;
+    /* padding: 0.5rem; */
+    /* background-color: #b7d9e2; */
     display: grid;
     grid: wrap;
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 400px 1fr;
     grid-template-areas:
-        'aside main';
-    grid-auto-flow: 120px 3fr;
-    grid-template-rows: auto;
+        'right-header left-header'
+        'section-menu main-section';
 }
 
-aside {
-    grid-area: aside;
-    background-color: bisque;
-    height: 100vh;
+.right-header {
+    grid-area: right-header;
+}
+
+.left-header {
+    grid-area: left-header;
+}
+
+.section-menu {
+    grid-area: section-menu;
+    background-color: rgb(196, 172, 144);
+    height: auto;
     width: 100%;
-    justify-items: center;
-    row-gap: 40px;
-    
+    justify-content: center;
+    padding-top: 0.4em;
+
     menu {
         display: grid;
-        align-content: center;    
-    }
-    
-    .side-header {
-        display: grid;
-        justify-content: center;
-        font-size: larger;
+        align-content: center; 
+        justify-content: center;   
     }
 }
 
-main {
+header {
+    display: grid;
+    justify-content: center;
+    font-size: larger;
+    background-color: blanchedalmond;
+    align-content: center;
+}
+
+.main-section {
+    grid-area: main-section;
     background-color: aquamarine;
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: grid;
-    grid-area: main;
-    /* position: absolute; */
-    /* top: 50;
-    left: 50;
-    transform: translate(50%, 50%); */
-    row-gap: 40px;
-    
+    align-content: center;
+    gap: 20px;
 
-    .main-header {
+    .list-contacts {
         display: grid;
-        justify-content: center;
-        font-size: larger;
+        gap: 0.8em;
+        padding: 0px 30px;
     }
 
     .list-contacts li {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 10px;
+        align-content: center;
     }
 }
