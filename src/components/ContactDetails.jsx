@@ -10,7 +10,7 @@ export default function contactDetails({ contact }) {
     useEffect(() => {
         
         if (contact) {
-            fetch(`https://boolean-uk-api-server.fly.dev/homonoviscoding/contact/${contact}`)
+            fetch(`https://boolean-api-server.fly.dev/homonoviscoding/contact/${contact}`)
                 .then(response => response.json())
                 .then(setContactDetail)
         }

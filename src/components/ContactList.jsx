@@ -1,18 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 
-export default function contactList({ handleClick }) {
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [ contactList, setContactList ] = useState([])
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-        fetch(`https://boolean-uk-api-server.fly.dev/homonoviscoding/contact`)
-            .then(response => response.json())
-            .then(setContactList)
-            
-    }, [])
+export default function contactList({ contactList, handleClick }) {
     
     return (
         <>

@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ContactList from './components/ContactList'
 import { Routes, Route, Link } from 'react-router-dom'
 import ContactDetails from './components/ContactDetails';
@@ -9,6 +9,16 @@ import AddContact from './components/AddContact';
 function App() {
 
     const [selectedContact, setSelectedContact] = useState('')
+
+    const [ contactList, setContactList ] = useState([])
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+        fetch(`https://boolean-api-server.fly.dev/homonoviscoding/contact`)
+            .then(response => response.json())
+            .then(setContactList)
+            
+    }, [])
 
     const handleClick = (e) => {
         setSelectedContact(e)
@@ -31,7 +41,7 @@ function App() {
             <Routes>
                 <Route 
                     path='/contact-list'
-                    element={<ContactList handleClick={handleClick}/>}
+                    element={<ContactList contactList={contactList} handleClick={handleClick}/>}
                 />
                 <Route 
                     path='/contact/:id'
