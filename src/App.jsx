@@ -3,6 +3,7 @@ import { useState } from 'react'
 import ContactList from './components/ContactList'
 import { Routes, Route, Link } from 'react-router-dom'
 import ContactDetails from './components/ContactDetails';
+import AddContact from './components/AddContact';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 
             <section className='section-menu'>
                 <menu><Link to='/contact-list'>Contact List</Link></menu>
-                <menu>Add New Contact</menu>
+                <menu><Link to='/add-contact'>Add New Contact</Link></menu>
             </section>
             <Routes>
                 <Route 
@@ -35,6 +36,10 @@ function App() {
                 <Route 
                     path='/contact/:id'
                     element={<ContactDetails contact={selectedContact}/>}
+                />
+                <Route 
+                    path='/add-contact'
+                    element={<AddContact />}
                 />
             </Routes>
         </main>
