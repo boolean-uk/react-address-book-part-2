@@ -62,4 +62,35 @@ header {
         justify-content: space-between;
         align-content: center;
     }
+
+    div {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+    input[type="text"] {
+        width: 400px;
+        height: 25px;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+    }
+    button {
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 7dvh;
+        background: linear-gradient(25deg, #e94343, rgb(33, 247, 247), #10ad32);
+        font-weight: bold;
+        font-size: 1em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: italic;
+        color: rgb(56, 56, 56);
+    }
+}
+
+button:hover {
+    opacity: 90%;
+    background: linear-gradient(-25deg, #079145, rgb(33, 247, 247), #e94343);
 }

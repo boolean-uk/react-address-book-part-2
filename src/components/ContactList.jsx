@@ -14,7 +14,7 @@ export default function contactList({ contactList, handleClick }) {
                     {contactList.map(contact =>
                         <li key={contact.id}> { contact.firstName } {contact.lastName} 
                         
-                        <Link to={`/contact/${contact.id}`} onClick={() => handleClick(contact.id)}><button>View</button></Link></li>
+                        <Link to={`/contact-list/${contact.id}`} onClick={() => handleClick(contact.id)}><button>View</button></Link></li>
                         )
                     }  
                 </ul>

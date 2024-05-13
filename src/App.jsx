@@ -8,9 +8,9 @@ import AddContact from './components/AddContact';
 
 function App() {
 
-    const [selectedContact, setSelectedContact] = useState('')
-
     const [ contactList, setContactList ] = useState([])
+
+    const [selectedContact, setSelectedContact] = useState('')
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
@@ -35,16 +35,16 @@ function App() {
             </header>
 
             <section className='section-menu'>
-                <menu><Link to='/contact-list'>Contact List</Link></menu>
+                <menu><Link to='/'>Contact List</Link></menu>
                 <menu><Link to='/add-contact'>Add New Contact</Link></menu>
             </section>
             <Routes>
                 <Route 
-                    path='/contact-list'
+                    path='/'
                     element={<ContactList contactList={contactList} handleClick={handleClick}/>}
                 />
                 <Route 
-                    path='/contact/:id'
+                    path='/contact-list/:id'
                     element={<ContactDetails contact={selectedContact}/>}
                 />
                 <Route 
