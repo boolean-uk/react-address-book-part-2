@@ -25,13 +25,22 @@ export default function addContact() {
         e.preventDefault()
 
         fetch('https://boolean-api-server.fly.dev/homonoviscoding/contact', {
-            method: 'POST',
-            body: JSON.stringify({
-                createContact
-            }),
+            method: "POST",
             headers: {
-                'Content-type': 'application/json'
-            }
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(createContact),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Form submitted successfully", data);
+        })
+
+        setCreateContact({
+            firstName: '',
+            lastName: '',
+            street: '',
+            city: ''
         })
     }
 
