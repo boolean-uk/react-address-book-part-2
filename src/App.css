@@ -1,0 +1,96 @@
+main {
+    height: 100vh;
+    /* padding: 0.5rem; */
+    /* background-color: #b7d9e2; */
+    display: grid;
+    grid: wrap;
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 400px 1fr;
+    grid-template-areas:
+        'right-header left-header'
+        'section-menu main-section';
+}
+
+.right-header {
+    grid-area: right-header;
+}
+
+.left-header {
+    grid-area: left-header;
+}
+
+.section-menu {
+    grid-area: section-menu;
+    background-color: rgb(196, 172, 144);
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    padding-top: 0.4em;
+
+    menu {
+        display: grid;
+        align-content: center; 
+        justify-content: center;   
+    }
+}
+
+header {
+    display: grid;
+    justify-content: center;
+    font-size: larger;
+    background-color: blanchedalmond;
+    align-content: center;
+}
+
+.main-section {
+    grid-area: main-section;
+    background-color: aquamarine;
+    height: auto;
+    width: 100%;
+    display: grid;
+    align-content: center;
+    gap: 20px;
+
+    .list-contacts {
+        display: grid;
+        gap: 0.8em;
+        padding: 0px 30px;
+    }
+
+    .list-contacts li {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
+
+    div {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+    }
+    input[type="text"] {
+        width: 400px;
+        height: 25px;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+    }
+    button {
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 7dvh;
+        background: linear-gradient(25deg, #e94343, rgb(33, 247, 247), #10ad32);
+        font-weight: bold;
+        font-size: 1em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-style: italic;
+        color: rgb(56, 56, 56);
+    }
+}
+
+button:hover {
+    opacity: 90%;
+    background: linear-gradient(-25deg, #079145, rgb(33, 247, 247), #e94343);
+}
