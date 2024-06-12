@@ -1,0 +1,80 @@
+
+body {
+    background-color: bisque;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
+
+.container a {
+    text-decoration: none;
+    color: black;
+}
+
+.container a:hover {
+    text-decoration: underline;
+    color: rgb(140, 0, 255);
+}
+  
+  
+  .left-menu {
+    width: 200px;
+    padding: 20px;
+    border-right: 3px solid #8b4513;
+    background-color: #4d3319;
+    color: white;
+    height: 450vh;
+  }
+  
+  .menu-items {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .menu-items a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  .menu-items a:hover {
+    text-decoration: underline;
+  }
+  
+  .menu-items h2 {
+    margin-bottom: 20px;
+  }
+  
+  .main-content {
+    display: flex;
+    flex-direction: column; /* Align the content vertically */
+    align-items: center; /* Center the content horizontally */
+  }
+  
+  .edit-contact-container,
+  .new-contact-form-container,
+  .contact-container,
+  .contact-list-container {
+    width: calc(100vw - 100px); /* Adjust the width to fill the remaining space */
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-info h3 {
+    color: #8b4513;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .edit-form,
+  .contact-form{
+    text-align: center;
+  }
