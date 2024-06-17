@@ -51,7 +51,7 @@ const App = () => {
 
   const viewContactDetails = async (contactId) => {
     try {
-      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe/contact/${contactId}`)
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe19/contact/${contactId}`)
       if (!response.ok) {
         throw new Error('Network response was not ok')
       }

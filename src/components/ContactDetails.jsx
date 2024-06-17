@@ -1,58 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const AddContactForm = ({ addContact }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [street, setStreet] = useState('');
-  const [city, setCity] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    addContact({ firstName, lastName, street, city })
-    setFirstName('')
-    setLastName('')
-    setStreet('')
-    setCity('')
-  }
-
+const ContactDetails = ({ contact, onClose }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
-      <div>
-        <label>First Name:</label>
-        <input 
-          type="text" 
-          value={firstName} 
-          onChange={(e) => setFirstName(e.target.value)} 
-        />
-      </div>
-      <div>
-        <label>Last Name:</label>
-        <input 
-          type="text" 
-          value={lastName} 
-          onChange={(banana) => setLastName(banana.target.value)} 
-        />
-      </div>
-      <div>
-        <label>Street:</label>
-        <input 
-          type="text" 
-          value={street} 
-          onChange={(e) => setStreet(e.target.value)} 
-        />
-      </div>
-      <div>
-        <label>City:</label>
-        <input 
-          type="text" 
-          value={city} 
-          onChange={(e) => setCity(e.target.value)} 
-        />
-      </div>
-      <button type="submit">Create</button>
-    </form>
-  )
-}
+    <div>
+      <h2>Contact Details</h2>
+      <button onClick={onClose}>Close</button>
+      <p><strong>Name:</strong> {contact.firstName} {contact.lastName}</p>
+      <p><strong>Street:</strong> {contact.street}</p>
+      <p><strong>City:</strong> {contact.city}</p>
+    </div>
+  );
+};
 
-export default AddContactForm;
+export default ContactDetails
+
+

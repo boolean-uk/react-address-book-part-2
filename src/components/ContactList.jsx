@@ -13,7 +13,7 @@ const ContactList = ({ contacts, viewContactDetails }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 export default ContactList;
