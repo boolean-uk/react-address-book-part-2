@@ -69,9 +69,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Menu</h1>
+      <h1>Contact Menu</h1>
       <button onClick={() => setSelectedView('list')}>Contacts List</button>
-      <button onClick={() => setSelectedView('add')}>Add New Contact</button>
+      <button onClick={() => setSelectedView('add')}>Add Contact</button>
 
       {selectedView === 'add' && <AddContactForm addContact={addContact} />}
       {selectedView === 'list' && (

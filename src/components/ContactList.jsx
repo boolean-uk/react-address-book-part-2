@@ -8,7 +8,7 @@ const ContactList = ({ contacts, viewContactDetails }) => {
         {contacts.map(contact => (
           <li key={contact.id}>
             {contact.firstName} {contact.lastName}
-            <button onClick={() => viewContactDetails(contact.id)}>View More</button>
+            <button onClick={() => viewContactDetails(contact.id)}>View Contact</button>
           </li>
         ))}
       </ul>
