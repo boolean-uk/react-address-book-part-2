@@ -16,7 +16,7 @@ const App = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch('https://boolean-uk-api-server.fly.dev/contacts')
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/contact')
       if (!response.ok) {
         throw new Error('Link error?')
       }
@@ -30,7 +30,7 @@ const App = () => {
 
   const addContact = async (contact) => {
     try {
-      const response = await fetch('https://boolean-uk-api-server.fly.dev/contacts', {
+      const response = await fetch('https://boolean-uk-api-server.fly.dev/Alakowe19/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ const App = () => {
 
   const viewContactDetails = async (contactId) => {
     try {
-      const response = await fetch(`https://boolean-uk-api-server.fly.dev/contacts/${contactId}`)
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/Alakowe/contact/${contactId}`)
       if (!response.ok) {
         throw new Error('Network response was not ok')
       }

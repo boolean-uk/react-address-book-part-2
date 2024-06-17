@@ -7,13 +7,13 @@ const AddContactForm = ({ addContact }) => {
   const [city, setCity] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    addContact({ firstName, lastName, street, city });
-    setFirstName('');
-    setLastName('');
-    setStreet('');
-    setCity('');
-  };
+    e.preventDefault()
+    addContact({ firstName, lastName, street, city })
+    setFirstName('')
+    setLastName('')
+    setStreet('')
+    setCity('')
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -31,7 +31,7 @@ const AddContactForm = ({ addContact }) => {
         <input 
           type="text" 
           value={lastName} 
-          onChange={(e) => setLastName(e.target.value)} 
+          onChange={(banana) => setLastName(banana.target.value)} 
         />
       </div>
       <div>
@@ -52,7 +52,7 @@ const AddContactForm = ({ addContact }) => {
       </div>
       <button type="submit">Create</button>
     </form>
-  );
-};
+  )
+}
 
 export default AddContactForm;

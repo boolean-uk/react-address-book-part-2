@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
 const AddContactForm = ({ addContact }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [street, setStreet] = useState('');
-  const [city, setCity] = useState('');
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [street, setStreet] = useState('')
+  const [city, setCity] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    addContact({ firstName, lastName, street, city });
-    setFirstName('');
-    setLastName('');
-    setStreet('');
-    setCity('');
+    e.preventDefault()
+    addContact({ firstName, lastName, street, city })
+    setFirstName('')
+    setLastName('')
+    setStreet('')
+    setCity('')
   };
 
   return (
