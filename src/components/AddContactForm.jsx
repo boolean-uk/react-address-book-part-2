@@ -13,7 +13,7 @@ const AddContactForm = ({ addContact }) => {
     setLastName('')
     setStreet('')
     setCity('')
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
