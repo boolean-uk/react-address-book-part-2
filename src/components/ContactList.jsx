@@ -1,14 +1,15 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const ContactList = ({ contacts, viewContactDetails }) => {
   return (
     <div>
-      <h2></h2>
+      <h2>Contact List</h2>
       <ul>
         {contacts.map(contact => (
           <li key={contact.id}>
             {contact.firstName} {contact.lastName}
-            <button onClick={() => viewContactDetails(contact.id)}>View Contact</button>
+            <Link to={`/contact/${contact.id}`} onClick={() => viewContactDetails(contact.id)}>View Contact</Link>
           </li>
         ))}
       </ul>
@@ -16,4 +17,4 @@ const ContactList = ({ contacts, viewContactDetails }) => {
   )
 }
 
-export default ContactList;
+export default ContactList
