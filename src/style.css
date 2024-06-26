@@ -1,0 +1,120 @@
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: black;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.container {
+  max-width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+nav {
+  grid-column: 1 / 2;
+  background-color: rgb(235, 232, 239);
+  padding: 1rem;
+
+  position: fixed;
+  width: 300px;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+  scrollbar-width: none;
+}
+
+main {
+  grid-column: 2 / 3;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 1.1rem;
+  padding: 0.2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.contacts-list li:nth-child(odd) {
+  background-color: rgb(241, 239, 237);
+}
+
+form {
+  height: 100vh;
+}
+
+input {
+  display: block;
+  width: 20rem;
+  max-width: 80%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+input:focus {
+  outline: none;
+  border-color: green;
+}
+
+input[type="submit"] {
+  margin-top: 1.5rem;
+  background-color: #8080802d;
+  border: none;
+}
+
+.search {
+  width: 100vw;
+  color: grey;
+  margin-bottom: 1rem;
+}
+
+button {
+  width: 5rem;
+  padding: 0.2rem;
+  margin-right: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.delete-edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.validation-message {
+  color: #ff0000;
+  font-size: 0.8rem;
+  font-style: italic;
+}
