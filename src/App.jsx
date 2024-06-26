@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import ContactsList from "./ContactsList";
-import ContactDetails from "./ContactDetails";
-import CreateContact from "./CreateContact";
-import EditContact from "./EditContact";
+import ContactsList from "./components/ContactsList";
+import ContactDetails from "./components/ContactDetails";
+import CreateContact from "./components/CreateContact";
+import EditContact from "./components/EditContact";
 
 function getClassName({ isActive }) {
   if (isActive) {
