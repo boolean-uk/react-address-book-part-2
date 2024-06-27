@@ -1,0 +1,122 @@
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.app {
+    display: grid;
+    height: 100%;
+    justify-content: space-between;
+    grid-template-columns: 0.2fr 0.8fr;
+}
+
+.left-bar {
+    background-color: lightgrey;
+}
+
+.left-bar-content {
+    padding: 40px;
+}
+
+.left-bar .left-bar-content ul a {
+    text-decoration: none;
+    color: gray;
+    font-weight: 500;
+}
+
+.left-bar .left-bar-content ul a:active {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.left-bar .left-bar-content ul a li {
+    padding: 10px;
+    list-style: none;
+}
+
+.left-bar .left-bar-content ul a li .item {
+    margin-bottom: 14px;
+}
+
+.main {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    justify-self: center;
+}
+
+.search {
+    width: 100%;
+    height: 30px;
+}
+
+.contact-list {
+    width: 80%;
+}
+
+.contact-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact-list-item {
+    list-style: none;
+    display: block;
+    border-bottom: 1px solid lightgray;
+    padding: 6px;
+    font-size: 18px;
+}
+
+.contact-list-item:hover {
+    font-weight: bold;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+
+.contact-view .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-evenly;
+    width: max-content;
+}
+
+button {
+    height: auto;
+    width: 100px;
+    color: white;
+    border: none;
+    margin: 4px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    font-weight: bolder;
+}
+
+.btn-edit {
+    background-color: blue;
+}
+
+.btn-delete {
+    background-color: red;
+}
+
+.btn-save {
+    background-color: green;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 60vh;
+    }
