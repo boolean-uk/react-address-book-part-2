@@ -1,14 +1,60 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 300px 450px;
+  gap: 1rem;
+  margin: 10px 30px;
+}
+
+.aside-ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+}
+
+.aside-ul a {
+  display: block;
+  padding-bottom: 5px;
+}
+
+.contacts-ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+}
+
+.contacts-ul li {
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  align-items: center;
+  border-bottom: 2px solid darkgray;
+}
+
+.new-contact-form, .update-contact-form {
+  display: grid;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.new-contact-form input, .update-contact-form input {
+  height: 20px;
+  font-size: 15px;
+}
+
+.new-contact-form button, .update-contact-form button {
+  margin-top: 10px;
+  width: 100px;
+}
