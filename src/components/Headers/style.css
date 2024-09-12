@@ -1,0 +1,44 @@
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: #8152DC;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+/* main header */
+
+.header__title {
+    color: #FFF;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.header__add {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background-color: #F7F6FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.header__add span {
+    color: #505863;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* additional header */
+.header__back {
+    background: none;
+    border: none;
+}
