@@ -1,0 +1,54 @@
+.main__container {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  padding: 60px;
+}
+
+.contact__list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact__list__people {
+  width: 500px;
+  display: grid;
+  grid-template-columns: minmax(300px, auto) 100px 100px;
+  border-bottom: 1px solid black;
+  padding-left: 55px;
+}
+
+/* FORM */
+form input,
+form label {
+  display: block;
+}
+
+form label {
+  padding: 5px 0;
+}
+
+form input {
+  padding: 20px 10px;
+  width: 50%;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db; /* Background color */
+  color: #fff; /* Text color */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update__button {
+  margin-right: 10px;
+  background-color: aqua;
+}
+
+button:hover {
+  background-color: #2980b9; /* Darker background color on hover */
+}
