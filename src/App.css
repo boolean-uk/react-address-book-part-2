@@ -1,0 +1,59 @@
+body{
+    background-color: #ebebeb;
+}
+.app {
+    display: grid;
+    grid-template-columns: 100px auto 100px;
+}
+.sider{
+  background-color: rgba(255, 255, 255, 0.384);
+}
+.body{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.nav{
+    border-style: solid;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 1px;
+    border-width: 1px;
+
+}
+.header{
+    background-color: rgba(93, 162, 226, 0.432);
+    padding-top: 30px;
+    padding-bottom: 10px;
+
+}
+.person-details{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.list-item{
+ list-style-type: none;
+}
+.detail-list{
+    list-style-type: none;
+    padding: 0;
+
+}
+.detail-row{
+    display: grid;
+    grid-template-columns: 100px auto;
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.filter{
+    display: flex;
+    padding-bottom: 5px;
+}
+.image{
+    border-style: solid;
+    border-width: thick;
+    width: 100px;
+    height:100px;
+}
