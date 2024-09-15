@@ -1,0 +1,48 @@
+#root {
+  display: grid;
+  grid-template-areas:
+    "menu content"
+    "menu content";
+  justify-content: center;
+  gap: 200px;
+  padding: 10px;
+}
+
+.ab-menu {
+  display: flex;
+  flex-direction: column;
+  grid-area: menu;
+}
+
+.ab-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-area: content;
+  gap: 5px;
+}
+
+.ab-input {
+  border: none;
+  background-color: bisque;
+  border-radius: 0.3em;
+}
+
+.ab-btn {
+  cursor: pointer;
+  border: none;
+  background-color: #5aabfb;
+  border-radius: 0.3em;
+  transition: all 200ms ease-in-out;
+}
+
+.ab-btn:hover {
+  opacity: 0.8;
+}
+
+.ab-list {
+  display: grid;
+  justify-content: center;
+  list-style: none;
+}
