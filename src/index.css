@@ -11,4 +11,21 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
-  
+
+  ul {
+    list-style-type: none; /* Removes default bullet points */
+}
+
+.contact-info {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  color: rgb(26, 25, 25);
+}
+
+.contact-info h3 {
+  padding-right: 10px;
+}
+
+.form label {
+  padding: 5px;
+}
