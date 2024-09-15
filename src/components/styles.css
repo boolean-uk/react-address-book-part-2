@@ -1,0 +1,91 @@
+.contact-list {
+  margin: 20px;
+}
+
+.contact-list h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+.contact-list li button {
+  margin-left: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.contact-list li button:hover {
+  background-color: #d32f2f;
+}
+
+.contact-list li a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #2196f3;
+}
+
+.contact-list li a:hover {
+  text-decoration: underline;
+}
+
+.contact-details {
+  margin: 20px;
+}
+
+.contact-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-details form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-details form input {
+  width: 200px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.contact-details form button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 112.2px; /* Match the width of the delete button */
+  height: 45px; /* Match the height of the delete button */
+}
+
+.contact-details form button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+}
