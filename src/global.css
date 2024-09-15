@@ -1,0 +1,22 @@
+:root {
+  --nothingness-grey: #888888;
+  --existence-grey: #9B9B9B;
+  --i-trust-you-green: #9AB99D;
+  --silverlining-white: #E7E7E7;
+
+  --app-navigation-width: 10rem;
+}
+
+*, html, body, #root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inconsolata", monospace;
+  text-decoration: none;
+  color: white;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}

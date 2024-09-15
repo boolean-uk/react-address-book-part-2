@@ -1,0 +1,113 @@
+@import url('@/global.css');
+
+.contact-list-page {
+    width: 75%;
+    max-width: 80%;
+    margin-left: 5rem;
+    overflow-y: hidden;
+}
+.contact-list-page > .page-title {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    background-color: var(--existence-grey);
+    border-bottom: 5px solid var(--silverlining-white);
+}
+
+.contact-list-page > .contact-list {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 2.5px;
+    margin-top: 0.75rem;
+    border: 1px solid var(--existence-grey);
+    border-radius: 5px;
+    overflow-y: scroll;
+    scrollbar-width: 0;
+}
+
+.contact-list-page > .contact-list::-webkit-scrollbar {
+    display: none;
+}
+
+.contact-list > .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 15rem;
+    height: 15rem;
+    padding: 5px;
+    background-color: var(--existence-grey);
+    border: 1px solid var(--nothingness-grey);
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    user-select: none;
+    z-index: 1;
+}
+
+.contact-list > .card:hover {
+    border: 1px solid var(--silverlining-white);
+    transform: scale(1.02);
+    z-index: 2;
+}
+
+.contact-list > .card > * {
+    width: 100%;
+    text-align: center;
+}
+
+.contact-list > .card > #name {
+    letter-spacing: 0.1rem;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 1.2rem;
+}
+
+.contact-list > .card > #profile-pic {
+    height: 70%;
+    width: auto;
+    user-select: none;
+    object-fit: contain;
+    border-radius: 45%;
+}
+
+.contact-list > .card > #job-title {
+    font-size: 0.7rem;
+    font-weight: 300;
+}
+
+.contact-list > .card > #email {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@media (max-width: 1600px) {
+    .contact-list-page > .contact-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contact-list > .card {
+        width: 14rem;
+        height: 14rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .contact-list-page > .contact-list {
+      grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .contact-list-page > .contact-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,34 @@
+@import url('@/global.css');
+
+.app-navigation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--app-navigation-width);
+    height: 100%;
+    background-color: var(--existence-grey);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.app-navigation > .link {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem 0 1rem 0;
+    padding: 0.5rem;
+    text-wrap: nowrap;
+    user-select: none;
+}
+
+.app-navigation > .link::before {
+    content: "\00a0\00a0";
+}
+
+.app-navigation > .link:hover::before {
+    content: "> ";
+}
+
+.app-navigation > .active {
+    color: black;
+    background-color: var(--silverlining-white);
+}

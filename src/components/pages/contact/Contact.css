@@ -1,0 +1,84 @@
+@import url('@/global.css');
+
+.header {
+    height: 3.2rem;
+    margin-right: 1rem;
+}
+
+.contact-page {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+
+.contact-details {
+    width: 750px;
+    padding: 2rem;
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--existence-grey);
+    border-radius: 1rem;
+}
+
+.contact-details > .image-column {
+    width: 25%;
+}
+
+.contact-details > .image-column > #profile-image {
+    width: 100%;
+}
+
+.contact-details > .unit-profile-array {
+    width: 75%;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.contact-details > .unit-profile-array > .unit-profile-header {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-details > .unit-profile-array > .unit-profile-header > #name {
+    width: 80%;
+    font-size: 1.5rem;
+    letter-spacing: 0.7rem;
+    text-align: start;
+    text-transform: uppercase;
+    align-self: flex-end;
+}
+
+.contact-details > .unit-profile-array > .unit-profile-header > .form-button {
+    align-self: flex-start;
+}
+
+.contact-details > .unit-profile-array > .data-point {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+    text-wrap: wrap;
+}
+
+.contact-details > .unit-profile-array > .data-point > .label {
+    width: 40%;
+    font-weight: bolder;
+}
+
+.contact-details > .unit-profile-array > .data-point > .label:after {
+    content: ":";
+}
+
+.contact-details > .unit-profile-array > .data-point > .value {
+    width: 60%;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
