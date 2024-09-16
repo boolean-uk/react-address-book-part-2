@@ -1,0 +1,54 @@
+.app{
+    display: grid;
+    grid-template-columns: 400px  1fr;
+    padding: 30px;
+}
+.app a{
+    text-decoration: none;
+    font-weight: 600px;
+    color: #596e79;
+}
+.app a:hover{
+    color: black ;
+}
+.routes{
+    padding: 20px;
+}
+.app >header{
+    color: #596e79;
+    padding: 0px 20px;
+    text-decoration: none;
+}
+
+.form input{
+    display: block;
+    width: 300px;
+    
+}
+.form label{
+    color: #596e79;
+}
+.form-section h2{
+  color: #596e79;
+}
+.form button{
+    display: grid;
+    background-color:#596e79;
+    padding: 8px;
+    border-radius: 20px;
+    border-style: none;
+    color: #f0ece2;
+    
+}
+.contact-list{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    line-height: 10px;
+}
+.contact-list a{
+    padding-top: 20px;
+}
+.contact h2{
+    color: #596e79;
+}
