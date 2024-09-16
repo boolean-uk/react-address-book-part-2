@@ -1,0 +1,76 @@
+.app {
+    height: 100vh;
+  
+    display: grid;
+    grid-template:
+      'header header' 50px
+      'left-menu contact-list' 1fr /
+      180px 1fr;
+}
+
+.app > .left-menu {
+    grid-area: left-menu;
+    padding: 10px;
+    padding-left: 0;
+}
+
+
+
+.app > .contact-list {
+    grid-area: contact-list;
+    padding: 10px 0;
+}
+  
+.app > .contact-list > ul {
+    list-style: none;
+    display: grid;
+}
+
+.contact-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.contact-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.contact-form input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form input[type="submit"] {
+    display: block;
+    width: 200px;
+    margin: 0 auto; /* Center the submit button */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+  
+  
