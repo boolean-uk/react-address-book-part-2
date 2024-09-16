@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  margin: 0;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+.home-page-title {
+  margin: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+header a {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.event-button {
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.event-button > .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.form__dubmit {
+  cursor: pointer;
+  background-color: #fcfeff;
+  transition: all 0.3 ease;
+}
+
+.form__dubmit:hover {
+  background-color: azure;
+  color: black;
+}
+
+.create-contact-form {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.create-contact-form > label {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 20px;
+}
+
+.create-contact-form > label > input[type="text"] {
+  background-color: azure;
+  color: black;
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.material-symbols-outlined {
+  font-size: 10px;
+}
+
+.contact-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding: 10px;
+  max-width: 500px;
+  margin-left: 50px;
+}
