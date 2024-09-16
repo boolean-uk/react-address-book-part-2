@@ -1,0 +1,46 @@
+/* Globals */
+:root {
+    --primary-colour: #ed9f6f;
+    --button-color: #ed9f6f;
+    --background: #efffe6;
+    --background-two: #fdffd7;
+}
+  
+h2 {
+    margin: 2rem;
+    text-align: center;
+}
+  
+#root {
+    display: grid;
+    min-height: 102vh;
+    grid-template-rows: auto 1fr;
+    background-color: var(--background);
+    font-family: "EB Garamond";
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.scroll-container {
+    height: calc(100vh - 20px);
+    overflow-y: scroll;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+p, span {
+    font-size: 20px;
+}
+
+.content-container {
+    position: absolute;
+    left: 250px;
+    margin-top: 2%;
+    width: calc(100vw - 250px);
+}
