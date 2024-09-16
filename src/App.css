@@ -1,0 +1,12 @@
+.split{
+    display: flex;
+/*    justify-content: space-between;*/
+}
+
+.nav{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
