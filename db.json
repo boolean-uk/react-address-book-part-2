@@ -1,0 +1,32 @@
+{
+  "contacts": [
+    {
+      "id": "5",
+      "firstName": "New Contact",
+      "lastName": "New Last ",
+      "street": "Asperhold",
+      "city": "Sandens"
+    },
+    {
+      "id": "6",
+      "firstName": "Kristian",
+      "lastName": "Verdum",
+      "street": "Kannik",
+      "city": "Stavanger"
+    },
+    {
+      "id": "7",
+      "firstName": "George",
+      "lastName": "Bush",
+      "street": "Kannik",
+      "city": "Stavanger"
+    },
+    {
+      "id": "8",
+      "firstName": "Last Contact",
+      "lastName": "Last Last",
+      "street": "Elvegate",
+      "city": "Sandnes"
+    }
+  ]
+}
