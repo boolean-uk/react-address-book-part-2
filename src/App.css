@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.menu-header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.menu-header a:hover,
+.menu-header .dropdown-filter:hover {
+    color: #ddd;
+}
+
+.dropdown-filter {
+    cursor: pointer;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.contact-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.contact-list li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.contact-list li a:hover {
+    background-color: #ddd;
+}
+
+.contact-detail {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.contact-detail button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.contact-detail button:hover {
+    background-color: #45a049;
+}
+
+.contact-detail .delete-button {
+    background-color: #f44336;
+}
+
+.contact-detail .delete-button:hover {
+    background-color: #e31b0c;
+}
+
+.contact-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.contact-form div {
+    margin-bottom: 10px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="number"],
+.contact-form input[type="color"],
+.contact-form input[type="url"],
+.contact-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.map-container {
+    height: 200px;
+    width: 50%;
+}
