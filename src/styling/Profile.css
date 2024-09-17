@@ -1,0 +1,56 @@
+/* Profile.css */
+
+.edit-link {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #6dd671;
+}
+
+.edit-link:hover {
+    background-color: #49a74c;
+    color: white;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #f35347;
+}
+
+.delete-button:hover {
+    background-color: #c7261b;
+    color: white;
+}
+
+.profile-container {
+    padding: 20px;
+    border: 2px solid;
+    border-radius: 8px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+.profile-image {
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.button-container {
+    margin-top: 20px;
+}
