@@ -1,0 +1,32 @@
+h1 {
+    font-size: medium;
+}
+
+a {
+    background: pink;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.ContactName {
+    font-size: large;
+}
+
+.ContactInfo {
+    font-weight: 400;
+}
+
+.form {
+    width: 200px;
+}
+
+.red{
+    background: red;
+    width: 200px;
+    color: red;
+}
+.red ::-webkit-slider-thumb{
+    color:red;
+    background: red;
+}
+
