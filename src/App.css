@@ -1,0 +1,22 @@
+.button-container {
+    position:relative; 
+    left:33%;
+  }
+
+.form-container {
+    width: 300px;
+    margin-left: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
