@@ -1,0 +1,13 @@
+
+/* View contact page */
+.contact-info-item ul {
+    list-style-type: none; /* Remove bullet points */
+  }
+  
+.point {
+    font-weight: bold;
+}
+
+.back-button {
+    margin-right: 50px;
+}
