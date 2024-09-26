@@ -1,0 +1,13 @@
+.Navigation-Menu {
+  padding: 3rem;
+}
+.Link-List {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
+
+.Navigation-Link {
+  padding-bottom: 2rem;
+  font-size: larger;
+}
