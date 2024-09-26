@@ -1,0 +1,103 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact__form {
+  padding: 1rem;
+}
+
+.contacts {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+}
+
+.form > label {
+  display: block;
+}
+
+.form input[type="text"] {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.form input[type="number"] {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+/* new content */
+
+.parent {
+  font-size: 12pt;
+  float: left;
+  margin-left: 35px;
+}
+
+.map {
+  float: right;
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+.profile-picture {
+  margin-top: 15px;
+}
+
+.view-actions {
+  margin-top: 40px;
+}
+
+.update-button {
+  float: left;
+}
+
+.del-button {
+  padding: 0.1rem;
+  margin-left: 10px;
+}
+
+.list-item {
+  display: flex;
+  align-items: baseline;
+  text-align: center;
+  margin-bottom: -10px;
+  border-bottom: none;
+  position: relative;
+}
+
+.view-button {
+  padding-left: 100px;
+  margin-left: auto;
+}
+
+.list-item:after {
+  content: "";
+  border-bottom: 1px solid lightgray;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 280px;
+}
