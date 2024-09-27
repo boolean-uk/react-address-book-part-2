@@ -1,0 +1,27 @@
+.menu-container {
+    margin-top: 20px; /* Adjust as needed */
+  }
+  
+  .menu-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .menu-item {
+    margin: 0 15px;
+  }
+  
+  .menu-link {
+    text-decoration: none;
+    color: #fff; /* Light text color */
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    color: #ffcc00; /* Hover color */
+  }
+  
