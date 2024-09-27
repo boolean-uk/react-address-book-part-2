@@ -1,0 +1,15 @@
+.sidebar-list > li {
+  margin: 0.4vh;
+  padding: 0.5vh;
+
+  background-color: lightgray;
+  transition: 0.15s;
+}
+
+.sidebar-list > li:hover {
+  background-color: orange;
+}
+
+.hover-right {
+  float: right;
+}

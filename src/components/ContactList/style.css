@@ -1,0 +1,38 @@
+.contact-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-list > li {
+  margin: 0.2vh 0px;
+  padding: 0.3vh;
+  background-color: lightgray;
+  list-style: none;
+  transition: 0.1s;
+}
+
+.contact-list > li:hover {
+  background-color: orange;
+  box-shadow: 1vh 0vh 0vh black;
+}
+
+
+.contact-list > li > button {
+  margin: 0.2vh;
+  float: right;
+
+  border-radius: 0;
+  border: 0;
+  background-color: black;
+  color: white;
+  transition: 0.15s;
+}
+
+.contact-list > li > .delete-btn {
+  background-color: red;
+}
+
+.contact-list > li > button:hover {
+  background-color: white;
+  color: black;
+}
