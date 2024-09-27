@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    padding: 50px;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list-people {
+    width: 500px;
+    display: grid;
+    grid-template-columns: minmax(300px, auto) 100px 100px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.446);
+    padding-left: 50px;
+}
+
+/* FORM */
+form input, form label {
+    display: block;
+}
+
+form label {
+    padding: 5px 0;
+}
+
+form input {
+    padding: 5px;
+}
