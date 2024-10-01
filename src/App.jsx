@@ -1,12 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import LeftMenu from "./components/LeftMenu";
 import CreateContact from "./components/CreateContact";
 import ContactList from "./components/ContactList";
 import ContactDetails from "./components/ContactDetails";
 import "./App.css";
-import { useState } from "react";
-import { useEffect } from "react";
 
 export const Context = createContext();
 
