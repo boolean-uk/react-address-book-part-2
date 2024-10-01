@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../App";
+import { Link } from "react-router-dom";
 
 export default function ContactList() {
   const { contacts } = useContext(Context);
@@ -7,9 +8,12 @@ export default function ContactList() {
   return (
     <div className="contact-list">
       {contacts.map((contact, index) => (
-        <p key={index}>
-          {contact.firstName} {contact.lastName}
-        </p>
+        <div className="contact-details" key={index}>
+          <p>
+            {contact.firstName} {contact.lastName}
+          </p>
+          <Link to={"/contact/" + index}>view</Link>
+        </div>
       ))}
     </div>
   );
