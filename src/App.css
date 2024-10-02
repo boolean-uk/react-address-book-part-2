@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.mainApp {
+    display: flex;
+    flex-direction: row;
+}
+
+.sideMenu {
+    width: 20%;
+    padding: 1rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
