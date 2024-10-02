@@ -1,0 +1,81 @@
+.Container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+.Header {
+    width: 30vw;
+}
+
+.Information {
+    width: 50vw;
+}
+
+.ContactList {
+    width: 35vw;
+}
+
+.FormWrapper {
+    width: 30vw;
+}
+
+.FormSection {
+    width: 100%;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+}
+
+.Form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.Form input:not(.SubmitForm) {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.SubmitButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.Person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+}
+
+.Person h3 {
+    margin: 0;
+}
+
+.Person .links {
+    display: flex;
+    align-items: center;
+}
+
+.UpdateLink {
+    border-right: 1px solid #000;
+    padding-right: 10px;
+}
+
+.ViewLink {
+    padding-left: 10px;
+}
+
+.EarthImage {
+    width: 40vw;
+    height: 40vh;
+}
