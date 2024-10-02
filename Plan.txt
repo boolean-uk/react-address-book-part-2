@@ -1,0 +1,24 @@
+
+Example JSON objects:
+Complete: [{"firstName":"Iris","lastName":"Flystam","street":"13 Normal Cave","city":"Not Moon","id":18,"gender":"Female","email":"badde00@gmail.com","jobTitle":"Consult Software Developer","latitude":0.4343,"longitude":-69.42,"favouriteColour":"#c648b3","profileImage":"https://avatars.githubusercontent.com/u/22412370?v=4"}]
+Minimum information: [{"firstName":"Iris","lastName":"Flystam","street":"13 Normal Cave","city":"Not Moon","id":18}]
+
+The Json objects being sent in this assignment from the database will always have the values firstName, lastName, street, city, id, gender, email, jobTitle, latitude, longitude, favouriteColour and profileImage, but the minimum information from the form is firstName, lastName, street and city. However, longitude, latitude and favouriteColour will have default values.
+
+
+
+Component Tree:
+(I'm not 100% sure how to do this, but this is a "drawing" of the react stuff only)
+
+App
+│
+├── Header
+│    └── Navigation (Links to home, add, edit)
+│
+├── Routes
+│    ├── ContactsList (Displays all contacts)
+│    ├── AddContact (Handles new contact form)
+│    ├── EditContact (Handles editing a contact)
+│    └── ContactPage (Displays individual contact details)
+│
+└── ContactContext (State: contacts, setContacts)
