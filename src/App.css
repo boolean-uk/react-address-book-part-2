@@ -1,0 +1,12 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 300px;
+}
+
+.menu-link {
+    display: block;
+}
