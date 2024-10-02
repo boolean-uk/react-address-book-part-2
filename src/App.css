@@ -1,0 +1,38 @@
+.app-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+ul {
+    margin-left: -2rem;
+    list-style-type: none;
+}
+
+.contactsList li {
+    width: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 260px);
+    border-bottom: 1px solid gray;
+}
+
+.form > label {
+    display: block;
+    padding-bottom: 1rem;
+}
+
+.form input[type="text"] {
+    margin-top: 0.5rem;
+    padding: 0.25rem;
+    display: block;
+}
+
+.form > label {
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.contactsView button {
+    margin-right: 0.5rem;
+}
