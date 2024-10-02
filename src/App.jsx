@@ -1,9 +1,50 @@
-import './App.css';
+import { useEffect, useState, createContext  } from 'react'
+import { Routes, Route, Link } from "react-router-dom"
+export const ContactContext = createContext()
+import './App.css'
+import ContactList from "./components/ContactList"
+import ContactProfile from "./components/ContactProfile"
+import ContactForm from "./components/ContactForm"
+import DeleteContact from "./components/DeleteContact"
 
-function App() {
+export default function App() {
+    const username = "JHalvor"
+    const url = `https://boolean-uk-api-server.fly.dev/${username}/contact`
+    const [contacts, setContacts] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const response = await fetch(url)
+          const jsonData = await response.json()
+          setContacts(jsonData)
+        };
+        fetchData()
+      }, [])
+
     return (
-        <p>Hello, world!</p>
+        <div className="main-layout">
+            <div className="menu">
+                <h1>Menu</h1>
+                <nav>
+                    <ul>
+                        <li><Link to="/contacts">Contacts List</Link></li>
+                        <li><Link to="/newContact">Add New Contact</Link></li>
+                    </ul>
+                </nav>
+            </div>
+            <ContactContext.Provider
+            value={{
+                contacts: contacts,
+                setContacts: setContacts
+            }}>
+                <Routes>
+                    <Route path="/contacts" element={<ContactList />} />
+                    <Route path="/newContact" element={<ContactForm />} />
+                    <Route path="/editContact/:id" element={<ContactForm />} />
+                    <Route path="/viewContact/:id" element={<ContactProfile />} />
+                    <Route path="/deleteContact/:id" element={<DeleteContact />} />
+                </Routes>
+            </ContactContext.Provider>
+        </div>
     );
 }
-
-export default App;
