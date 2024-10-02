@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-menu h2 {
+    color:aquamarine;
+
+}
+
+.viewContact {
+    justify-content: center;
+    align-items: center;
+    padding-left: 10rem;
+}
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.viewContact {
+    display: flex;
+    flex-direction: column;
+}
