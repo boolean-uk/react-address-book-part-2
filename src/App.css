@@ -1,0 +1,99 @@
+.app-container {
+  display: flex;
+}
+
+.menu-left {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.contact-page-layout {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.contact-page {
+  width: 100%;
+}
+
+.contact-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.contact-list__item:last-child {
+  border-bottom: none;
+}
+
+.view-button {
+  margin-left: auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.contact-profile {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 10px;
+  min-width: 300px;
+}
+
+.contact-form {
+  justify-content: center;
+  width: 25%;
+  margin-left: 20px;
+}
+.contact-form__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.contact-form__form label,
+.contact-form__form input {
+  margin-bottom: 10px;
+  width: auto;
+}
+
+.contact-form__form label {
+  font-weight: bold;
+}
+
+.contact-form__form input {
+  padding: 5px;
+}
+
+.contact-form__form button {
+  width: auto;
+  align-self: flex-end;
+}
+
+.contact-profile button {
+  margin-top: 10px;
+  cursor: pointer;
+  width: 40%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover,
+button:hover {
+  font-weight: bold;
+}
+
+a:visited,
+a:active {
+  color: inherit;
+}
