@@ -1,0 +1,65 @@
+.contact-list {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.contact-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.contact-list ul li {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-list ul li:last-child {
+  border-bottom: none;
+}
+
+.contact-list ul a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.contact-list ul a:hover {
+  text-decoration: underline;
+}
+
+.contact-list h2 {
+  margin: 20px 0;
+}
+
+.contact-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.contact-list-item:hover {
+  background-color: #e0e0e0;
+}
+
+.contact-list-item a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.contact-list-item a:hover {
+  color: #0056b3;
+}

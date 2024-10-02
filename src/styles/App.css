@@ -1,0 +1,18 @@
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  background-color: #504c4c98;
+  height: 100vh;
+}
+
+.main-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #3f1330e3;
+}
+
+.main-content ul li a {
+  margin-bottom: 20px;
+  color: #3f1330e3;
+}
