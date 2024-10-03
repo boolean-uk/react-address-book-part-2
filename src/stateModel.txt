@@ -1,0 +1,44 @@
+Here is the JSON object that represent the state model:
+{
+  "Dashboard": {
+    "contacts": "Contact[]",
+    "selectedContact": "Contact | null",
+    "currentView": "number"
+  },
+  "ContactForm": {
+    "formData": {
+      "firstName": "string",
+      "lastName": "string",
+      "street": "string",
+      "city": "string"
+    }
+  },
+  "Contact": {
+    "id": "number",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "string",
+    "jobTitle": "string",
+    "street": "string",
+    "city": "string",
+    "profileImage": "string"
+  }
+}
+
+This model is implemented as state in the <Dashboard /> component:
+const [contacts, setContacts] = useState<Contact[]>([]);
+const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+const [currentView, setCurrentView] = useState<number>(1);
+
+
+Interface defined in the <Dashboard /> component:
+export interface Contact {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    jobTitle: string;
+    street: string;
+    city: string;
+    profileImage: string;
+  }
