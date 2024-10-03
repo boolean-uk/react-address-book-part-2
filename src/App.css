@@ -1,0 +1,59 @@
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 300px 797px;
+    gap: 1rem;
+  }
+
+  .dashboard-layout > :first-child {
+    border-right: 3px solid rgba(0, 0, 0, 0.2); 
+    padding-right: 1rem; 
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+}
+
+.form-input {
+  width: 300px;
+  height: 20px;
+}
+
+.margin {
+  margin: 0.2cm;
+  margin-bottom: 4cm;
+}
+
+.margin-item {
+  margin: 0.2cm;
+}
+
+.left-align {
+  text-align: left;
+  margin-left: 0.7cm;
+}
+
+.contacts-list {
+  margin-left: 0.2cm; /* Retain your existing margin */
+  list-style-type: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  font-family: Arial, sans-serif; /* A clean font */
+}
+
+.contacts-list li {
+  border-bottom: 1px solid #ccc; /* Light border between items */
+  padding: 10px 0; /* Padding for spacing between items */
+  display: flex; /* To allow space between elements, if needed */
+  align-items: center; /* Vertically align items */
+}
+
+.contacts-list li h3 {
+  margin: 0; /* Remove the default margin for <h3> */
+  font-size: 1.2rem; /* Adjust the font size for better readability */
+}
+
+.contacts-list li:hover {
+  background-color: #f9f9f9; /* Subtle hover effect */
+  cursor: pointer; /* Make it look clickable */
+}
+
