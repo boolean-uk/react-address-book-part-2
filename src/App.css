@@ -1,0 +1,187 @@
+.container {
+    display: flex;
+    height: 100vh;
+    font-family: "Verdana", sans-serif;
+    background-color: #e0e0e0; 
+  }
+  
+  .nav-menu {
+    width: 200px;
+    background-color: #0080c0;
+    padding: 20px;
+    border-right: 3px solid #004080;
+    box-shadow: 4px 4px 8px #666;
+  }
+  
+  .nav-menu h1 {
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #333;
+    margin-bottom: 20px;
+  }
+  
+  .nav-menu a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    background-color: #004080;
+    border: 2px solid #0060a0;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .nav-menu a:hover {
+    background-color: #0060a0;
+    border-color: #0080c0;
+    box-shadow: 2px 2px 5px #333;
+  }
+  
+  /* Content section */
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+    border: 3px solid #999;
+    box-shadow: 8px 8px 16px #666;
+  }
+  
+  /* Contact List */
+  .contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 8px #999;
+  }
+  
+  .contact-item p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .contact-view-btn {
+    background-color: #ffa500;
+    color: black;
+    border: 2px solid #ff4500;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #333;
+  }
+  
+  .contact-view-btn:hover {
+    background-color: #ff4500;
+    border-color: #ff6347;
+    color: white;
+  }
+  
+  .addcontact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    background-color: #dcdcdc;
+    padding: 20px;
+    border: 2px solid #aaa;
+    box-shadow: 6px 6px 12px #666;
+  }
+  
+  .addcontact-form label {
+    margin: 10px 0 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .addcontact-form-input {
+    padding: 10px;
+    border: 2px solid #888;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    box-shadow: inset 2px 2px 5px #666;
+  }
+  
+  .addcontact-form-input-invalid{
+    padding: 10px;
+    border: 2px solid #d11111;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    box-shadow: inset 2px 2px 5px #666;
+  }
+  
+  .addcontact-form-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #00aaff;
+    color: white;
+    border: 2px solid #0077cc;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #333;
+  }
+  
+  .addcontact-form-btn:hover {
+    background-color: #0077cc;
+    border-color: #005599;
+    color: #fff;
+  }
+  
+  .contact-view {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .contact-view p {
+    margin: 10px 0;
+  }
+  
+  button, input {
+    font-family: "Tahoma", sans-serif;
+    font-size: 12px;
+    border: 2px solid #999;
+    background: #eee;
+    padding: 5px;
+    box-shadow: 2px 2px 5px #666;
+  }
+  
+  button:hover, input:hover {
+    background: #ddd;
+  }
+  
+  input {
+    border-radius: 3px;
+  }
+
+
+
+.contact-edit-btn {
+    background-color: #4caf50; 
+    color: white; 
+    border: 2px solid #388e3c; 
+  }
+  
+  .contact-edit-btn:hover {
+    background-color: #388e3c; 
+    border-color: #2e7d32; 
+  }
+  
+  .contact-delete-btn {
+    background-color: #f44336;
+    color: white; 
+    border: 2px solid #d32f2f; 
+  }
+  
+  .contact-delete-btn:hover {
+    background-color: #d32f2f; 
+    border-color: #c62828; 
+  }
+  
