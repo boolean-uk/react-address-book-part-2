@@ -1,0 +1,7 @@
+JSON object of a contact sent to the API:
+{
+    "firstName": "Max",
+    "lastName": "Olofsson",
+    "street": "Street name",
+    "city": "Gothenburg"
+}

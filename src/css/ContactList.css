@@ -1,0 +1,8 @@
+ul{
+    list-style: none;
+}
+
+ul li {
+    border-bottom: 1px solid;
+    padding: 30px;
+}
