@@ -1,0 +1,10 @@
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-list li {
+    margin: 10px 0;
+  }
+  

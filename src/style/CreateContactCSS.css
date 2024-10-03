@@ -1,0 +1,32 @@
+.create-contact {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-contact label {
+  margin-bottom: 5px;
+}
+
+.create-contact input {
+  margin-bottom: 15px; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-contact button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.create-contact button:hover {
+  background-color: #0056b3;
+}

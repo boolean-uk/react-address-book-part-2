@@ -1,0 +1,20 @@
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .contact-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .contact-item .name {
+    font-weight: bold;
+  }
+  
+  .contact-item .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
