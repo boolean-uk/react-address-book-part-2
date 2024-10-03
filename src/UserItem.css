@@ -1,0 +1,49 @@
+/* UserItem.css */
+.user-item {
+  background-color: #ecf0f1;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-item h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.user-item p {
+  font-size: 18px;
+  color: #34495e;
+  margin: 5px 0;
+}
+
+.user-item p span {
+  font-weight: bold;
+}
+
+.user-item p + p {
+  margin-top: 10px;
+}
+
+/* Hover effect */
+.user-item:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .user-item {
+    padding: 15px;
+  }
+
+  .user-item h2 {
+    font-size: 22px;
+  }
+
+  .user-item p {
+    font-size: 16px;
+  }
+}

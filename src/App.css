@@ -1,0 +1,107 @@
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.menu {
+  width: 250px;
+  background-color: #2c3e50;
+  padding: 20px;
+  color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.menu nav div {
+  margin-bottom: 15px;
+}
+
+.menu nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.menu nav a:hover {
+  color: #f39c12;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+}
+
+.content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-list,
+.dashboard {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-list h2,
+.dashboard h2 {
+  margin-top: 0;
+}
+
+.contact-item {
+  padding: 15px;
+  border-bottom: 1px solid #bdc3c7;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item:hover {
+  background-color: #f8f9fa;
+}
+
+.add-contact-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.add-contact-button:hover {
+  background-color: #3498db;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .menu {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .content {
+    padding: 15px;
+  }
+}
