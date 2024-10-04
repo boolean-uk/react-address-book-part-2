@@ -1,9 +1,11 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom'
+import Menu from './components/pages/Menu';
 
-function App() {
+export default function App() {
     return (
-        <p>Hello, world!</p>
+            <Routes>
+                <Route path="/*" element={<Menu />} />
+            </Routes>
     );
 }
-
-export default App;

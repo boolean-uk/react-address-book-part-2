@@ -1,0 +1,70 @@
+ul {
+    max-width: 80%;
+    padding: 0;
+    margin: 0;
+    margin-left: 100px;
+}
+
+.contact-item {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-header h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 0;
+}
+
+.contact-header a,
+.deletebutton,
+.editbutton {
+    text-decoration: none;
+    color: #007BFF;
+    padding: 5px 10px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background: none;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    font-family: inherit;
+}
+
+.contact-header a:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.deletebutton {
+    color: red;
+    border-color: red;
+}
+
+.deletebutton:hover {
+    background-color: crimson;
+    color: #fff;
+}
+
+.editbutton {
+    color: rgb(236, 129, 28);
+    border-color: rgb(236, 129, 28);
+}
+
+.editbutton:hover {
+    background-color: rgb(236, 129, 28);
+    color: #fff;
+}
