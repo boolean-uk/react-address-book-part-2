@@ -1,0 +1,6 @@
+.App {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+input, label{
+    display:block;
+}
