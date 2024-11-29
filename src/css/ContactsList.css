@@ -1,0 +1,36 @@
+.contacts-list {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+}
+
+.contact-item {
+  border-bottom: 1px solid #ccc; /* Add border to bottom of each item */
+  padding: 10px; /* Add padding for spacing */
+}
+
+.delete-button {
+  background-color: #dc3545; /* Red background color */
+  color: white; /* White text color */
+  padding: 5px 10px; /* Padding for spacing */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  margin-left: 10px; /* Add margin to separate from the view profile link */
+}
+
+.delete-button:hover {
+  background-color: #c82333; /* Darker red background color on hover */
+}
+
+.contact-info {
+  display: flex;
+  align-items: center; /* Vertically center items */
+}
+
+.delete-button {
+  /* Your existing styles */
+  margin-left: auto; /* Push delete button to the right */
+}
+
+.view {
+  margin-left: 15px;
+}
