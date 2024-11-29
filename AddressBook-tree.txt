@@ -1,0 +1,17 @@
+App
+│
+├── ContactProvider (Context)
+│
+├── Router
+    ├── Route: /contacts
+    │   └── ContactList
+    │       └── ContactListItem
+    │
+    ├── Route: /contacts/:id
+    │   └── ContactDetails
+    │
+    ├── Route: /contacts/:id/edit
+    │   └── EditContactForm
+    │
+    └── Route: /create-contact
+        └── CreateContact
