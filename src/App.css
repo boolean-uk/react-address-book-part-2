@@ -1,0 +1,20 @@
+
+
+.contactField p{
+    display: inline;
+    text-transform: capitalize;
+    margin: 0 auto;
+
+}
+
+.contactField label{
+    display: flex; 
+    width: 150px;
+    flex-direction: row;
+    text-transform: capitalize; 
+    float: left;
+}
+.contactField {
+    width: max-content;
+    display: flow-root;
+}
