@@ -1,0 +1,43 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+.contacts-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.menu {
+    /* color:red; */
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.contacts-list ul {
+    list-style-type: none;
+}
+
+.contacts-list li:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.view-contact ul {
+    list-style-type: none;
+}
+
+.create-contact ul {
+    list-style-type: none;
+}
+
+.create-contact button {
+    /* float: left; */
+}
+
+.edit-contact ul {
+    list-style-type: none;
+}
