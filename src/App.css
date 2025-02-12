@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;  
+    padding: 20px;
+  }
+  
+
+.header {
+    padding-bottom: 1.5rem;
+}
+
+.header-title {
+    padding-left: 1.2rem;
+}
+
+.menu-item {
+    list-style: none;
+}
+
+.contact-list {
+    padding-left: 0;
+}
+
+.contact {
+    display: flex;
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact p{
+    flex-grow: 1;
+    max-width: 80%;
+}
