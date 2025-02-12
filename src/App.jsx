@@ -29,7 +29,7 @@ function App() {
         <nav>
           <ul>
             <li>
-            <Link to ="/contacts">Contacts list </Link>
+            <Link to ="/">Contacts list </Link>
             </li>
             <li>
             <Link to="/contact/new">Add new contact</Link>
@@ -44,7 +44,7 @@ function App() {
        
       <Routes>
         <Route
-          path="/contacts"
+          path="/"
           element={<Dashboard />}
         />
         <Route
