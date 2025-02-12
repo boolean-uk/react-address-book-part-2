@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": 0,
+      "firstName": "",
+      "lastName": "",
+      "street": "",
+      "city": ""
+    }
+  ],
+  "selectedContact": null,
+  "newContact": {
+    "id": 0,
+    "firstName": "",
+    "lastName": "",
+    "street": "",
+    "city": ""
+  }
+}
