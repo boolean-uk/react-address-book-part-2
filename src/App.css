@@ -1,0 +1,16 @@
+
+  
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+.contactList-container{
+    display: flex;
+    justify-content: space-between;
+}
