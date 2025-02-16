@@ -1,0 +1,134 @@
+/* General Application Styles */
+.app {
+    background-color: #f0f4f8; /* Light grey-blue background */
+    font-family: 'Arial', sans-serif; /* Sets the font for the app */
+    padding: 20px; /* Adds padding around the content */
+    display: block; /* Standard block layout */
+    text-align: center; /* Center-aligns text */
+    min-height: 100vh; /* Ensures the app fills the viewport vertically */
+    width: 100%; /* Full width */
+}
+
+.app-header {
+    text-align: center; /* Center-aligns header text */
+    margin-bottom: 20px; /* Space below the header */
+    color: #333; /* Dark grey text */
+    padding: 10px 0; /* Vertical padding */
+}
+
+/* Navigation Styles */
+.navigation {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Spacing between buttons */
+}
+
+.nav-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Contact List Styles */
+.contact-list {
+    max-width: 800px; /* Maximum width of the list */
+    margin: 20px auto; /* Centering the list */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Space between cards */
+}
+
+.contact-card {
+    background: white; /* White background for each card */
+    border: 1px solid #ccc; /* Subtle border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensures content fits within the borders */
+    padding: 15px; /* Padding inside each card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for interaction */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px); /* Slight raise to emphasize interaction */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+}
+
+/* Enhancing the heading and link within the card */
+.contact-card h5 {
+    margin: 0 0 10px 0; /* Adjusting margin for heading */
+    color: #333; /* Dark grey for text */
+}
+
+.contact-card p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Smaller font size for subtlety */
+    color: #007BFF; /* Blue to indicate clickable */
+}
+
+.contact-card a {
+    text-decoration: none; /* Removing underline from links */
+    color: inherit; /* Inherits color from parent */
+}
+
+
+
+/* Form Styles */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Input and Button Styles */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+}
+
+button {
+    width: 30%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
