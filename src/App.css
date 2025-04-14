@@ -1,0 +1,22 @@
+#root {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#contact-list > div {
+    border-bottom: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 1rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 1rem;
+}
+
+#search-bar {
+    margin: 0.5rem;
+    padding: 1rem;
+}
