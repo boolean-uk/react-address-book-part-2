@@ -1,0 +1,30 @@
+.app {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "menu content";
+    grid-template-columns: 1fr 3fr;
+    gap: 2px;
+    padding: 2px;
+    background-color: #000;
+  }
+div {
+    padding: 10px;
+    background-color: #fff;
+  }
+.header {
+    grid-area: header;
+    text-align: center;
+  }
+.menu {
+    grid-area: menu;
+  }
+.content {
+    grid-area: content;
+  }
+.contactListItems {
+  display: flex;
+  margin: 10px;
+  font-size: 30px;
+  height: 20px;
+}
