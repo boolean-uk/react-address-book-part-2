@@ -1,0 +1,64 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(49, 49, 49);
+    color: white;
+
+}
+li{
+    list-style: none;
+    box-shadow: 1px  lightblue inset;
+    border: 1em black;
+    background-color: rgb(113, 113, 113);
+    box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+}
+button{
+    background-color: aliceblue;
+    font-weight: bold;
+    margin: 2%;
+}
+.contacts{
+    text-align: center;
+    display: inline;
+}
+.link{
+    color: white;
+  
+    width: 50%;
+    
+}
+input{
+    margin: 1%;
+}
+.parentDiv{
+
+    display: flex;
+    align-items: flex-start;
+    width: 80%;
+    margin-top: 2%;
+    margin-left: 10%;
+
+   
+
+}
+.standardDiv{
+    display: flex;
+    align-items:flex;
+    flex-direction: column;
+    margin-left: 5%;
+    margin-top: 1%;
+    width: 80%;
+    
+    border: 2px solid black;
+}
+div{
+    width: 100%;
+}
+.updateFormDiv{
+    display: flex;
+    margin: 10%;
+    align-items: baseline;
+
+}
+img{
+    margin: 3%;
+}
