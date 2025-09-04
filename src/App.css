@@ -1,0 +1,147 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.view-button {
+  color: blue;
+  text-decoration: underline;
+  justify-content: end;
+}
+body {
+  /* Make the body fill most of viewport */
+  width: 95vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 20px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 95vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  flex-shrink: 0;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+  margin: 10px;
+  height: 200px;
+  width: 100%;
+}
+
+td {
+  border: 1px solid black;
+}
+.zoom-image {
+  width: 200px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom-image:hover {
+  transform: scale(2);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.95rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+thead,
+td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+
+tbody tr:nth-child(odd) {
+  background-color: #b8e6f4;
+}
+
+tbody tr:hover {
+  background-color: #f1fedb;
+}
+
+thead tr {
+  background-color: #f4f4f4;
+  font-weight: 600;
+  color: #333;
+}
+
+.teenytiny {
+  font-size: small;
+  color:rgb(142, 3, 82);
+}
+
+.heavier {
+  font-weight: bold;
+}
+
