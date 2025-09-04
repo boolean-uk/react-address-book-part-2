@@ -42,7 +42,6 @@ export default function CreateContact(props) {
         }
 
         await fetchData()
-    
         setForm(initialFormState)
         navigate('/')
     }

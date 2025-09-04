@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import ContactsList from './components/ContactList';
 import CreateContact from './components/CreateContact';
 import ContactProfile from './components/ContactProfile';
+import UpdateContact from './components/ContactProfile/components/UpdateContact';
 
 export default function App() {
     const url = "https://boolean-uk-api-server.fly.dev/lindadqd/contact"
@@ -35,7 +36,8 @@ export default function App() {
             <Route path="/newContact" 
             element={<CreateContact url = {url} fetchData = {fetchData}/>}/>
             <Route path="/contact/:id" 
-            element={<ContactProfile contacts={contacts}/>}/>
+            element={<ContactProfile contacts={contacts} url={url} fetchData={fetchData}/>}/>
+            <Route path="/updateContact/:id" element={<UpdateContact contacts={contacts} fetchData={fetchData} url={url}/>}/>
             </Routes>
         </main>
         </div>
