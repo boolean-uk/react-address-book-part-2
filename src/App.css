@@ -1,0 +1,40 @@
+form {
+  width: 30em;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+input {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  width: 100%;
+  line-height: 1.2;
+  margin-top: 0.2rem;
+}
+
+textarea {
+  font-size: 1rem;
+  padding: 0.4rem;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+#button-submit-form {
+  width: 130px;
+  height: 40px;
+  background-color: #07aa0f;
+  color: white;
+  border: 1px black solid;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0rem 0rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
