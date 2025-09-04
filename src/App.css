@@ -1,0 +1,99 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 50%;
+}
+
+.textInputShort {
+    max-width: 14rem;
+}
+
+.textInputNumber {
+    max-width: 6rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.fieldsetVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactListItem {
+  margin: 10px;
+  padding: 0;
+  border: 0;
+}
+
+.contactListArticle{
+  display: flex;
+    align-items: center;
+ max-width: 300px;
+ background-color: rgb(250, 235, 216);
+ padding: 10px;
+}
+
+.contactListArticle h4:hover{
+    cursor: pointer;
+}
+
+.menuLink:hover{
+    cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  padding: 10px 20px;
+  background-color: rgb(233, 208, 176);
+  padding-left: 50px;
+  padding-right: 100px;
+  max-height: 80px;
+}
+.editButton{
+  margin-left: auto;
+  margin-right: 0;
+  padding: 5px 10px;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.editButton:hover{
+  background-color: rgb(190, 190, 190);
+}
+
+.removeButton{
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.removeButton:hover{
+  background-color: rgb(233, 148, 148);
+}
+
+.searchWrapper {
+  margin: 15px;
+}
+
+.formWrapper {
+  margin: 15px;
+}
+
+.formLabel {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.contactView {
+  margin: 30px;
+  padding: 30px;
+  border-width: 1px;
+  border-color: rgb(187, 120, 33);
+  border-style:solid;
+  border-radius: 5px;
+  max-width: 350px;
+  background-color: beige;
+}
