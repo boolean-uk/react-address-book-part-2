@@ -1,0 +1,203 @@
+.delete-contact-btn {
+	background: #ef4444;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.6rem 1.2rem;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	margin-right: 1rem;
+	transition: background 0.18s;
+}
+.delete-contact-btn:hover {
+	background: #b91c1c;
+}
+
+.update-contact-btn {
+	background: #2563eb;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.6rem 1.2rem;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.18s;
+}
+.update-contact-btn:hover {
+	background: #1e40af;
+}
+
+.app-layout {
+	display: flex;
+	min-height: 100vh;
+}
+.app-nav {
+	min-width: 180px;
+	background: #f4f4f4;
+	padding: 2rem 1rem;
+	border-right: 1px solid #ddd;
+}
+.app-nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.app-main {
+	flex: 1;
+	padding: 2rem;
+}
+
+.contact-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+}
+.contact-list-item {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+	padding: 0.9rem 1.2rem;
+	font-size: 1.08rem;
+	font-weight: 500;
+	color: #222;
+	transition: box-shadow 0.2s;
+}
+.contact-list-item:hover {
+	box-shadow: 0 2px 8px rgba(59,130,246,0.10);
+}
+
+.add-contact-form {
+	max-width: 400px;
+	margin: 2rem auto;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.add-contact-form h2 {
+	margin: 0 0 1rem 0;
+	text-align: center;
+	color: #333;
+}
+
+.add-contact-input {
+	padding: 0.7rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 1rem;
+	outline: none;
+	transition: border 0.2s;
+}
+.add-contact-input:focus {
+	border: 1.5px solid #3b82f6;
+}
+
+.add-contact-btn {
+	background: #3b82f6;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.75rem;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	margin-top: 0.5rem;
+	transition: background 0.2s;
+}
+.add-contact-btn:hover {
+	background: #2563eb;
+}
+
+.view-details-link {
+	font-size: 0.9rem;
+	color: #3b82f6;
+	text-decoration: none;
+	transition: color 0.2s;
+    display: inline;
+    float: right;
+}
+.view-details-link:hover {
+	color: #2563eb;
+}
+
+.app-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.app-nav-link:hover {
+    color: #3b82f6;
+}
+
+.contact-view {
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  padding: 1.5rem 2rem;
+  max-width: 380px;
+  margin: 2.5rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  border: 1px solid #e5e7eb;
+}
+
+.contact-view h2 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.25rem;
+  color: #22223b;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.contact-view p {
+  margin: 0.1rem 0;
+  color: #475569;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.contact-view .delete-contact-btn,
+.contact-view .update-contact-btn {
+  margin-top: 0.7rem;
+  margin-right: 0.5rem;
+  padding: 0.38rem 1.1rem;
+  font-size: 0.97rem;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-weight: 400;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+}
+
+.contact-view .delete-contact-btn {
+  color: #e11d48;
+}
+.contact-view .delete-contact-btn:hover {
+  background: #fef2f2;
+  color: #be123c;
+  border: 1px solid #fecdd3;
+}
+
+.contact-view .update-contact-btn {
+  color: #2563eb;
+}
+.contact-view .update-contact-btn:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
