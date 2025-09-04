@@ -1,0 +1,97 @@
+.contact-info {
+    margin-left: 15px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* label column + input column */
+  gap: 0.5rem 1rem;                /* row and column spacing */
+}
+
+form label {
+  justify-self: end; /* align labels to the right */
+}
+
+form input {
+  width: 250px;       /* make inputs fill available space */
+}
+
+/* Dashboard header */
+.dashboard {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.dashboard h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: #1976d2; /* a nice blue */
+}
+
+.dashboard h4 {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #555;
+  font-weight: normal;
+}
+
+/* Contacts list */
+.contact-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li,
+.contact-list div {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.contact-list li:hover,
+.contact-list div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #f0f7ff;
+}
+
+/* Navigation bar container */
+.nav-bar {
+  background-color: #1976d2; /* blue header */
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove bullet points and align horizontally */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* spacing between links */
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the links */
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s, border-bottom 0.2s;
+  padding-bottom: 0.2rem;
+}
+
+/* Hover and active states */
+.nav-links a:hover {
+  color: #ffeb3b; /* yellow on hover */
+  border-bottom: 2px solid #ffeb3b;
+}
