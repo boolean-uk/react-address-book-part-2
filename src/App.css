@@ -1,0 +1,129 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+body {
+  /* Make the body fill most of viewport */
+  width: 95vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 20px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* Create a root container that fills the screen
+make the child components lay out using flex, vertically stacked in a column */
+.container {
+  width: 95vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create a container that fills the rest of the screen that is left over */
+/* The children inside this container must be laid out using flex as a row, from left to right */
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* style for the header, it must have a fixed height and full width */
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+/* make the sidebar fill the available height and be of fixed width */
+.sidebar {
+  width: 200px;
+  height: 100%;
+  flex-shrink: 0;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+/* make the main fill the remaining width and the full height of the parent */
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  /* SET VISIBLE so that images can overflow table borders */
+  overflow-y: visible;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.zoom-image {
+  width: 200px;
+  transition: transform 0.3s ease-in-out;
+  display: block;
+}
+
+.zoom-image:hover {
+  transform: scale(2);
+  z-index: 10;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.teenytiny {
+  font-size: small;
+  color:rgb(142, 3, 82);
+}
+
+.heavier {
+  font-weight: bold;
+}
+
+form {
+  width: 30em;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+input {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  width: 100%;
+  line-height: 1.2;
+  margin-top: 0.2rem;
+}
+
+textarea {
+  font-size: 1rem;
+  padding: 0.4rem;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+#button-submit-form {
+  width: 130px;
+  height: 40px;
+  background-color: #07aa0f;
+  color: white;
+  border: 1px black solid;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0rem 0rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
