@@ -15,6 +15,7 @@ function App() {
         const jsonData = await response.json();
         setData(jsonData);
     };
+
     useEffect(() => {
         fetchData();
     }, []);
