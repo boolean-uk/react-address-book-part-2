@@ -1,0 +1,78 @@
+
+.map {
+    width:50%;
+    height:5%;
+    margin-left:50px;
+}
+
+.contact-view {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+    margin:20px;
+}
+
+.h1-contact-view {
+    text-align: center;
+}
+
+hr {
+    width:80%
+}
+
+.welcome {
+    text-align:center;
+    padding-top:50px;
+    background:goldenrod;
+    padding-bottom:50px;
+}  
+
+.dashboard {
+    display:flex;
+    flex-direction: row;
+    padding:50px;
+}
+
+.left-menu {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid blue;
+    padding:50px;
+}
+
+.normal-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-list {
+    list-style-type: none;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.contact-box img, button{
+    width:200px;
+}
+
+.contact-box h2 {
+    text-align: left;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+}
+
+.contact-form button {
+    margin-top:10px;
+}
