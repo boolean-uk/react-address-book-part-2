@@ -27,7 +27,7 @@ function App() {
             <main className='main'>
                 <Routes>
                     <Route path="/" element={<ContactList data={data} />} />
-                    <Route path="/contacts/:id" element={<ContactDetails data={data}/>}/>
+                    <Route path="/contacts/:id" element={<ContactDetails data={data} fetchData={fetchData}/>}/>
                     <Route path="/contacts/add" element={<CreateContact fetchData={fetchData}/>}/>
                 </Routes>
             </main>
