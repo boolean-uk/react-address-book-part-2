@@ -1,15 +1,24 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function CreateContact({fetchData}) {
+function CreateContact({fetchData, data = null}) {
   const navigate = useNavigate();
-
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-  });
+  const { id } = useParams();
+  const contactToUpdate = data ? data.find((x) => x.id == id) : null
+  const [formData, setFormData] = useState(
+    contactToUpdate ? 
+    {
+      firstName: contactToUpdate.firstName,
+      lastName: contactToUpdate.lastName,
+      street: contactToUpdate.street,
+      city: contactToUpdate.city,
+    }:{
+      firstName: "",
+      lastName: "",
+      street: "",
+      city: "",
+    }
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,9 +28,8 @@ function CreateContact({fetchData}) {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
+  const handleCreate = async () => {
+      try {
       const response = await fetch("https://boolean-uk-api-server.fly.dev/hansjhaland/contact", {
         method: "POST",
         headers: {
@@ -38,6 +46,31 @@ function CreateContact({fetchData}) {
     } catch (error) {
       console.error("Error:", error);
     }
+  }
+
+  const handleUpdate = async () => {
+      try {
+      const response = await fetch(`https://boolean-uk-api-server.fly.dev/hansjhaland/contact/${contactToUpdate.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        fetchData();
+        navigate(`/contacts/${id}`);
+      } else {
+        alert("Failed to create contact.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    contactToUpdate ? await handleUpdate() : await handleCreate();
   };
 
   return (
@@ -63,7 +96,7 @@ function CreateContact({fetchData}) {
         <input name="city" value={formData.city} onChange={handleChange} />
       </label>
       <br/>
-      <button type="submit">Create</button>
+      <button type="submit">{contactToUpdate ? "Update" : "Create"}</button>
     </form>
 
     )

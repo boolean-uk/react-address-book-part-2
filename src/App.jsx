@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 function App() {
     const url = "https://boolean-uk-api-server.fly.dev/hansjhaland/contact";
     const [data, setData] = useState([]);
-    
+
     const fetchData = async () => {
         const response = await fetch(url);
         const jsonData = await response.json();
@@ -27,8 +27,9 @@ function App() {
             <main className='main'>
                 <Routes>
                     <Route path="/" element={<ContactList data={data} />} />
-                    <Route path="/contacts/:id" element={<ContactDetails data={data} fetchData={fetchData}/>}/>
+                    <Route path="/contacts/:id" element={<ContactDetails data={data} fetchData={fetchData} getContact/>}/>
                     <Route path="/contacts/add" element={<CreateContact fetchData={fetchData}/>}/>
+                    <Route path="/contacts/update/:id" element={<CreateContact fetchData={fetchData} data={data}/>}/>
                 </Routes>
             </main>
         </div>

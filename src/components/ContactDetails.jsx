@@ -21,11 +21,16 @@ function ContactDetails({data, fetchData}) {
         }
     }
 
+    const handleUpdate = async () => {
+        navigate(`/contacts/update/${id}`)
+    }
+
     return (
         <>
             <h3>{contact.firstName} {contact.lastName}</h3>
             <p>{contact.street}, {contact.city}</p>
-            <button onClick={handleDelete}>Delete Contact</button>
+            <button onClick={handleUpdate}>Update</button>
+            <button onClick={handleDelete}>Delete</button>
         </>
     )
 }
