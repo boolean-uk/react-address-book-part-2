@@ -1,0 +1,74 @@
+form {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #edff87;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: slideFadeIn 0.6s ease;
+}
+
+form h2 {
+  text-align: center;
+  color: #0c5100;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #005700;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff6c0;
+}
+
+input[type="text"]:focus {
+  border-color: #00ce11;
+  outline: none;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  background-color: #fff;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #036100;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background: #00c110;
+  transform: translateY(-2px);
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
