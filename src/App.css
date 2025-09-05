@@ -1,0 +1,81 @@
+.app-container {
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    width: 150px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: -40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 2px 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.search-input-bar {
+    width: 230px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-details-container {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.left-column {
+  width: 250px;
+}
+
+.left-column .profile-image {
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-column p {
+  margin: 4px 0;
+}
+
+.map-container {
+  height: 300px;
+  width: 100%;
+  margin-top: 10px;
+}
