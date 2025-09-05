@@ -1,0 +1,60 @@
+body {
+  font-family: "Josefin Sans", sans-serif;
+  padding: 2em;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+button{
+    height: 2rem;
+    background-color: rgb(126, 134, 80);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: rgb(185, 197, 119);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+    border-top: solid 1px #d8d8d8;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding-inline: 1em;
+}
+
+form  {
+  display: flex;
+  flex-direction: column;
+  -ms-flex-align: center;
+  gap: 1em;
+}
+
+.form-col > button {
+  width: fit-content;
+  align-self: center;
+}
+
+.pic{
+  border-radius: 10em;
+  width: 7em
+}
+
+label > input {
+    margin-left: 1em;
+}
+
+header {
+    margin-bottom: 2em;
+}
