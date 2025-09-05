@@ -1,0 +1,30 @@
+
+.contact-card {
+  list-style: none;
+  background: linear-gradient(145deg, #eb83d4, #f6abf1);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px 24px;
+  margin: 16px 0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(145deg, #e0e0e0, #ffffff);
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-name {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
