@@ -1,0 +1,60 @@
+.container {
+  width: 95vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-nav-main {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100%;
+  flex-shrink: 0;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+}
+
+.main {
+  flex-grow: 1;
+  /* if contents of main overflow from the height, add a scrollbar on main */
+  overflow-y: auto;
+  /* fix the sidebar to be 100 viewport minus the header */
+  max-height: calc(100vh - 60px);
+  padding-bottom: 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* Make the body fill most of viewport */
+  width: 95vw;
+  height: 100vh;
+  /* remove padding and margins */
+  margin: 0;
+  padding: 20px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.header {
+  height: 60px;
+  width: 100vw;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+form input {
+  display: block;
+  margin-bottom: 1rem;
+}
