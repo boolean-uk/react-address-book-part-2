@@ -1,0 +1,14 @@
+﻿{
+  "contacts": [
+    {
+      "name": {
+        "first": "FirstName",
+        "last": "LastName"
+      },
+      "street": "Street",
+      "city": "City",
+      "latitude": "0.00",
+      "longitude": "0.00"
+    }
+  ]
+}

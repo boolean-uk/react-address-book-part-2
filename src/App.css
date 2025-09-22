@@ -1,0 +1,26 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.activeItem {
+    margin-left: 20px;
+    margin-top: 40px;
+    border: red 1px solid;
+    padding: 10px;
+}
+
+.activeItem ul {
+    padding-left: 0;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-contact-submit{
+    margin-top: 20px;
+}
