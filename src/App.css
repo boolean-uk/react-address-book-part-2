@@ -1,0 +1,83 @@
+.App {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.Sidebar {
+  width: 220px;
+  background-color: #007bf7;
+  color: white;
+  padding: 20px;
+}
+
+.Sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.Sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Sidebar li {
+  margin-bottom: 12px;
+}
+
+.Sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.Sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* Content area */
+.Content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+  overflow-y: auto;
+}
+
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px; 
+}
+
+label {
+  margin-top: 12px;     
+  margin-bottom: 4px;   
+  font-weight: 600;   
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: lightblue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #006ac0;
+}
